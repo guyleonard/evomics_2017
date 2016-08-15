@@ -1,8 +1,8 @@
 # Evomics 2017
-Instructions and notes for creating the AMIs for the [evomics.org](http://evomics.org) Workshops 2017
+Instructions and notes for creating the AMIs for the [evomics.org](http://evomics.org) Workshops 2017 and information on the previous years' AMIs.
 
 ## Preamble
-For the past two years I have created the AMIs for the Workshop on Genomics. It was the first time I had to use Amazon EC2 and their AMIs, let alone to create one of my own! In the first year I decided to use a copy of BioLinux which helped expedite the process of installing software (their repositories already include bioinformatics software) but it's not really maintained all that well anymore. In the second year I decided to install everything by from scratch. Easy for me, but a bit laborious and slow. This year I want it to try and get it to be as automated as possible.
+For the past two years I have created the AMIs for the Workshop on Genomics a couple of weeks prior to the workshops begining. 2014 was the first time that I had to use Amazon EC2 and their AMIs, let alone be tasked to create one of my own! In the first year I decided to use a copy of BioLinux which helped expedite the process of installing software (their repositories already include bioinformatics software) but it's not really maintained all that well anymore. But it worked, and it was relatively stable. In the second year I decided to install everything from scratch (well other than the base OS). Easy for me, but it's a bit laborious and a slow process. It was very stable, and I can't remember any problems other than one with Stacks that was human error. This year I want to try and get the building of the AMI to be as automated as possible. If I can use technology to help me automate the process, then all I need to do is press 'go' and come back later and double check it all installed. That way changes can be made to the install scripts and if anything breaks, a new AMI can be started from scratch, rather than keeping intermediate copies as I have in the past.
 
 ## Previous Years
 ### 2015
@@ -21,6 +21,7 @@ I decided to use the image [ami-a75e12cd](https://console.aws.amazon.com/ec2/hom
 Usually I would start with a base AMI (e.g. BioLinux or Ubuntu) and as I got the lists of programs, dependencies and software packages from the Faculty I would install them. I would also set up a range of other things, including:
  * [MATE Desktop Environment](http://mate-desktop.com/) - this is the default in Ubuntu anyway but needs to be instaled on the server version.
  * [X2Go](http://wiki.x2go.org/doku.php) - Remote Desktop software which allows a graphical connection to the AMI much like NoMachine.
+ * A stunning Workshop on Genomics desktop background.
  * Password enabled SSH Login and X-Forwarding
  * VNC & XRDP - last resort remote desktop interfaces for inevitable student laptop issues with X2Go.
  * other repositories and updates
