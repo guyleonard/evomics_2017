@@ -32,10 +32,14 @@ Usually I would start with a base AMI (e.g. BioLinux or Ubuntu) and as I got the
 
 # 2017 Workshops (Genomics & -----genomics)
 ## 2017 Base AMI
-Again we will be using Ubuntu Linux as our base AMI in this case [ami-cf68e0d8](https://console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-cf68e0d8) which is the 'us-east-1'	copy of Ubuntu Xenial Xerus 16.04 LTS.
+Again we will be using Ubuntu Linux as our base AMI, in this case: [ami-cf68e0d8](https://console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-cf68e0d8) which is the 'us-east-1'	copy of Ubuntu Xenial Xerus 16.04 LTS.
 ### Storage & Virtualisation Type
 It can be quite a confusing mess of choices, but Amazon has some guides [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html) and we will be using:
  * HVM - Hardware Virtual Machine (as opposed to ParaVirtual -PV)
  * EBS - Elastic Block Storage (as opposed to Instance Store)
 
+## Base AMI Minor Changes and Updates
+ * apt-get update, upgrade, dist-upgrade
+ * users: genomics, phylogenomics, admin
+ * 
 
