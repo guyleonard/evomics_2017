@@ -45,7 +45,6 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
 ## Base AMI Minor Changes and Updates
  * Password SSH login for users below
   * users: genomics, phylogenomics, admin (general connections to AMI use a key-pair, we don't generally use this during the workshop as it is default sudo and one less thing to worry about the students having an issue with)
-
 * Disable Update Checker
 * Disable overlay scrollbars
 * [MOSH](https://mosh.org/) - just in case, but SSH is usually stable
