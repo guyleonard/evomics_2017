@@ -62,8 +62,10 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
 * X2Go
 * Java - insrall both OpenJDK and Oracle, set to Oracle - [here](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)
 * Useful tools/programs
- * sudo apt-get install --install-suggests unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller qbittorrent inkscape samba filezilla gimp libreoffice-base libreoffice-core libreoffice-calc
- * 
+ * apt-get install --install-suggests unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller qbittorrent inkscape samba filezilla gimp libreoffice-base libreoffice-core libreoffice-calc fortune rev cowsay xcowsay cowthink
+ * gem install lolcat
+ * export PS1="\[\033[38;5;226m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;202m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]:\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+ * apt-get install build-essential git
 
 ## Global Software
 
