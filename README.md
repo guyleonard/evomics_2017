@@ -30,7 +30,7 @@ Usually I would start with a base AMI (e.g. BioLinux or Ubuntu) and as I got the
  * VNC & XRDP - last resort remote desktop interfaces for inevitable student laptop issues with X2Go.
  * other repositories, updates, motds and customisations etc
 
-# 2017 Workshops (Genomics & -----genomics)
+# 2017 Workshops (Genomics & Phylogenomics)
 ## 2017 Base AMI
 Again we will be using Ubuntu Linux as our base AMI, in this case: [ami-cf68e0d8](https://console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-cf68e0d8) which is the 'us-east-1'	copy of Ubuntu Xenial Xerus 16.04 LTS.
 ### Storage & Virtualisation Type
@@ -39,7 +39,20 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
  * EBS - Elastic Block Storage (as opposed to Instance Store)
 
 ## Base AMI Minor Changes and Updates
- * apt-get update, upgrade, dist-upgrade
- * users: genomics, phylogenomics, admin
- * 
+ * Password SSH login for users below
+  * users: genomics, phylogenomics, admin (general connections to AMI use a key-pair, we don't generally use this during the workshop as it is default sudo and one less thing to worry about the students having an issue with)
+* Disable Update Checker
+* Disable overlay scrollbars
+* [MOSH](https://mosh.org/) - just in case, but SSH is usually stable
+* apt-get update, upgrade, dist-upgrade
 
+### Core Dependencies / Software
+* MATE Desktop
+ * sudo apt-get install --install-suggests mate-desktop-environment
+* X2Go
+
+## Global Software
+
+## Genomics Specific
+
+## Phylogenomics Specific
