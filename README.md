@@ -31,6 +31,13 @@ Usually I would start with a base AMI (e.g. BioLinux or Ubuntu) and as I got the
  * other repositories, updates, motds and customisations etc
 
 # 2017 Workshops (Genomics & Phylogenomics)
+
+## Automation
+
+For this we are going to use a series of shell scripts and [Ansible]()
+ * apt-add-repository ppa:ansible/ansible
+ * apt-get update && apt-get install ansible
+
 ## Security Groups
 We also need to set up a bunch of open ports to allow through to our AMI, for things like Apache, RStudio, SSH, X2Go, etc.
  * VNC - Remote Desktop
