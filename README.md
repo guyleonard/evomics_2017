@@ -31,16 +31,21 @@ Usually I would start with a base AMI (e.g. BioLinux or Ubuntu) and as I got the
  * other repositories, updates, motds and customisations etc
 
 # 2017 Workshops (Genomics & Phylogenomics)
+## Security Groups
+We also need to set up a bunch of open ports to allow through to our AMI, for things like Apache, RStudio, SSH, X2Go, etc. 
+
 ## 2017 Base AMI
-Again we will be using Ubuntu Linux as our base AMI, in this case: [ami-cf68e0d8](https://console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-cf68e0d8) which is the 'us-east-1'	copy of Ubuntu Xenial Xerus 16.04 LTS.
+We will be using the latest Ubuntu Linux as our base AMI, in this case: [ami-cf68e0d8](https://console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-cf68e0d8) which is the 'us-east-1'	copy of Ubuntu Xenial Xerus 16.04 LTS.
+
 ### Storage & Virtualisation Type
-It can be quite a confusing mess of choices, but Amazon has some guides [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html) and we will be using:
+It can be quite a confusing mess of choices, but Amazon has some guides [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html) and so we will be using:
  * HVM - Hardware Virtual Machine (as opposed to ParaVirtual -PV)
  * EBS - Elastic Block Storage (as opposed to Instance Store)
 
 ## Base AMI Minor Changes and Updates
  * Password SSH login for users below
   * users: genomics, phylogenomics, admin (general connections to AMI use a key-pair, we don't generally use this during the workshop as it is default sudo and one less thing to worry about the students having an issue with)
+
 * Disable Update Checker
 * Disable overlay scrollbars
 * [MOSH](https://mosh.org/) - just in case, but SSH is usually stable
