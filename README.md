@@ -32,7 +32,12 @@ Usually I would start with a base AMI (e.g. BioLinux or Ubuntu) and as I got the
 
 # 2017 Workshops (Genomics & Phylogenomics)
 ## Security Groups
-We also need to set up a bunch of open ports to allow through to our AMI, for things like Apache, RStudio, SSH, X2Go, etc. 
+We also need to set up a bunch of open ports to allow through to our AMI, for things like Apache, RStudio, SSH, X2Go, etc.
+ * VNC - Remote Desktop
+  * TCP:5800 & TCP:5901
+ * XRDP - Remote Desktop
+  * TCP:3389
+ * RStudio
 
 ## 2017 Base AMI
 We will be using the latest Ubuntu Linux as our base AMI, in this case: [ami-cf68e0d8](https://console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-cf68e0d8) which is the 'us-east-1'	copy of Ubuntu Xenial Xerus 16.04 LTS.
@@ -45,6 +50,7 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
 ## Base AMI Minor Changes and Updates
  * Password SSH login for users below
   * users: genomics, phylogenomics, admin (general connections to AMI use a key-pair, we don't generally use this during the workshop as it is default sudo and one less thing to worry about the students having an issue with).
+
 * Disable Update Checker
 * Disable overlay scrollbars
 * [MOSH](https://mosh.org/) - just in case, but SSH is usually stable
@@ -54,9 +60,15 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
 * MATE Desktop
  * sudo apt-get install --install-suggests mate-desktop-environment
 * X2Go
+* Java - insrall both OpenJDK and Oracle, set to Oracle - [here](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)
+* Useful tools/programs
+ * sudo apt-get install --install-suggests unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller qbittorrent inkscape samba filezilla gimp libreoffice-base libreoffice-core libreoffice-calc
+ * 
 
 ## Global Software
 
 ## Genomics Specific
+ * Background Wallpaper
 
 ## Phylogenomics Specific
+ * Background Wallpaper
