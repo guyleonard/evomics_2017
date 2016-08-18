@@ -1,12 +1,8 @@
-- name: Install MATE Desktop Environment
-  hosts: all
-  sudo: yes
-
-- name: Disable scroll overlay
-  apt: name=overlay-scrollbar state=absent
-
-- name: install mate desktop 
+- name: Install MATE Desktop 
   apt: name={{item}} state=present update_cache=yes
   with_items:
    - mate-desktop-environment
    - mate-desktop-environment-extras
+
+- name: Disable Scroll Overlay
+  apt: name=overlay-scrollbar state=absent
