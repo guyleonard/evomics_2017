@@ -24,6 +24,50 @@
     # Install X2Go
     - include: x2go.yaml
 
+
+    - name: Installing Other Useful Software
+      apt: name={{item}} state=present install_recommends=yes update_cache=yes
+      with_items:
+      - apache2
+      - arj
+      - build-essential 
+      - cabextract
+      - cowsay
+      - cowthink
+      - curl
+      - file-roller
+      - filezilla
+      - fortune
+      - gimp	
+      - git
+      - inkscape
+      - libapache2-mod-php
+      - libreoffice-base
+      - libreoffice-calc
+      - libreoffice-core
+      - mpack 
+      - mysql-client
+      - mysql-server
+      - p7zip
+      - p7zip-rar
+      - php
+      - php-mcrypt
+      - php-mysql
+      - qbittorrent
+      - rar
+      - rev
+      - samba
+      - sharutils
+      - unace     
+      - unrar
+      - unzip
+      - uudeview
+      - xcowsay
+      - zip
+  
+    gem: name=lolcat state=present
+
+
     # Updgrade and Dist-Upgrade apt
     - name: Upgrade
       apt: update_cache=yes cache_valid_time=3600 upgrade=full
