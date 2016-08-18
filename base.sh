@@ -11,16 +11,15 @@ working_dir=$(pwd)
 
 ## Ansible
 # Setup Ansible
-sudo apt-get install -y git python-pip python-dev
-sudo -H  pip install --upgrade pip
+sudo apt-get install -y git python-pip python-dev python-cffi libssl-dev
+sudo -H pip install --upgrade pip
 sudo -H pip install ansible
 
 # Clone the Evomics 2017 github repo
 git clone https://github.com/guyleonard/evomics_2017.git
 #
-cd evomics_2017
 # run the base playbook
-ansible-playbook base/base.yml --sudo -K -c local -i "localhost,"
+ansible-playbook /home/ubuntu/base/base.yml --sudo -K -c local -i "localhost,"
 
 
 ## Genereal Updates
