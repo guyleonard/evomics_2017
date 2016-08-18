@@ -1,3 +1,6 @@
+- name: Checking Aptitude is Installed
+  apt: name=aptitude state=present
+ 
 - name: Adding X2Go Repository
   apt_repository: repo='ppa:x2go/stable' state=present
 
