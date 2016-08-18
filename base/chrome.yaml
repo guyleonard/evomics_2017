@@ -19,7 +19,7 @@
 #- name: Install Google Chrome
 #  apt: name=google-chrome-stable state=installed update_cache=yes
 
--name Installing Google Chrom
- apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
- apt_repository: repo='deb http://dl.google.com/linux/chrome/deb/ stable main' state=present update_cache=yes
- apt: name=google-chrome-stable state=present
+- name Installing Google Chrom
+  apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
+  apt_repository: repo='deb http://dl.google.com/linux/chrome/deb/ stable main' state=present update_cache=yes
+  apt: name=google-chrome-stable state=present
