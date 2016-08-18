@@ -86,13 +86,17 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
  * password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0 
 
 # Using This Repository
-blah blah
+To build the the systems that we will make our own AMIs from, for either workshop, you will need to run at least the [base.sh](https://github.com/guyleonard/evomics_2017/blob/master/base.sh) script on the remote Virtual Machine and then one or the other of "genomics.sh" and "phylogenomics.sh".
+
+These scripts will run the Ansible 'Playbooks' which are a serious of instructions and 'taskbooks' to automate the install of software and the general environment.
 
 ## Base AMI
 
 Run this code on your clean AMI:
 
     wget -O- https://raw.githubusercontent.com/guyleonard/evomics_2017/master/base.sh | bash
+
+I would now make an image of this system and then use that as your "base AMI" for the next steps...
 
 ## Genomics AMI
 
