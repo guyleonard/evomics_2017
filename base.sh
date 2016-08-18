@@ -19,7 +19,7 @@ git clone https://github.com/guyleonard/evomics_2017.git
 #
 cd evomics_2017
 # run the base playbook
-ansible-playbook base.yml --sudo -K -c local -i "localhost,"
+ansible-playbook base/base.yml --sudo -K -c local -i "localhost,"
 
 
 ## Genereal Updates
