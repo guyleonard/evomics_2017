@@ -18,12 +18,12 @@
     - include: chrome.yaml
      
     # Install Firefox
-    - name Installing Firefox
+    - name: Installing Firefox
       apt: name=firefox state=present install_recommends=yes
 
     # Install X2Go
     - include: x2go.yaml
 
     # Updgrade and Dist-Upgrade apt
-    - name Upgrade
+    - name: Upgrade
       apt: update_cache=yes cache_valid_time=3600 upgrade=full
