@@ -1,4 +1,4 @@
-- name Retrieving Google Chrome Key
+- name: Retrieving Google Chrome Key
   apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
 
 - name: Refreshing Repository List Cache
