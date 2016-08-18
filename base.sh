@@ -24,9 +24,9 @@ ansible-playbook /home/ubuntu/evomics_2017/base/base.yaml --sudo -K -c local -i 
 
 ## Genereal Updates
 # Update apt repositories
-sudo apt-get update
+#sudo apt-get update
 # Upgrade everything to latest versions
-sudo apt-get -y upgrade && sudo apt-get dist-upgrade
+#sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade
 
 
 ## Java - We may need both openjdk and Oracle versions
