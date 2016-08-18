@@ -33,7 +33,7 @@
        - build-essential 
        - cabextract
        - cowsay
-       - cowthink
+       - cowsay-off
        - curl
        - file-roller
        - filezilla
