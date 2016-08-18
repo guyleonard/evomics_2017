@@ -25,8 +25,7 @@
     - include: x2go.yaml
 
     # Install Other Dependencies and Software
-    - debug: msg=This may take some time...
-    - name: Installing Other Useful Software
+    - name: Installing Other Useful Software - This may take some time...Beer O'clock!
       apt: name={{item}} state=present install_recommends=yes 
       with_items:
        - apache2
