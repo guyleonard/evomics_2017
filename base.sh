@@ -15,19 +15,14 @@ sudo apt-get install -y git python-pip python-dev python-cffi libssl-dev
 sudo -H pip install --upgrade pip
 sudo -H pip install ansible
 
+# as much as I love cowsay, lets turn it off so Ansible's messages aren't cows
+export ANSIBLE_NOCOWS=1
+
 # Clone the Evomics 2017 github repo
 git clone https://github.com/guyleonard/evomics_2017.git
 #
 # run the base playbook
 ansible-playbook /home/ubuntu/evomics_2017/base/base.yaml --sudo -K -c local -i "localhost,"
-
-
-## Genereal Updates
-# Update apt repositories
-#sudo apt-get update
-# Upgrade everything to latest versions
-#sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade
-
 
 ## Java - We may need both openjdk and Oracle versions
 # default java - open java

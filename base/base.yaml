@@ -40,12 +40,22 @@
        - fortune-mod
        - gimp
        - git
+       - git-core
        - htop
        - inkscape
        - libapache2-mod-php
+       - libtcltk-ruby
+       - libcurl4-openssl-dev
+       - libffi-dev
+       - libssl-dev
+       - libsqlite3-dev
+       - libreadline-dev
        - libreoffice-base
        - libreoffice-calc
        - libreoffice-core
+       - libxml2-dev
+       - libxslt1-dev
+       - libyaml-dev
        - mosh
        - mpack 
        - mysql-client
@@ -55,16 +65,23 @@
        - php
        - php-mcrypt
        - php-mysql
+       - python-software-properties
        - qbittorrent
        - rar
+       - ri
+       - ruby
+       - ruby-dev
+       - ruby-full
        - samba
        - sharutils
+       - sqlite3
        - unace     
        - unrar
        - unzip
        - uudeview
        - xcowsay
        - zip
+       - zlib1g-dev
 
     - name: Other Stuff
       gem: name=lolcat state=present
