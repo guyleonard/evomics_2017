@@ -12,6 +12,7 @@ working_dir=$(pwd)
 ## Ansible
 # Setup Ansible
 sudo apt-get install -y git python-pip python-dev
+sudo pip install --upgrade pip
 sudo pip install ansible
 
 # Clone the Evomics 2017 github repo
