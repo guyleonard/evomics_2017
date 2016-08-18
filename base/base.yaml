@@ -24,7 +24,7 @@
     # Install X2Go
     - include: x2go.yaml
 
-
+    # Install Other Dependencies and Software 
     - name: Installing Other Useful Software
       apt: name={{item}} state=present install_recommends=yes update_cache=yes
       with_items:
@@ -38,7 +38,7 @@
       - file-roller
       - filezilla
       - fortune
-      - gimp	
+      - gimp
       - git
       - inkscape
       - libapache2-mod-php
