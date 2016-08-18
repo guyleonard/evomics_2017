@@ -64,8 +64,8 @@
       - uudeview
       - xcowsay
       - zip
-  
-    gem: name=lolcat state=present
+
+      gem: name=lolcat state=present
 
 
     # Updgrade and Dist-Upgrade apt
