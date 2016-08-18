@@ -88,7 +88,7 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
 # Using This Repository
 To build the the systems that we will make our own AMIs from, for either workshop, you will need to run at least the [base.sh](https://github.com/guyleonard/evomics_2017/blob/master/base.sh) script on the remote Virtual Machine and then one or the other of "genomics.sh" and "phylogenomics.sh".
 
-These scripts will run the Ansible 'Playbooks' which are a serious of instructions and 'taskbooks' to automate the install of software and the general environment.
+These scripts will run the Ansible 'Playbooks' which are a serious of instructions and 'taskbooks' to automate the install of software, workshop materials and other settins which are described above in [2017 Base AMI](https://github.com/guyleonard/evomics_2017#2017-base-ami) section...
 
 ## Base AMI
 
