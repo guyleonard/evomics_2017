@@ -3,10 +3,7 @@
   sudo: yes
   pre_tasks:
     - name: Disable scroll overlay
-      apt:
-        name:
-         - apt-get purge overlay-scrollbar
-        state=absent
+      apt: name:apt-get purge overlay-scrollbar state=absent
   tasks:
     - name: install mate desktop 
       apt:
