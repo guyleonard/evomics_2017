@@ -19,7 +19,7 @@ sudo -H pip install ansible
 git clone https://github.com/guyleonard/evomics_2017.git
 #
 # run the base playbook
-ansible-playbook /home/ubuntu/evomics_2017/base/base.yml --sudo -K -c local -i "localhost,"
+ansible-playbook /home/ubuntu/evomics_2017/base/base.yaml --sudo -K -c local -i "localhost,"
 
 
 ## Genereal Updates
