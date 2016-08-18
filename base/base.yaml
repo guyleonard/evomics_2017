@@ -4,5 +4,25 @@
     - software_dir: /software
 
   tasks:
-    - include: mate_desktop.yaml
+    # Install MATE Desktop Environment and remove Overlay Scroll
+    - name: Install MATE Desktop
+      apt: name={{item}} state=present install_recommends=yes
+      with_items:
+       - mate-desktop-environment
+       - mate-desktop-environment-extras
+
+    - name: Disable Scroll Overlay
+      apt: name=overlay-scrollbar state=absent purge=yes
+
+    # Install Google Chrome
     - include: chrome.yaml
+     
+    # Install Firefox
+    - name Installing Firefox
+      apt: name=firefox state=present install_recommends=yes
+
+    # Install X2Go
+
+    # Updgrade and Dist-Upgrade apt
+    - name Upgrade
+      apt: update_cache=yes cache_valid_time=3600 upgrade=full
