@@ -9,19 +9,33 @@ set -e # exit if command exits with non-zero status
 # Working Directory
 working_dir=$(pwd)
 
+## Ansible
+# Setup Ansible
+sudo apt-get install -y git python-pip python-dev
+sudo pip install ansible
+
+# Clone the Evomics 2017 github repo
+git clone https://github.com/guyleonard/evomics_2017.git
+#
+cd evomics_2017
+# run the base playbook
+ansible-playbook base.yml --sudo -K -c local -i "localhost,"
+
+
 ## Genereal Updates
-# Update Apt Repositories
+# Update apt repositories
 sudo apt-get update
 # Upgrade everything to latest versions
 sudo apt-get -y upgrade && sudo apt-get dist-upgrade
 
+
 ## Java - We may need both openjdk and Oracle versions
 # default java - open java
-apt-get -y install default-jre default-jdk
+#apt-get -y install default-jre default-jdk
 # Oracle Java
-add-apt-repository ppa:webupd8team/java
-apt-get update
-apt-get -y install oracle-java8-installer
+#add-apt-repository ppa:webupd8team/java
+#apt-get update
+#apt-get -y install oracle-java8-installer
 ### Need to find an automated way to do this...
 #update-alternatives --config java
 

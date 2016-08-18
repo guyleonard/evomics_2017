@@ -1,4 +1,3 @@
----
 # Credit to Michael Heap
 # http://michaelheap.com/ansible-installing-google-chrome/
 - hosts: all

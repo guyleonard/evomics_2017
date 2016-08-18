@@ -5,5 +5,5 @@
     - software_dir: /software
 
   tasks:
-    -include: mate_desktop.yaml
-    -include: chrome.yaml
+    - include: mate_desktop.yaml
+    - include: chrome.yaml
