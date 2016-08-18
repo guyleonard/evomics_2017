@@ -1,24 +1,3 @@
-# Credit to Michael Heap
-# http://michaelheap.com/ansible-installing-google-chrome/
-#vars:
-# - apt_file: /etc/apt/sources.list.d/google-chrome.list
-
-#- name: Does the Google apt file exist?
-#  command: test -f {{apt_file}}
-#  register: google_apt_exists
-#  ignore_errors: yes
-
-#- name: Add Google Chrome Key
-#  shell: wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-#  when: google_apt_exists.rc == 1
-
-#- name: Add Google Chrome Repo
-#  copy: content="deb http://dl.google.com/linux/chrome/deb/ stable main" dest={{apt_file}} owner=root group=root mode=644
-#  when: google_apt_exists.rc == 1
-
-#- name: Install Google Chrome
-#  apt: name=google-chrome-stable state=installed update_cache=yes
-
 - name Retrieving Google Chrome Key
   apt_key: url=https://dl-ssl.google.com/linux/linux_signing_key.pub state=present
 

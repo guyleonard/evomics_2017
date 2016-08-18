@@ -1,0 +1,6 @@
+hosts: all
+
+  pre_tasks:
+    # Set up the workshop user with a SHA-512 crypted password using mkpasswd
+    - name: Create phylogenomics Workshop User
+      user: name=phylogenomics comment="Phylogenomics Workshop User" password='$6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0'
