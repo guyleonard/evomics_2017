@@ -37,7 +37,7 @@
        - curl
        - file-roller
        - filezilla
-       - fortune
+       - fortune-mod
        - gimp
        - git
        - inkscape
@@ -55,7 +55,6 @@
        - php-mysql
        - qbittorrent
        - rar
-       - rev
        - samba
        - sharutils
        - unace     
