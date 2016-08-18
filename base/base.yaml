@@ -1,9 +1,8 @@
 - hosts: all
-
   vars:
     - source_dir: /software/.source
     - software_dir: /software
 
-  #tasks:
+  tasks:
     - include: mate_desktop.yaml
     - include: chrome.yaml

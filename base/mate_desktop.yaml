@@ -1,5 +1,5 @@
-- name: Install MATE Desktop 
-  apt: name={{item}} state=present update_cache=yes
+- name: Install MATE Desktop
+  apt: name={{item}} state=present update_cache=yes sudo=yes
   with_items:
    - mate-desktop-environment
    - mate-desktop-environment-extras
