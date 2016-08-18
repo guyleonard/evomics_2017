@@ -34,12 +34,12 @@ Usually I would start with a base AMI (e.g. BioLinux or Ubuntu) and as I got the
 
 ## Automation
 
-For this we are going to use a series of shell scripts and [Ansible]()
- * apt-add-repository ppa:ansible/ansible
- * apt-get update && apt-get install ansible
+For this we are going to use a series of shell scripts, [Ansible]() and a few other package managers such as apt-get, pip, conda, and gem.
 
 ## Security Groups
-We also need to set up a bunch of open ports to allow through to our AMI, for things like Apache, RStudio, SSH, X2Go, etc.
+You will also need to set up a bunch of open ports to allow through to your AMI. This will be for things like Apache, RStudio, SSH, X2Go, etc.
+
+List:
  * VNC - Remote Desktop
   * TCP:5800 & TCP:5901
  * XRDP - Remote Desktop
@@ -47,7 +47,7 @@ We also need to set up a bunch of open ports to allow through to our AMI, for th
  * RStudio
 
 ## 2017 Base AMI
-We will be using the latest Ubuntu Linux as our base AMI, in this case: [ami-cf68e0d8](https://console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-cf68e0d8) which is the 'us-east-1'	copy of Ubuntu Xenial Xerus 16.04 LTS.
+We will be using the latest Ubuntu Linux as our initial AMI, in this case: [ami-cf68e0d8](https://console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-cf68e0d8) which is the 'us-east-1'	copy of Ubuntu Xenial Xerus 16.04 LTS.
 
 ### Storage & Virtualisation Type
 It can be quite a confusing mess of choices, but Amazon has some guides [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html) and so we will be using:
@@ -55,9 +55,9 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
  * EBS - Elastic Block Storage (as opposed to Instance Store)
 
 ## Base AMI Minor Changes and Updates
- * Password SSH login for users below
-  * users: genomics, phylogenomics, admin (general connections to AMI use a key-pair, we don't generally use this during the workshop as it is default sudo and one less thing to worry about the students having an issue with).
-
+* Password SSH login for users below
+* user: admin (general connections to an AMI use a key-pair but we don't use this during the workshop as it has passwordless sudo and it's one less thing to worry about the students having an issue with).
+ * password:
 * Disable Update Checker
 * Disable overlay scrollbars
 * [MOSH](https://mosh.org/) - just in case, but SSH is usually stable
@@ -65,20 +65,35 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
 
 ### Core Dependencies / Software
 * MATE Desktop
- * sudo apt-get install --install-suggests mate-desktop-environment
 * X2Go
-* Java - insrall both OpenJDK and Oracle, set to Oracle - [here](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)
+* Java - install both OpenJDK and Oracle, set to Oracle - [here](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)
 * Useful tools/programs
- * apt-get install --install-suggests unace unrar zip unzip p7zip-full p7zip-rar sharutils rar uudeview mpack arj cabextract file-roller qbittorrent inkscape samba filezilla gimp libreoffice-base libreoffice-core libreoffice-calc fortune rev cowsay xcowsay cowthink curl git apache2 mysql-server mysql-client php libapache2-mod-php php-mcrypt php-mysql
+ * apache2 arj build-essential cabextract cowsay cowthink curl file-roller filezilla fortune gimp git inkscape libapache2-mod-php libreoffice-base libreoffice-calc libreoffice-core mpack  mysql-client mysql-server p7zip p7zip-rar php php-mcrypt php-mysql qbittorrent rar rev samba sharutils unace unrar unzip uudeview xcowsay zip
  * chrome, firefox
  * gem install lolcat
  * export PS1="\[\033[38;5;226m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;202m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]:\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
- * apt-get install build-essential git
 
 ## Global Software
 
 ## Genomics Specific
  * Background Wallpaper
+ * user: genomics
+  * password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0
 
 ## Phylogenomics Specific
- * Background Wallpaper
+* Background Wallpaper
+* user: phylogenomics
+ * password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0 
+
+# Using This Repository
+blah blah
+
+## Base AMI
+
+Run this code on your clean AMI:
+
+    wget -O- https://raw.githubusercontent.com/guyleonard/evomics_2017/master/base.sh | bash
+
+## Genomics AMI
+
+## Phylogenomics AMI
