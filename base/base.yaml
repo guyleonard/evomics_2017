@@ -22,6 +22,7 @@
       apt: name=firefox state=present install_recommends=yes
 
     # Install X2Go
+    - include: x2go.yaml
 
     # Updgrade and Dist-Upgrade apt
     - name Upgrade

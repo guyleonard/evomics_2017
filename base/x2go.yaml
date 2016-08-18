@@ -1,0 +1,9 @@
+- name: Adding X2Go Repository
+  apt_repository: repo='deb http://de.archive.ubuntu.com/ubuntu xenial main universe' state=present update_cache=yes
+
+- name: Installing Google Chrome
+  apt: name={{item}} state=present install_recommends=yes update_cache=yes
+  with_items:
+   - x2goserver
+   - x2goserver-xsession
+   - x2goclient
