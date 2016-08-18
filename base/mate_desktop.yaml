@@ -1,8 +1,8 @@
 - name: Install MATE Desktop
-  apt: name={{item}} state=present
+  apt: name={{item}} state=present install_recommends=yes
   with_items:
    - mate-desktop-environment
    - mate-desktop-environment-extras
 
 - name: Disable Scroll Overlay
-  apt: name=overlay-scrollbar state=absent
+  apt: name=overlay-scrollbar state=absent purge=yes
