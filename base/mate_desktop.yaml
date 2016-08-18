@@ -1,4 +1,4 @@
-- name: install MATE Desktop
+- name: install MATE Desktop Environment
   hosts: all
   pre_tasks:
     - name: disable scroll overlay
@@ -14,7 +14,7 @@
         cache_valid_time: 3600
       sudo: yes
 
-   - name: install mate desktop extra
+    - name: install mate desktop extra
       apt:
         update_cache: yes
         name: mate-desktop-environment-extras
