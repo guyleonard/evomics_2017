@@ -24,7 +24,8 @@
     # Install X2Go
     - include: x2go.yaml
 
-    # Install Other Dependencies and Software 
+    # Install Other Dependencies and Software
+    - debug: msg=This may take some time...
     - name: Installing Other Useful Software
       apt: name={{item}} state=present install_recommends=yes 
       with_items:
@@ -40,11 +41,13 @@
        - fortune-mod
        - gimp
        - git
+       - htop
        - inkscape
        - libapache2-mod-php
        - libreoffice-base
        - libreoffice-calc
        - libreoffice-core
+       - mosh
        - mpack 
        - mysql-client
        - mysql-server
