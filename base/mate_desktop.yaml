@@ -3,13 +3,12 @@
   sudo: yes
   pre_tasks:
     - name: Disable scroll overlay
-      apt: name:apt-get purge overlay-scrollbar state=absent
+      action: >
+        apt name=overlay-scrollbar state=absent
   tasks:
     - name: install mate desktop 
-      apt:
-        update_cache: yes
-        name:
+      action: >
+        apt name={{ item }} state=present update_cache: yes
+      with_items:
          - mate-desktop-environment
          - mate-desktop-environment-extras
-        state: present
-        cache_valid_time: 3600
