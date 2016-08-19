@@ -6,7 +6,7 @@
   pre_tasks:
     # Create Directories
     - name: Create Software Dir
-      file: path={{software_dir}} stae=directory
+      file: path={{software_dir}} state=directory
     - name: Create Software Source Dir
       file: path{{source_dir}} state=directory
 
