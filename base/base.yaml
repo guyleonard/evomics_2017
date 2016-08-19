@@ -12,7 +12,7 @@
     # this is something to discuss, we have never had issues with compromised AMIs
     # but it is a bit easier to teach without a security key.
     - name: Enable Password Login
-      lineinfile: dest={{ sshd_config }} regexp="^#?PasswordAuthentication" line="PasswordAuthentication yes"
+      lineinfile: dest=/etc/sshd_config regexp="^#?PasswordAuthentication" line="PasswordAuthentication yes"
     #  when: add_identity_key|success and not add_identity_key|skipped
       notify: restart sshd
 
