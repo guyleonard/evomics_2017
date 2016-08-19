@@ -6,7 +6,7 @@
   pre_tasks:
     # Set up the workshop user with a SHA-512 crypted password using mkpasswd
     - name: Create 'master' Workshop User with SUDO privileges
-      user: name=master comment="Master Workshop User" state=present shell=bash group=sudo password='$6$vaUtdo8oSgvGmBNO$B/0gxyOCv5b1DWGaiOTBUdZdHW5nrXZhUNw1yu8pVL5LS8Hs3DxL3/rD0aBEx9h7kNpDi73UZ3XYd7wpbXAx90'
+      user: name=master comment="Master Workshop User" state=present shell=/bin/bash group=sudo password='$6$vaUtdo8oSgvGmBNO$B/0gxyOCv5b1DWGaiOTBUdZdHW5nrXZhUNw1yu8pVL5LS8Hs3DxL3/rD0aBEx9h7kNpDi73UZ3XYd7wpbXAx90'
 
   tasks:
     # Install MATE Desktop Environment and remove Overlay Scroll
