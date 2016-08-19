@@ -12,16 +12,16 @@
     # this is something to discuss, we have never had issues with compromised AMIs
     # but it is a bit easier to teach without a security key.
     - name: Enable Password Login
-      lineinfile: dest=/etc/ssh/sshd_config regexp="^#?PasswordAuthentication" line="PasswordAuthentication yes"
+      lineinfile: dest=/etc/ssh/sshd_config regexp="^#?PasswordAuthentication" line="PasswordAuthentication yes" backup=yes
    
     # Amazon has a keep alive around 60 seconds, then the ssh session times out. That's annoying, let's keep it alive!
     - name: Changing SSH Timeout
-      lineinfile: dest=/etc/ssh/sshd_config line="ClientAliveInterval 60"
+      lineinfile: dest=/etc/ssh/sshd_config line="ClientAliveInterval 60" backup=yes
 
     # Restart the SSH Daemon for the above changes to take effect.
     - name: Restart SSH Daemon
       service: name=ssh state=restarted
-	
+
   tasks:
     # Install MATE Desktop Environment and remove Overlay Scroll
     - name: Install MATE Desktop
