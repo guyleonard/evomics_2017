@@ -11,7 +11,7 @@
   apt_key: keyserver=keyserver.ubuntu.com id=E084DAB9
 
 - name: Installing R
-  apt: name={{item}} state=present install_recommend=yes update_cache=yes
+  apt: name={{item}} state=present install_recommends=yes update_cache=yes
   with_items:
    - r-base
    - r-base-dev
