@@ -62,8 +62,6 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
 * Disable overlay scrollbars
 * [MOSH](https://mosh.org/) - just in case, but SSH is usually stable
 * apt-get update, upgrade, dist-upgrade
-
-### Core Dependencies / Software
 * MATE Desktop
 * X2Go
 * Java - install both OpenJDK and Oracle, set to Oracle - [here](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-get-on-ubuntu-16-04)
@@ -72,9 +70,6 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
  * chrome, firefox
  * gem install lolcat
  * export PS1="\[\033[38;5;226m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;202m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]:\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
-
-
-## Global Software
  * R and RStudio Desktop+Server
  * 
  
@@ -146,9 +141,9 @@ A '*' indicates the software is used in more than one workshop and so need to be
  * password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0 
 
 # Using This Repository
-To build the the systems that we will make our own AMIs from, for either workshop, you will need to run at least the [base.sh](https://github.com/guyleonard/evomics_2017/blob/master/base.sh) script on the remote Virtual Machine and then one or the other of "genomics.sh" and "phylogenomics.sh".
+To build the systems that we will make our own version of an AMI from, for either workshop, you will need to run at least the [base.sh](https://github.com/guyleonard/evomics_2017/blob/master/base.sh) script on your remote Virtual Machine and then one or the other of "genomics.sh" and "phylogenomics.sh".
 
-These scripts will run the Ansible 'Playbooks' which are a serious of instructions and 'taskbooks' to automate the install of software, workshop materials and other settins which are described above in [2017 Base AMI](https://github.com/guyleonard/evomics_2017#2017-base-ami) section...
+These scripts will run the Ansible 'Playbooks' which are a serious of instructions and 'taskbooks' to automate the install of software, workshop materials and other settings which are described above in [2017 Base AMI](https://github.com/guyleonard/evomics_2017#2017-base-ami) section...
 
 ## Base AMI Setup
 
