@@ -73,8 +73,11 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
  * gem install lolcat
  * export PS1="\[\033[38;5;226m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;202m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]:\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
 
-## Global Software
 
+## Global Software
+ * R and RStudio Desktop+Server
+ * 
+ 
 ## Genomics Specific
  * Background Wallpaper
  * user: genomics
