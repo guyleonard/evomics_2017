@@ -14,6 +14,9 @@
     - name: Disable Scroll Overlay
       apt: name=overlay-scrollbar state=absent purge=yes
 
+    - name: Remove Update Manager Notifications
+      apt: name=update-manager state=absent
+
     # Install Google Chrome
     - include: chrome.yaml
      
@@ -38,6 +41,7 @@
        - cowsay
        - cowsay-off
        - curl
+       - emacs24
        - file-roller
        - filezilla
        - fortune-mod
@@ -86,9 +90,9 @@
        - zip
        - zlib1g-dev
 
+    # Gem Installs
     - name: Other Stuff
       gem: name=lolcat state=present
-
 
     # Updgrade and Dist-Upgrade apt
     - name: Upgrade and Dist-Upgrade
