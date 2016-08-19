@@ -55,7 +55,7 @@
     - include: java.yaml
 
     # Install R and R Studio Server/Dektop
-    -include: r_and_r_studio.yaml
+    - include: r_and_r_studio.yaml
 
     # Install Other Dependencies and Software
     - name: Installing Other Useful Software - This may take some time...Beer O'clock!
