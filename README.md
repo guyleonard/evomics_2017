@@ -79,9 +79,66 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
  * 
  
 ## Genomics Specific
+A '*' indicates the software is used in more than one workshop and so need to be installed only once...
+
+### General
  * Background Wallpaper
  * user: genomics
   * password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0
+ * bioconda
+
+### Unix
+ * No special tools?
+ * Datasets from Julian!
+
+### Genomics
+ * bam2fastq
+ * bcftools
+ * bedtools
+ * blast, blast+
+ * bwa
+ * fastq-mcf
+ * FastQC *
+ * FastTree2
+ * filter_low_coverage_contigs.pl
+ * getorf (emboss)
+ * igv
+ * pfam_scan.pl
+ * qualimap
+ * QUAST *
+ * reduce_fasta_10x.pl
+ * samtools
+ * snp2tree_fullsequence.pl
+ * snp_comparator.pl
+ * SPAdes.py *
+ * vcfutils.pl
+
+### Sequence Data Quality
+ * cutadapt
+ * fastq-mcf (ea utils) *
+ * FastQC *
+ * seqtk
+
+### Assembly
+ * GATB-Pipeline
+ * kmergenie
+ * minia
+ * prokka
+ * QUAST *
+ * SPAdes.py *
+ * velvet
+
+### QIIME
+ * qiime
+ * numpy
+ * h5py
+
+### Rad-Seq / Stacks
+ * gnuplot
+ * gsnap
+ * raxml
+ * stacks
+ * structure
 
 ## Phylogenomics Specific
 * Background Wallpaper
@@ -93,7 +150,7 @@ To build the the systems that we will make our own AMIs from, for either worksho
 
 These scripts will run the Ansible 'Playbooks' which are a serious of instructions and 'taskbooks' to automate the install of software, workshop materials and other settins which are described above in [2017 Base AMI](https://github.com/guyleonard/evomics_2017#2017-base-ami) section...
 
-## Base AMI
+## Base AMI Setup
 
 Run this code on your clean AMI:
 
@@ -101,6 +158,6 @@ Run this code on your clean AMI:
 
 I would now make an image of this system and then use that as your "base AMI" for the next steps...
 
-## Genomics AMI
+## Genomics AMI Setup
 
-## Phylogenomics AMI
+## Phylogenomics AMI Setup
