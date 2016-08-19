@@ -8,7 +8,7 @@
     - name: Create Software Dir
       file: path={{software_dir}} state=directory
     - name: Create Software Source Dir
-      file: path{{source_dir}} state=directory
+      file: path={{source_dir}} state=directory
 
     # Set up the workshop user with a SHA-512 crypted password using mkpasswd
     - name: Create 'master' Workshop User with SUDO privileges
