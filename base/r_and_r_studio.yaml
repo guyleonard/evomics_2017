@@ -33,7 +33,9 @@
     dest={{source_dir}}/rstudio-server-0.99.903-amd64.deb
 
 - name: Installing Rstudio Server
-  shell: sudo gdebi -n {{source_dir}}/rstudio-server-0.99.903-amd64.deb
+  shell: gdebi -n {{source_dir}}/rstudio-server-0.99.903-amd64.deb
+  become: yes
+  become_method: sudo
 
 - name: Download Rstudio Desktop
   get_url:
@@ -41,4 +43,6 @@
     dest={{source_dir}}/rstudio-0.99.903-amd64.deb
 
 - name: Installing Rstudio Desktop
-  shell: sudo gdebi -n {{source_dir}}/rstudio-0.99.903-amd64.deb
+  shell: gdebi -n {{source_dir}}/rstudio-0.99.903-amd64.deb
+  become: yes
+  become_method: sudo
