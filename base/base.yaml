@@ -7,6 +7,14 @@
     # Set up the workshop user with a SHA-512 crypted password using mkpasswd
     - name: Create 'master' Workshop User with SUDO privileges
       user: name=master comment="Master Workshop User" state=present shell=/bin/bash group=sudo password='$6$vaUtdo8oSgvGmBNO$B/0gxyOCv5b1DWGaiOTBUdZdHW5nrXZhUNw1yu8pVL5LS8Hs3DxL3/rD0aBEx9h7kNpDi73UZ3XYd7wpbXAx90'
+    
+    # We won't be using security keys in the workshop so need password only logins.
+    # this is something to discuss, we have never had issues with compromised AMIs
+    # but it is a bit easier to teach without a security key...
+    - name: Enable password login
+      lineinfile: dest={{ sshd_config }} regexp="^#?PasswordAuthentication" line="PasswordAuthentication yes"
+      when: add_identity_key|success and not add_identity_key|skipped
+      notify: restart sshd
 
   tasks:
     # Install MATE Desktop Environment and remove Overlay Scroll
