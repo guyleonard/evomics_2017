@@ -24,6 +24,9 @@
     # Install X2Go
     - include: x2go.yaml
 
+    # Install Open-Java and Oracle-Java
+    - include: java.yaml    
+
     # Install Other Dependencies and Software
     - name: Installing Other Useful Software - This may take some time...Beer O'clock!
       apt: name={{item}} state=present install_recommends=yes 
@@ -88,5 +91,5 @@
 
 
     # Updgrade and Dist-Upgrade apt
-    - name: Upgrade
+    - name: Upgrade and Dist-Upgrade
       apt: update_cache=yes cache_valid_time=3600 upgrade=full
