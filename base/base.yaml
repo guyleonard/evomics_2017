@@ -13,7 +13,6 @@
     # but it is a bit easier to teach without a security key.
     - name: Enable Password Login
       lineinfile: dest=/etc/ssh/sshd_config regexp="^#?PasswordAuthentication" line="PasswordAuthentication yes"
-    # notify: restart sshd
       service: name=ssh state=restarted
 
   tasks:
