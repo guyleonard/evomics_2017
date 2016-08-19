@@ -13,7 +13,12 @@
     # but it is a bit easier to teach without a security key.
     - name: Enable Password Login
       lineinfile: dest=/etc/ssh/sshd_config regexp="^#?PasswordAuthentication" line="PasswordAuthentication yes"
-    
+   
+    # Amazon has a keep alive around 60 seconds, then the ssh session times out. That's annoying, let's keep it alive!
+    - name: Changing SSH Timeout
+      linefile: dest=/etc/ssh/sshd_config line="ClientAliveInterval 60"
+
+    # Restart the SSH Daemon for the above changes to take effect.
     - name: Restart SSH Daemon
       service: name=ssh state=restarted
 
