@@ -64,6 +64,8 @@
       with_items:
        - apache2
        - arj
+       - automake
+       - autotools-dev
        - build-essential 
        - cabextract
        - cowsay
