@@ -41,7 +41,7 @@
     # EA Utils (fastq-mcf)
     # requires: libgsl0-dev, libsparsehash-dev
     - name: Cloning EA Utils
-      git: repo=https://github.com/ExpressionAnalysis/ea-utils.git dest="{{source_dir}}/ea-utils" clone=yes update=yes
+      git: repo=https://github.com/ExpressionAnalysis/ea-utils.git dest="{{source_dir}}/ea-utils" clone=yes update=yes force=yes
     - name: Building/Installing ea-utils
       shell: "{{item}}"
       args:
