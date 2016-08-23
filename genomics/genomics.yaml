@@ -71,3 +71,6 @@
        - ea-utils
        - trimmomatic
        - fastqc
+
+    # Install Trim Galore!
+    - include: trim_galore.yaml
