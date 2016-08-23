@@ -6,4 +6,3 @@
     src: "{{source_dir}}/trim_galore_v0.4.1.zip"
     dest: "{{software_dir}}
     copy: no
-    
