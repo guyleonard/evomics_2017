@@ -7,20 +7,21 @@
     # Set up the workshop user with a SHA-512 crypted password using mkpasswd
     - name: Create genomics Workshop User
       user: name=genomics comment="Genomics Workshop User" password='$6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0'
-
-### Introduction to Unix
-## Get Julian's materials from ???
-
-### Sequence Data Quality Control
-## Data
-#Get data from Sophie/Josie
-
-## Software
-# Cutadapt
-- name: Installing cutadapt
-  pip: name=cutadapt state=present
-
-# Seqtk
- - name: Installing seqtk
-   git: repo=https://github.com/lh3/seqtk.git dest={{source_dir}} clone=yes update=yes
+      
+  tasks: 
+    ### Introduction to Unix
+    ## Get Julian's materials from ???
+    
+    ### Sequence Data Quality Control
+    ## Data
+    #Get data from Sophie/Josie
+    
+    ## Software
+    # Cutadapt
+    - name: Installing cutadapt
+      pip: name=cutadapt state=present
+    
+    # Seqtk
+    - name: Installing seqtk
+      git: repo=https://github.com/lh3/seqtk.git dest={{source_dir}} clone=yes update=yes
    
