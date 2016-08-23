@@ -29,10 +29,10 @@
        - libbamtools-dev
        - libbamtools2.4.0
    
-    ### Introduction to Unix
+    ### Introduction to Unix ###
     ## Get Julian's materials from ???
     
-    ### Sequence Data Quality Control
+    ### Sequence Data Quality Control ###
     ## Data
     #Get data from Sophie/Josie
     
@@ -62,3 +62,12 @@
 
     # Install Trim Galore!
     - include: trim_galore.yaml
+
+    ### Alignment Methods ###
+    ## Data
+    
+    ### Genomics ###
+    ## Previously Installed Above 
+    # FastQC, fastq-mcf
+    ## Data
+    ## Software
