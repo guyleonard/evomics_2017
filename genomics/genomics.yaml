@@ -20,6 +20,7 @@
        - libgsl0-dev
        - libsparsehash-dev
        - libhdf5-cpp-11 #blasr
+       - libhdf5-dev #blasr
       
   tasks:
     # Installing Commonly Required Programs 
