@@ -23,5 +23,5 @@
     
     # Seqtk
     - name: Installing seqtk
-      git: repo=https://github.com/lh3/seqtk.git dest={{source_dir}} clone=yes update=yes
+      git: repo=https://github.com/lh3/seqtk.git dest={{source_dir}}/seqtk clone=yes update=yes
    
