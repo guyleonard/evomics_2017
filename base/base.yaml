@@ -68,6 +68,7 @@
        - autotools-dev
        - build-essential 
        - cabextract
+       - cmake
        - cowsay
        - cowsay-off
        - curl
