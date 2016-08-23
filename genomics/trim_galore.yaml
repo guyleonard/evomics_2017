@@ -1,9 +1,12 @@
 - name: Download Trim Galore!
- get_url: url=http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/trim_galore_v0.4.1.zip dest={{source_dir}}/trim_galore_v0.4.1.zip
+  get_url: url=http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/trim_galore_v0.4.1.zip dest={{source_dir}}/trim_galore_v0.4.1.zip
 
 - name: Unzip Trim Galore!
   unarchive:
     src: "{{source_dir}}/trim_galore_v0.4.1.zip"
-    dest: "{{software_dir}}
+    dest: "{{software_dir}}"
     copy: no
-    
+    creates: "{{software_dir}}/trim_galore_zip"
+
+- name: Install Trim Galore!
+  file: src="{{software_dir}}/trim_galore_zip/trim_galore" dest=/usr/local/bin/trim_galore state=link

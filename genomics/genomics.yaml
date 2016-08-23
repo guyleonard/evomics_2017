@@ -19,6 +19,8 @@
       with_items:
        - libgsl0-dev
        - libsparsehash-dev
+       - libhdf5-cpp-11 #blasr
+       - libhdf5-dev #blasr
       
   tasks:
     # Installing Commonly Required Programs 
@@ -29,10 +31,10 @@
        - libbamtools-dev
        - libbamtools2.4.0
    
-    ### Introduction to Unix
+    ### Introduction to Unix ###
     ## Get Julian's materials from ???
     
-    ### Sequence Data Quality Control
+    ### Sequence Data Quality Control ###
     ## Data
     #Get data from Sophie/Josie
     
@@ -52,21 +54,9 @@
         - make
         - cp seqtk /usr/local/bin
   
-    # EA Utils (fastq-mcf)
-    # requires: libgsl0-dev, libsparsehash-dev, bamtools
-    #- name: Cloning EA Utils
-    #  git: repo=https://github.com/ExpressionAnalysis/ea-utils.git dest="{{source_dir}}/ea-utils" clone=yes update=yes force=yes
-    #- name: Building/Installing ea-utils
-    #  shell: "{{item}}"
-    #  args:
-    #   chdir: "{{source_dir}}/ea-utils/clipper"
-    #  with_items:
-    #   - make
-    #   - make install
-    
     # Install other required programs, luckily all in debian science repo
     - name: Install ea-utils 1.04.676, trimmomatic, fastqc 0.11.4
-      apt:{{item}} state=present
+      apt: name={{item}} state=present
       with_items:
        - ea-utils
        - trimmomatic
@@ -74,3 +64,12 @@
 
     # Install Trim Galore!
     - include: trim_galore.yaml
+
+    ### Alignment Methods ###
+    ## Data
+    
+    ### Genomics ###
+    ## Previously Installed Above 
+    # FastQC, fastq-mcf
+    ## Data
+    ## Software
