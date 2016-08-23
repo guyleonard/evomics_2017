@@ -1,5 +1,8 @@
-hosts: all
-
+- hosts: all
+  vars:
+    - source_dir: /home/ubuntu/software/.source
+    - software_dir: /home/ubuntu/software
+    
   pre_tasks:
     # Set up the workshop user with a SHA-512 crypted password using mkpasswd
     - name: Create genomics Workshop User
