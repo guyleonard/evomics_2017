@@ -48,12 +48,20 @@
   
     # EA Utils (fastq-mcf)
     # requires: libgsl0-dev, libsparsehash-dev, bamtools
-    - name: Cloning EA Utils
-      git: repo=https://github.com/ExpressionAnalysis/ea-utils.git dest="{{source_dir}}/ea-utils" clone=yes update=yes force=yes
-    - name: Building/Installing ea-utils
-      shell: "{{item}}"
-      args:
-       chdir: "{{source_dir}}/ea-utils/clipper"
+    #- name: Cloning EA Utils
+    #  git: repo=https://github.com/ExpressionAnalysis/ea-utils.git dest="{{source_dir}}/ea-utils" clone=yes update=yes force=yes
+    #- name: Building/Installing ea-utils
+    #  shell: "{{item}}"
+    #  args:
+    #   chdir: "{{source_dir}}/ea-utils/clipper"
+    #  with_items:
+    #   - make
+    #   - make install
+    
+    # Install other required programs, luckily all in debian science repo
+    - name: Install ea-utils 1.04.676, trimmomatic, fastqc 0.11.4
+      apt:{{item}} state=present
       with_items:
-       - make
-       - make install
+       - ea-utils
+       - trimmomatic
+       - fastqc
