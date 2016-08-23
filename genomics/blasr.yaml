@@ -1,0 +1,20 @@
+- name: Cloning blasr
+  git: repo=git://github.com/PacificBiosciences/blasr.git dest="{{source_dir}}/blasr" clone=yes recursive=yes update=yes
+
+- name: Running ./configure for blasr
+  command: {{item}} chdir="{{source_dir}}/blasr"
+  with_items:
+    - ./configure.py --shared --sub --no-pbbam HDF5_INCLUDE=/usr/include/hdf5/serial/ HDF5_LIB=/usr/lib/x86_64-linux-gnu/hdf5/serial
+
+- name: Running make configure-submodule
+  make: chdir="{{source_dir}}/blasr" target=configure-submodule
+
+- name: Running make build-submodule
+  make: chdir="{{source_dir}}/blasr" target=build-submodule
+
+- name: Running make blasr
+  make: chdir="{{source_dir}}/blasr" target=blasr
+
+# To do
+# Update LD Library paths
+
