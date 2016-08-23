@@ -30,4 +30,4 @@
        chdir: "{{source_dir}}/seqtk" 
       with_items:
         - make
-        - make install
+        - cp seqtk /usr/local/bin
