@@ -1,5 +1,5 @@
 - name: Download Trim Galore!
- get_url: url=http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/trim_galore_v0.4.1.zip dest={{source_dir}}/trim_galore_v0.4.1.zip
+  get_url: url=http://www.bioinformatics.babraham.ac.uk/projects/trim_galore/trim_galore_v0.4.1.zip dest={{source_dir}}/trim_galore_v0.4.1.zip
 
 - name: Unzip Trim Galore!
   unarchive:
