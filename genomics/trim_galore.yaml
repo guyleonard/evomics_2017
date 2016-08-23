@@ -9,4 +9,4 @@
     creates: "{{software_dir}}/trim_galore_zip"
 
 - name: Install Trim Galore!
-  file: src="{{software_dir}}/trim_galore_zip/trim_galore" dest=/usr/local/bin state=link
+  file: src="{{software_dir}}/trim_galore_zip/trim_galore" dest=/usr/local/bin/trim_galore state=link
