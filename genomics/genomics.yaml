@@ -2,6 +2,7 @@
   vars:
     - source_dir: /home/genomics/software/.source
     - software_dir: /home/genomics/software
+    - workshop_dir: /home/genomics/workshop_materials
     
   pre_tasks:
       # Create genomics user Software Directories
@@ -9,6 +10,8 @@
       file: path={{software_dir}} state=directory owner=genomics
     - name: Create Software Source Dir
       file: path={{source_dir}} state=directory owner=genomics
+    - name: Create Workshop Directory
+      file: path={{workshop_dir}} state=directory owner=genomics
       
     # Set up the workshop user with a SHA-512 crypted password using mkpasswd
     - name: Create genomics Workshop User
