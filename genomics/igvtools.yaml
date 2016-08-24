@@ -8,7 +8,7 @@
     src="{{source_dir}}/igvtools_2.3.80.zip"
     dest="{{software_dir}}"
     copy=no
-    creates="{{software_dir}}/IGVTools-2.3.80/igvtools"
+    creates="{{software_dir}}/IGVTools/igvtools"
     
 - name: Install IGV Tools
-  file: src="{{software_dir}}/IGVTools-2.3.80/igvtools" dest=/usr/local/bin/igvtools state=link
+  file: src="{{software_dir}}/IGVTools/igvtools" dest=/usr/local/bin/igvtools state=link
