@@ -74,3 +74,6 @@
     
     # bwa
     - include: bwa.yaml tags=bwa
+    
+    # samtools and htslib
+    - include: samtools.yaml tags=samtools
