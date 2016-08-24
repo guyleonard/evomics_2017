@@ -12,4 +12,4 @@
   lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/quast-4.2\2" backup=yes
 
 - name: Verify QUAST Installed
-  shell: python quast.py --test
+  shell: python /home/genomics/software/quast-4.2/quast.py --test
