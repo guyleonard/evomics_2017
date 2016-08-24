@@ -104,3 +104,5 @@
       tags: fasttree
     - include: igv.yaml
       tags: igv
+    - include: igvtools.yaml
+      tags: igvtools
