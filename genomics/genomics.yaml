@@ -70,10 +70,12 @@
     ## Software
     - include: bwa.yaml
       tags: bwa
+      
     - include: samtools.yaml
       tags: samtools
     - include: bcftools.yaml
       tags: bcftools
+      
     - name: Installing blast legacy & blast+
       apt: name={{item}} state=present
       with_items:
@@ -82,6 +84,7 @@
        - ncbi-tools-bin
        - ncbi-tools-x11
       tags: blast
+      
     - name: Installing EMBOSS tools (getorf)
       apt: name={{item}} state=present
       with_items:
@@ -91,10 +94,9 @@
        - emboss-lib
        - jemboss
       tags: emboss
+      
     - name: Installing FastTree2
-      apt: name={{item}} state=present
-      with_items:
-       - fasttree
+      apt: name=fasttree state=present
       tags: fasttree
     - name: Install FastTree2 Links
       file: src=/usr/bin/fasttree dest=/usr/bin/FastTree state=link
@@ -102,7 +104,12 @@
     - name: Install FastTree2 Links
       file: src=/usr/bin/fasttreeMP dest=/usr/bin/FastTreeMP state=link
       tags: fasttree
+      
     - include: igv.yaml
       tags: igv
     - include: igvtools.yaml
       tags: igvtools
+      
+    - name: Install bedtools
+      apt: name=bedtools state=present
+      tags: bedtools
