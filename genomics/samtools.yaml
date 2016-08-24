@@ -1,0 +1,4 @@
+- name: Install Samtools from apt - v0.1.19
+  apt: name=samtools state=present
+
+-name Installing Samtools v1.3
