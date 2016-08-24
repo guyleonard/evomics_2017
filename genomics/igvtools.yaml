@@ -11,4 +11,5 @@
     creates="{{software_dir}}/IGVTools/igvtools"
     
 - name: Install IGV Tools
-  file: src="{{software_dir}}/IGVTools/igvtools" dest=/usr/local/bin/igvtools state=link
+  lineinfile: dest=/home/genomics/.profile regexp='PATH=(.*)(\")' line='PATH=\1:/home/genomics/software/IGVTools/\2' backup=yes
+  
