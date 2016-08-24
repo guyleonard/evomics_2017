@@ -74,3 +74,11 @@
       tags: samtools
     - include: bcftools.yaml
       tags: bcftools
+    - name: Installing blast legacy & blast+
+      apt: name={{item}} state=present
+      with_items:
+       - ncbi-blast+
+       - ncbi-blast+-legacy
+       - ncbi-tools-bin
+       - ncbi-tools-x11
+      tags: blast
