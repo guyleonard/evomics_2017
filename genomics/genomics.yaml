@@ -88,3 +88,4 @@
        chdir: "{{source_dir}}/bwa" 
       with_items:
         - make all
+        - cp bwa qualfa2fq.pl xa2multi.pl /usr/local/bin
