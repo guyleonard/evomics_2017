@@ -82,3 +82,12 @@
        - ncbi-tools-bin
        - ncbi-tools-x11
       tags: blast
+    - name: Installing EMBOSS tools (getorf)
+      apt: name={{item}} state=present
+      with_items:
+       - emboss
+       - emboss-data
+       - emboss-doc
+       - emboss-lib
+       - jemboss
+      tags: emboss
