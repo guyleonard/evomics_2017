@@ -1,5 +1,5 @@
 - name: Downloading QUAST
-  get_url: url=https://sourceforge.net/projects/quast/files/quast-4.2.tar.gz dest="{{source_dir}}/quast-4.2.tar.gz"
+  get_url: url=https://downloads.sourceforge.net/project/quast/quast-4.2.tar.gz dest="{{source_dir}}/quast-4.2.tar.gz"
 
 - name: Uncompress QUAST
   unarchive: 
