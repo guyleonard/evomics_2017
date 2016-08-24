@@ -8,5 +8,8 @@
     copy=no
     creates="{{software_dir}}/quast-4.2/README.txt"
     
-- name: Install SPAdes
+- name: Install QUAST
   lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/quast-4.2\2" backup=yes
+
+- name: Verify QUAST Installed
+  shell: python quast.py --test
