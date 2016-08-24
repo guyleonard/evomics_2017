@@ -91,3 +91,11 @@
        - emboss-lib
        - jemboss
       tags: emboss
+    - name: Installing FastTree2
+      apt: name={{item}} state=present
+      with_items:
+       - fasttree
+      tags: fasttree
+    - name: Install FastTree2 Links
+      file: src=/usr/bin/fasttree dest=/usr/bin/FastTree state=link
+      file: src=/usr/bin/fasttreeMP dest=/usr/bin/FastTreeMP state=link
