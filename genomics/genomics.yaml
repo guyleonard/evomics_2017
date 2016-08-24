@@ -70,9 +70,21 @@
 
     ### Alignment Methods ###
     ## Data
+    ## Software
+    #- include: blast.yaml
     
     ### Genomics ###
     ## Previously Installed Above 
     # FastQC, fastq-mcf
     ## Data
     ## Software
+    
+    # bwa
+    - name: Cloning bwa
+      git: repo=https://github.com/lh3/bwa.git dest="{{source_dir}}/bwa" clone=yes update=yes
+    - name: Building/Installing bwa
+      shell: "{{item}}"
+      args:
+       chdir: "{{source_dir}}/bwa" 
+      with_items:
+        - make all
