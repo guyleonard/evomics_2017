@@ -11,4 +11,4 @@
     creates="{{software_dir}}/IGV_2.3.80/igv.sh"
     
 - name: Install IGV
-  file: src:"{{software_dir}}/IGV_2.3.80/igv.sh" dest:/usr/local/bin/igv.sh state=link
+  file: src="{{software_dir}}/IGV_2.3.80/igv.sh" dest=/usr/local/bin/igv.sh state=link
