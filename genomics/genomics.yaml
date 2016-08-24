@@ -68,5 +68,5 @@
     ## Software
     - include: bwa.yaml tags=bwa
     - include: samtools.yaml tags=samtools
-    - inclide: bcftools.yaml
+    - include: bcftools.yaml
       tags: bcftools
