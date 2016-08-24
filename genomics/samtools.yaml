@@ -10,27 +10,27 @@
 - name: Unpacking Samtools v1.3
   unarchive:
     src: "{{source_dir}}/samtools-1.3.1.tar.bz2"
-    dest: {{software_dir}}
+    dest: "{{software_dir}}"
     copy: no
     creates: "{{software_dir}}/samtools-1.3.1/README"
     
 - name: ./configure Samtools v1.3 (with HTSlib)
   shell: "{{item}}"
   args:
-   chdir: "{{source_dir}}/samtools"
+   chdir: "{{software_dir}}/samtools-1.3.1"
   with_items:
     - ./configure
     
 - name: make Samtools v1.3 (with HTSlib)
   shell: "{{item}}"
   args:
-   chdir: "{{source_dir}}/samtools"
+   chdir: "{{software_dir}}/samtools-1.3.1"
   with_items:
     - make
     
 - name: make install Samtools v1.3 (with HTSlib)
   shell: "{{item}}"
   args:
-   chdir: "{{source_dir}}/samtools"
+   chdir: "{{software_dir}}/samtools-1.3.1"
   with_items:
     - make install
