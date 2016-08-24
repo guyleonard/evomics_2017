@@ -102,3 +102,5 @@
     - name: Install FastTree2 Links
       file: src=/usr/bin/fasttreeMP dest=/usr/bin/FastTreeMP state=link
       tags: fasttree
+    - include: igv.yaml
+      tags: igv
