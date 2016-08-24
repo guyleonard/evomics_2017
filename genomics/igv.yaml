@@ -1,0 +1,14 @@
+# IGV is licensed, please register
+# you should register here https://www.broadinstitute.org/software/igv/?q=registration
+- name: Downloading IGV
+  get_url: url=http://data.broadinstitute.org/igv/projects/downloads/IGV_2.3.80.zip dest="{{source_dir}}/IGV_2.3.80.zip"
+
+- name: Uncompress IGV
+  unarchive: 
+    src="{{source_dir}}/IGV_2.3.80.zip"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/IGV_2.3.80/igv.sh"
+    
+- name: Install IGV
+  file: src:"{{software_dir}}/IGV_2.3.80/igv.sh" dest:/usr/local/bin/igv.sh state=link
