@@ -113,3 +113,8 @@
     - name: Install bedtools
       apt: name=bedtools state=present
       tags: bedtools
+
+    - name: Install qualimap
+      include: qualimap.yaml
+      tags: qualimap
+
