@@ -42,8 +42,10 @@
     #Get data from Sophie/Josie
     
     ## Software
-    - include: seqtk.yaml tags=seqtk
-    - include: trim_galore.yaml tags=trim_galore
+    - include: seqtk.yaml
+      tags: seqtk
+    - include: trim_galore.yaml
+      tags: trim_galore
     
     - name: Installing cutadapt
       pip: name=cutadapt state=present
@@ -66,7 +68,9 @@
     # FastQC, fastq-mcf
     ## Data
     ## Software
-    - include: bwa.yaml tags=bwa
-    - include: samtools.yaml tags=samtools
+    - include: bwa.yaml
+      tags: bwa
+    - include: samtools.yaml
+      tags: samtools
     - include: bcftools.yaml
       tags: bcftools
