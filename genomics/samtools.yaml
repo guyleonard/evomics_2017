@@ -1,31 +1,14 @@
-- name: Cloning HTSLib v1.3
-  git: repo=https://github.com/samtools/htslib.git dest="{{source_dir}}/htslib" clone=yes update=yes
+- name: Install Samtools from apt - v0.1.19
+  apt: name=samtools state=present
 
-- name: HTSlib v1.3 autoheader
+- name: Cloning Samtools v1.3
+  git: repo=https://github.com/samtools/samtools.git dest="{{source_dir}}/samtools" clone=yes update=yes
+  
+- name: Building/Installing Samtools v1.3
   shell: "{{item}}"
   args:
    chdir: "{{source_dir}}/samtools"
   with_items:
-    - autoheader
-    
-- name: HTSlib v1.3 autoconf
-  shell: "{{item}}"
-  args:
-   chdir: "{{source_dir}}/samtools"
-  with_items:
-    - autoconf
-    
-- name: HTSlib v1.3 configure
-  shell: "{{item}}"
-  args:
-   chdir: "{{source_dir}}/samtools"
-  with_items:
-    - ./configure
-
-- name: HTSlib v1.3 make/install
-  shell: "{{item}}"
-  args:
-   chdir: "{{source_dir}}/samtools"
-  with_items:
+    - ./configure --with-htslib="{{source_dir}}/htslib"
     - make
     - make install
