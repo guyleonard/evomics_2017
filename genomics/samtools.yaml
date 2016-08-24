@@ -1,14 +1,34 @@
-- name: Install Samtools from apt - v0.1.19
+- name: Installing Samtools from apt - v0.1.19
   apt: name=samtools state=present
 
-- name: Cloning Samtools v1.3
-  git: repo=https://github.com/samtools/samtools.git dest="{{source_dir}}/samtools" clone=yes update=yes
+- name: Downloading Samtools v1.3
+  get_url: url=https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2
+  dest={{source_dir}}/samtools-1.3.1.tar.bz2
   
-- name: Building/Installing Samtools v1.3
+- name: Unpacking Samtools v1.3
+  unarchive:
+    src: "{{source_dir}}/samtools-1.3.1.tar.bz2"
+    dest: {{software_dir}}
+    copy: no
+    creates: "{{software_dir}}/samtools-1.3.1/README"
+    
+- name: ./configure Samtools v1.3 (with HTSlib)
   shell: "{{item}}"
   args:
    chdir: "{{source_dir}}/samtools"
   with_items:
-    - ./configure --with-htslib="{{source_dir}}/htslib"
+    - ./configure
+    
+- name: make Samtools v1.3 (with HTSlib)
+  shell: "{{item}}"
+  args:
+   chdir: "{{source_dir}}/samtools"
+  with_items:
     - make
+    
+- name: make install Samtools v1.3 (with HTSlib)
+  shell: "{{item}}"
+  args:
+   chdir: "{{source_dir}}/samtools"
+  with_items:
     - make install
