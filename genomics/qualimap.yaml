@@ -9,4 +9,4 @@
     creates="{{software_dir}}/qualimap_v2.2/qualimap"
     
 - name: Install Qualimap
-  lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/qualimpa_v2.2/\2" backup=yes
+  lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/qualimap_v2.2\2" backup=yes
