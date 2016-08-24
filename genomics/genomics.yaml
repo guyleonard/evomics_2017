@@ -119,3 +119,6 @@
 
     - include: SPAdes.yaml
       tags: spades
+
+    - include: quast.yaml
+      tags: quast

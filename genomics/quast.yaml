@@ -1,0 +1,12 @@
+- name: Downloading QUAST
+  get_url: url=https://sourceforge.net/projects/quast/files/quast-4.2.tar.gz dest="{{source_dir}}/quast-4.2.tar.gz"
+
+- name: Uncompress QUAST
+  unarchive: 
+    src="{{source_dir}}/quast-4.2.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/quast-4.2/README.txt"
+    
+- name: Install SPAdes
+  lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/quast-4.2\2" backup=yes
