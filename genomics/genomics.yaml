@@ -42,24 +42,19 @@
     #Get data from Sophie/Josie
     
     ## Software
-    # Cutadapt
+    - include: seqtk.yaml tags=seqtk
+    - include: trim_galore.yaml tags=trim_galore
+    
     - name: Installing cutadapt
       pip: name=cutadapt state=present
       tags: cutadapt
-  
-    # Seqtk
-    - include: seqtk.yaml tags=seqtk
-   
-    # Install other required programs, luckily all in debian science repo
+
     - name: Install ea-utils 1.04.676, trimmomatic, fastqc 0.11.4
       apt: name={{item}} state=present
       with_items:
        - ea-utils
        - trimmomatic
        - fastqc
-
-    # Install Trim Galore!
-    - include: trim_galore.yaml tags=trim_galore
 
     ### Alignment Methods ###
     ## Data
@@ -71,9 +66,7 @@
     # FastQC, fastq-mcf
     ## Data
     ## Software
-    
-    # bwa
     - include: bwa.yaml tags=bwa
-    
-    # samtools and htslib
     - include: samtools.yaml tags=samtools
+    - inclide: bcftools.yaml
+      tags: bcftools
