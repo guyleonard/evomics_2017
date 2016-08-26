@@ -117,7 +117,8 @@
     - include: qualimap.yaml
       tags: qualimap
 
-    - include: SPAdes.yaml tags=spades version=3.9.0
+    - include: SPAdes.yaml version=3.9.0
+      tags: spades
 
     - include: quast.yaml
       tags: quast
