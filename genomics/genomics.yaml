@@ -44,7 +44,8 @@
     ## Software
     - include: seqtk.yaml
       tags: seqtk
-    - include: trim_galore.yaml
+      
+    - include: trim_galore.yaml version=0.4.1
       tags: trim_galore
     
     - name: Installing cutadapt
@@ -71,7 +72,7 @@
     - include: bwa.yaml
       tags: bwa
       
-    - include: samtools.yaml
+    - include: samtools.yaml version=1.3.1
       tags: samtools
     - include: bcftools.yaml version=1.3.1
       tags: bcftools
@@ -105,20 +106,20 @@
       file: src=/usr/bin/fasttreeMP dest=/usr/bin/FastTreeMP state=link
       tags: fasttree
       
-    - include: igv.yaml
+    - include: igv.yaml version=2.3.80
       tags: igv
-    - include: igvtools.yaml
+    - include: igvtools.yaml version=2.3.80
       tags: igvtools
       
     - name: Install bedtools
       apt: name=bedtools state=present
       tags: bedtools
 
-    - include: qualimap.yaml
+    - include: qualimap.yaml version=2.2
       tags: qualimap
 
     - include: SPAdes.yaml version=3.9.0
       tags: spades
 
-    - include: quast.yaml
+    - include: quast.yaml version=4.2
       tags: quast
