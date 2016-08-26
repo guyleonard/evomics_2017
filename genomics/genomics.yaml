@@ -7,7 +7,7 @@
   pre_tasks:
     # Set up the workshop user with a SHA-512 crypted password using mkpasswd
     - name: Create genomics Workshop User
-      user: name=genomics comment="Genomics Workshop User" state=present  shell=/bin/bash password='$6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0'
+      user: name=genomics group=workshop comment="Genomics Workshop User" state=present shell=/bin/bash password='$6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0'
       
     # Create genomics user Software Directories
     - name: Create Software Dir
