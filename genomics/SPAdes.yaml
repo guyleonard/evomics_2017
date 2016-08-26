@@ -1,12 +1,12 @@
 - name: Downloading SPAdes
-  get_url: url=http://spades.bioinf.spbau.ru/release3.9.0/SPAdes-3.9.0-Linux.tar.gz dest="{{source_dir}}/SPAdes-3.9.0-Linux.tar.gz"
+  get_url: url="http://spades.bioinf.spbau.ru/release{{version}}/SPAdes-{{version}}-Linux.tar.gz" dest="{{source_dir}}/SPAdes-{{version}}-Linux.tar.gz"
 
 - name: Uncompress SPAdes
   unarchive: 
-    src="{{source_dir}}/SPAdes-3.9.0-Linux.tar.gz"
+    src="{{source_dir}}/SPAdes-{{version}}-Linux.tar.gz"
     dest="{{software_dir}}"
     copy=no
-    creates="{{software_dir}}/SPAdes-3.9.0-Linux/bin/spades"
+    creates="{{software_dir}}/SPAdes-{{version}}-Linux/bin/spades"
     
 - name: Install SPAdes
-  lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/SPAdes-3.9.0-Linux/bin/\2" backup=yes
+  lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/SPAdes-{{version}}-Linux/bin/\2" backup=yes
