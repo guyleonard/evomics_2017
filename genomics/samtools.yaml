@@ -4,33 +4,33 @@
 - name: Symbolic link samtools to samtools_old
   file: src=/usr/bin/samtools dest=/usr/bin/samtools_old state=link
 
-- name: Downloading Samtools v1.3
-  get_url: url=https://github.com/samtools/samtools/releases/download/1.3.1/samtools-1.3.1.tar.bz2 dest={{source_dir}}/samtools-1.3.1.tar.bz2
+- name: Downloading Samtools v{{version}}
+  get_url: url=https://github.com/samtools/samtools/releases/download/{{version}}/samtools-1.3.1.tar.bz2 dest={{source_dir}}/samtools-{{version}}.tar.bz2
   
-- name: Unpacking Samtools v1.3
+- name: Unpacking Samtools v{{version}}
   unarchive:
-    src: "{{source_dir}}/samtools-1.3.1.tar.bz2"
+    src: "{{source_dir}}/samtools-{{version}}.tar.bz2"
     dest: "{{software_dir}}"
     copy: no
-    creates: "{{software_dir}}/samtools-1.3.1/README"
+    creates: "{{software_dir}}/samtools-{{version}}/README"
     
-- name: ./configure Samtools v1.3 (with HTSlib)
+- name: ./configure Samtools v{{version}} (with HTSlib)
   shell: "{{item}}"
   args:
-   chdir: "{{software_dir}}/samtools-1.3.1"
+   chdir: "{{software_dir}}/samtools-{{version}}"
   with_items:
     - ./configure
     
-- name: make Samtools v1.3 (with HTSlib)
+- name: make Samtools v{{version}}
   shell: "{{item}}"
   args:
-   chdir: "{{software_dir}}/samtools-1.3.1"
+   chdir: "{{software_dir}}/samtools-{{version}}"
   with_items:
     - make
     
-- name: make install Samtools v1.3 (with HTSlib)
+- name: make install Samtools v{{version}}
   shell: "{{item}}"
   args:
-   chdir: "{{software_dir}}/samtools-1.3.1"
+   chdir: "{{software_dir}}/samtools-{{version}}"
   with_items:
     - make install
