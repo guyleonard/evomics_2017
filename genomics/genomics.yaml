@@ -5,17 +5,17 @@
     - workshop_dir: /home/genomics/workshop_materials
     
   pre_tasks:
-      # Create genomics user Software Directories
+    # Set up the workshop user with a SHA-512 crypted password using mkpasswd
+    - name: Create genomics Workshop User
+      user: name=genomics comment="Genomics Workshop User" password='$6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0' shell=/bin/bash
+      
+    # Create genomics user Software Directories
     - name: Create Software Dir
       file: path={{software_dir}} state=directory owner=genomics
     - name: Create Software Source Dir
       file: path={{source_dir}} state=directory owner=genomics
     - name: Create Workshop Directory
       file: path={{workshop_dir}} state=directory owner=genomics
-      
-    # Set up the workshop user with a SHA-512 crypted password using mkpasswd
-    - name: Create genomics Workshop User
-      user: name=genomics comment="Genomics Workshop User" password='$6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0' shell=/bin/bash
       
     - name: Installing Dependencies
       apt: name={{item}} state=present install_recommends=yes
