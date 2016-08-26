@@ -1,15 +1,15 @@
-- name: Downloading QUAST
-  get_url: url=https://downloads.sourceforge.net/project/quast/quast-4.2.tar.gz dest="{{source_dir}}/quast-4.2.tar.gz"
+- name: Downloading QUAST v{{version}}
+  get_url: url="https://downloads.sourceforge.net/project/quast/quast-{{version}}.tar.gz" dest="{{source_dir}}/quast-{{version}}.tar.gz"
 
 - name: Uncompress QUAST
   unarchive: 
-    src="{{source_dir}}/quast-4.2.tar.gz"
+    src="{{source_dir}}/quast-{{version}}.tar.gz"
     dest="{{software_dir}}"
     copy=no
-    creates="{{software_dir}}/quast-4.2/README.txt"
+    creates="{{software_dir}}/quast-{{version}}/README.txt"
     
 - name: Install QUAST
   lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/quast-4.2\2" backup=yes
 
 - name: Verify QUAST Installed
-  shell: python /home/genomics/software/quast-4.2/quast.py --test
+  shell: python /home/genomics/software/quast-{{version}}/quast.py --test
