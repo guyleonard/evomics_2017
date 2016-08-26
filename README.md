@@ -156,7 +156,9 @@ I would now make an image of this system and then use that as your "base AMI" fo
 ## Genomics AMI Setup
 
     ansible-playbook /home/ubuntu/evomics_2017/genomics/genomics.yaml --sudo -K -c local -i "localhost,"
+
 or
+
     ansible-playbook /home/ubuntu/evomics_2017/genomics/genomics.yaml --sudo -K -c local -i "localhost," --tags samtools,bwa
 
 ## Phylogenomics AMI Setup
