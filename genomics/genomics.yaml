@@ -153,3 +153,7 @@
 
     - include: genomics_tutorial_extras.yaml
       tags: genomics_extras
+
+    - name: Installing BioPerl
+      cpanm: name=CJFIELDS/BioPerl-1.6.924.tar.gz
+      tags: bioperl
