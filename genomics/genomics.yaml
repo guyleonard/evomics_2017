@@ -150,3 +150,6 @@
 
     - include: picard_tools.yaml
       tags: picard_tools
+
+    - include: genomics_tutorial_extras.yaml
+      tags: genomics_extras
