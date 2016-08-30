@@ -155,10 +155,10 @@ I would now make an Amazon Image of this system and then use that as your "base 
 
 ## Genomics AMI Setup
 
-    ansible-playbook /home/ubuntu/evomics_2017/genomics/genomics.yaml --sudo -K -c local -i "localhost,"
+    ANSIBLE_NOCOWS=1 ansible-playbook /home/ubuntu/evomics_2017/genomics/genomics.yaml --sudo -K -c local -i "localhost,"
 
-or
+or for just two tools, e.g. samtools & bwa
 
-    ansible-playbook /home/ubuntu/evomics_2017/genomics/genomics.yaml --sudo -K -c local -i "localhost," --tags samtools,bwa
+    ANSIBLE_NOCOWS=1 ansible-playbook /home/ubuntu/evomics_2017/genomics/genomics.yaml --sudo -K -c local -i "localhost," --tags samtools,bwa
 
 ## Phylogenomics AMI Setup
