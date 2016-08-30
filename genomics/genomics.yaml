@@ -142,3 +142,6 @@
 
     - include: newick_utils.yaml
       tags: newick_utils
+
+    - include: picard_tools.yaml
+      tags: picard_tools
