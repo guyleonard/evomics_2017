@@ -149,10 +149,16 @@ These scripts will run the Ansible 'Playbooks' which are a serious of instructio
 
 Run this code on your clean AMI:
 
-    wget -O- https://raw.githubusercontent.com/guyleonard/evomics_2017/master/base.sh | bash
+    wget -O- https://raw.githubusercontent.com/guyleonard/evomics_2017/master/setup.sh | bash
 
-I would now make an image of this system and then use that as your "base AMI" for the next steps...
+I would now make an Amazon Image of this system and then use that as your "base AMI" for the next steps...
 
 ## Genomics AMI Setup
+
+    ansible-playbook /home/ubuntu/evomics_2017/genomics/genomics.yaml --sudo -K -c local -i "localhost,"
+
+or
+
+    ansible-playbook /home/ubuntu/evomics_2017/genomics/genomics.yaml --sudo -K -c local -i "localhost," --tags samtools,bwa
 
 ## Phylogenomics AMI Setup

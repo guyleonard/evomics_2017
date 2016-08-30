@@ -7,6 +7,7 @@ working_dir=$(pwd)
 
 ## Ansible
 # Setup Ansible
+sudo apt-get update # need to update on first run
 sudo apt-get install -y git python-pip python-dev python-cffi libssl-dev
 sudo -H pip install --upgrade pip
 sudo -H pip install ansible
@@ -19,7 +20,6 @@ git clone https://github.com/guyleonard/evomics_2017.git
 
 # run the base playbook
 ansible-playbook /home/ubuntu/evomics_2017/base/base.yaml --sudo -K -c local -i "localhost,"
-
 
 # turn off
 set +x

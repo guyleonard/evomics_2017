@@ -1,23 +1,23 @@
-- name: Downloading bcftools v1.3
-  get_url: url=https://github.com/samtools/bcftools/releases/download/1.3.1/bcftools-1.3.1.tar.bz2 dest={{source_dir}}/bcftools-1.3.1.tar.bz2
+- name: Downloading bcftools v{{version}}
+  get_url: url="https://github.com/samtools/bcftools/releases/download/{{version}}/bcftools-{{version}}.tar.bz2" dest={{source_dir}}/bcftools-{{version}}.tar.bz2
   
-- name: Unpacking bcftools v1.3
+- name: Unpacking bcftools v{{version}}
   unarchive:
-    src: "{{source_dir}}/bcftools-1.3.1.tar.bz2"
+    src: "{{source_dir}}/bcftools-{{version}}.tar.bz2"
     dest: "{{software_dir}}"
     copy: no
-    creates: "{{software_dir}}/bcftools-1.3.1/README"
+    creates: "{{software_dir}}/bcftools-{{version}}/README"
     
-- name: make bcftools v1.3 (with HTSlib)
+- name: make bcftools v{{version}} (with HTSlib)
   shell: "{{item}}"
   args:
-   chdir: "{{software_dir}}/bcftools-1.3.1"
+   chdir: "{{software_dir}}/bcftools-{{version}}"
   with_items:
     - make
     
-- name: make install bcftools v1.3 (with HTSlib)
+- name: make install bcftools v{{version}}
   shell: "{{item}}"
   args:
-   chdir: "{{software_dir}}/bcftools-1.3.1"
+   chdir: "{{software_dir}}/bcftools-{{version}}"
   with_items:
     - make install

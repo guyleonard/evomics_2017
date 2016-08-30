@@ -5,7 +5,11 @@
     - workshop_dir: /home/genomics/workshop_materials
     
   pre_tasks:
-      # Create genomics user Software Directories
+    # Set up the workshop user with a SHA-512 crypted password using mkpasswd
+    - name: Create genomics Workshop User
+      user: name=genomics group=workshop comment="Genomics Workshop User" state=present shell=/bin/bash password='$6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0'
+      
+    # Create genomics user Software Directories
     - name: Create Software Dir
       file: path={{software_dir}} state=directory owner=genomics
     - name: Create Software Source Dir
@@ -13,10 +17,6 @@
     - name: Create Workshop Directory
       file: path={{workshop_dir}} state=directory owner=genomics
       
-    # Set up the workshop user with a SHA-512 crypted password using mkpasswd
-    - name: Create genomics Workshop User
-      user: name=genomics comment="Genomics Workshop User" password='$6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0'
-    
     - name: Installing Dependencies
       apt: name={{item}} state=present install_recommends=yes
       with_items:
@@ -44,7 +44,8 @@
     ## Software
     - include: seqtk.yaml
       tags: seqtk
-    - include: trim_galore.yaml
+      
+    - include: trim_galore.yaml version=0.4.1
       tags: trim_galore
     
     - name: Installing cutadapt
@@ -71,9 +72,9 @@
     - include: bwa.yaml
       tags: bwa
       
-    - include: samtools.yaml
+    - include: samtools.yaml version=1.3.1
       tags: samtools
-    - include: bcftools.yaml
+    - include: bcftools.yaml version=1.3.1
       tags: bcftools
       
     - name: Installing blast legacy & blast+
@@ -105,20 +106,20 @@
       file: src=/usr/bin/fasttreeMP dest=/usr/bin/FastTreeMP state=link
       tags: fasttree
       
-    - include: igv.yaml
+    - include: igv.yaml version=2.3.80
       tags: igv
-    - include: igvtools.yaml
+    - include: igvtools.yaml version=2.3.80
       tags: igvtools
       
     - name: Install bedtools
       apt: name=bedtools state=present
       tags: bedtools
 
-    - include: qualimap.yaml
+    - include: qualimap.yaml version=2.2
       tags: qualimap
 
-    - include: SPAdes.yaml
+    - include: SPAdes.yaml version=3.9.0
       tags: spades
 
-    - include: quast.yaml
+    - include: quast.yaml version=4.2
       tags: quast

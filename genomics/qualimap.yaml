@@ -1,12 +1,12 @@
-- name: Downloading Qualimap
-  get_url: url=https://bitbucket.org/kokonech/qualimap/downloads/qualimap_v2.2.zip dest="{{source_dir}}/qualimap_v2.2.zip"
+- name: Downloading Qualimap v{{version}}
+  get_url: url="https://bitbucket.org/kokonech/qualimap/downloads/qualimap_v{{version}}.zip" dest="{{source_dir}}/qualimap_v{{version}}.zip"
 
 - name: Uncompress Qualimap
   unarchive: 
-    src="{{source_dir}}/qualimap_v2.2.zip"
+    src="{{source_dir}}/qualimap_v{{version}}.zip"
     dest="{{software_dir}}"
     copy=no
-    creates="{{software_dir}}/qualimap_v2.2/qualimap"
+    creates="{{software_dir}}/qualimap_v{{version}}/qualimap"
     
 - name: Install Qualimap
   lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/qualimap_v2.2\2" backup=yes
