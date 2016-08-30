@@ -1,0 +1,12 @@
+- name: Downloading HMMER v{{version}}
+  get_url: url="http://eddylab.org/software/hmmer3/{{version}}/hmmer-{{version}}-linux-intel-x86_64.tar.gz" dest="{{source_dir}}/hmmer-{{version}}-linux-intel-x86_64.tar.gz"
+
+- name: Uncompress HMMER
+  unarchive: 
+    src="{{source_dir}}/hmmer-{{version}}-linux-intel-x86_64.tar.gz
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/hmmer-{{version}}-linux-intel-x86_64/binaries/hmmer"
+    
+- name: Install HMMER
+  lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/hmmer-{{version}}-linux-intel-x86_64/binaries/\2" backup=yes

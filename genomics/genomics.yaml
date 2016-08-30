@@ -123,3 +123,6 @@
 
     - include: quast.yaml version=4.2
       tags: quast
+
+    - include: hmmer.yaml version=3.1b2
+      tags: hmmer
