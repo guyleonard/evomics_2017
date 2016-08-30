@@ -73,6 +73,7 @@
        - build-essential 
        - cabextract
        - cmake
+       - cpanm
        - cowsay
        - cowsay-off
        - curl
