@@ -64,9 +64,12 @@
     ## Software
     #- include: blasr.yaml tags=blasr
     
+
     ### Genomics ###
-    ## Previously Installed Above 
-    # FastQC, fastq-mcf
+
+    ## Previously Installed
+    # FastQC, fastq-mcf, seqtk
+
     ## Data
     ## Software
     - include: bwa.yaml
@@ -127,10 +130,12 @@
     - include: hmmer.yaml version=3.1b2
       tags: hmmer
 
-    - name: Installing Velvet assembler
+    - name: Installing Velvet Assembler
       apt: name={{item}} state=present
       with_items:
        - velvet
        - velvet-example
       tags: velvet
 
+   - include: bam2fastq.yaml version=1.1.0
+     tags: bam2fastq

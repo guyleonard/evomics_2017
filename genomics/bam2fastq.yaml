@@ -1,0 +1,17 @@
+- name: Downloading bam2fastq v{{version}}
+  get_url: url="https://gsl.hudsonalpha.org/static/software/bam2fastq-{{version}}.tgz" dest="{{source_dir}}/bam2fastq-{{version}}.tgz"
+
+- name: Uncompress bam2fastq
+  unarchive: 
+    src="{{source_dir}}/bam2fastq-{{version}}.tgz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/bam2fastq-{{version}}/README.txt"
+    
+- name: make bam2fastq
+  shell: "{{item}}"
+  args:
+   chdir: "{{software_dir}}/bam2fastq-{{version}}"
+  with_items:
+    - make
+
