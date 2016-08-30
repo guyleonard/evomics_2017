@@ -1,6 +1,6 @@
 - name: Installing Extra Scripts for Genomics Tutorial
   copy:
-    src: {{item}}
+    src: "{{item}}"
     dest: /usr/local/bin
     mode: 0755
   with_fileglob:
