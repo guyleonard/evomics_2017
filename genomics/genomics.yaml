@@ -126,3 +126,11 @@
 
     - include: hmmer.yaml version=3.1b2
       tags: hmmer
+
+    - name: Installing Velvet assembler
+      apt: name={{item}} state=present
+      with_items:
+       - velvet
+       - velvet-example
+      tags: velvet
+
