@@ -10,5 +10,3 @@
     
 - name: Install newick_utils
   shell: cp "{{software_dir}}/newick-utils-{{version}}/src/nw_*" /usr/local/bin
-  args:
-    chdir:"{{software_dir}}/newick-utils-{{version}}/src/"
