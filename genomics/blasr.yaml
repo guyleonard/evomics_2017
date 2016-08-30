@@ -2,7 +2,9 @@
   git: repo=git://github.com/PacificBiosciences/blasr.git dest="{{source_dir}}/blasr" clone=yes recursive=yes update=yes
 
 - name: Running ./configure for blasr
-  command: {{item}} chdir="{{source_dir}}/blasr"
+  shell: "{{item}}"
+  args:
+   chdir: "{{source_dir}}/blasr"
   with_items:
     - ./configure.py --shared --sub --no-pbbam HDF5_INCLUDE=/usr/include/hdf5/serial/ HDF5_LIB=/usr/lib/x86_64-linux-gnu/hdf5/serial
 
