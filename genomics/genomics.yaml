@@ -65,8 +65,9 @@
     ### Alignment Methods ###
     ## Data
     ## Software
-    - include: blasr.yaml
-      tags: blasr
+    # This requires > 4GB memory to install, what to do!
+    #- include: blasr.yaml
+    #  tags: blasr
 
 
     ### Genomics ###
