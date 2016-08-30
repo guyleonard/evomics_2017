@@ -7,4 +7,4 @@
     chdir: "{{software_dir}}/picard"
 
 - name: Creating runnable Picard script
-  lineinfile: dest=/usr/local/bin/picard-tools line="#!/bin/bash\njar={{software_dir}}/picard/build/libs/picard.jar\nexec java -Xmx3g -jar $jar $@\n" create=yes state=present
+  lineinfile: dest=/usr/local/bin/picard-tools line="#!/bin/bash\njar={{software_dir}}/picard/build/libs/picard.jar\nexec java -Xmx3g -jar $jar $@\n" create=yes state=present mode=0755
