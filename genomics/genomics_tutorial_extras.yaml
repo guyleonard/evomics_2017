@@ -1,2 +1,7 @@
 - name: Installing Extra Scripts for Genomics Tutorial
-  synchronize: src=/home/ubuntu/evomics_2017/genomics/genomics_tutorial_extras dest=/usr/local/bin
+  copy:
+    src: {{item}}
+    dest: /usr/local/bin
+    mode: 0755
+  with_fileglob:
+    - /home/ubuntu/evomics_2017/genomics/genomics_tutorial_extras/*
