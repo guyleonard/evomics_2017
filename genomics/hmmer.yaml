@@ -3,7 +3,7 @@
 
 - name: Uncompress HMMER
   unarchive: 
-    src="{{source_dir}}/hmmer-{{version}}-linux-intel-x86_64.tar.gz
+    src="{{source_dir}}/hmmer-{{version}}-linux-intel-x86_64.tar.gz"
     dest="{{software_dir}}"
     copy=no
     creates="{{software_dir}}/hmmer-{{version}}-linux-intel-x86_64/binaries/hmmer"
