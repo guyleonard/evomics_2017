@@ -40,3 +40,5 @@
   with_items:
     - make install
 
+- name: Making sure libraries are linked
+  shell: /sbin/ldconfig /usr/local/lib
