@@ -16,6 +16,7 @@
 
 - name: Running make blasr
   make: chdir="{{source_dir}}/blasr" target=blasr
+  ignore_errors: yes
 
 # To do
 # Update LD Library paths
