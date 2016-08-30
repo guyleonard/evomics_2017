@@ -9,6 +9,6 @@
     creates="{{software_dir}}/newick-utils-{{version}}/INSTALL"
     
 - name: Install newick_utils
-  shell: cp nw_* /usr/local/bin
+  shell: cp "{{software_dir}}/newick-utils-{{version}}/src/nw_*" /usr/local/bin
   args:
     chdir:"{{software_dir}}/newick-utils-{{version}}/src/"
