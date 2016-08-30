@@ -33,10 +33,12 @@
        - bamtools
        - libbamtools-dev
        - libbamtools2.4.0
+       - sra-toolkit
    
     ### Introduction to Unix ###
     ## Get Julian's materials from ???
     
+
     ### Sequence Data Quality Control ###
     ## Data
     #Get data from Sophie/Josie
@@ -59,16 +61,18 @@
        - trimmomatic
        - fastqc
 
+
     ### Alignment Methods ###
     ## Data
     ## Software
-    #- include: blasr.yaml tags=blasr
-    
+    - include: blasr.yaml
+      tags: blasr
+
 
     ### Genomics ###
 
     ## Previously Installed
-    # FastQC, fastq-mcf, seqtk
+    # FastQC, fastq-mcf, seqtk, blasr
 
     ## Data
     ## Software
