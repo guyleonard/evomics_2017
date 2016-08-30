@@ -1,0 +1,10 @@
+- name: Cloning Picard Tools
+  git: repo=https://github.com/broadinstitute/picard.git dest="{{software_dir}}/picard" clone=yes update=yes
+
+- name: Running Picard Compile Script (gradlew)
+  shell: ./gradlew shadowJar
+  args:
+    chdir: "{{software_dir}}/picard"
+
+- name: Creating runnable Picard script
+  lineinfile: dest=/usr/local/bin/picard-tools line="#!/bin/bash\njar={{software_dir}}/picard/build/libs/picard.jar\nexec java -Xmx3g -jar $jar $@\n" create=yes state=present
