@@ -16,4 +16,4 @@
     - make
 
 - name: Installing bam2fastq
-  file: src="{{software_dir}}/bam2fastq-{{version}}/bam2fastq" dest="/usr/local/bin/bam2fastq" state=file
+  file: src="{{software_dir}}/bam2fastq-{{version}}/bam2fastq" dest="/usr/local/bin/bam2fastq" state=link
