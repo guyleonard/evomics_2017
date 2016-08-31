@@ -15,7 +15,7 @@
   make: chdir="{{source_dir}}/blasr" target=build-submodule
 
 - name: Running make blasr
-  make: chdir="{{source_dir}}/blasr" target=blasr
+  make: chdir="{{source_dir}}/blasr" target=blasr params="-lsz"
   ignore_errors: yes
 
 # To do
