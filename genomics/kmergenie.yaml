@@ -1,0 +1,24 @@
+- name: Downloading KmerGenie {{version}}
+  get_url: url="http://kmergenie.bx.psu.edu/kmergenie-{{version}}.tar.gz" dest="{{source_dir}}/kmergenie-{{version}}.tar.gz"
+
+- name: Uncompressing KmerGenie
+  unarchive: 
+    src="{{source_dir}}/kmergenie-{{version}}.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/kmergenie-{{version}}/README"
+
+- name: make KmerGenie
+  shell: "{{item}}"
+  args:
+   chdir: "{{software_dir}}/kmergenie-{{version}}"
+  with_items:
+    - make
+
+- name: make install KmerGenie
+  shell: "{{item}}"
+  args:
+   chdir: "{{software_dir}}/kmergenie-{{version}}"
+  with_items:
+    - make install
+

@@ -17,7 +17,7 @@
     - name: Create Workshop Directory
       file: path={{workshop_dir}} state=directory owner=genomics
       
-    - name: Installing Dependencies
+    - name: Installing Some Other Build Dependencies
       apt: name={{item}} state=present install_recommends=yes
       with_items:
        - libgsl0-dev
@@ -74,12 +74,11 @@
     ## Data
     ## Software
     # This requires > 4GB memory to install, what to do!
-    - include: blasr.yaml
-      tags: blasr
+    #- include: blasr.yaml
+    #  tags: blasr
 
 
     ### Genomics ###
-
     ## Previously Installed
     # FastQC, fastq-mcf, seqtk, blasr
 
@@ -164,7 +163,6 @@
 
 
     ### Genome Assembly ###
-    
     ## Previously Installed
     # velvet, SPAdes, QUAST
 
@@ -172,3 +170,6 @@
     ## Software
     - include: minia.yaml version=2.0.7
       tags: minia
+
+    - include: kmergenies.yaml version=1.7016
+      tags: kmergenie
