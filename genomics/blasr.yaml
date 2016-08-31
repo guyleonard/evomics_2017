@@ -6,7 +6,7 @@
   args:
    chdir: "{{source_dir}}/blasr"
   with_items:
-    - ./configure.py --shared --sub --no-pbbam HDF5_INCLUDE=/usr/include/hdf5/serial/ HDF5_LIB=/usr/lib/x86_64-linux-gnu/hdf5/serial
+    - ./configure.py --sub --no-pbbam HDF5_INCLUDE=/usr/include/hdf5/serial/ HDF5_LIB=/usr/lib/x86_64-linux-gnu/hdf5/serial
 
 - name: Running make configure-submodule
   make: chdir="{{source_dir}}/blasr" target=configure-submodule
