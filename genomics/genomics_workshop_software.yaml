@@ -181,7 +181,7 @@
       tags: r, littler
 
     - name: Installing ggplot2
-      shell: install.r ggplot2
+      shell: scripts/install.r ggplot2
       tags: r, ggplot2
 
 
