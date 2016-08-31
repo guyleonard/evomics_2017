@@ -1,0 +1,28 @@
+- name: Install PROKKA Perl Dependencies
+  cpanm: name={{item}}
+  with_items:
+    - Bio::Perl
+    - Digest::MD5
+    - LWP::UserAgent
+    - XML::Simple
+
+# hmmer can be installed from the genomics playbook
+- name: Install PROKKA apt dependencies
+  apt: name={{item}} state=present
+  with_items:
+    - aragorn
+    - barrnap
+    - infernal
+    - ncbi-blast+
+    - prodigal 
+    - parallel
+
+- name: Clone PROKKA
+  git: repo="https://github.com/tseemann/prokka.git" dest="{{software_dir}}/prokka" clone=yes update=yes
+
+- name: Setup PROKKA db
+  shell: "{{item}}"
+  args:
+   chdir: "{{software_dir}}/prokka"
+  with_items:
+   - bin/prokka --setupdb

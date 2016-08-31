@@ -173,3 +173,6 @@
 
     - include: kmergenie.yaml version=1.7016
       tags: kmergenie
+   
+    - include: prokka.yaml
+      tags: prokka.yaml
