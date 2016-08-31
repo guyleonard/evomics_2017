@@ -26,7 +26,7 @@
        - libhdf5-dev #blasr
       
   tasks:
-    # Installing Commonly Required Programs 
+    ### Commonly Required Programs ###
     - name: Installing bamtools
       apt: name={{item}} state=present
       with_items:
@@ -34,6 +34,11 @@
        - libbamtools-dev
        - libbamtools2.4.0
        - sra-toolkit
+
+    - name: Installing BioPerl - slow
+      cpanm: name=CJFIELDS/BioPerl-1.6.924.tar.gz
+      tags: bioperl
+
    
     ### Introduction to Unix ###
     ## Get Julian's materials from ???
@@ -154,6 +159,13 @@
     - include: genomics_tutorial_extras.yaml
       tags: genomics_extras
 
-    - name: Installing BioPerl
-      cpanm: name=CJFIELDS/BioPerl-1.6.924.tar.gz
-      tags: bioperl
+
+    ### Genome Assembly ###
+    
+    ## Previously Installed
+    # velvet, SPAdes, QUAST
+
+    ## Date
+    ## Software
+    - include: mini.yaml version=2.0.7
+      tags: minia

@@ -1,0 +1,17 @@
+- name: Downloading Minia {{version}}
+  get_url: url="https://github.com/GATB/minia/releases/download/v{{version}}/minia-v{{version}}-bin-Linux.tar.gz" dest="{{source_dir}}/minia-v{{version}}-bin-Linux.tar.gz"
+
+- name: Uncompressing Minia
+  unarchive: 
+    src="{{source_dir}}/minia-v{{version}}-bin-Linux.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/minia-v{{version}}-bin-Linux/LICENSE"
+
+- name: Installin Minia
+  file: src="{{software_dir}}/minia-v{{version}}-bin-Linux/minia" dest=/usr/local/bin/minia state=link
+
+- name: Installin Minia
+  file: src="{{software_dir}}/minia-v{{version}}-bin-Linux/h5dump" dest=/usr/local/bin/h5dump state=link
+
+
