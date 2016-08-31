@@ -170,10 +170,19 @@
 
 
     ### Introduction to R ###
-    - name: Install R packages
-      shell: echo "library.install(c('${item}')"| R --slave --no-save --no-restore-history
-      with_items:
-       - rcranrandompackage
+    #- name: Install R packages
+    #  shell: echo "library.install(c('${item}')"| R --slave --no-save --no-restore-history
+    #  with_items:
+    #   - rcranrandompackage
+    # This allows R packages to be installed from shell
+    # install.r r_package_name ... ...
+    - name: Installing littler
+      apt: name=r-cran-littler state=present
+      tags: r, littler
+
+    - name: Installing ggplot2
+      shell: install.r ggplot2
+      tags: r, ggplot2
 
 
     ### QIIME ###
@@ -187,10 +196,10 @@
 
     
     ### PhyloSeq ###
-    - name: Install R packages
-      shell: echo "library.install(c('${item}')"| R --slave --no-save --no-restore-history
-      with_items:
-       - rcranrandompackage
+    #- name: Install R packages
+    #  shell: echo "library.install(c('${item}')"| R --slave --no-save --no-restore-history
+    #  with_items:
+    #   - rcranrandompackage
 
     
     ### RAD-Seq / Stacks ###
