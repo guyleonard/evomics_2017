@@ -26,7 +26,7 @@
        - libhdf5-dev #blasr
       
   tasks:
-    ### Commonly Required Programs ###
+    ### Commonly Required Programs/Libraries ###
     - name: Installing bamtools
       apt: name={{item}} state=present
       with_items:
@@ -34,33 +34,29 @@
        - libbamtools-dev
        - libbamtools2.4.0
        - sra-toolkit
+      tags: alignment, assembly, genomics, seqdqc
 
     - name: Installing BioPerl - slow
       cpanm: name=CJFIELDS/BioPerl-1.6.924.tar.gz
-      tags: bioperl
+      tags: alignment, assembly, genomics, seqdqc, bioperl
 
     - name: Installing BioPython
       pip: name=biopython state=present
-      tags: biopython
+      tags: alignment, assembly, genomics, seqdqc, biopython
    
-    ### Introduction to Unix ###
-    ## Get Julian's materials from ???
-    
+    ### Unix ###
+    # Base is OK
 
-    ### Sequence Data Quality Control ###
-    ## Data
-    #Get data from Sophie/Josie
-    
-    ## Software
-    - include: seqtk.yaml
-      tags: seqtk
+    ### Sequencing Data Quality Control ###
+    - include: software_tasks/seqtk.yaml
+      tags: genomics, seqdqc, seqtk
       
-    - include: trim_galore.yaml version=0.4.1
-      tags: trim_galore
+    - include: software_tasks/trim_galore.yaml version=0.4.1
+      tags: seqdqc, trim_galore
     
     - name: Installing cutadapt
       pip: name=cutadapt state=present
-      tags: cutadapt
+      tags: seqdqc, cutadapt
 
     - name: Install ea-utils 1.04.676, trimmomatic, fastqc 0.11.4
       apt: name={{item}} state=present
@@ -68,29 +64,26 @@
        - ea-utils
        - trimmomatic
        - fastqc
+      tags: genomics, seqdqc
 
 
     ### Alignment Methods ###
-    ## Data
-    ## Software
     # This requires > 4GB memory to install, what to do!
-    #- include: blasr.yaml
-    #  tags: blasr
+    #- include: software_tasks/blasr.yaml
+    #  tags: alignment, genomics, blasr
 
 
     ### Genomics ###
     ## Previously Installed
     # FastQC, fastq-mcf, seqtk, blasr
 
-    ## Data
-    ## Software
-    - include: bwa.yaml
-      tags: bwa
+    - include: software_tasks/bwa.yaml
+      tags: genomics, bwa
       
-    - include: samtools.yaml version=1.3.1
-      tags: samtools
-    - include: bcftools.yaml version=1.3.1
-      tags: bcftools
+    - include: software_tasks/samtools.yaml version=1.3.1
+      tags: genomics, samtools
+    - include: software_tasks/bcftools.yaml version=1.3.1
+      tags: genomics, bcftools
       
     - name: Installing blast legacy & blast+
       apt: name={{item}} state=present
@@ -99,7 +92,7 @@
        - ncbi-blast+-legacy
        - ncbi-tools-bin
        - ncbi-tools-x11
-      tags: blast
+      tags: genomics, blast
       
     - name: Installing EMBOSS tools (getorf)
       apt: name={{item}} state=present
@@ -109,7 +102,7 @@
        - emboss-doc
        - emboss-lib
        - jemboss
-      tags: emboss
+      tags: genomics, emboss
       
     - name: Installing FastTree2
       apt: name=fasttree state=present
@@ -119,60 +112,91 @@
       tags: fasttree
     - name: Install FastTree2 Links
       file: src=/usr/bin/fasttreeMP dest=/usr/bin/FastTreeMP state=link
-      tags: fasttree
+      tags: genomics, fasttree
       
-    - include: igv.yaml version=2.3.80
+    - include: software_tasks/igv.yaml version=2.3.80
       tags: igv
-    - include: igvtools.yaml version=2.3.80
-      tags: igvtools
+    - include: software_tasks/igvtools.yaml version=2.3.80
+      tags: genomics, igvtools
       
     - name: Install bedtools
       apt: name=bedtools state=present
-      tags: bedtools
+      tags: genomics, bedtools
 
-    - include: qualimap.yaml version=2.2
-      tags: qualimap
+    - include: software_tasks/qualimap.yaml version=2.2
+      tags: genomics, qualimap
 
-    - include: SPAdes.yaml version=3.9.0
-      tags: spades
+    - include: software_tasks/SPAdes.yaml version=3.9.0
+      tags: assembly, genomics, spades
 
-    - include: quast.yaml version=4.2
-      tags: quast
+    - include: software_tasks/quast.yaml version=4.2
+      tags: assembly, genomics, quast
 
-    - include: hmmer.yaml version=3.1b2
-      tags: hmmer
+    - include: software_tasks/hmmer.yaml version=3.1b2
+      tags: genomics, hmmer
 
     - name: Installing Velvet Assembler
       apt: name={{item}} state=present
       with_items:
        - velvet
        - velvet-example
-      tags: velvet
+      tags: assembly, genomics, velvet
 
-    - include: bam2fastq.yaml version=1.1.0
-      tags: bam2fastq
+    - include: software_tasks/bam2fastq.yaml version=1.1.0
+      tags: genomics, bam2fastq
 
-    - include: newick_utils.yaml
-      tags: newick_utils
+    - include: software_tasks/newick_utils.yaml
+      tags: genomics, newick_utils
 
-    - include: picard_tools.yaml
-      tags: picard_tools
+    - include: software_tasks/picard_tools.yaml
+      tags: genomics, picard_tools
 
-    - include: genomics_tutorial_extras.yaml
-      tags: genomics_extras
+    - include: software_tasks/genomics_tutorial_extras.yaml
+      tags: genomics, genomics_extras
 
 
     ### Genome Assembly ###
     ## Previously Installed
     # velvet, SPAdes, QUAST
 
-    ## Data
-    ## Software
-    - include: minia.yaml version=2.0.7
-      tags: minia
+    - include: software_tasks/minia.yaml version=2.0.7
+      tags: assembly, minia
 
-    - include: kmergenie.yaml version=1.7016
-      tags: kmergenie
+    - include: software_tasks/kmergenie.yaml version=1.7016
+      tags: assembly, kmergenie
    
-    - include: prokka.yaml
-      tags: prokka
+    - include: software_tasks/prokka.yaml
+      tags: assembly, prokka
+
+
+    ### Introduction to R ###
+    - name: Install R packages
+      shell: echo "library.install(c('${item}')"| R --slave --no-save --no-restore-history
+      with_items:
+       - rcranrandompackage
+
+
+    ### QIIME ###
+    # Talk to Dan. QIIME1 or 2? Python 2 or 3. Jupyter Notebooks?
+    - name: Install QIIME Dependencies
+      pip: name={{item}} state=present
+      with_items:
+       - numpy
+       - h5py
+    tags: qiime, metagenomics
+
+    
+    ### PhyloSeq ###
+    - name: Install R packages
+      shell: echo "library.install(c('${item}')"| R --slave --no-save --no-restore-history
+      with_items:
+       - rcranrandompackage
+
+    
+    ### RAD-Seq / Stacks ###
+
+
+    ### Transcriptomics ###
+
+
+    
