@@ -71,8 +71,8 @@
     ## Data
     ## Software
     # This requires > 4GB memory to install, what to do!
-    #- include: blasr.yaml
-    #  tags: blasr
+    - include: blasr.yaml
+      tags: blasr
 
 
     ### Genomics ###
@@ -165,7 +165,7 @@
     ## Previously Installed
     # velvet, SPAdes, QUAST
 
-    ## Date
+    ## Data
     ## Software
     - include: minia.yaml version=2.0.7
       tags: minia
