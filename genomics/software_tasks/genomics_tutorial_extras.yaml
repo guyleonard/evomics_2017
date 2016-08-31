@@ -4,4 +4,4 @@
     dest: /usr/local/bin
     mode: 0755
   with_fileglob:
-    - /home/ubuntu/evomics_2017/genomics/genomics_tutorial_extras/*
+    - /home/ubuntu/evomics_2017/genomics/software_tasks/genomics_tutorial_extras/*
