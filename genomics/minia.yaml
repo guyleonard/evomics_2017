@@ -9,9 +9,9 @@
     creates="{{software_dir}}/minia-v{{version}}-bin-Linux/LICENSE"
 
 - name: Installin Minia
-  file: src="{{software_dir}}/minia-v{{version}}-bin-Linux/minia" dest=/usr/local/bin/minia state=link
+  file: src="{{software_dir}}/minia-v{{version}}-bin-Linux/bin/minia" dest=/usr/local/bin/minia state=link
 
 - name: Installin Minia
-  file: src="{{software_dir}}/minia-v{{version}}-bin-Linux/h5dump" dest=/usr/local/bin/h5dump state=link
+  file: src="{{software_dir}}/minia-v{{version}}-bin-Linux/bin/h5dump" dest=/usr/local/bin/h5dump state=link
 
 
