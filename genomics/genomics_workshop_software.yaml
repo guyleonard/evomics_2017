@@ -192,7 +192,7 @@
       with_items:
        - numpy
        - h5py
-    tags: qiime, metagenomics
+      tags: qiime, metagenomics
 
     
     ### PhyloSeq ###
