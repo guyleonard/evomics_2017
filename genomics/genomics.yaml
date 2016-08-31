@@ -39,6 +39,9 @@
       cpanm: name=CJFIELDS/BioPerl-1.6.924.tar.gz
       tags: bioperl
 
+    - name: Installing BioPython
+      pip: name=biopython state=present
+      tags: biopython
    
     ### Introduction to Unix ###
     ## Get Julian's materials from ???
