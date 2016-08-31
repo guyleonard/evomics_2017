@@ -171,5 +171,5 @@
     - include: minia.yaml version=2.0.7
       tags: minia
 
-    - include: kmergenies.yaml version=1.7016
+    - include: kmergenie.yaml version=1.7016
       tags: kmergenie
