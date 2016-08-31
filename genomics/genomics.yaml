@@ -175,4 +175,4 @@
       tags: kmergenie
    
     - include: prokka.yaml
-      tags: prokka.yaml
+      tags: prokka
