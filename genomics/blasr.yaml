@@ -15,8 +15,13 @@
   make: chdir="{{source_dir}}/blasr" target=build-submodule
 
 - name: Running make blasr
-  make: chdir="{{source_dir}}/blasr" target=blasr params=-lsz
-  ignore_errors: yes
+  shell: "{{item}}"
+  args:
+   chdir: "{{source_dir}}/blasr"
+  with_items:
+    - make -lsz blasr
+
+
 
 # To do
 # Update LD Library paths
