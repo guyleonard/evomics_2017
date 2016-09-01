@@ -204,44 +204,43 @@
     
     - name: Installing ape
       shell: "{{playbook_dir}}/scripts/install.r ape"
-      tags: r, phyloseq, ape
-
+      tags: phyloseq, ape
     - name: Installing ade4
       shell: "{{playbook_dir}}/scripts/install.r ade4"
-      tags: r, phyloseq, ade4
+      tags: phyloseq, ade4
     - name: Installing doParallel
       shell: "{{playbook_dir}}/scripts/install.r doParallel"
-      tags: r, phyloseq, doparallel
+      tags: phyloseq, doparallel
     - name: Installing foreach
       shell: "{{playbook_dir}}/scripts/install.r foreach"
-      tags: r, phyloseq, foreach
+      tags: phyloseq, foreach
     - name: Installing igraph
       shell: "{{playbook_dir}}/scripts/install.r igraph"
-      tags: r, phyloseq, igraph
+      tags: phyloseq, igraph
     - name: Installing picante
       shell: "{{playbook_dir}}/scripts/install.r picante"
-      tags: r, phyloseq, picante
+      tags: phyloseq, picante
     - name: Installing plyr
       shell: "{{playbook_dir}}/scripts/install.r plyr"
-      tags: r, phyloseq, plyr
+      tags: phyloseq, plyr
     - name: Installing RJSONIO
       shell: "{{playbook_dir}}/scripts/install.r rjsonio"
-      tags: r, phyloseq, rjsonio
+      tags: phyloseq, rjsonio
     - name: Installing scales
       shell: "{{playbook_dir}}/scripts/install.r scales"
-      tags: r, phyloseq, scales
+      tags: phyloseq, scales
     - name: Installing testthat
       shell: "{{playbook_dir}}/scripts/install.r testthat"
-      tags: r, phyloseq, testthat
+      tags: phyloseq, testthat
     - name: Installing vegan
       shell: "{{playbook_dir}}/scripts/install.r vegan"
-      tags: r, phyloseq, vegan
+      tags: phyloseq, vegan
     - name: Installing devtools
       shell: "{{playbook_dir}}/scripts/install.r devtools"
-      tags: r, phyloseq, devtools
+      tags: phyloseq, devtools
 
     - name: Installing PhyloSeq
-      shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('phyloseq')"
+      shell: "Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('phyloseq')""
 
 
     
