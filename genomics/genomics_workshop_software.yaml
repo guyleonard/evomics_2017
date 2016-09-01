@@ -182,7 +182,7 @@
       tags: r, littler
 
     - name: Installing ggplot2
-      shell: "{{playbook_dir}}/scripts/install.r ggplot2"
+      shell: "{{playbook_dir}}/genomics/scripts/install.r ggplot2"
       tags: r, ggplot2
 
 
