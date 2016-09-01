@@ -240,7 +240,7 @@
       tags: phyloseq, devtools
 
     - name: Installing PhyloSeq
-      shell: "Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('phyloseq')""
+      shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('phyloseq')"
 
 
     
