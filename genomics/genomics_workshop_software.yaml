@@ -24,6 +24,7 @@
        - libsparsehash-dev
        - libhdf5-cpp-11 #blasr
        - libhdf5-dev #blasr
+       - libfreetype6-dev #matplotlib
       
   tasks:
     ### Commonly Required Programs/Libraries ###
@@ -181,7 +182,7 @@
       tags: r, littler
 
     - name: Installing ggplot2
-      shell: scripts/install.r ggplot2
+      shell: "{{playbook_dir}}/scripts/install.r ggplot2"
       tags: r, ggplot2
 
 
@@ -192,6 +193,7 @@
       with_items:
        - numpy
        - h5py
+       - matplotlib
       tags: qiime, metagenomics
 
     
