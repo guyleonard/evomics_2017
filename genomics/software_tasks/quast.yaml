@@ -1,5 +1,11 @@
 - name: Downloading QUAST v{{version}}
-  get_url: url="https://downloads.sourceforge.net/project/quast/quast-{{version}}.tar.gz" dest="{{source_dir}}/quast-{{version}}.tar.gz"
+  get_url:
+    url="https://downloads.sourceforge.net/project/quast/quast-{{version}}.tar.gz"
+    dest="{{source_dir}}/quast-{{version}}.tar.gz"
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 5
+  delay: 10
 
 - name: Uncompress QUAST
   unarchive: 
