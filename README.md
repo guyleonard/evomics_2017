@@ -141,9 +141,9 @@ A '*' indicates the software is used in more than one workshop and so need to be
  * password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0 
 
 # Using This Repository
-To build the systems that we will make our own version of an AMI from, for either workshop, you will need to run at least the [base.sh](https://github.com/guyleonard/evomics_2017/blob/master/base.sh) script on your remote Virtual Machine and then one or the other of "genomics.sh" and "phylogenomics.sh".
+To build the AMI for either workshop, you will need to run at least the [base.sh](https://github.com/guyleonard/evomics_2017/blob/master/base.sh) script on your remote Virtual Machine and then one or the other of the sets of "genomics_workshop_*.yaml" and "phylogenomics_workshop_*.yaml".
 
-These scripts will run the Ansible 'Playbooks' which are a serious of instructions and 'taskbooks' to automate the install of software, workshop materials and other settings which are described above in [2017 Base AMI](https://github.com/guyleonard/evomics_2017#2017-base-ami) section...
+These scripts will run the Ansible 'Playbooks' which are a serious of instructions and 'taskbooks' to automate the install of software, workshop materials and other settings which are described above in [2017 Base AMI](https://github.com/guyleonard/evomics_2017#2017-base-ami) section and probably some I have forgotten to list, but you can see them in the code...
 
 ## Base AMI Setup
 
@@ -153,12 +153,20 @@ Run this code on your clean AMI:
 
 I would now make an Amazon Image of this system and then use that as your "base AMI" for the next steps...
 
-## Genomics AMI Setup
+## Genomics AMI Setup:
+
+### Software
 
     ANSIBLE_NOCOWS=1 ansible-playbook /home/ubuntu/evomics_2017/genomics/genomics_workshop_software.yaml --sudo -K -c local -i "localhost,"
 
-or for just two tools, e.g. samtools & bwa
+or for just two tools, e.g. samtools & bwa:
 
     ANSIBLE_NOCOWS=1 ansible-playbook /home/ubuntu/evomics_2017/genomics/genomics_workshop_software.yaml --sudo -K -c local -i "localhost," --tags samtools,bwa
+    
+or for just one tutorial you could do:
+
+    ANSIBLE_NOCOWS=1 ansible-playbook /home/ubuntu/evomics_2017/genomics/genomics_workshop_software.yaml --sudo -K -c local -i "localhost," --tags assembly
+
+### Data
 
 ## Phylogenomics AMI Setup
