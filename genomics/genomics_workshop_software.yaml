@@ -177,9 +177,10 @@
     #   - rcranrandompackage
     # This allows R packages to be installed from shell
     # install.r r_package_name ... ...
+
     - name: Installing littler
       apt: name=r-cran-littler state=present
-      tags: r, littler
+      tags: r, phyloseq, littler
 
     - name: Installing ggplot2
       shell: "{{playbook_dir}}/scripts/install.r ggplot2"
@@ -198,10 +199,50 @@
 
     
     ### PhyloSeq ###
-    #- name: Install R packages
-    #  shell: echo "library.install(c('${item}')"| R --slave --no-save --no-restore-history
-    #  with_items:
-    #   - rcranrandompackage
+    ## Previously Installed
+    # r, r-studio-server/desktop, littler, ggplot2
+    
+    - name: Installing ape
+      shell: "{{playbook_dir}}/scripts/install.r ape"
+      tags: r, phyloseq, ape
+
+    - name: Installing ade4
+      shell: "{{playbook_dir}}/scripts/install.r ade4"
+      tags: r, phyloseq, ade4
+    - name: Installing doParallel
+      shell: "{{playbook_dir}}/scripts/install.r doParallel"
+      tags: r, phyloseq, doparallel
+    - name: Installing foreach
+      shell: "{{playbook_dir}}/scripts/install.r foreach"
+      tags: r, phyloseq, foreach
+    - name: Installing igraph
+      shell: "{{playbook_dir}}/scripts/install.r igraph"
+      tags: r, phyloseq, igraph
+    - name: Installing picante
+      shell: "{{playbook_dir}}/scripts/install.r picante"
+      tags: r, phyloseq, picante
+    - name: Installing plyr
+      shell: "{{playbook_dir}}/scripts/install.r plyr"
+      tags: r, phyloseq, plyr
+    - name: Installing RJSONIO
+      shell: "{{playbook_dir}}/scripts/install.r rjsonio"
+      tags: r, phyloseq, rjsonio
+    - name: Installing scales
+      shell: "{{playbook_dir}}/scripts/install.r scales"
+      tags: r, phyloseq, scales
+    - name: Installing testthat
+      shell: "{{playbook_dir}}/scripts/install.r testthat"
+      tags: r, phyloseq, testthat
+    - name: Installing vegan
+      shell: "{{playbook_dir}}/scripts/install.r vegan"
+      tags: r, phyloseq, vegan
+    - name: Installing devtools
+      shell: "{{playbook_dir}}/scripts/install.r devtools"
+      tags: r, phyloseq, devtools
+
+    - name: Installing PhyloSeq
+      shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('phyloseq')"
+
 
     
     ### RAD-Seq / Stacks ###
