@@ -222,8 +222,8 @@
        - libsparsehash-dev
        - mysql-server
        - mysql-client
-       - php7
-       - php7-mysqlnd
+       - php7.0
+       - php7.0-mysql
        - libspreadsheet-writeexcel-perl
       tags: radseq
  
