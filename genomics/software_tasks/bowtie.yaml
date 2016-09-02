@@ -23,5 +23,5 @@
     dest: /usr/local/bin
     mode: 0755
   with_fileglob:
-    - {{software_dir}}/bowtie2-{{version}}/bowtie2-*
+    - "{{software_dir}}/bowtie2-{{version}}/bowtie2-*"
 
