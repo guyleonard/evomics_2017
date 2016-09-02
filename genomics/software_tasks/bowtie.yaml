@@ -17,5 +17,11 @@
     copy=no
     creates="{{software_dir}}/bowtie2-{{version}}/VERSION"
     
-- name: Installing bam2fastq
-  file: src="{{software_dir}}/bowtie2-{{version}}/bowtie2" dest="/usr/local/bin/bowtie2" state=link
+- name: Installing Bowties v{{version}} Files
+  copy:
+    src: "{{item}}"
+    dest: /usr/local/bin
+    mode: 0755
+  with_fileglob:
+    - {{software_dir}}/bowtie2-{{version}}/bowtie2-*
+
