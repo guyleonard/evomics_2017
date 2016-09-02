@@ -227,7 +227,7 @@
        - libspreadsheet-writeexcel-perl
       tags: radseq
  
-    - include: software_tasks/stacks.yaml
+    - include: software_tasks/stacks.yaml version=1.42
       tags: radseq
 
     ### Transcriptomics ###
