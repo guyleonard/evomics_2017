@@ -79,7 +79,7 @@
     # FastQC, fastq-mcf, seqtk, blasr
 
     # installs bowtie 1 and 2
-    - include: bowtie.yaml version=2.2.9
+    - include: software_tasks/bowtie.yaml version=2.2.9
       tags: genomics, bowtie 
 
     - include: software_tasks/bwa.yaml
