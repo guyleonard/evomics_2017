@@ -211,7 +211,23 @@
 
     
     ### RAD-Seq / Stacks ###
+    ## Previously Installed
+    # ??
 
+    - name: Installing Stacks Dependencies
+      apt: name={{item}} state=present
+      with_items:
+       - libdbd-mysql-perl
+       - libsparsehash-dev
+       - mysql-server
+       - mysql-client
+       - php5
+       - php5-mysqlnd
+       - libspreadsheet-writeexcel-perl
+      tags: radseq
+ 
+    - include: software_tasks/stacks.yaml
+      tags: radseq
 
     ### Transcriptomics ###
 
