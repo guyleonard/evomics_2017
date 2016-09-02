@@ -213,6 +213,7 @@
     ### RAD-Seq / Stacks ###
     ## Previously Installed
     # ??
+    # PHP5?? http://askubuntu.com/questions/756181/installing-php-5-6-on-xenial-16-04
 
     - name: Installing Stacks Dependencies
       apt: name={{item}} state=present
@@ -221,8 +222,8 @@
        - libsparsehash-dev
        - mysql-server
        - mysql-client
-       - php5
-       - php5-mysqlnd
+       - php7
+       - php7-mysqlnd
        - libspreadsheet-writeexcel-perl
       tags: radseq
  
