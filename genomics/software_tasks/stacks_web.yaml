@@ -14,4 +14,4 @@
 
 # Mysql Setup - NB There's MySQL Setup Procedures in Base too!
 - name: Add Stacks MySQL User
-  mysql_user: name=genomics password={{stacks_user_password}} encrypted=yes priv=*.*:ALL state=present
+  mysql_user: name=genomics password="{{stacks_user_password}}" encrypted=yes priv=*.*:ALL state=present
