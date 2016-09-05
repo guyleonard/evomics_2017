@@ -136,9 +136,13 @@
     - name: Ensure anonymous users are not in the database
       mysql_user: name='' host={{ item }} state=absent
       with_items:
+        - localhost  
+    - name: Secure the MySQL root user
+      mysql_user: user="root" password="{{mysql_root_pass}}" host="{{item}}" login_password="{{mysql_root_pass}}" login_user=root
+      with_items:
+        - 127.0.0.1
         - localhost
-        - {{ inventory_hostname }}
-
+        - ::1
     - name: Remove the test database
       mysql_db: name=test state=absent
 
