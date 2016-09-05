@@ -2,6 +2,7 @@
   vars:
     - source_dir: /home/ubuntu/software/.source
     - software_dir: /home/ubuntu/software
+    - mysql_root_pass: $6$Ul19EyLfbSne$XkeaVlihdjRz1yMDqe23tMJq8EcsGpGTzqUNRSgJV37v5Kpot/hDRhR2CP0Ye.kaPRKbxmWAgkEG6HRVeF/KN.
 
   pre_tasks:
     # Create Directories
@@ -61,6 +62,12 @@
 
     # Install R and R Studio Server/Dektop
     - include: r_and_r_studio.yaml
+
+    # Setup MySQL root Password
+    - name: Set MySQL root password before installing
+      debconf: name='mysql-server' question='mysql-server/root_password' value='{{mysql_root_pass | quote}}' vtype='password'
+    - name: Confirm MySQL root password before installing
+      debconf: name='mysql-server' question='mysql-server/root_password_again' value='{{mysql_root_pass | quote}}' vtype='password'
 
     # Install Other Dependencies and Software
     - name: Installing Other Useful Software - This may take some time...Beer O'clock!
@@ -124,6 +131,16 @@
        - xcowsay
        - zip
        - zlib1g-dev
+
+    # Final MySQL Setup
+    - name: Ensure anonymous users are not in the database
+      mysql_user: name='' host={{ item }} state=absent
+      with_items:
+        - localhost
+        - {{ inventory_hostname }}
+
+    - name: Remove the test database
+      mysql_db: name=test state=absent
 
     # Gem Installs
     - name: Other Stuff
