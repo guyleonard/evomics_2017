@@ -33,7 +33,7 @@
       Alias /stacks "/usr/local/share/stacks/php"
 
 - name: Symlink Apache Conf Available to Enabled
-  file: src:/etc/apache2/conf-available/stacks.conf dest:/etc/apache2/conf-enabled/stacks.conf state=link
+  file: src=/etc/apache2/conf-available/stacks.conf dest=/etc/apache2/conf-enabled/stacks.conf state=link
 
 - name: Restart Apache
   service: name=apache2 state=restarted
