@@ -20,7 +20,10 @@
 
 
 # Stacks Apache Settings - 2.4.3
-- name: Create Apache Conf in Available
+- name: Create Apache Conf in conf-available
+  file: path=/etc/apache2/conf-available/stacks.conf state=touch
+
+- name: Add settings to conf-available
   blockinfile:
     dest: /etc/apache2/conf-available/stacks.conf
     content: |
