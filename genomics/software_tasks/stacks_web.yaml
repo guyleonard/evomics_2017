@@ -1,6 +1,6 @@
 # Stacks Config File
 - name: Create Stacks Mysql Config
-  file: src=/usr/local/share/stacks/sql/mysql.cnf.dist dest=/usr/local/share/stacks/sql/mysql.cnf state=file
+  file: src=/usr/local/share/stacks/sql/mysql.cnf.dist dest=/usr/local/share/stacks/sql/mysql.cnf
 
 - name: Edit Stacks Mysql Config - Username
   lineinfile: dest=/usr/local/share/stacks/sql/mysql.cnf regexp='^user=' line="user=genomics" backup=yes
