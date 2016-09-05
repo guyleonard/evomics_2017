@@ -28,7 +28,7 @@
          Order deny,allow
          Deny from all
          Allow from all
-	 Require all granted
+         Require all granted
       </Directory>
       Alias /stacks "/usr/local/share/stacks/php"
 
