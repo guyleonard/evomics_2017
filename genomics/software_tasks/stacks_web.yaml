@@ -1,4 +1,4 @@
-# Stacks Config File
+# Stacks MySQL Config - 2.4.2
 - name: Create Stacks Mysql Config
   copy: src=/usr/local/share/stacks/sql/mysql.cnf.dist dest=/usr/local/share/stacks/sql/mysql.cnf
 
@@ -8,11 +8,49 @@
 - name: Edit Stacks Mysql Config - Password
   lineinfile: dest=/usr/local/share/stacks/sql/mysql.cnf regexp='^password=' line="password={{stacks_user_password}}" backup=yes
 
-#- name: Edit Stacks Mysql Config - hostname
+#- name: Edit Stacks Mysql Config - Hostname
 #  lineinfile: dest=/usr/local/share/stacks/sql/mysql.cnf regexp='^host=' line="host=localhost" backup=yes
 
 
-# Mysql Setup - NB There's MySQL Setup Procedures in Base too!
+# Stacks Mysql Server Setup - 2.4.2
+# NB There's MySQL Setup Procedures in Base too!
 # I can't seem to pass a variable to password, so it has to be the actual mysql_native_password 
 - name: Add Stacks MySQL User
   mysql_user: name=genomics password='*39094635b39efded76637451cdbd294d41865007' encrypted=yes priv=*.*:ALL state=present
+
+
+# Stacks Apache Settings - 2.4.3
+- name: Create Apache Conf in Available
+  blockinfile:
+    dest: /etc/apache2/conf-available/stacks.conf
+    block: |
+     <Directory "/usr/local/share/stacks/php">
+        Order deny,allow
+        Deny from all
+        Allow from all
+	Require all granted
+     </Directory>
+     Alias /stacks "/usr/local/share/stacks/php"
+
+- name: Symlink Apache Conf Available to Enabled
+  file: src:/etc/apache2/conf-available/stacks.conf dest:/etc/apache2/conf-enabled/stacks.conf state=link
+
+- name: Restart Apache
+  service: name=apache2 state=restarted
+
+
+# Stacks PHP Constants Config - 2.4.4
+- name: Create Stacks PHP Config
+  copy: src=/usr/local/share/stacks/php/constants.php.dist dest=/usr/local/share/stacks/php/constants.php
+
+- name: Edit Stacks PHP Config - Username
+  lineinfile: dest=/usr/local/share/stacks/php/constants.php regexp='^$db_user' line="$db_user="genomics"" backup=yes
+
+- name: Edit Stacks PHP Config - Password
+  lineinfile: dest=/usr/local/share/stacks/php/constants.php regexp='^$db_pass' line="$db_pass="{{stacks_user_password}}"" backup=yes
+
+#- name: Edit Stacks PHP Config - Hostname
+#  lineinfile: dest=/usr/local/share/stacks/php/constants.php regexp='^$db_host' line="$db_host="localhost"" backup=yes
+
+
+
