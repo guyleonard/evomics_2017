@@ -5,8 +5,8 @@
     - workshop_dir: /home/genomics/workshop_materials
     # sha-512 hash
     - genomics_user_password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0
-    # sha-256 hash
-    - stacks_user_password: $5$CZnEH/p5IWG$pe9fSwlHkFQmSGxhli5aFt4rW9i42jep/W7Yh7koEz5
+    # mysql native hash - SELECT SHA1(UNHEX(SHA1("password")))
+    - stacks_user_password: 39094635b39efded76637451cdbd294d41865007
     
   pre_tasks:
     # Set up the workshop user with a SHA-512 crypted password using mkpasswd
