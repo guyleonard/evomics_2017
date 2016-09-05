@@ -23,7 +23,7 @@
 - name: Create Apache Conf in Available
   blockinfile:
     dest: /etc/apache2/conf-available/stacks.conf
-    block: |
+    content: |
       <Directory "/usr/local/share/stacks/php">
          Order deny,allow
          Deny from all
