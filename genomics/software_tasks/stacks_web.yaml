@@ -6,7 +6,7 @@
   lineinfile: dest=/usr/local/share/stacks/sql/mysql.cnf regexp='^user=' line="user=genomics" backup=yes
 
 - name: Edit Stacks Mysql Config - Password
-  lineinfile: dest=/usr/local/share/stacks/sql/mysql.cnf regexp='^password=' line="password={{genomics_user_password}}" backup=yes
+  lineinfile: dest=/usr/local/share/stacks/sql/mysql.cnf regexp='^password=' line="password={{stacks_user_password}}" backup=yes
 
 #- name: Edit Stacks Mysql Config - hostname
 #  lineinfile: dest=/usr/local/share/stacks/sql/mysql.cnf regexp='^host=' line="host=localhost" backup=yes
