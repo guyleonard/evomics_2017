@@ -3,11 +3,12 @@
     - source_dir: /home/genomics/software/.source
     - software_dir: /home/genomics/software
     - workshop_dir: /home/genomics/workshop_materials
+    - genomics_user_password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0
     
   pre_tasks:
     # Set up the workshop user with a SHA-512 crypted password using mkpasswd
     - name: Create genomics Workshop User
-      user: name=genomics group=workshop comment="Genomics Workshop User" state=present shell=/bin/bash password='$6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0'
+      user: name=genomics group=workshop comment="Genomics Workshop User" state=present shell=/bin/bash password={{genomics_user_password}}
       
     # Create genomics user Software Directories
     - name: Create Software Dir
@@ -224,13 +225,18 @@
        - mysql-client
        - php7.0
        - php7.0-mysql
+       - python-mysqldb
        - libspreadsheet-writeexcel-perl
       tags: radseq
  
     - include: software_tasks/stacks.yaml version=1.42
       tags: radseq
 
-    ### Transcriptomics ###
+    - include: software_tasks/stacks_web.yaml
+      tags: radseq
 
+    ### Transcriptomics ###
+    ## Previously Installed
+    # bowtie1, bioconductor, IGV, samtools
 
     
