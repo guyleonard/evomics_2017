@@ -45,6 +45,23 @@ List:
  * XRDP - Remote Desktop
   * TCP:3389
  * RStudio
+  * TCP: 8787
+ * SSH
+  * TCP: 22
+ * Web
+  * TCP: 8080 & TCP: 8888
+
+## Passwords
+
+In this README and throughout some of the playbooks and taskbooks you will find paswords, with the exception of the mysql password (SHA1), they are all written in the SHA-512 hashed representation.
+I won't be including what the hashes translate to - i.e. the plain text passwords here. Therefore, if you fork this repository or want to try it out for yourself, you should change the passwords.
+There are three users to change: genomics, phylogenomics, master and one mysql password to change.
+
+### Generate Crypted Passwords for Users
+    mkpasswd --method=sha-512
+
+### Generate Crypted Password for MySql
+    SELECT PASSWORD("password")
 
 ## 2017 Base AMI
 We will be using the latest Ubuntu Linux as our initial AMI, in this case: [ami-cf68e0d8](https://console.aws.amazon.com/ec2/home?region=us-east-1#LaunchInstanceWizard:ami=ami-cf68e0d8) which is the 'us-east-1'	copy of Ubuntu Xenial Xerus 16.04 LTS.
