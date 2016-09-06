@@ -74,8 +74,8 @@
 
     ### Alignment Methods ###
     # This requires > 4GB memory to install, what to do!
-    #- include: software_tasks/blasr.yaml
-    #  tags: alignment, genomics, blasr
+    - include: software_tasks/blasr.yaml
+      tags: alignment, genomics, blasr
 
 
     ### Genomics ###
@@ -216,7 +216,7 @@
     
     ### RAD-Seq / Stacks ###
     ## Previously Installed
-    # ??
+    # MySQL in Base Install
     # PHP5?? http://askubuntu.com/questions/756181/installing-php-5-6-on-xenial-16-04
 
     - name: Installing Stacks Dependencies
@@ -224,8 +224,6 @@
       with_items:
        - libdbd-mysql-perl
        - libsparsehash-dev
-       - mysql-server
-       - mysql-client
        - php7.0
        - php7.0-mysql
        - python-mysqldb
