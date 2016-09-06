@@ -47,7 +47,7 @@
   copy: src=/usr/local/share/stacks/php/constants.php.dist dest=/usr/local/share/stacks/php/constants.php
 
 - name: Edit Stacks PHP Config - Username
-  lineinfile: dest=/usr/local/share/stacks/php/constants.php regexp="db_user     =" line="\$db_user     = \"genomics\";" backup=yes
+  lineinfile: dest=/usr/local/share/stacks/php/constants.php regexp="db_user     =" line="$db_user     = \"genomics\";" backup=yes
 
 - name: Edit Stacks PHP Config - Password
   lineinfile: dest=/usr/local/share/stacks/php/constants.php regexp="db_pass     =" line="$db_pass     = \"{{stacks_user_password}}\";" backup=yes
