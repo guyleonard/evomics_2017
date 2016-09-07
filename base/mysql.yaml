@@ -1,0 +1,29 @@
+# Setup MySQL root Password
+- name: Set MySQL root password before installing
+  debconf: name='mysql-server' question='mysql-server/root_password' value='{{mysql_root_pass | quote}}' vtype='password'
+
+- name: Confirm MySQL root password before installing
+  debconf: name='mysql-server' question='mysql-server/root_password_again' value='{{mysql_root_pass | quote}}' vtype='password'
+
+- name: Installing MySQL
+  apt: name={{item}} state=present install_recommends=yes 
+  with_items:
+    - mysql-client
+    - mysql-server
+    - php-mysql
+
+# Final MySQL Setup
+- name: Ensure Anonymous Users are not in the Database
+  mysql_user: name='' host={{ item }} state=absent
+  with_items:
+    - localhost
+
+- name: Secure the MySQL root User
+  mysql_user: user="root" password="{{mysql_root_pass}}" host="{{item}}" login_password="{{mysql_root_pass}}" login_user=root
+  with_items:
+    - 127.0.0.1
+    - localhost
+    - ::1
+
+- name: Remove the Test Database
+  mysql_db: name=test state=absent
