@@ -40,34 +40,43 @@
       with_items:
        - mate-desktop-environment
        - mate-desktop-environment-extras
+      tags: mate
 
     - name: Disable Scroll Overlay
       apt: name=overlay-scrollbar state=absent purge=yes
+      tags: overlay
 
     - name: Remove Update Manager Notifications
       apt: name=update-manager state=absent
+      tags: update-manager
 
     # Install Google Chrome
     - include: chrome.yaml
+      tags: chrome
      
     # Install Firefox
     - name: Installing Firefox
       apt: name=firefox state=present install_recommends=yes
+      tags: firefox
 
     # Install X2Go
     - include: x2go.yaml
+      tags: x2go
 
     # Install Open-Java and Oracle-Java
     - include: java.yaml
+      tags: java
 
     # Install R and R Studio Server/Dektop
     - include: r_and_r_studio.yaml
+      tags: r
 
     # Setup MySQL root Password
     - name: Set MySQL root password before installing
       debconf: name='mysql-server' question='mysql-server/root_password' value='{{mysql_root_pass | quote}}' vtype='password'
     - name: Confirm MySQL root password before installing
       debconf: name='mysql-server' question='mysql-server/root_password_again' value='{{mysql_root_pass | quote}}' vtype='password'
+      tags: mysql_password
 
     # Install Other Dependencies and Software
     - name: Installing Other Useful Software - This may take some time...Beer O'clock!
@@ -131,25 +140,34 @@
        - xcowsay
        - zip
        - zlib1g-dev
+      tags: dependencies
 
     # Final MySQL Setup
     - name: Ensure anonymous users are not in the database
       mysql_user: name='' host={{ item }} state=absent
       with_items:
-        - localhost  
+        - localhost
+      tags: mysql
+
     - name: Secure the MySQL root user
       mysql_user: user="root" password="{{mysql_root_pass}}" host="{{item}}" login_password="{{mysql_root_pass}}" login_user=root
       with_items:
         - 127.0.0.1
         - localhost
         - ::1
+      tags: mysql
+
     - name: Remove the test database
       mysql_db: name=test state=absent
+      tags: mysql
 
     # Gem Installs
     - name: Other Stuff
       gem: name=lolcat state=present
+      tags: other
 
-    # Updgrade and Dist-Upgrade apt
+    # Upgrade and Dist-Upgrade apt
     - name: Upgrade and Dist-Upgrade
       apt: update_cache=yes cache_valid_time=3600 upgrade=full
+      tags: upgrade
+
