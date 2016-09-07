@@ -8,6 +8,7 @@
 - name: Installing MySQL
   apt: name={{item}} state=present install_recommends=yes 
   with_items:
+    - python-mysqldb
     - mysql-client
     - mysql-server
     - php-mysql
