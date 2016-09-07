@@ -2,7 +2,7 @@
   vars:
     - source_dir: /home/ubuntu/software/.source
     - software_dir: /home/ubuntu/software
-    - mysql_root_pass: $6$Ul19EyLfbSne$XkeaVlihdjRz1yMDqe23tMJq8EcsGpGTzqUNRSgJV37v5Kpot/hDRhR2CP0Ye.kaPRKbxmWAgkEG6HRVeF/KN.
+    - mysql_root_pass: *522F526859693BE4EBF948CA2FC0A25326CFD84E
 
   pre_tasks:
     # Create Directories
