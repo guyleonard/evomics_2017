@@ -139,6 +139,7 @@
 
     # The Dreaded MySQL
     - include: mysql.yaml
+      tags: mysql
 
     # Upgrade and Dist-Upgrade apt
     - name: Upgrade and Dist-Upgrade
