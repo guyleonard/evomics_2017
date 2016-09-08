@@ -48,9 +48,11 @@
     - name: Installing BioPython
       pip: name=biopython state=present
       tags: alignment, assembly, genomics, seqdqc, biopython
+
    
     ### Unix ###
     # Base is OK
+
 
     ### Sequencing Data Quality Control ###
     - include: software_tasks/seqtk.yaml
@@ -181,12 +183,8 @@
 
 
     ### Introduction to R ###
-    #- name: Install R packages
-    #  shell: echo "library.install(c('${item}')"| R --slave --no-save --no-restore-history
-    #  with_items:
-    #   - rcranrandompackage
-    # This allows R packages to be installed from shell
-    # install.r r_package_name ... ...
+    ## Previously Installed
+    # r and r studio
 
     - name: Installing littler
       apt: name=r-cran-littler state=present
