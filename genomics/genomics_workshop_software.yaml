@@ -73,9 +73,11 @@
 
 
     ### Alignment Methods ###
-    # This requires > 4GB memory to install, what to do!
+    # This requires > 4GB memory to install, so we ignore the errors
+    # to allow the rest of the play to run through
     - include: software_tasks/blasr.yaml
       tags: alignment, genomics, blasr
+      ignore_errors: yes
 
 
     ### Genomics ###
