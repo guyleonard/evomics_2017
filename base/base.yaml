@@ -34,6 +34,13 @@
       service: name=ssh state=restarted
 
   tasks:
+    # The Dreaded MySQL
+    # Superstitiously this goes first, sometimes it hangs and breaks
+    # the mysql-server install, can't figure out why, possibly
+    # something else that gets installed changes the install behaviour?
+    - include: mysql.yaml
+      tags: mysql
+  
     # Install MATE Desktop Environment and remove Overlay Scroll
     - name: Install MATE Desktop
       apt: name={{item}} state=present install_recommends=yes
@@ -137,12 +144,7 @@
       gem: name=lolcat state=present
       tags: other
 
-    # The Dreaded MySQL
-    - include: mysql.yaml
-      tags: mysql
-
     # Upgrade and Dist-Upgrade apt
     - name: Upgrade and Dist-Upgrade
       apt: update_cache=yes cache_valid_time=3600 upgrade=full
       tags: upgrade
-
