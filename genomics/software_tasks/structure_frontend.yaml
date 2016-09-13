@@ -14,7 +14,6 @@
     copy=no
     creates="{{software_dir}}/frontend/readme"
 
-
 - name: Edit install to change name from "structure" to "structure_frontend"
   lineinfile: dest="{{software_dir}}/frontend/install" regexp='>structure' line="open START, \">structure_frontend\";" backup=yes
 
@@ -28,5 +27,5 @@
   with_items:
    - ./install
 
-#- name: Rename "stucture" to "structure_frontend"
-#  copy: src="{{software_dir}}//structure" dest=/usr/local/bin/structure state=link
+- name: Symlink structure_frontend to /usr/local/bin
+  file: src="{{software_dir}}/frontend/structure_frontend" dest=/usr/local/bin/structure_frontend state=link
