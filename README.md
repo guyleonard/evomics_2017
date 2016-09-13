@@ -40,8 +40,6 @@ For this we are going to use a series of shell scripts, [Ansible]() and a few ot
 You will also need to set up a bunch of open ports to allow through to your AMI. This will be for things like Apache, RStudio, SSH, X2Go, etc.
 
 List:
- * VNC - Remote Desktop
-  * TCP:5800 & TCP:5901
  * XRDP - Remote Desktop
   * TCP:3389
  * RStudio
@@ -88,74 +86,19 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
  * gem install lolcat
  * export PS1="\[\033[38;5;226m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;202m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]:\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
  * R and RStudio Desktop+Server
- * 
  
 ## Genomics Specific
-A '*' indicates the software is used in more than one workshop and so need to be installed only once...
-
-### General
  * Background Wallpaper
  * user: genomics
   * password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0
  * bioconda
-
-### Unix
- * No special tools?
- * Datasets from Julian!
-
-### Genomics
- * bam2fastq
- * bcftools
- * bedtools
- * blast, blast+
- * bwa
- * fastq-mcf
- * FastQC *
- * FastTree2
- * filter_low_coverage_contigs.pl
- * getorf (emboss)
- * igv
- * pfam_scan.pl
- * qualimap
- * QUAST *
- * reduce_fasta_10x.pl
- * samtools
- * snp2tree_fullsequence.pl
- * snp_comparator.pl
- * SPAdes.py *
- * vcfutils.pl
-
-### Sequence Data Quality
- * cutadapt
- * fastq-mcf (ea utils) *
- * FastQC *
- * seqtk
-
-### Assembly
- * GATB-Pipeline
- * kmergenie
- * minia
- * prokka
- * QUAST *
- * SPAdes.py *
- * velvet
-
-### QIIME
- * qiime
- * numpy
- * h5py
-
-### Rad-Seq / Stacks
- * gnuplot
- * gsnap
- * raxml
- * stacks
- * structure
+All other software can be found in the 'genomics' task folder and playbooks.
 
 ## Phylogenomics Specific
 * Background Wallpaper
 * user: phylogenomics
  * password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0 
+All other software can be found in the 'genomics' task folder and playbooks.
 
 # Using This Repository
 To build the AMI for either workshop, you will need to run at least the [base.sh](https://github.com/guyleonard/evomics_2017/blob/master/base.sh) script on your remote Virtual Machine and then one or the other of the sets of "genomics_workshop_*.yaml" and "phylogenomics_workshop_*.yaml".
