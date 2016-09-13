@@ -6,4 +6,4 @@
   delay: 10
 
 - name: Installing Miniconda {{version}}
-  shell: "bash {{source_dir}}/Miniconda{{version}}-latest-Linux-x86_64.sh -b -p /home/genomics/miniconda{{version}}"
+  shell: "bash {{source_dir}}/Miniconda{{version}}-latest-Linux-x86_64.sh -b -f -p /home/genomics/miniconda{{version}}"
