@@ -1,9 +1,19 @@
+- name: Check if Miniconda {{version}} is Installed
+  stat: path={{prefix}}/bin/conda
+  register: bin_conda
+  changed_when: bin_conda.stat.exists == False
+
 - name: Downloading Miniconda {{version}}
   get_url: url="https://repo.continuum.io/miniconda/Miniconda{{version}}-latest-Linux-x86_64.sh" dest="{{source_dir}}/Miniconda{{version}}-latest-Linux-x86_64.sh"
   register: get_url_result
   until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
   retries: 5
   delay: 10
+  register: miniconda_downloaded
+  when: bin_conda.stat.exists == False
 
 - name: Installing Miniconda {{version}}
-  shell: "bash {{source_dir}}/Miniconda{{version}}-latest-Linux-x86_64.sh -b -f -p /home/genomics/miniconda{{version}}"
+  shell: "{{source_dir}}/Miniconda{{version}}-latest-Linux-x86_64.sh -b -p {{prefix}}{{version}} creates={{prefix}}{{version}} executable=/bin/bash"
+  register: miniconda_installed
+  when: miniconda_downloaded | success
+  
