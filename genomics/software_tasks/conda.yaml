@@ -22,15 +22,15 @@
 
 - name: Symlinking conda to conda3
   file: src="{{prefix}}{{version}}/bin/conda" dest="{{prefix}}{{version}}/bin/conda3" state=link
-  when: "{{version}}" == 3
+  when: "{{version}} == 3"
 
 - name: Updating Miniconda {{version}}
   shell: "{{prefix}}{{version}}/bin/conda update conda"
-  when: "{{version}}" == 2
+  when: "{{version}} == 2"
 
 - name: Updating Miniconda {{version}}
   shell: "{{prefix}}{{version}}/bin/conda update conda"
-  when: "{{version}}" == 3
+  when: "{{version}} == 3"
 
 - name: Changing root user:group to genomics:workshop
   file: path="{{prefix}}{{version}}" owner=genomics group=workshop recurse=yes
