@@ -6,4 +6,4 @@
   delay: 10
 
 - name: Installing Miniconda {{version}}
-  shell: "{{source_dir}}/Miniconda{{version}}-latest-Linux-x86_64.sh"
+  shell: bash "{{source_dir}}/Miniconda{{version}}-latest-Linux-x86_64.sh" -b
