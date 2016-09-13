@@ -1,0 +1,22 @@
+- name: Downloading GMAP / GSNAP {{version}}
+  get_url: url="http://research-pub.gene.com/gmap/src/gmap-gsnap-{{version}}.tar.gz" dest="{{source_dir}}/gmap-gsnap-{{version}}.tar.gz"
+
+- name: Uncompress GMAP / GSNAP {{version}}
+  unarchive:
+    src="{{source_dir}}/gmap-gsnap-{{version}}.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/gmap-{{version}}/INSTALL"
+
+- name: Running ./configure for GMAP disable sse2 and sse4.1
+  shell: "{{item}}"
+  args:
+   chdir: "{{source_dir}}/blasr"
+  with_items:
+    - ./configure --disable-sse4.1 --disable-sse2
+
+- name: GMAP - Running make
+  make: chdir="{{source_dir}}/blasr"
+
+- name: GMAP - Running make install
+  make: chdir="{{source_dir}}/blasr" target=install

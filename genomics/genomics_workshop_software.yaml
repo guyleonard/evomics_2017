@@ -242,13 +242,24 @@
       tags: radseq
  
     - include: software_tasks/stacks.yaml version=1.42
-      tags: radseq
+      tags: radseq, stacks
 
     - include: software_tasks/stacks_web.yaml
-      tags: radseq
+      tags: radseq, stacks, stacksweb
 
     - include: software_tasks/raxml.yaml
       tags: radseq, raxml, trees
+
+    - name: Install gnuplot
+      apt: name=gnuplot state=present
+      tags: radseq, gnuplot
+
+    # The default is to disable sse2 and sse4.1 extensions
+    # as we have been burned before by some Amazon instance
+    # not having them available! 
+    - include: software_tasks/gmap_gsnap.yaml
+      tags: radseq, gmap, gsnap
+
 
     ### Transcriptomics ###
     ## Previously Installed
