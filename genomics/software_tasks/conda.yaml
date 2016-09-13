@@ -1,2 +1,9 @@
-- name: Install Miniconda {{version}}
-  get_url: url="https://repo.continuum.io/miniconda/Miniconda{{version}}-latest-Linux-x86_64.sh"
+- name: Downloading Miniconda {{version}}
+  get_url: url="https://repo.continuum.io/miniconda/Miniconda{{version}}-latest-Linux-x86_64.sh" dest="{{source_dir}}/Miniconda{{version}}-latest-Linux-x86_64.sh"
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 5
+  delay: 10
+
+- name: Installing Miniconda {{version}}
+  shell: "{{source_dir}}/Miniconda{{version}}-latest-Linux-x86_64.sh"
