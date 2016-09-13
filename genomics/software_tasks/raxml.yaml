@@ -57,3 +57,11 @@
   with_items:
     - rm *.o
 
+- name: Installing RAxML Executables
+  copy:
+    src: "{{item}}"
+    dest: /usr/local/bin
+    mode: 0755
+  with_fileglob:
+    - "{{source_dir}}/standard-RAxML/raxmlHPC*"
+
