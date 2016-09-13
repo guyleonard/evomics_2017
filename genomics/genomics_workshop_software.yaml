@@ -259,6 +259,9 @@
     # not having them available! 
     - include: software_tasks/gmap_gsnap.yaml version=2016-08-24
       tags: radseq, gmap, gsnap
+   
+    - include: software_tasks/structure.yaml version=2.3.4
+      tags: radseq, structure
 
 
     ### Transcriptomics ###

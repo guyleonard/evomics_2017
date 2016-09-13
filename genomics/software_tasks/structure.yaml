@@ -1,0 +1,18 @@
+- name: Downloading Structure v{{version}}
+  get_url:
+    url="http://pritchardlab.stanford.edu/structure_software/release_versions/v{{version}}/structure_kernel_source.tar.gz"
+    dest="{{source_dir}}/structure_kernel_source.tar.gz"
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 5
+  delay: 10
+
+- name: Uncompress Structure v{{version}}
+  unarchive:
+    src="{{source_dir}}/structure_kernel_source.tar.gz"
+    dest="{{source_dir}}"
+    copy=no
+    creates="{{source_dir}}/structure_kernel_src/Makefile"
+
+- name: make Structure
+  make: chdir="{{source_dir}}/structure_kernel_src/"
