@@ -273,5 +273,7 @@
   post_tasks:  
     - name: Changing root user:group to genomics:workshop
       file: path=/home/genomics/software owner=genomics group=workshop recurse=yes
+      tags: finish
 
     - shell: echo "Now please run the Genomics Workshop Data Tasks Playbook"
+      tags: finish
