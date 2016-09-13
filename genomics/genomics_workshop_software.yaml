@@ -268,4 +268,8 @@
     ## Previously Installed
     # bowtie1, bioconductor, IGV, samtools
 
-    
+
+  ## Finished
+  post_tasks:  
+    - name: Changing root user:group to genomics:workshop
+      file: path=/home/genomics/software owner=genomics group=workshop recurse=yes
