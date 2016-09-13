@@ -10,9 +10,12 @@
 - name: Uncompress Structure v{{version}}
   unarchive:
     src="{{source_dir}}/structure_kernel_source.tar.gz"
-    dest="{{source_dir}}"
+    dest="{{software_dir}}"
     copy=no
-    creates="{{source_dir}}/structure_kernel_src/Makefile"
+    creates="{{software_dir}}/structure_kernel_src/Makefile"
 
 - name: make Structure
-  make: chdir="{{source_dir}}/structure_kernel_src/"
+  make: chdir="{{software_dir}}/structure_kernel_src/"
+
+- name: Symlink structure to /usr/local/bin
+  file: src="{{software_dir}}/structure" dest=/usr/local/bin/structure state=link
