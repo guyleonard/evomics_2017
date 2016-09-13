@@ -47,3 +47,6 @@
       Name[en_US]=Structure
       Name=Structure
       Icon=/usr/local/Structure/images/icon.jpeg
+
+- name: Make Desktop Launcher Executable
+  file: path=/home/genomics/Desktop/Structure.desktop owner=genomics group=workshop mode=0755
