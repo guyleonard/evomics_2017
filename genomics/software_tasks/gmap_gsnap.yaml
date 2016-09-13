@@ -4,9 +4,9 @@
 - name: Uncompress GMAP / GSNAP {{version}}
   unarchive:
     src="{{source_dir}}/gmap-gsnap-{{version}}.tar.gz"
-    dest="{{software_dir}}"
+    dest="{{source_dir}}"
     copy=no
-    creates="{{software_dir}}/gmap-{{version}}/INSTALL"
+    creates="{{source_dir}}/gmap-{{version}}/INSTALL"
 
 - name: Running ./configure for GMAP disable sse2 and sse4.1
   shell: "{{item}}"
