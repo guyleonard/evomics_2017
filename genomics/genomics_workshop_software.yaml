@@ -50,11 +50,11 @@
       tags: general, alignment, assembly, genomics, seqdqc, biopython
     
     # Conda for Python 2.7
-    - include: conda.yaml version=2
+    - include: software_tasks/conda.yaml version=2
       tags: general, conda
 
     # Conda for Python 3.0
-    - include: conda.yaml version=3
+    - include: software_tasks/conda.yaml version=3
       tags: general, conda
 
     ### Unix ###
