@@ -9,7 +9,6 @@
   until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
   retries: 5
   delay: 10
-  #register: miniconda_downloaded
   when: bin_conda.stat.exists == False
 
 - name: Installing Miniconda {{version}}
@@ -17,3 +16,6 @@
   register: miniconda_installed
   when: get_url_result | success
   
+- name: Adding Miniconda {{version}} to PATH
+  lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:{{prefix}}{{version}}/bin\2" backup=yes
+  when: miniconda_installed | success
