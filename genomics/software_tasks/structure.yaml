@@ -18,4 +18,4 @@
   make: chdir="{{software_dir}}/structure_kernel_src/"
 
 - name: Symlink structure to /usr/local/bin
-  file: src="{{software_dir}}/structure" dest=/usr/local/bin/structure state=link
+  file: src="{{software_dir}}/structure_kernel_src/structure" dest=/usr/local/bin/structure state=link
