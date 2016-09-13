@@ -15,11 +15,11 @@
       
     # Create genomics user Software Directories
     - name: Create Software Dir
-      file: path={{software_dir}} state=directory owner=genomics
+      file: path={{software_dir}} state=directory owner=genomics group=workshop
     - name: Create Software Source Dir
-      file: path={{source_dir}} state=directory owner=genomics
+      file: path={{source_dir}} state=directory owner=genomics group=workshop
     - name: Create Workshop Directory
-      file: path={{workshop_dir}} state=directory owner=genomics
+      file: path={{workshop_dir}} state=directory owner=genomics group=workshop
       
     - name: Installing Some Other Build Dependencies
       apt: name={{item}} state=present install_recommends=yes
