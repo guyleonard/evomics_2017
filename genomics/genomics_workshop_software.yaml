@@ -257,7 +257,7 @@
     # The default is to disable sse2 and sse4.1 extensions
     # as we have been burned before by some Amazon instance
     # not having them available! 
-    - include: software_tasks/gmap_gsnap.yaml
+    - include: software_tasks/gmap_gsnap.yaml version=2016-08-24
       tags: radseq, gmap, gsnap
 
 
