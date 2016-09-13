@@ -1,0 +1,2 @@
+- name: Install Miniconda {{version}}
+  get_url: url="https://repo.continuum.io/miniconda/Miniconda{{version}}-latest-Linux-x86_64.sh"

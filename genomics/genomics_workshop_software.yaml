@@ -39,17 +39,24 @@
        - libbamtools-dev
        - libbamtools2.4.0
        - sra-toolkit
-      tags: alignment, assembly, genomics, seqdqc
+      tags: general, alignment, assembly, genomics, seqdqc
 
     - name: Installing BioPerl - slow
       cpanm: name=CJFIELDS/BioPerl-1.6.924.tar.gz
-      tags: alignment, assembly, genomics, seqdqc, bioperl
+      tags: general, alignment, assembly, genomics, seqdqc, bioperl
 
     - name: Installing BioPython
       pip: name=biopython state=present
-      tags: alignment, assembly, genomics, seqdqc, biopython
+      tags: general, alignment, assembly, genomics, seqdqc, biopython
+    
+    # Conda for Python 2.7
+    - include: conda.yaml version=2
+      tags: general, conda
 
-   
+    # Conda for Python 3.0
+    - include: conda.yaml version=3
+      tags: general, conda
+
     ### Unix ###
     # Base is OK
 
