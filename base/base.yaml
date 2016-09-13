@@ -135,6 +135,7 @@
        - unzip
        - uudeview
        - xcowsay
+       - xrdp
        - zip
        - zlib1g-dev
       tags: dependencies
