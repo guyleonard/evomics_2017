@@ -11,12 +11,12 @@
 - name: Running ./configure for GMAP disable sse2 and sse4.1
   shell: "{{item}}"
   args:
-   chdir: "{{source_dir}}/blasr"
+   chdir: "{{source_dir}}/gmap-{{version}}"
   with_items:
     - ./configure --disable-sse4.1 --disable-sse2
 
 - name: GMAP - Running make
-  make: chdir="{{source_dir}}/blasr"
+  make: chdir="{{source_dir}}/gmap-{{version}}"
 
 - name: GMAP - Running make install
-  make: chdir="{{source_dir}}/blasr" target=install
+  make: chdir="{{source_dir}}/gmap-{{version}}" target=install
