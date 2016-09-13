@@ -247,6 +247,9 @@
     - include: software_tasks/stacks_web.yaml
       tags: radseq
 
+    - include: software_tasks/raxml.yaml
+      tags: radseq, raxml, trees
+
     ### Transcriptomics ###
     ## Previously Installed
     # bowtie1, bioconductor, IGV, samtools
