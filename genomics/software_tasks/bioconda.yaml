@@ -1,0 +1,6 @@
+- name: Add 'r' Repositories
+  shell: conda config --add channels r
+
+- name: Add 'bioconda' Repositories
+  shell: conda config --add channels bioconda
+
