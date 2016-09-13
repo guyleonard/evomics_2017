@@ -1,0 +1,32 @@
+- name: Downloading Structure Frontend v{{version}}
+  get_url:
+    url="http://pritchardlab.stanford.edu/structure_software/release_versions/v{{version}}/release/structure_linux_frontend.tar.gz"
+    dest="{{source_dir}}/structure_linux_frontend.tar.gz"
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 5
+  delay: 10
+
+- name: Uncompress Structure Frontend v{{version}}
+  unarchive:
+    src="{{source_dir}}/structure_linux_frontend.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/frontend/readme"
+
+
+- name: Edit install to change name from "structure" to "structure_frontend"
+  lineinfile: dest="{{software_dir}}/frontend/install" regexp='>structure' line=">structure_frontend" backup=yes
+
+- name: Edit install to change name from "structure" to "structure_frontend"
+  lineinfile: dest="{{software_dir}}/frontend/install" regexp='chmod \+x structure' line="chmod +x structure_frontend" backup=yes
+
+- name: Install Structure Frontend
+  shell: {{item}}
+  args:
+    chdir: "{{software_dir}}/frontend/"
+  with_items:
+   - ./install
+
+#- name: Rename "stucture" to "structure_frontend"
+#  copy: src="{{software_dir}}//structure" dest=/usr/local/bin/structure state=link
