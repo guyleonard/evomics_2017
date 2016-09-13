@@ -57,8 +57,8 @@
     - include: software_tasks/conda.yaml version=3 prefix=/home/genomics/miniconda
       tags: general, conda
 
-    # Add Bioconda repos
-    - include: software_tasks/bioconda.yaml
+    # Add Bioconda repos for Conda with Python 2
+    - include: software_tasks/bioconda.yaml version=2 prefix=/home/genomics/miniconda
       tags: general, conda, bioconda
 
     ### Unix ###
