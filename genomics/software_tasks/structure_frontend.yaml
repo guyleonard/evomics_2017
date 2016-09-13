@@ -22,7 +22,7 @@
   lineinfile: dest="{{software_dir}}/frontend/install" regexp='chmod \+x structure' line="chmod +x structure_frontend" backup=yes
 
 - name: Install Structure Frontend
-  shell: {{item}}
+  shell: "{{item}}"
   args:
     chdir: "{{software_dir}}/frontend/"
   with_items:
