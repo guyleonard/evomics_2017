@@ -24,7 +24,4 @@
   shell: "{{prefix}}{{version}}/bin/conda update conda"
 
 - name: Changing root user:group to genomics:workshop
-  file: "{{prefix}}{{version}}"
-  owner: genomics
-  group: workshop
-  recurse: yes
+  file: "{{prefix}}{{version}}" owner=genomics group=workshop recurse=yes
