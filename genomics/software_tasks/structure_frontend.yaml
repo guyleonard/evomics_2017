@@ -30,6 +30,9 @@
 - name: Symlink structure_frontend to /usr/local/bin
   file: src="{{software_dir}}/frontend/structure_frontend" dest=/usr/local/bin/structure_frontend state=link
 
+- name: Create Structure Desktop Launcher with Icon
+  file: path=/home/genomics/Desktop/Structure.desktop state=touch
+
 - name: Create Desktop Launcher with Icon
   blockinfile:
     dest: /home/genomics/Desktop/Structure.desktop
@@ -44,4 +47,3 @@
       Name[en_US]=Structure
       Name=Structure
       Icon=/usr/local/Structure/images/icon.jpeg
-
