@@ -20,8 +20,17 @@
   lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:{{prefix}}{{version}}/bin\2" backup=yes
   when: miniconda_installed | success
 
-- name: Updating Miniconda
+- name: Symlinking conda to conda3
+  file: src="{{prefix}}{{version}}/bin/conda" dest="{{prefix}}{{version}}/bin/conda3" state=link
+  when: "{{version}}" == 3
+
+- name: Updating Miniconda {{version}}
   shell: "{{prefix}}{{version}}/bin/conda update conda"
+  when: "{{version}}" == 2
+
+- name: Updating Miniconda {{version}}
+  shell: "{{prefix}}{{version}}/bin/conda update conda"
+  when: "{{version}}" == 3
 
 - name: Changing root user:group to genomics:workshop
   file: path="{{prefix}}{{version}}" owner=genomics group=workshop recurse=yes
