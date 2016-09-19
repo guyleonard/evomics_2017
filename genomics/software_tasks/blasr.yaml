@@ -1,12 +1,27 @@
 - name: Cloning blasr
   git: repo=git://github.com/PacificBiosciences/blasr.git dest="{{source_dir}}/blasr" clone=yes recursive=yes update=yes
 
+- name: Creating 4GB Swap
+  shell: "{{item}}"
+  with_items:
+    - sudo dd if=/dev/zero of=/var/swap.img bs=4000k count=4000
+
+- name: Making 4GB Swap
+  shell: "{{item}}"
+  with_items: 
+    - sudo mkswap /var/swap.img
+
+- name: Swapon
+  shell: "{{item}}"
+  with_items: 
+    - sudo swapon /var/swap.img
+
 - name: Running ./configure for blasr
   shell: "{{item}}"
   args:
    chdir: "{{source_dir}}/blasr"
   with_items:
-    - ./configure.py --with-szlib --sub --no-pbbam HDF5_INCLUDE=/usr/include/hdf5/serial/ HDF5_LIB=/usr/lib/x86_64-linux-gnu/hdf5/serial
+    - ./configure.py --with-szlib --shared --sub --no-pbbam HDF5_INCLUDE=/usr/include/hdf5/serial/ HDF5_LIB=/usr/lib/x86_64-linux-gnu/hdf5/serial
 
 - name: Running make configure-submodule
   make: chdir="{{source_dir}}/blasr" target=configure-submodule
