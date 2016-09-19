@@ -1,0 +1,5 @@
+- name: Cloning Trinity
+  git: repo=https://github.com/trinityrnaseq/trinityrnaseq.git dest="{{source_dir}}/trinityrnaseq" clone=yes recursive=yes update=yes
+
+- name: Running make build-submodule
+  make: chdir="{{source_dir}}/trinityrnaseq"
