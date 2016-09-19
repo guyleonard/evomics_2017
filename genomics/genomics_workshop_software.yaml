@@ -285,8 +285,8 @@
         - lighttpd
       tags: transcriptomics
 
-    #- include: trinity.yaml
-
+    - include: trinity.yaml
+      tags: trinity, transcriptomics
 
 
   ## Finishing Touches
