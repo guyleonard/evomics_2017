@@ -285,7 +285,7 @@
         - lighttpd
       tags: transcriptomics
 
-    - include: trinity.yaml
+    - include: software_tasks/trinity.yaml
       tags: trinity, transcriptomics
 
 
