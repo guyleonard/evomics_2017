@@ -9,7 +9,7 @@
     creates="{{source_dir}}/RSEM-{{version}}/Readme.md"
 
 - name: RSEM - Running make
-  make: chdir="{{source_dir}}/gmap-{{version}}"
+  make: chdir="{{source_dir}}/RSEM-{{version}}"
 
 - name: RSEM - Running make install
-  make: chdir="{{source_dir}}/gmap-{{version}}" target=install
+  make: chdir="{{source_dir}}/RSEM-{{version}}" target=install
