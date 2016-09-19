@@ -201,9 +201,8 @@
       apt: name=r-cran-littler state=present
       tags: r, phyloseq, littler
 
-    - name: Installing ggplot2
-      shell: "{{playbook_dir}}/scripts/install.r ggplot2"
-      tags: r, ggplot2
+    - include: r_tutorial.yaml
+      tags: r
 
 
     ### QIIME ###

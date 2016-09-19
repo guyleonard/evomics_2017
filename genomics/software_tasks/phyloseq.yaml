@@ -36,5 +36,3 @@
 
 - name: Installing PhyloSeq via Bioconductor
   shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('phyloseq')"
-  tags: phyloseq
-

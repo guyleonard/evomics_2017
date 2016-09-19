@@ -1,0 +1,27 @@
+- name: Installing ggplot2
+  shell: "{{playbook_dir}}/scripts/install.r ggplot2"
+
+- name: Installing gtools
+  shell: "{{playbook_dir}}/scripts/install.r gtools"
+
+- name: Installing gdata
+  shell: "{{playbook_dir}}/scripts/install.r gdata"
+
+- name: Installing devtools
+  shell: "{{playbook_dir}}/scripts/install.r gplots"
+
+- name: Installing caTools
+  shell: "{{playbook_dir}}/scripts/install.r caTools"
+
+- name: Installing Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite()"
+
+- name: Installing ctc via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('ctc')"
+
+- name: Installing ape via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('ape')"
+
+- name: Installing biobase via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('biobase')"
+
