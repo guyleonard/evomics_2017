@@ -1,0 +1,15 @@
+- name: Downloading RSEM {{version}}
+  get_url: url="https://github.com/deweylab/RSEM/archive/v{{version}}.tar.gz" dest="{{source_dir}}/RSEM-{{version}}.tar.gz"
+
+- name: Uncompress RSEM {{version}}
+  unarchive:
+    src="{{source_dir}}/RSEM-{{version}}.tar.gz"
+    dest="{{source_dir}}"
+    copy=no
+    creates="{{source_dir}}/RSEM-{{version}}/Readme.md"
+
+- name: RSEM - Running make
+  make: chdir="{{source_dir}}/gmap-{{version}}"
+
+- name: RSEM - Running make install
+  make: chdir="{{source_dir}}/gmap-{{version}}" target=install

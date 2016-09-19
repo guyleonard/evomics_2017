@@ -238,7 +238,7 @@
        - php7.0-mysql
        - python-mysqldb
        - libspreadsheet-writeexcel-perl
-      tags: radseq
+      tags: radseq, stacks
  
     - include: software_tasks/stacks.yaml version=1.42
       tags: radseq, stacks
