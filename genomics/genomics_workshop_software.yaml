@@ -29,7 +29,12 @@
        - libhdf5-cpp-11 #blasr
        - libhdf5-dev #blasr
        - libfreetype6-dev #matplotlib
+
+    # a bunch of aliasses I like to include
+    - include: software_tasks/profile.yaml
+      tags: alias
       
+
   tasks:
     ### Commonly Required Programs/Libraries ###
     - name: Installing bamtools
