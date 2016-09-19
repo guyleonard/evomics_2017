@@ -272,10 +272,10 @@
     ## Previously Installed
     # bowtie1, bioconductor, IGV, samtools, gmap, rsem
 
-    - include: r_transcriptomics.yaml
+    - include: software_tasks/r_transcriptomics.yaml
       tags: r, transcriptomics
 
-    - include: rsem.yaml version=1.2.31
+    - include: software_tasks/rsem.yaml version=1.2.31
       tags: transcriptomics, rsem
     
     - name: Installing xpdf and lighttpd
