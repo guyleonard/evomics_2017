@@ -279,7 +279,7 @@
       tags: transcriptomics, rsem
     
     - name: Installing xpdf and lighttpd
-      apt: "{{item}}"
+      apt: name="{{item}}" state=present
       with_items:
         - xpdf
         - lighttpd
