@@ -1,5 +1,14 @@
 - name: Cloning Trinity
   git: repo=https://github.com/trinityrnaseq/trinityrnaseq.git dest="{{source_dir}}/trinityrnaseq" clone=yes recursive=yes update=yes
 
-- name: Running make
+- name: Trinitiy - Running make
   make: chdir="{{source_dir}}/trinityrnaseq"
+
+- name: Adding Trinity to PATH
+  lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:{{source_dir}}/trinityrnaseq\2" backup=yes
+
+- name: Adding TRINITY_HOME to .profile
+  lineinfile: backrefs=yes dest=/home/genomics/.profile line="export TRINITY_HOME=/home/genomics/software/.source/trinityrnaseq" backup=yes
+
+- name: EXPORT for TRINITY_HOME
+  shell: export TRINITY_HOME=/home/genomics/software/.source/trinityrnaseq
