@@ -25,3 +25,10 @@
 - name: Installing biobase via Bioconductor
   shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('biobase')"
 
+- name: Installing goseq via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('goseq')"
+
+- name: Installing qvalue via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('qvalue')"
+
+

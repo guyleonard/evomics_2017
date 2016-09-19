@@ -39,7 +39,7 @@
        - libbamtools-dev
        - libbamtools2.4.0
        - sra-toolkit
-      tags: general, alignment, assembly, genomics, seqdqc
+      tags: general, alignment, assembly, genomics, seqdqc, transcriptomics
 
     - name: Installing BioPerl - slow
       cpanm: name=CJFIELDS/BioPerl-1.6.924.tar.gz
@@ -99,13 +99,13 @@
 
     # installs bowtie 1 and 2
     - include: software_tasks/bowtie.yaml version=2.2.9
-      tags: genomics, bowtie 
+      tags: genomics, bowtie, transcriptomics
 
     - include: software_tasks/bwa.yaml
       tags: genomics, bwa
       
     - include: software_tasks/samtools.yaml version=1.3.1
-      tags: genomics, samtools
+      tags: genomics, samtools, transcriptomics
     - include: software_tasks/bcftools.yaml version=1.3.1
       tags: genomics, bcftools
       
@@ -139,9 +139,9 @@
       tags: genomics, fasttree
       
     - include: software_tasks/igv.yaml version=2.3.80
-      tags: igv
+      tags: genomics, igv, transcriptomics
     - include: software_tasks/igvtools.yaml version=2.3.80
-      tags: genomics, igvtools
+      tags: genomics, igvtools, transcriptomics
       
     - name: Install bedtools
       apt: name=bedtools state=present
@@ -201,8 +201,9 @@
       apt: name=r-cran-littler state=present
       tags: r, phyloseq, littler
 
-    - include: r_tutorial.yaml
-      tags: r
+    - name: Installing ggplot2
+      shell: "{{playbook_dir}}/scripts/install.r ggplot2"
+      tags: r, ggplot2
 
 
     ### QIIME ###
@@ -257,7 +258,7 @@
     # as we have been burned before by some Amazon instance
     # not having them available! 
     - include: software_tasks/gmap_gsnap.yaml version=2016-08-24
-      tags: radseq, gmap, gsnap
+      tags: radseq, gmap, gsnap, transcriptomics
    
     - include: software_tasks/structure_console.yaml version=2.3.4
       tags: radseq, structure
@@ -269,7 +270,23 @@
 
     ### Transcriptomics ###
     ## Previously Installed
-    # bowtie1, bioconductor, IGV, samtools
+    # bowtie1, bioconductor, IGV, samtools, gmap, rsem
+
+    - include: r_transcriptomics.yaml
+      tags: r, transcriptomics
+
+    - include: rsem.yaml version=1.2.31
+      tags: transcriptomics, rsem
+    
+    - name: Installing xpdf and lighttpd
+      apt: "{{item}}"
+      with_items:
+        - xpdf
+        - lighttpd
+      tags: transcriptomics
+
+    #- include: trinity.yaml
+
 
 
   ## Finishing Touches
