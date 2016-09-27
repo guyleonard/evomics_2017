@@ -15,11 +15,12 @@
   blockinfile:
     dest: /etc/update-motd.d/00-header
     create: yes
+    mode: u+x
     content: |
       [ -r /etc/lsb-release ] &amp;&amp; . /etc/lsb-release
       if [ -z "$DISTRIB_DESCRIPTION" ] &amp;&amp; [ -x /usr/bin/lsb_release ]; then
-      # Fall back to using the very slow lsb_release utility
-      DISTRIB_DESCRIPTION=$(lsb_release -s -d)
+        # Fall back to using the very slow lsb_release utility
+        DISTRIB_DESCRIPTION=$(lsb_release -s -d)
       fi
       figlet $(hostname)
       printf "\n"
