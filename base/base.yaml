@@ -146,7 +146,7 @@
 
     # Gem Installs
     - name: Other Stuff
-      gem: name=lolcat state=present
+      apt: name=lolcat state=present
       tags: other
 
     # Upgrade and Dist-Upgrade apt
