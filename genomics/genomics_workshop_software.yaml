@@ -34,7 +34,7 @@
     - include: software_tasks/profile.yaml
       tags: alias, profile
     
-    - name: Changing hostname
+    - name: Changing hostname to genomics
       lineinfile: dest=/etc/hostname regexp="^ip.*" line="genomics"
       tags: hostname
 
