@@ -25,3 +25,11 @@
       alias wget='wget -c'
       alias chrome='/opt/google/chrome/chrome'
       export PS1="\[\033[38;5;1m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;1m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;1m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
+
+- name: Autoload .profile from .bash_profile
+  blockinfile:
+    dest: /home/master/.bash_profile
+    content: |
+      if [ -r ~/.profile ]; then . ~/.profile; fi
+      case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
+
