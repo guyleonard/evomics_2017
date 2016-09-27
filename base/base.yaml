@@ -35,7 +35,7 @@
 
   tasks:
     # a bunch of aliasses I like to include
-    - include: software_tasks/profile.yaml
+    - include: profile.yaml
       tags: alias, profile
 
     # The Dreaded MySQL
