@@ -9,7 +9,7 @@
   file: path=/etc/update-motd.d/ state=absent
 
 - name: Create new motd Directory
-  file: path=/etc/update-motd.d/ state=present
+  file: path=/etc/update-motd.d/ state=directory
 
 - name: Creating Header
   blockinfile:
