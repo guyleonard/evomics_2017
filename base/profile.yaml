@@ -28,7 +28,7 @@
 
 - name: Change bash PS1 promt colour etc
   blockinfile:
-    dest: /home/genomics/.bash_profile
+    dest: /home/master/.bash_profile
     create: yes
     content: |
       export PS1="\[\033[38;5;1m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;1m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;1m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
