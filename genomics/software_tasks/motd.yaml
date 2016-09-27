@@ -1,5 +1,5 @@
 - name: Installing motd Prerequisites
-  apt: name="{{item}"
+  apt: name={{item}} state=present
   with_items:
     - lsb-release
     - figlet
