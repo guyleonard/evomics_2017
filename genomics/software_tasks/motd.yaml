@@ -25,10 +25,9 @@
         DISTRIB_DESCRIPTION=$(lsb_release -s -d)
       fi
       export LANG="en_US.UTF-8"
-      #printf "\n"
-      message=`figlet $(hostname)`
-      echo "$message" | lolcat -f
-      printf "\n"
+      printf "Workshop on\n"
+      figlet $(hostname) | lolcat -f
+      printf "2017\n"
       printf "Welcome to %s (%s).\n" "$DISTRIB_DESCRIPTION" "$(uname -r)"
       printf "\n"
 
