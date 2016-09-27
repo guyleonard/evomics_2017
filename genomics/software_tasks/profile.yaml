@@ -1,6 +1,7 @@
 - name: A bunch of aliasses I like to include
   blockinfile: 
     dest: /home/genomics/.bash_aliases
+    create: yes
     content: |
       # Colorize the ls output
       alias ls='ls --color=auto -h'
@@ -28,6 +29,7 @@
 - name: Change bash PS1 promt colour etc
   blockinfile:
     dest: /home/genomics/.bash_profile
+    create: yes
     content: |
       export PS1="\[\033[38;5;220m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;202m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
 
