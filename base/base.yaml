@@ -34,6 +34,10 @@
       service: name=ssh state=restarted
 
   tasks:
+    # a bunch of aliasses I like to include
+    - include: software_tasks/profile.yaml
+      tags: alias, profile
+
     # The Dreaded MySQL
     # Superstitiously this goes first, sometimes it hangs and breaks
     # the mysql-server install, can't figure out why, possibly
