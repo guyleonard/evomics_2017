@@ -17,6 +17,7 @@
     create: yes
     mode: u+x
     content: |
+      #!/bin/sh
       [ -r /etc/lsb-release ] && . /etc/lsb-release
       if [ -z "$DISTRIB_DESCRIPTION" ] && [ -x /usr/bin/lsb_release ]; then
         # Fall back to using the very slow lsb_release utility
