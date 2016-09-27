@@ -24,7 +24,8 @@
         # Fall back to using the very slow lsb_release utility
         DISTRIB_DESCRIPTION=$(lsb_release -s -d)
       fi
-      figlet $(hostname) | lolcat -f
+      message=`figlet $(hostname)`
+      echo "$message" | lolcat -f
       printf "\n"
       printf "Welcome to %s (%s).\n" "$DISTRIB_DESCRIPTION" "$(uname -r)"
       printf "\n"
