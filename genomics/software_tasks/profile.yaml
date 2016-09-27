@@ -1,6 +1,6 @@
 - name: A bunch of aliasses I like to include
   blockinfile: 
-    dest: /home/genomics/.profile
+    dest: /home/genomics/.bash_aliases
     content: |
       # Colorize the ls output
       alias ls='ls --color=auto -h'
@@ -24,11 +24,16 @@
       # this one saved by butt so many times
       alias wget='wget -c'
       alias chrome='/opt/google/chrome/chrome'
-      export PS1="\[\033[38;5;220m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;202m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
 
-- name: Autoload .profile from .bash_profile
+- name: Change bash PS1 promt colour etc
   blockinfile:
     dest: /home/genomics/.bash_profile
     content: |
-      if [ -r ~/.profile ]; then . ~/.profile; fi
-      case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
+      export PS1="\[\033[38;5;220m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;202m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
+
+#- name: Autoload .profile from .bash_profile
+#  blockinfile:
+#    dest: /home/genomics/.bash_profile
+#    content: |
+#      if [ -r ~/.profile ]; then . ~/.profile; fi
+#      case "$-" in *i*) if [ -r ~/.bashrc ]; then . ~/.bashrc; fi;; esac
