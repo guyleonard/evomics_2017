@@ -84,7 +84,7 @@ It can be quite a confusing mess of choices, but Amazon has some guides [here](h
  * apache2 arj build-essential cabextract cowsay cowthink curl file-roller filezilla fortune gimp git inkscape libapache2-mod-php libreoffice-base libreoffice-calc libreoffice-core mpack  mysql-client mysql-server p7zip p7zip-rar php php-mcrypt php-mysql qbittorrent rar rev samba sharutils unace unrar unzip uudeview xcowsay zip
  * chrome, firefox
  * gem install lolcat
- * export PS1="\[\033[38;5;226m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;6m\][\[$(tput sgr0)\]\[\033[38;5;202m\]\w\[$(tput sgr0)\]\[\033[38;5;6m\]]:\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]"
+ * export PS1="\[\033[38;5;220m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;202m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
  * R and RStudio Desktop+Server
  
 ## Genomics Specific
