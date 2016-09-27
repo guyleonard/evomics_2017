@@ -24,6 +24,8 @@
         # Fall back to using the very slow lsb_release utility
         DISTRIB_DESCRIPTION=$(lsb_release -s -d)
       fi
+      export LANG="en_US.UTF-8"
+      #printf "\n"
       message=`figlet $(hostname)`
       echo "$message" | lolcat -f
       printf "\n"
