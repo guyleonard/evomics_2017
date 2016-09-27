@@ -32,8 +32,11 @@
 
     # a bunch of aliasses I like to include
     - include: software_tasks/profile.yaml
-      tags: alias
-      
+      tags: alias, profile
+    
+    - name: Changing hostname
+      lineinfile: dest=/etc/hostname regexp="^ip" line="genomics"
+      tags: hostname
 
   tasks:
     ### Commonly Required Programs/Libraries ###
