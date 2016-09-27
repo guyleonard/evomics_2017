@@ -1,0 +1,30 @@
+- name: Installing motd Prerequisites
+  apt: name="{{item}"
+  with_items:
+    - lsb-release
+    - figlet
+    - update-motd
+
+- name: Removing Old motd Directory
+  file: path=/etc/update-motd.d/ state=absent
+
+- name: Create new motd Directory
+  file: path=/etc/update-motd.d/ state=present
+
+- name: Creating Header
+  blockinfile:
+    dest: /etc/update-motd.d/00-header
+    create: yes
+    content: |
+      [ -r /etc/lsb-release ] &amp;&amp; . /etc/lsb-release
+      if [ -z "$DISTRIB_DESCRIPTION" ] &amp;&amp; [ -x /usr/bin/lsb_release ]; then
+      # Fall back to using the very slow lsb_release utility
+      DISTRIB_DESCRIPTION=$(lsb_release -s -d)
+      fi
+      figlet $(hostname)
+      printf "\n"
+      printf "Welcome to %s (%s).\n" "$DISTRIB_DESCRIPTION" "$(uname -r)"
+      printf "\n"
+
+- name: Remove MOTD File
+  file: path=/etc/motd.dynamic state=absent

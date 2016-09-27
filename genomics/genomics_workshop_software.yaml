@@ -38,6 +38,9 @@
       lineinfile: dest=/etc/hostname regexp="^ip.*" line="genomics"
       tags: hostname
 
+    - include: software_tasks/motd.yaml
+      tags: motd
+
   tasks:
     ### Commonly Required Programs/Libraries ###
     - name: Installing bamtools
