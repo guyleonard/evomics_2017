@@ -35,7 +35,7 @@
       tags: alias, profile
     
     - name: Changing hostname
-      lineinfile: dest=/etc/hostname regexp="^ip" line="genomics"
+      lineinfile: dest=/etc/hostname regexp="^ip.*" line="genomics"
       tags: hostname
 
   tasks:
