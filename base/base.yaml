@@ -1,4 +1,5 @@
 - hosts: all
+  become: yes
   vars:
     - source_dir: /home/ubuntu/software/.source
     - software_dir: /home/ubuntu/software
