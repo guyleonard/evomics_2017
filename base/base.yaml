@@ -37,9 +37,8 @@
 
   tasks:
     # The Dreaded MySQL
-    # Superstitiously this goes first, sometimes it hangs and breaks
-    # the mysql-server install, can't figure out why, possibly
-    # something else that gets installed changes the install behaviour?
+    # It still hangs during install
+    # but mariadb does not.
     #- include: mysql.yaml
     #  tags: mysql
     - include: mariadb.yaml
