@@ -33,4 +33,4 @@
 
 - name: Remove MOTD File
   file: path=/etc/motd.dynamic state=absent
-  become: yes
+
