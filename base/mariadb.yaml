@@ -1,0 +1,34 @@
+# Setup mariadb root Password
+- name: Set mariadb root password before installing
+  debconf: name='mariadb-server' question='mariadb-server/root_password' value='{{mysql_root_pass | quote}}' vtype='password'
+
+- name: Confirm mariadb root password before installing
+  debconf: name='mariadb-server' question='mariadb-server/root_password_again' value='{{mysql_root_pass | quote}}' vtype='password'
+
+- name: Installing MySQL python/php
+  apt: name={{item}} state=present update_cache=yes
+  with_items:
+    - python-mysqldb
+    - php-mysql
+
+- name: Installing mariadb Server
+  apt: name=mariadb-server state=present
+  
+- name: Installing mariadb Client
+  apt: name=mariadb-common state=present
+ 
+# Final MySQL Setup
+- name: Ensure Anonymous Users are not in the Database
+  mysql_user: name='' host={{ item }} state=absent
+  with_items:
+    - localhost
+
+- name: Secure the MySQL root User
+  mysql_user: user="root" password="{{mysql_root_pass}}" host="{{item}}" login_password="{{mysql_root_pass}}" login_user=root
+  with_items:
+    - 127.0.0.1
+    - localhost
+    - ::1
+
+- name: Remove the Test Database
+  mysql_db: name=test state=absent
