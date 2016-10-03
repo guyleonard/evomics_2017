@@ -31,4 +31,7 @@
     dest: /home/genomics/.bash_profile
     create: yes
     content: |
+      if [ -f ~/.bash_aliases ]; then
+        . ~/.bash_aliases
+      fi
       export PS1="\[\033[38;5;220m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;202m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
