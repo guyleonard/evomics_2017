@@ -118,6 +118,7 @@
        - libxml2-dev
        - libxslt1-dev
        - libyaml-dev
+       - lolcat
        - mosh
        - mpack 
        - p7zip
@@ -144,10 +145,6 @@
        - zlib1g-dev
       tags: dependencies
 
-    # Gem Installs
-    - name: Other Stuff
-      apt: name=lolcat state=present
-      tags: other
 
     # Upgrade and Dist-Upgrade apt
     - name: Upgrade and Dist-Upgrade
