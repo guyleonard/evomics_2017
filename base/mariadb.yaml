@@ -12,7 +12,7 @@
     - php-mysql
 
 - name: Installing mariadb Server
-  apt: name=mariadb-server state=present
+  apt: name=mariadb-server-10.0 state=present
   
 - name: Installing mariadb Client
   apt: name=mariadb-common state=present
