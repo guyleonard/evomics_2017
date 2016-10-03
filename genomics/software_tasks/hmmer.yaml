@@ -9,4 +9,4 @@
     creates="{{software_dir}}/hmmer-{{version}}-linux-intel-x86_64/binaries/hmmer"
     
 - name: Install HMMER
-  lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/hmmer-{{version}}-linux-intel-x86_64/binaries/\2" backup=yes
+  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/hmmer-{{version}}-linux-intel-x86_64/binaries/\2" backup=yes

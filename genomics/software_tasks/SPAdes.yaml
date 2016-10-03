@@ -9,4 +9,4 @@
     creates="{{software_dir}}/SPAdes-{{version}}-Linux/bin/spades"
     
 - name: Install SPAdes
-  lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/SPAdes-{{version}}-Linux/bin/\2" backup=yes
+  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/SPAdes-{{version}}-Linux/bin/\2" backup=yes

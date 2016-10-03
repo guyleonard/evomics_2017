@@ -5,10 +5,10 @@
   make: chdir="{{source_dir}}/trinityrnaseq"
 
 - name: Adding Trinity to PATH
-  lineinfile: backrefs=yes dest=/home/genomics/.profile regexp='^PATH=(.*)(")' line="PATH=\1:{{source_dir}}/trinityrnaseq\2" backup=yes
+  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:{{source_dir}}/trinityrnaseq\2" backup=yes
 
 - name: Adding TRINITY_HOME to .profile
-  lineinfile: dest=/home/genomics/.profile line="export TRINITY_HOME=/home/genomics/software/.source/trinityrnaseq" backup=yes
+  lineinfile: dest=/etc/environment line="export TRINITY_HOME=/home/genomics/software/.source/trinityrnaseq" backup=yes
 
 - name: EXPORT for TRINITY_HOME
   shell: export TRINITY_HOME=/home/genomics/software/.source/trinityrnaseq
