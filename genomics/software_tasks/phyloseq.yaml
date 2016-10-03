@@ -34,5 +34,35 @@
 - name: Installing devtools
   shell: "{{playbook_dir}}/scripts/install.r devtools"
 
+- name: Installing devtools via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('devtools')"
+  
+- name: Installing downloader via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('downloader')"
+  
+- name: Installing genefilter via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('genefilter')"
+  
+- name: Installing interactiveDisplay via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('interactiveDisplay')"
+  
+- name: Installing matrixStats via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('matrixStats')"
+  
+- name: Installing metagenomeSeq via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('metagenomeSeq')"
+  
+- name: Installing msd16s via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('msd16s')"
+
 - name: Installing PhyloSeq via Bioconductor
   shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('phyloseq')"
+
+- name: Installing qvalue via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('qvalue')"
+  
+- name: Installing shiny via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('shiny')"
+  
+- name: Installing ShortRead via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('ShortRead')"
