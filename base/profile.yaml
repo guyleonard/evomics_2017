@@ -31,4 +31,7 @@
     dest: /home/master/.bash_profile
     create: yes
     content: |
+      if [ -f ~/.bash_aliases ]; then
+        . ~/.bash_aliases
+      fi
       export PS1="\[\033[38;5;1m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;1m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;1m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
