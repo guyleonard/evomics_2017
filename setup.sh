@@ -8,7 +8,7 @@ working_dir=$(pwd)
 ## Ansible
 # Setup Ansible
 sudo apt-get update # need to update on first run
-sudo apt-get install -y git python-pip python-dev python-cffi libssl-dev debconf-utils libaio1
+sudo apt-get install -y git python-pip python-dev python-cffi libssl-dev debconf-utils libaio1 aptitude
 sudo -H pip install --upgrade pip
 sudo -H pip install ansible
 
