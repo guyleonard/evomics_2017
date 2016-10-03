@@ -12,7 +12,7 @@ This year I want to try and get the building of the AMI to be as automated as po
 
 ## Automation
 
-For this we are going to use a series of shell scripts, [Ansible]() and a few other package managers such as apt-get, pip, conda, and gem. You may also wish to read [ami_changes.md]
+For this we are going to use a series of shell scripts, [Ansible]() and a few other package managers such as apt-get, pip, conda, and gem. You may also wish to read [ami_changes.md](https://github.com/guyleonard/evomics_2017/blob/master/ami_changes.md)
 
 # Using This Repository
 To build the AMI for either workshop, you will need to run at least the [base.sh](https://github.com/guyleonard/evomics_2017/blob/master/base.sh) script on your remote Virtual Machine and then one or the other of the sets of "genomics_workshop_*.yaml" and "phylogenomics_workshop_*.yaml".
