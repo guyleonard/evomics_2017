@@ -16,7 +16,7 @@
     dest: /etc/update-motd.d/00-header
     create: yes
     marker: ""
-    mode: u+x
+    mode: 0755
     content: |
       #!/bin/bash
       [ -r /etc/lsb-release ] && . /etc/lsb-release
