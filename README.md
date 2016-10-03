@@ -1,5 +1,5 @@
 # Evomics 2017
-Instructions and notes for creating the AMIs for the [evomics.org](http://evomics.org) Workshops 2017 and information on the previous years' AMIs in previous_workflow.md.
+Instructions and notes for creating the AMIs for the [evomics.org](http://evomics.org) Workshops 2017 and information on the previous years' AMIs in [previous_workflow.md].
 
 ## Preamble
 For the past two years I have created the AMIs for the Workshop on Genomics a couple of weeks prior to the workshops beginning - usually in my Christmas holiday and also during the Faculty set up week. 2014 was the first time that I had ever used Amazon EC2 and an AMI, let alone been tasked to create one of my own and so I wanted it to work the first time! Therefore, in that first year I decided to use a copy of BioLinux which helped expedite the process of installing software (their repositories already included many of the bioinformatics software we needed) but it is not really maintained that well anymore. Nevertheless it worked, and it was relatively stable. So, success!
@@ -12,7 +12,7 @@ This year I want to try and get the building of the AMI to be as automated as po
 
 ## Automation
 
-For this we are going to use a series of shell scripts, [Ansible]() and a few other package managers such as apt-get, pip, conda, and gem. You may also wish to read ami_changes.md
+For this we are going to use a series of shell scripts, [Ansible]() and a few other package managers such as apt-get, pip, conda, and gem. You may also wish to read [ami_changes.md]
 
 # Using This Repository
 To build the AMI for either workshop, you will need to run at least the [base.sh](https://github.com/guyleonard/evomics_2017/blob/master/base.sh) script on your remote Virtual Machine and then one or the other of the sets of "genomics_workshop_*.yaml" and "phylogenomics_workshop_*.yaml".
