@@ -33,4 +33,4 @@
       printf "\n"
 
 - name: Remove MOTD File
-  file: path=/etc/motd.dynamic state=absent
+  file: path=/etc/motd.dynamic state=absent become=yes
