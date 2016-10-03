@@ -35,17 +35,17 @@
       service: name=ssh state=restarted
 
   tasks:
-    # a bunch of aliasses I like to include
-    - include: profile.yaml
-      tags: alias, profile
-
     # The Dreaded MySQL
     # Superstitiously this goes first, sometimes it hangs and breaks
     # the mysql-server install, can't figure out why, possibly
     # something else that gets installed changes the install behaviour?
     - include: mysql.yaml
       tags: mysql
-  
+
+    # a bunch of aliasses I like to include
+    - include: profile.yaml
+      tags: alias, profile
+
     # Install MATE Desktop Environment and remove Overlay Scroll
     - name: Install MATE Desktop
       apt: name={{item}} state=present install_recommends=yes
