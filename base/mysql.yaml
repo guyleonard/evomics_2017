@@ -5,18 +5,18 @@
 - name: Confirm MySQL root password before installing
   debconf: name='mysql-server' question='mysql-server/root_password_again' value='{{mysql_root_pass | quote}}' vtype='password'
 
-- name: Installing MySQL Server
-  apt: name=mysql-server state=present
-  
-- name: Installing MySQL Client
-  apt: name=mysql-client state=present
- 
 - name: Installing MySQL python/php
-  apt: name={{item}} state=present install_recommends=yes 
+  apt: name={{item}} state=present update_cache=yes
   with_items:
     - python-mysqldb
     - php-mysql
 
+- name: Installing MySQL Server
+  apt: name=mysql-server state=present
+  
+- name: Installing MySQL Client
+  apt: name=mysql-common state=present
+ 
 # Final MySQL Setup
 - name: Ensure Anonymous Users are not in the Database
   mysql_user: name='' host={{ item }} state=absent
