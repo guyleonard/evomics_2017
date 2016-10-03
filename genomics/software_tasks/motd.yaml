@@ -1,5 +1,6 @@
 - name: Installing motd Prerequisites
   apt: name={{item}} state=present
+  become: yes
   with_items:
     - lsb-release
     - figlet
@@ -7,9 +8,11 @@
 
 - name: Removing Old motd Directory
   file: path=/etc/update-motd.d/ state=absent
+  become: yes
 
 - name: Create new motd Directory
   file: path=/etc/update-motd.d/ state=directory
+  become: yes
 
 - name: Creating Header
   blockinfile:
@@ -17,6 +20,7 @@
     create: yes
     marker: ""
     mode: 0755
+    become: yes
     content: |
       #!/bin/bash
       [ -r /etc/lsb-release ] && . /etc/lsb-release
@@ -31,3 +35,4 @@
 
 - name: Remove MOTD File
   file: path=/etc/motd.dynamic state=absent
+  become: yes
