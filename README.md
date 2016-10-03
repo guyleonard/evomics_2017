@@ -113,6 +113,11 @@ Run this code on your clean AMI:
 
 I would now make an Amazon Image of this system and then use that as your "base AMI" for the next steps...
 
+If you already have a base-AMI you wish to use.
+
+    git clone https://github.com/guyleonard/evomics_2017.git
+    ansible-playbook /home/ubuntu/evomics_2017/base/base.yaml --sudo -K -c local -i "localhost,"
+
 ## Genomics AMI Setup:
 
 ### Software
