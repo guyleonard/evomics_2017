@@ -11,6 +11,7 @@
 
 - name: Create new motd Directory
   file: path=/etc/update-motd.d/ state=directory
+  become: yes
 
 - name: Creating Header
   blockinfile:
