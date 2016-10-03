@@ -3,6 +3,7 @@
     - source_dir: /home/ubuntu/software/.source
     - software_dir: /home/ubuntu/software
     - mysql_root_pass: '*522F526859693BE4EBF948CA2FC0A25326CFD84E'
+    - master_password: '$6$vaUtdo8oSgvGmBNO$B/0gxyOCv5b1DWGaiOTBUdZdHW5nrXZhUNw1yu8pVL5LS8Hs3DxL3/rD0aBEx9h7kNpDi73UZ3XYd7wpbXAx90'
 
   pre_tasks:
     # Create Directories
@@ -17,7 +18,7 @@
       
     # Set up the workshop user with a SHA-512 crypted password using mkpasswd
     - name: Create 'master' Workshop User with SUDO privileges
-      user: name=master group=workshop comment="Master Workshop User" state=present shell=/bin/bash group=sudo password='$6$vaUtdo8oSgvGmBNO$B/0gxyOCv5b1DWGaiOTBUdZdHW5nrXZhUNw1yu8pVL5LS8Hs3DxL3/rD0aBEx9h7kNpDi73UZ3XYd7wpbXAx90'
+      user: name=master group=workshop comment="Master Workshop User" state=present shell=/bin/bash group=sudo password="{{master_password}}"
     
     # We won't be using security keys in the workshop so need password only logins.
     # this is something to discuss, we have never had issues with compromised AMIs
