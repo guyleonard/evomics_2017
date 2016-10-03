@@ -40,8 +40,10 @@
     # Superstitiously this goes first, sometimes it hangs and breaks
     # the mysql-server install, can't figure out why, possibly
     # something else that gets installed changes the install behaviour?
-    - include: mysql.yaml
-      tags: mysql
+    #- include: mysql.yaml
+    #  tags: mysql
+    - include: mariadb.yaml
+      tags: mysql, mariadb
 
     # a bunch of aliasses I like to include
     - include: profile.yaml
