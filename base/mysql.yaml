@@ -5,14 +5,12 @@
 - name: Confirm MySQL root password before installing
   debconf: name='mysql-server' question='mysql-server/root_password_again' value='{{mysql_root_pass | quote}}' vtype='password'
 
-- name: Installing MySQL Client
-  apt: name=mysql-client state=present
-  become: yes
-  
 - name: Installing MySQL Server
   apt: name=mysql-server state=present
-  become: yes
-    
+  
+- name: Installing MySQL Client
+  apt: name=mysql-client state=present
+ 
 - name: Installing MySQL python/php
   apt: name={{item}} state=present install_recommends=yes 
   with_items:
