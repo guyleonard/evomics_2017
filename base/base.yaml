@@ -19,7 +19,7 @@
       
     # Set up the workshop user with a SHA-512 crypted password using mkpasswd
     - name: Create 'master' Workshop User with SUDO privileges
-      user: name=master group=workshop comment="Master Workshop User" state=present shell=/bin/bash group=sudo password="{{master_password}}"
+      user: name=master group=workshop comment="Master Workshop User" state=present shell=/bin/bash groups="workshop,sudo" password="{{master_password}}"
     
     # We won't be using security keys in the workshop so need password only logins.
     # this is something to discuss, we have never had issues with compromised AMIs
