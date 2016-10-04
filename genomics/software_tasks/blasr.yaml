@@ -39,6 +39,19 @@
   with_items:
     - make -lsz blasr
 
+- name: Swapoff
+  shell: "{{item}}"
+  become: yes
+  with_items: 
+    - swapoff /var/swap.img
+    
+- name: Removing 4GB Swap
+  shell: "{{item}}"
+  become: yes
+  with_items: 
+    - rm /var/swap.img
+
+
 
 
 # To do
