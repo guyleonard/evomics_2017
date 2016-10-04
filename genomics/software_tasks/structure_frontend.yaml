@@ -14,10 +14,13 @@
     copy=no
     creates="{{software_dir}}/frontend/readme"
 
-- name: Edit install to change name from "structure" to "structure_frontend"
+# the structure command-line and frontend executable versions are called the same thing
+# which doesnt help, so we will change it here by editing the install file twice
+
+- name: 1 Edit install to change name from "structure" to "structure_frontend"
   lineinfile: dest="{{software_dir}}/frontend/install" regexp='>structure' line="open START, \">structure_frontend\";" backup=yes
 
-- name: Edit install to change name from "structure" to "structure_frontend"
+- name: 2 Edit install to change name from "structure" to "structure_frontend"
   lineinfile: dest="{{software_dir}}/frontend/install" regexp='chmod \+x structure' line="`chmod +x structure_frontend`;" backup=yes
 
 - name: Install Structure Frontend
@@ -49,4 +52,4 @@
       Icon=/usr/local/Structure/images/icon.jpeg
 
 - name: Make Desktop Launcher Executable
-  file: path=/home/{{workshop_user}}/Desktop/Structure.desktop owner=genomics group=workshop mode=0755
+  file: path=/home/{{workshop_user}}/Desktop/Structure.desktop owner="{{workshop_user}}" group=workshop mode=0755
