@@ -1,9 +1,10 @@
 - hosts: all
   become: yes
   vars:
-    - source_dir: /home/genomics/software/.source
-    - software_dir: /home/genomics/software
-    - workshop_dir: /home/genomics/workshop_materials
+    - workshop_user: genomics
+    - source_dir: "/home/{{workshop_user}}/software/.source"
+    - software_dir: "/home/{{workshop_user}}/software"
+    - workshop_dir: "/home/{{workshop_user}}/workshop_materials"
     # sha-512 hash
     - genomics_user_password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0
     # mysql native hash - SELECT PASSWORD("password") - also need to set in stacks_web.yaml
@@ -11,16 +12,16 @@
     
   pre_tasks:
     # Set up the workshop user with a SHA-512 crypted password using mkpasswd
-    - name: Create genomics Workshop User
-      user: name=genomics group=workshop comment="Genomics Workshop User" state=present shell=/bin/bash password={{genomics_user_password}}
+    - name: Create {{workshop_user}} Workshop User
+      user: name="{{workshop_user}}" group=workshop comment="{{workshop_user}} Workshop User" state=present shell=/bin/bash password={{genomics_user_password}}
       
     # Create genomics user Software Directories
     - name: Create Software Dir
-      file: path={{software_dir}} state=directory owner=genomics group=workshop
+      file: path={{software_dir}} state=directory owner="{{workshop_user}}" group=workshop
     - name: Create Software Source Dir
-      file: path={{source_dir}} state=directory owner=genomics group=workshop
+      file: path={{source_dir}} state=directory owner="{{workshop_user}}" group=workshop
     - name: Create Workshop Directory
-      file: path={{workshop_dir}} state=directory owner=genomics group=workshop
+      file: path={{workshop_dir}} state=directory owner="{{workshop_user}}" group=workshop
       
     - name: Installing Some Other Build Dependencies
       apt: name={{item}} state=present install_recommends=yes
@@ -35,8 +36,8 @@
     - include: software_tasks/profile.yaml
       tags: alias, profile
     
-    - name: Changing hostname to genomics
-      lineinfile: dest=/etc/hostname regexp="^ip.*" line="genomics"
+    - name: Changing hostname to "{{workshop_user}}"
+      lineinfile: dest=/etc/hostname regexp="^ip.*" line="{{workshop_user}}"
       tags: hostname
 
     - include: software_tasks/motd.yaml
