@@ -70,5 +70,5 @@
 - name: Installing dada2 via install_github
   shell: "{{playbook_dir}}/scripts/install_github.r benjjneb/dada2"
 
-- name: Installing ShortRead via Bioconductor
-  shell: "{{playbook_dir}}/scripts/install_github.r joey711/biomformat"
+- name: Installing biomformat via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('biomformat')"
