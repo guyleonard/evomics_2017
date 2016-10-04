@@ -22,7 +22,7 @@ git clone https://github.com/guyleonard/evomics_2017.git
 export DEBIAN_FRONTEND=noninteractive
 
 # run the base playbook
-ansible-playbook /home/ubuntu/evomics_2017/base/base.yaml -b -K -c local -i "localhost,"
+ansible-playbook /home/ubuntu/evomics_2017/base/main.yaml -b -K -c local -i "localhost,"
 
 # turn off
 set +x
