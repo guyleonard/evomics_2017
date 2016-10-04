@@ -15,7 +15,7 @@
     creates="{{software_dir}}/quast-{{version}}/README.txt"
     
 - name: Install QUAST
-  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/quast-4.2\2" backup=yes
+  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:/home/{{workshop_user}}/software/quast-4.2\2" backup=yes
 
 - name: Verify QUAST Installed
-  shell: python /home/genomics/software/quast-{{version}}/quast.py --test
+  shell: python /home/{{workshop_user}}/software/quast-{{version}}/quast.py --test

@@ -31,11 +31,11 @@
   file: src="{{software_dir}}/frontend/structure_frontend" dest=/usr/local/bin/structure_frontend state=link
 
 - name: Create Structure Desktop Launcher with Icon
-  file: path=/home/genomics/Desktop/Structure.desktop state=touch
+  file: path=/home/{{workshop_user}}/Desktop/Structure.desktop state=touch
 
 - name: Create Desktop Launcher with Icon
   blockinfile:
-    dest: /home/genomics/Desktop/Structure.desktop
+    dest: /home/{{workshop_user}}/Desktop/Structure.desktop
     content: |
       #!/usr/bin/env xdg-open
       [Desktop Entry]
@@ -49,4 +49,4 @@
       Icon=/usr/local/Structure/images/icon.jpeg
 
 - name: Make Desktop Launcher Executable
-  file: path=/home/genomics/Desktop/Structure.desktop owner=genomics group=workshop mode=0755
+  file: path=/home/{{workshop_user}}/Desktop/Structure.desktop owner=genomics group=workshop mode=0755

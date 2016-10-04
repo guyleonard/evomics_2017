@@ -30,5 +30,5 @@
 - name: Updating Miniconda {{version}}
   shell: "{{prefix}}{{version}}/bin/conda update conda"
 
-- name: Changing root user:group to genomics:workshop
-  file: path="{{prefix}}{{version}}" owner=genomics group=workshop recurse=yes
+- name: Changing root user:group to {{workshop_user}}:workshop
+  file: path="{{prefix}}{{version}}" owner={{workshop_user}} group=workshop recurse=yes

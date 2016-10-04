@@ -6,7 +6,7 @@
     - LWP::UserAgent
     - XML::Simple
 
-# hmmer can be installed from the genomics playbook
+# hmmer can be installed from the {{workshop_user}} playbook
 - name: Install PROKKA apt dependencies
   apt: name={{item}} state=present
   with_items:
@@ -28,4 +28,4 @@
    - bin/prokka --setupdb
 
 - name: Install Prokka
-  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:/home/genomics/software/prokka/bin/\2" backup=yes
+  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:/home/{{workshop_user}}/software/prokka/bin/\2" backup=yes

@@ -8,7 +8,7 @@
   lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:{{source_dir}}/trinityrnaseq\2" backup=yes
 
 - name: Adding TRINITY_HOME to .profile
-  lineinfile: dest=/etc/environment line="export TRINITY_HOME=/home/genomics/software/.source/trinityrnaseq" backup=yes
+  lineinfile: dest=/etc/environment line="export TRINITY_HOME=/home/{{workshop_user}}/software/.source/trinityrnaseq" backup=yes
 
 - name: EXPORT for TRINITY_HOME
-  shell: export TRINITY_HOME=/home/genomics/software/.source/trinityrnaseq
+  shell: export TRINITY_HOME=/home/{{workshop_user}}/software/.source/trinityrnaseq

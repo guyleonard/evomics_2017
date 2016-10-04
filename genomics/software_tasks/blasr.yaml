@@ -56,4 +56,4 @@
 
 # To do
 # Update LD Library paths
-# export LD_LIBRARY_PATH=/home/genomics/blasr/libcpp/alignment:/home/genomics/blasr/libcpp/hdf:/home/genomics/blasr/libcpp/pbdata:/usr/lib/x86_64-linux-gnu/hdf5/serial
+# export LD_LIBRARY_PATH=/home/{{workshop_user}}/blasr/libcpp/alignment:/home/genomics/blasr/libcpp/hdf:/home/genomics/blasr/libcpp/pbdata:/usr/lib/x86_64-linux-gnu/hdf5/serial
