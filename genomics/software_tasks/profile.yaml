@@ -1,37 +1,9 @@
 - name: A bunch of aliasses I like to include
-  blockinfile: 
-    dest: /home/genomics/.bash_aliases
-    create: yes
-    content: |
-      # Colorize the ls output
-      alias ls='ls --color=auto -h'
-      # Use a long listing format
-      alias ll='ls -lah'
-      # Show hidden files
-      alias l.='ls -dh .* --color=auto'
-      # Colorize the grep command output for ease of use (good for log files)
-      alias grep='grep --color=auto'
-      alias egrep='egrep --color=auto'
-      alias fgrep='fgrep --color=auto'
-      # These next few help stop the students from accidents
-      alias h='history'
-      alias j='jobs -l'
-      # do not delete / or prompt if deleting more than 3 files at a time #
-      alias rm='rm -I --preserve-root'
-      # confirmation 
-      alias mv='mv -i'
-      alias cp='cp -i'
-      alias ln='ln -i'
-      # this one saved by butt so many times
-      alias wget='wget -c'
-      alias chrome='/opt/google/chrome/chrome'
+  copy: src:"{{playbook_dir}}/files/bash_aliases" dest=/home/genomics/.bash_aliases
+  become: true
+  become_user: genomics 
 
 - name: Change bash PS1 promt colour etc
-  blockinfile:
-    dest: /home/genomics/.bash_profile
-    create: yes
-    content: |
-      if [ -f ~/.bash_aliases ]; then
-        . ~/.bash_aliases
-      fi
-      export PS1="\[\033[38;5;220m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;202m\]\w\[$(tput sgr0)\]\[\033[38;5;15m\]\\$ \[$(tput sgr0)\]"
+  copy: src="{{playbook_dir}}/files/bash_profile" dest=/home/genomics/.bash_profile
+  become: true
+  become_user: genomics
