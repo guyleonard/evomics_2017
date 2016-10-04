@@ -11,7 +11,6 @@
     creates="{{software_dir}}/IGVTools/igvtools"
     
 - name: Install IGV Tools
-  lineinfile: backrefs=yes dest="/home/{{workshop_user}}" regexp='^PATH=(.*)(")' line="PATH=\1:/home/{{workshop_user}}/software/IGVTools/\2" backup=yes
   lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
               backrefs=yes
               backup=yes
