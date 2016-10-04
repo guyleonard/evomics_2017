@@ -20,7 +20,12 @@
   when: get_url_result | success
   
 - name: Adding Miniconda {{version}} to PATH
-  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:{{prefix}}{{version}}/bin\2" backup=yes
+  lineinfile: >
+  dest="/home/{{workshop_user}}/.bash_profile"
+  backrefs=yes
+  backup=yes
+  regexp='PATH=(["]*)((?!.*?{{prefix}}{{version}}/bin).*?)(["]*)$'
+  line="PATH=\1\2:{{prefix}}{{version}}/bin\3"
   when: miniconda_installed | success
 
 - name: Symlinking conda to conda3
