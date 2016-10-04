@@ -21,11 +21,11 @@
   
 - name: Adding Miniconda {{version}} to PATH
   lineinfile: >
-  dest="/home/{{workshop_user}}/.bash_profile"
-  backrefs=yes
-  backup=yes
-  regexp='PATH=(["]*)((?!.*?{{prefix}}{{version}}/bin).*?)(["]*)$'
-  line="PATH=\1\2:{{prefix}}{{version}}/bin\3"
+  dest: "/home/{{workshop_user}}/.bash_profile"
+  backrefs: yes
+  backup: yes
+  regexp: 'PATH=(["]*)((?!.*?{{prefix}}{{version}}/bin).*?)(["]*)$'
+  line: "PATH=\1\2:{{prefix}}{{version}}/bin\3"
   when: miniconda_installed | success
 
 - name: Symlinking conda to conda3
