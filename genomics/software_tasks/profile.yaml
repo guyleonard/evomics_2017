@@ -1,9 +1,9 @@
 - name: A bunch of aliasses I like to include
-  copy: src="{{playbook_dir}}/files/bash_aliases" dest=/home/{{workshop_user}}/.bash_aliases
+  copy: src="{{playbook_dir}}/files/bash_aliases" dest=/home/{{workshop_user}}/.bash_aliases mode=0644
   become: true
   become_user: "{{workshop_user}}"
 
 - name: Change bash PS1 promt colour etc
-  copy: src="{{playbook_dir}}/files/bash_profile" dest=/home/{{workshop_user}}/.bash_profile
+  copy: src="{{playbook_dir}}/files/bash_profile" dest=/home/{{workshop_user}}/.bash_profile mode=0644
   become: true
   become_user: "{{workshop_user}}"
