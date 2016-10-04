@@ -3,18 +3,21 @@
 
 - name: Creating 4GB Swap
   shell: "{{item}}"
+  become: yes
   with_items:
-    - sudo dd if=/dev/zero of=/var/swap.img bs=4000k count=4000
+    - dd if=/dev/zero of=/var/swap.img bs=4000k count=4000
 
 - name: Making 4GB Swap
   shell: "{{item}}"
+  become: yes
   with_items: 
-    - sudo mkswap /var/swap.img
+    - mkswap /var/swap.img
 
 - name: Swapon
   shell: "{{item}}"
+  become: yes
   with_items: 
-    - sudo swapon /var/swap.img
+    - swapon /var/swap.img
 
 - name: Running ./configure for blasr
   shell: "{{item}}"
