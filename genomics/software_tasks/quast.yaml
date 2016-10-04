@@ -13,9 +13,13 @@
     dest="{{software_dir}}"
     copy=no
     creates="{{software_dir}}/quast-{{version}}/README.txt"
-    
-- name: Install QUAST
-  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:/home/{{workshop_user}}/software/quast-4.2\2" backup=yes
+
+- name: Adding QUAST to PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+              backrefs=yes
+              backup=yes
+              regexp="PATH=((?!.*?/home/{{workshop_user}}/software/quast-4.2).*?)$"
+              line="PATH=\1:/home/{{workshop_user}}/software/quast-4.2"
 
 - name: Verify QUAST Installed
   shell: python /home/{{workshop_user}}/software/quast-{{version}}/quast.py --test

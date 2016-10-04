@@ -8,5 +8,10 @@
     copy=no
     creates="{{software_dir}}/hmmer-{{version}}-linux-intel-x86_64/binaries/hmmer"
     
-- name: Install HMMER
-  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:/home/{{workshop_user}}/software/hmmer-{{version}}-linux-intel-x86_64/binaries/\2" backup=yes
+- name: Adding HMMER to PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+              backrefs=yes
+              backup=yes
+              regexp="PATH=((?!.*?/home/{{workshop_user}}/software/hmmer-{{version}}-linux-intel-x86_64/binaries/).*?)$"
+              line="PATH=\1:/home/{{workshop_user}}/software/hmmer-{{version}}-linux-intel-x86_64/binaries/"
+

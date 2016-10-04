@@ -8,5 +8,10 @@
     copy=no
     creates="{{software_dir}}/qualimap_v{{version}}/qualimap"
     
-- name: Install Qualimap
-  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:/home/{{workshop_user}}/software/qualimap_v2.2\2" backup=yes
+- name: Adding Qualimap to PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+              backrefs=yes
+              backup=yes
+              regexp="PATH=((?!.*?/home/{{workshop_user}}/software/qualimap_v2.2).*?)$"
+              line="PATH=\1:/home/{{workshop_user}}/software/qualimap_v2.2"
+

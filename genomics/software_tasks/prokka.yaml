@@ -27,5 +27,10 @@
   with_items:
    - bin/prokka --setupdb
 
-- name: Install Prokka
-  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:/home/{{workshop_user}}/software/prokka/bin/\2" backup=yes
+- name: Add Prokka to PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+              backrefs=yes
+              backup=yes
+              regexp="PATH=((?!.*?/home/{{workshop_user}}/software/prokka/bin/).*?)$"
+              line="PATH=\1:/home/{{workshop_user}}/software/prokka/bin/"
+

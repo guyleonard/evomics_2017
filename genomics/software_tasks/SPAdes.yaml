@@ -8,5 +8,10 @@
     copy=no
     creates="{{software_dir}}/SPAdes-{{version}}-Linux/bin/spades"
     
-- name: Install SPAdes
-  lineinfile: backrefs=yes dest=/etc/environment regexp='^PATH=(.*)(")' line="PATH=\1:/home/{{workshop_user}}/software/SPAdes-{{version}}-Linux/bin/\2" backup=yes
+- name: Adding SPAdes to v{{version}} PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+              backrefs=yes
+              backup=yes
+              regexp="PATH=((?!.*?/home/{{workshop_user}}/software/SPAdes-{{version}}-Linux/bin).*?)$"
+              line="PATH=\1:/home/{{workshop_user}}/software/SPAdes-{{version}}-Linux/bin"
+
