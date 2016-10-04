@@ -41,11 +41,11 @@
     # but mariadb does not.
     #- include: mysql.yaml
     #  tags: mysql
-    - include: mariadb.yaml
+    - include: tasks/mariadb.yaml
       tags: mysql, mariadb
 
     # a bunch of aliasses I like to include
-    - include: profile.yaml
+    - include: tasks/profile.yaml
       tags: alias, profile
 
     # Install MATE Desktop Environment and remove Overlay Scroll
@@ -65,7 +65,7 @@
       tags: update-manager
 
     # Install Google Chrome
-    - include: chrome.yaml
+    - include: tasks/chrome.yaml
       tags: chrome
      
     # Install Firefox
@@ -74,15 +74,15 @@
       tags: firefox
 
     # Install X2Go
-    - include: x2go.yaml
+    - include: tasks/x2go.yaml
       tags: x2go
 
     # Install Open-Java and Oracle-Java
-    - include: java.yaml
+    - include: tasks/java.yaml
       tags: java
 
     # Install R and R Studio Server/Dektop
-    - include: r_and_r_studio.yaml
+    - include: tasks/r_and_r_studio.yaml
       tags: r
 
     # Install Other Dependencies and Software
