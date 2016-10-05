@@ -6,6 +6,7 @@
   until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
   retries: 5
   delay: 10
+  ignore_errors: yes
 
 - name: Uncompress Stacks v{{version}}
   unarchive:
