@@ -14,6 +14,7 @@
     dest="{{software_dir}}"
     copy=no
     creates="{{software_dir}}/stacks-{{version}}/README"
+  ignore_errors: yes
 
 - name: ./configure Stacks
   shell: "{{item}}"
@@ -21,13 +22,15 @@
    chdir: "{{software_dir}}/stacks-{{version}}"
   with_items:
     - ./configure --enable-sparsehash
-
+  ignore_errors: yes
+  
 - name: make Stacks
   shell: "{{item}}"
   args:
    chdir: "{{software_dir}}/stacks-{{version}}"
   with_items:
     - make
+  ignore_errors: yes
 
 - name: make install Stacks v{{version}}
   shell: "{{item}}"
@@ -35,3 +38,4 @@
    chdir: "{{software_dir}}/stacks-{{version}}"
   with_items:
     - make install
+  ignore_errors: yes
