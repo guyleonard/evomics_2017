@@ -30,7 +30,7 @@ I would now make an Amazon Image of this system and then use that as your "base 
 If you already have a base-AMI you wish to use.
 
     git clone https://github.com/guyleonard/evomics_2017.git
-    ansible-playbook /home/ubuntu/evomics_2017/base/base.yaml -b -K -c local -i "localhost,"
+    ansible-playbook /home/ubuntu/evomics_2017/base/main.yaml -b -K -c local -i "localhost,"
 
 ## Genomics AMI Setup:
 
