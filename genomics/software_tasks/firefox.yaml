@@ -5,7 +5,7 @@
   failed_when: grep_profile.rc > 2
 
 - name: Ensure Firefox profile exists
-  shell: firefox -no-remote -CreateProfile default 2>&1
+  shell: xvfb-run --auto-servernum --server-num=1 firefox -no-remote -CreateProfile default 2>&1
   register: create_profile 
   changed_when: grep_profile.rc > 0
   

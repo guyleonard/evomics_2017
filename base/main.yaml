@@ -144,6 +144,7 @@
        - uudeview
        - xcowsay
        - xrdp
+       - xvfb
        - zip
        - zlib1g-dev
       tags: dependencies
