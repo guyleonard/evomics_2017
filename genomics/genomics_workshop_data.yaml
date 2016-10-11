@@ -38,10 +38,10 @@
     tags: transcriptomics
 
   - include: data_tasks/swissprot.yaml
-    tags: transcriptomics
+    tags: transcriptomics, swissprot
 
   - include: data_tasks/pfam.yaml
-    tags: transcriptomics
+    tags: transcriptomics, pfam
 
   - include: data_tasks/trinotate.yaml
-    tags: transcriptomics
+    tags: transcriptomics, trinotate
