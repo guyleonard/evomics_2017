@@ -14,7 +14,7 @@
   become: true
   become_user: "{{workshop_user}}"
 
-- set_fact: firefox_profile="{{ create_profile.stdout | regex_replace(\"Success created profile '(.+)' at '(.+)'\", \"\\2\") | dirname }}"
+- set_fact: "firefox_profile={{ create_profile.stdout | regex_replace(\"Success: created profile '(.+)' at '(.+)'\", \"\\2\") | dirname }}"
 
 - name: Install firefox user prefs
   lineinfile: dest="{{firefox_profile}}/user.js"
