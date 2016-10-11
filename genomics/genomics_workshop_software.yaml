@@ -304,6 +304,9 @@
     - include: software_tasks/trinity.yaml
       tags: trinity, transcriptomics
 
+    - include: software_tasks/trinotate.yaml
+      tags: transcriptomics, trinotate, transdecoder
+
 
   ## Finishing Touches
   post_tasks:  
