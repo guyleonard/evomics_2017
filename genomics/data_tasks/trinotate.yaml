@@ -5,4 +5,4 @@
   shell: gunzip "{{workshop_dir}}/transcriptomics/trinotate_databases/Trinotate_v3.sqlite.gz" chdir="{{workshop_dir}}/transcriptomics/trinotate_databases/"
 
 - name: Rename Trinotate Pre-generated Resource SQLite DB
-  shell: mv Trinotate_v3.sqlite.gz Trinotate.sqlite chdir="{{workshop_dir}}/transcriptomics/trinotate_databases/"
+  shell: mv Trinotate_v3.sqlite Trinotate.sqlite chdir="{{workshop_dir}}/transcriptomics/trinotate_databases/"
