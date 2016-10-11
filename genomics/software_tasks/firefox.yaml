@@ -23,5 +23,5 @@
               regexp="^user_pref\("{{ item.name }}",\s*\S+?\);\s*$"
               line="user_pref(\"{{item.name}}\", {{ ('\"%s\"' | format(item.value)) if item.value is string else (item.value | lower) }});"
   with_items:
-  #  - "// Set default homepage"
+    - "// Set default homepage"
     - defaultPref("browser.startup.homepage","data:text/plain,browser.startup.homepage=https://evomics.org/workshops/workshop-on-genomics/2017-workshop-on-genomics-cesky-krumlov/");
