@@ -2,11 +2,7 @@
   get_url: url=https://data.broadinstitute.org/Trinity/Trinotate_v3_RESOURCES/Pfam-A.hmm.gz dest="{{workshop_dir}}/transcriptomics/trinotate_databases"
 
 - name: Uncompress Pfam-A DB
-  unarchive: 
-    src="{{workshop_dir}}/transcriptomics/trinotate_databases/Pfam-A.hmm.gz"
-    dest="{{workshop_dir}}/transcriptomics/trinotate_databases/"
-    copy=no
-    creates="{{workshop_dir}}/transcriptomics/trinotate_databases/Pfam-A.hmm"
+  shell: gunzip "{{workshop_dir}}/transcriptomics/trinotate_databases/Pfam-A.hmm.gz" chdir="{{workshop_dir}}/transcriptomics/trinotate_databases/"
 
 - name: Running hmmpress on Pfam-A
   shell: hmmpress Pfam-A.hmm chdir="{{workshop_dir}}/transcriptomics/trinotate_databases/"
