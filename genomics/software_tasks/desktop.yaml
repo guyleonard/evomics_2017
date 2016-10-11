@@ -4,7 +4,7 @@
   become_user: "{{workshop_user}}"
  
 - name: Setting Desktop Background
-  shell: "gsettings set org.mate.background picture-filename {{/home/{{workshop_user}}/.desktop_background.jpg"
+  shell: "gsettings set org.mate.background picture-filename /home/{{workshop_user}}/.desktop_background.jpg"
   become: true
   become_user: "{{workshop_user}}"
 
