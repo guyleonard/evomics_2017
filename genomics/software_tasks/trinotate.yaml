@@ -33,9 +33,9 @@
               line="PATH=\1:{{source_dir}}/Transdecoder"
 
 - name: Adding TRINOTATE_HOME to .bash_profile
-  lineinfile: dest="/home/{{workshop_user}}" line="export TRINOTATE_HOME={{source_dir}}/Trinotate" backup=yes
+  lineinfile: dest="/home/{{workshop_user}}/.bash_profile" line="export TRINOTATE_HOME={{source_dir}}/Trinotate" backup=yes
 
 - name: Adding TRANSDECODER_HOME to .bash_profile
-  lineinfile: dest="/home/{{workshop_user}}" line="export TRANSDECODER_HOME={{source_dir}}/TransDecoder" backup=yes
+  lineinfile: dest="/home/{{workshop_user}}/.bash_profile" line="export TRANSDECODER_HOME={{source_dir}}/TransDecoder" backup=yes
 
 # Databases etc are included in the data playbook :) 
