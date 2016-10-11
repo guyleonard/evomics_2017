@@ -1,0 +1,41 @@
+- name: Cloning Trinotate
+  git: repo=https://github.com/Trinotate/Trinotate.git dest="{{source_dir}}/Trinotate" clone=yes recursive=yes update=yes
+
+- name: Cloning TransDecoder
+  git: repo=https://github.com/TransDecoder/TransDecoder.git dest="{{source_dir}}/TransDecoder" clone=yes recursive=yes update=yes
+
+- name: TransDecoder - Running make
+  make: chdir="{{source_dir}}/TransDecoder"
+
+- name: Installing sqlite
+  apt: name=sqlite state=present
+
+- name: Installing NCBI Blast+
+  apt: name=ncbi-blast+ state=present
+
+# I will need to figure out how to include the CBS software
+# signalp, tmhmm and RNAMMER, who insist (in 2016) on a completely
+# ridiculous non-standard license and a "behind a registration form"
+# download option. WHY!!? - Maybe we don't need them?
+
+- name: Adding Trinotate to PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+              backrefs=yes
+              backup=yes
+              regexp="PATH=((?!.*?{{source_dir}}/Trinotate).*?)$"
+              line="PATH=\1:{{source_dir}}/Trinotate"
+
+- name: Adding Trandsdecoder to PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+              backrefs=yes
+              backup=yes
+              regexp="PATH=((?!.*?{{source_dir}}/Transdecoder).*?)$"
+              line="PATH=\1:{{source_dir}}/Transdecoder"
+
+- name: Adding TRINOTATE_HOME to .bash_profile
+  lineinfile: dest="/home/{{workshop_user}}" line="export TRINOTATE_HOME={{source_dir}}/Trinotate" backup=yes
+
+- name: Adding TRANSDECODER_HOME to .bash_profile
+  lineinfile: dest="/home/{{workshop_user}}" line="export TRANSDECODER_HOME={{source_dir}}/TransDecoder" backup=yes
+
+# Databases etc are included in the data playbook :) 

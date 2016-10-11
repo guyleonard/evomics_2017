@@ -1,0 +1,40 @@
+- hosts: all
+  become: yes
+  vars:
+    - workshop_user: genomics
+    - source_dir: "/home/{{workshop_user}}/software/.source"
+    - software_dir: "/home/{{workshop_user}}/software"
+    - workshop_dir: "/home/{{workshop_user}}/workshop_materials"
+
+tasks:
+### Common ###
+
+### Unix ###
+
+### Sequencing Data + Quality Control ###
+
+### Alignment Methods ###
+
+### Genomics ###
+
+### Assembly ###
+
+### Introduction to R ###
+
+### QIIME ###
+
+### PhyloSeq ###
+
+### Rad-Seq / Stacks ###
+
+### Transcriptomics ###
+
+- name: Create transcriptomics Directory
+  file: path="{{workshop_dir}}/transcriptomics" state=directory owner="{{workshop_user}}" group=workshop
+
+- name: Create trinotate databases Directory
+  file: path="{{workshop_dir}}/transcriptomics/trinotate_databases" state=directory owner="{{workshop_user}}" group=workshop
+
+- include: /data_tasks/swissprot.yaml
+- include: /data_tasks/pfam.yaml
+- include: /data_tasks/trinnotate.yaml
