@@ -9,8 +9,8 @@
   register: create_profile 
   changed_when: grep_profile.rc > 0
   
-- set_fact:
-  firefox_profile: "{{ create_profile.stdout | regex_replace(\"Success: created profile '(.+)' at '(.+)'\", \"\\2\") | dirname }}"
+#- set_fact:
+#  firefox_profile: "{{ create_profile.stdout | regex_replace(\"Success: created profile '(.+)' at '(.+)'\", \"\\2\") | dirname }}"
 
 #- name: Install firefox user prefs
 #  lineinfile:
