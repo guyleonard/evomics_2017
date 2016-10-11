@@ -24,6 +24,22 @@
   become_user: "{{workshop_user}}"
 
 - name: Setting up Terminal Panel Shortcut
-  shell: "dbus-launch gsettings set org.mate.panel.object:/org/mate/panel/objects/terminal/ launcher-location mate-terminal.desktop"
+  shell: "dbus-launch gsettings set org.mate.panel.object:/org/mate/panel/objects/terminal/ launcher-location /usr/share/applications/mate-terminal.desktop"
   become: true
   become_user: "{{workshop_user}}"
+
+- name: Setting up Chrome Panel Shortcut
+  shell: "dbus-launch gsettings set org.mate.panel.object:/org/mate/panel/objects/chrome/ toplevel-id 'top'"
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Setting up Chrome Panel Shortcut
+  shell: "dbus-launch gsettings set org.mate.panel.object:/org/mate/panel/objects/chrome/ object-type launcher"
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Setting up Chrome Panel Shortcut
+  shell: "dbus-launch gsettings set org.mate.panel.object:/org/mate/panel/objects/chrome/ launcher-location /usr/share/applications/google-chrome.desktop"
+  become: true
+  become_user: "{{workshop_user}}"
+
