@@ -6,5 +6,7 @@ if [ -z "$DISTRIB_DESCRIPTION" ] && [ -x /usr/bin/lsb_release ]; then
 fi
 figlet $(hostname) | lolcat -f
 printf "\n"
+printf "Twitter: @evomics #evomics2017"
+printf "\n"
 printf "Welcome to %s (%s).\n" "$DISTRIB_DESCRIPTION" "$(uname -r)"
 printf "\n"
