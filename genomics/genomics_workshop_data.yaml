@@ -35,6 +35,6 @@
   - name: Create trinotate databases Directory
     file: path="{{workshop_dir}}/transcriptomics/trinotate_databases" state=directory owner="{{workshop_user}}" group=workshop
 
-  - include: /data_tasks/swissprot.yaml
-  - include: /data_tasks/pfam.yaml
-  - include: /data_tasks/trinnotate.yaml
+  - include: data_tasks/swissprot.yaml
+  - include: data_tasks/pfam.yaml
+  - include: data_tasks/trinnotate.yaml
