@@ -12,7 +12,7 @@
               line="PATH=\1:{{source_dir}}/trinityrnaseq"
 
 - name: Adding TRINITY_HOME to .bash_profile
-  lineinfile: dest="/home/{{workshop_user}}" line="export TRINITY_HOME={{source_dir}}/trinityrnaseq" backup=yes
+  lineinfile: dest="/home/{{workshop_user}}/.bash_profile" line="export TRINITY_HOME={{source_dir}}/trinityrnaseq" backup=yes
 
-- name: EXPORT for TRINITY_HOME
+- name: EXPORT for TRINITY_HOME for current session
   shell: "export TRINITY_HOME={{source_dir}}/trinityrnaseq"

@@ -1,5 +1,5 @@
 - name: A bunch of aliasses I like to include
-  copy: src:"{{playbook_dir}}/files/bash_aliases" dest=/home/master/.bash_aliases
+  copy: src="{{playbook_dir}}/files/bash_aliases" dest=/home/master/.bash_aliases
   become: true
   become_user: master 
 

@@ -23,6 +23,9 @@
     - name: Create Workshop Directory
       file: path={{workshop_dir}} state=directory owner="{{workshop_user}}" group=workshop
       
+    - include: software_tasks/firefox.yaml
+      tags: firefox
+      
     - name: Installing Some Other Build Dependencies
       apt: name={{item}} state=present install_recommends=yes
       with_items:
@@ -254,7 +257,7 @@
        - libspreadsheet-writeexcel-perl
       tags: radseq, stacks
  
-    - include: software_tasks/stacks.yaml version=1.42
+    - include: software_tasks/stacks.yaml version=1.43
       tags: radseq, stacks
 
     - include: software_tasks/stacks_web.yaml
