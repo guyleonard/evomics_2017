@@ -31,10 +31,17 @@
 
   - name: Create transcriptomics Directory
     file: path="{{workshop_dir}}/transcriptomics" state=directory owner="{{workshop_user}}" group=workshop
+    tags: transcriptomics
 
   - name: Create trinotate databases Directory
     file: path="{{workshop_dir}}/transcriptomics/trinotate_databases" state=directory owner="{{workshop_user}}" group=workshop
+    tags: transcriptomics
 
   - include: data_tasks/swissprot.yaml
+    tags: transcriptomics
+
   - include: data_tasks/pfam.yaml
+    tags: transcriptomics
+
   - include: data_tasks/trinotate.yaml
+    tags: transcriptomics
