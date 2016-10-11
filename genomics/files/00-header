@@ -4,9 +4,9 @@ if [ -z "$DISTRIB_DESCRIPTION" ] && [ -x /usr/bin/lsb_release ]; then
   # Fall back to using the very slow lsb_release utility
   DISTRIB_DESCRIPTION=$(lsb_release -s -d)
 fi
-figlet $(hostname) | lolcat -f
+figlet $(hostname)
 printf "\n"
 printf "Twitter: @evomics #evomics2017"
-printf "\n"
+printf "\n\n"
 printf "Welcome to %s (%s).\n" "$DISTRIB_DESCRIPTION" "$(uname -r)"
 printf "\n"
