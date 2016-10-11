@@ -3,16 +3,16 @@
   register: grep_profile
   changed_when: false
   failed_when: grep_profile.rc > 2
-  become: yes
-  become_user: {{workshop_user}}
+  become: true
+  become_user: "{{workshop_user}}"
 
 - name: Ensure Firefox profile exists
   shell: xvfb-run --auto-servernum --server-num=1 firefox -no-remote -CreateProfile default 2>&1
   register: create_profile 
   changed_when: grep_profile.rc > 0
   ignore_errors: yes
-  become: yes
-  become_user: {{workshop_user}}
+  become: true
+  become_user: "{{workshop_user}}"
 
 #- set_fact:
 #  firefox_profile: "{{ create_profile.stdout | regex_replace(\"Success: created profile '(.+)' at '(.+)'\", \"\\2\") | dirname }}"
