@@ -6,35 +6,35 @@
     - software_dir: "/home/{{workshop_user}}/software"
     - workshop_dir: "/home/{{workshop_user}}/workshop_materials"
 
-tasks:
-### Common ###
+  tasks:
+  ### Common ###
 
-### Unix ###
+  ### Unix ###
 
-### Sequencing Data + Quality Control ###
+  ### Sequencing Data + Quality Control ###
 
-### Alignment Methods ###
+  ### Alignment Methods ###
 
-### Genomics ###
+  ### Genomics ###
 
-### Assembly ###
+  ### Assembly ###
 
-### Introduction to R ###
+  ### Introduction to R ###
 
-### QIIME ###
+  ### QIIME ###
 
-### PhyloSeq ###
+  ### PhyloSeq ###
 
-### Rad-Seq / Stacks ###
+  ### Rad-Seq / Stacks ###
 
-### Transcriptomics ###
+  ### Transcriptomics ###
 
-- name: Create transcriptomics Directory
-  file: path="{{workshop_dir}}/transcriptomics" state=directory owner="{{workshop_user}}" group=workshop
+  - name: Create transcriptomics Directory
+    file: path="{{workshop_dir}}/transcriptomics" state=directory owner="{{workshop_user}}" group=workshop
 
-- name: Create trinotate databases Directory
-  file: path="{{workshop_dir}}/transcriptomics/trinotate_databases" state=directory owner="{{workshop_user}}" group=workshop
+  - name: Create trinotate databases Directory
+    file: path="{{workshop_dir}}/transcriptomics/trinotate_databases" state=directory owner="{{workshop_user}}" group=workshop
 
-- include: /data_tasks/swissprot.yaml
-- include: /data_tasks/pfam.yaml
-- include: /data_tasks/trinnotate.yaml
+  - include: /data_tasks/swissprot.yaml
+  - include: /data_tasks/pfam.yaml
+  - include: /data_tasks/trinnotate.yaml
