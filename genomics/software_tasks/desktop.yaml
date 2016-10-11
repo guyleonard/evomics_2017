@@ -13,4 +13,17 @@
   become: true
   become_user: "{{workshop_user}}"
 
+- name: Setting up Terminal Panel Shortcut
+  shell: "gsettings set org.mate.panel.object:/org/mate/panel/objects/terminal/ toplevel-id 'top'"
+  become: true
+  become_user: "{{workshop_user}}"
 
+- name: Setting up Terminal Panel Shortcut
+  shell: "gsettings set org.mate.panel.object:/org/mate/panel/objects/terminal/ object-type launcher"
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Setting up Terminal Panel Shortcut
+  shell: "gsettings set org.mate.panel.object:/org/mate/panel/objects/terminal/ launcher-location mate-terminal.desktop"
+  become: true
+  become_user: "{{workshop_user}}"
