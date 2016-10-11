@@ -8,6 +8,7 @@
   shell: xvfb-run --auto-servernum --server-num=1 firefox -no-remote -CreateProfile default 2>&1
   register: create_profile 
   changed_when: grep_profile.rc > 0
+  ignore_errors: yes
   
 #- set_fact:
 #  firefox_profile: "{{ create_profile.stdout | regex_replace(\"Success: created profile '(.+)' at '(.+)'\", \"\\2\") | dirname }}"
