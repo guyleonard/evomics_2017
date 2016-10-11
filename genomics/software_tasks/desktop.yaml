@@ -1,0 +1,16 @@
+- name: Copying Desktop Background
+  copy: src="{{playbook_dir}}/files/desktop_background.jpg" dest="/home/{{workshop_user}}/.desktop_background.jpg" mode=0644
+  become: true
+  become_user:"{{workshop_user}}"
+ 
+- name: Setting Desktop Background
+  shell: "gsettings set org.mate.background picture-filename '{{/home/{{workshop_user}}/.desktop_background.jpg'"
+  become: true
+  become_user:"{{workshop_user}}"
+
+- name: Setting Desktop Background Scaling
+  shell: "gsettings set org.mate.background picture-options 'scaled'"
+  become: true
+  become_user:"{{workshop_user}}"
+
+

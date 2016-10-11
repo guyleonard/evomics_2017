@@ -45,6 +45,9 @@
     - include: software_tasks/motd.yaml
       tags: motd
 
+    - include: software_tasks/desktop.yaml
+      tags: desktop
+
   tasks:
     ### Commonly Required Programs/Libraries ###
     - name: Installing bamtools
