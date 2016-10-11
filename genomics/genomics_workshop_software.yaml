@@ -23,9 +23,6 @@
     - name: Create Workshop Directory
       file: path={{workshop_dir}} state=directory owner="{{workshop_user}}" group=workshop
       
-    - include: software_tasks/firefox.yaml
-      tags: firefox
-      
     - name: Installing Some Other Build Dependencies
       apt: name={{item}} state=present install_recommends=yes
       with_items:
@@ -42,6 +39,8 @@
     - name: Changing hostname to "{{workshop_user}}"
       lineinfile: dest=/etc/hostname regexp="^ip.*" line="{{workshop_user}}"
       tags: hostname
+
+      # also need to add to /etc/hosts 127.0.0.1 line
 
     - include: software_tasks/motd.yaml
       tags: motd
