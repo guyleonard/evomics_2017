@@ -38,4 +38,10 @@
 - name: Adding TRANSDECODER_HOME to .bash_profile
   lineinfile: dest="/home/{{workshop_user}}/.bash_profile" line="export TRANSDECODER_HOME={{source_dir}}/TransDecoder" backup=yes
 
+- name: Changing root user:group to {{workshop_user}}:workshop
+  file: path="{{source_dir}}/Trinotate" owner={{workshop_user}} group=workshop recurse=yes
+
+- name: Changing root user:group to {{workshop_user}}:workshop
+  file: path="{{source_dir}}/TransDecoder" owner={{workshop_user}} group=workshop recurse=yes
+
 # Databases etc are included in the data playbook :) 

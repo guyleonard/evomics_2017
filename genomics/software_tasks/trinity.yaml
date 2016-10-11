@@ -16,3 +16,7 @@
 
 - name: EXPORT for TRINITY_HOME for current session
   shell: "export TRINITY_HOME={{source_dir}}/trinityrnaseq"
+
+- name: Changing root user:group to {{workshop_user}}:workshop
+  file: path="{{source_dir}}/trinityrnaseq" owner={{workshop_user}} group=workshop recurse=yes
+
