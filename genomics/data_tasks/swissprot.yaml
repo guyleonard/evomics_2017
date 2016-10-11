@@ -1,8 +1,15 @@
 - name: Downloading SwissProt UniProt DB
   get_url: url=https://data.broadinstitute.org/Trinity/Trinotate_v3_RESOURCES/uniprot_sprot.pep.gz dest="{{workshop_dir}}/transcriptomics/trinotate_databases"
+  become: true
+  become_user: "{{workshop_user}}"
 
 - name: Uncompress SwissProt UniProt DB
   shell: gunzip -f "{{workshop_dir}}/transcriptomics/trinotate_databases/uniprot_sprot.pep.gz" chdir="{{workshop_dir}}/transcriptomics/trinotate_databases/"
+  become: true
+  become_user: "{{workshop_user}}"
 
 - name: Running makeblastdb on UniProt DB
   shell: makeblastdb -in uniprot_sprot.pep -dbtype prot chdir="{{workshop_dir}}/transcriptomics/trinotate_databases/"
+  become: true
+  become_user: "{{workshop_user}}"
+

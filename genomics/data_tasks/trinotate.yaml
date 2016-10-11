@@ -1,8 +1,15 @@
 - name: Downloading Trinotate Pre-generated Resource SQLite DB
   get_url: url=https://data.broadinstitute.org/Trinity/Trinotate_v3_RESOURCES/Trinotate_v3.sqlite.gz dest="{{workshop_dir}}/transcriptomics/trinotate_databases"
+  become: true
+  become_user: "{{workshop_user}}"
 
 - name: Uncompress Trinotate Pre-generated Resource SQLite DB
   shell: gunzip -f "{{workshop_dir}}/transcriptomics/trinotate_databases/Trinotate_v3.sqlite.gz" chdir="{{workshop_dir}}/transcriptomics/trinotate_databases/"
+  become: true
+  become_user: "{{workshop_user}}"
 
 - name: Rename Trinotate Pre-generated Resource SQLite DB
   shell: mv Trinotate_v3.sqlite Trinotate.sqlite chdir="{{workshop_dir}}/transcriptomics/trinotate_databases/"
+  become: true
+  become_user: "{{workshop_user}}"
+
