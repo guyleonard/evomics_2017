@@ -283,7 +283,7 @@
 
     ### Transcriptomics ###
     ## Previously Installed
-    # bowtie1, bioconductor, IGV, samtools, gmap, rsem
+    # bowtie1, bioconductor, IGV, samtools, gmap
 
     - include: software_tasks/r_transcriptomics.yaml
       tags: r, transcriptomics
