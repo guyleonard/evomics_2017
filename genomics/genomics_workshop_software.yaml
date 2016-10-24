@@ -69,15 +69,15 @@
     
     # Conda for Python 2.7
     - include: software_tasks/conda.yaml version=2 prefix=/home/genomics/miniconda
-      tags: general, conda
+      tags: general, conda, qiime, qiime2
 
     # Conda for Python 3.0
     - include: software_tasks/conda.yaml version=3 prefix=/home/genomics/miniconda
-      tags: general, conda
+      tags: general, conda, qiime, qiime2
 
     # Add Bioconda repos for Conda with Python 2
     - include: software_tasks/bioconda.yaml version=2 prefix=/home/genomics/miniconda
-      tags: general, conda, bioconda
+      tags: general, conda, bioconda, qiime, qiime2
 
     ### Unix ###
     # Base is OK
@@ -100,7 +100,7 @@
        - ea-utils
        - trimmomatic
        - fastqc
-      tags: genomics, seqdqc
+      tags: genomics, seqdqc, fastqc
 
 
     ### Alignment Methods ###
@@ -124,6 +124,7 @@
       
     - include: software_tasks/samtools.yaml version=1.3.1
       tags: genomics, samtools, transcriptomics
+
     - include: software_tasks/bcftools.yaml version=1.3.1
       tags: genomics, bcftools
       
@@ -152,7 +153,7 @@
     - name: Install FastTree2 Links
       file: src=/usr/bin/fasttree dest=/usr/bin/FastTree state=link
       tags: fasttree
-    - name: Install FastTree2 Links
+    - name: Install FastTree2 MP Links
       file: src=/usr/bin/fasttreeMP dest=/usr/bin/FastTreeMP state=link
       tags: genomics, fasttree
       
@@ -199,7 +200,7 @@
 
     ### Genome Assembly ###
     ## Previously Installed
-    # velvet, SPAdes, QUAST
+    # velvet, SPAdes, QUAST, fastqc
 
     - include: software_tasks/minia.yaml version=2.0.7
       tags: assembly, minia
@@ -210,10 +211,13 @@
     - include: software_tasks/prokka.yaml
       tags: assembly, prokka
 
+    - include: software_tasks/canu.yaml
+      tags: assembly, canu
+
 
     ### Introduction to R ###
     ## Previously Installed
-    # r and r studio
+    # r and r studio server/desktop
 
     - name: Installing littler
       apt: name=r-cran-littler state=present
@@ -258,8 +262,7 @@
     
     ### RAD-Seq / Stacks ###
     ## Previously Installed
-    # MySQL in Base Install
-    # PHP5?? http://askubuntu.com/questions/756181/installing-php-5-6-on-xenial-16-04
+    # MySQL (MariaDB) in Base Install
 
     - name: Installing Stacks Dependencies
       apt: name={{item}} state=present
@@ -286,8 +289,8 @@
       tags: radseq, gnuplot
 
     # The default is to disable sse2 and sse4.1 extensions
-    # as we have been burned before by some Amazon instance
-    # not having them available! 
+    # as we have been burned before by some Amazon instances
+    # not having those extensions available! 
     - include: software_tasks/gmap_gsnap.yaml version=2016-08-24
       tags: radseq, gmap, gsnap, transcriptomics
    
@@ -298,10 +301,9 @@
       tags: radseq, structure
 
 
-
     ### Transcriptomics ###
     ## Previously Installed
-    # bowtie1, bioconductor, IGV, samtools, gmap
+    # bowtie1, bioconductor, IGV, igvtools, samtools, gmap
 
     - include: software_tasks/r_transcriptomics.yaml
       tags: r, transcriptomics
