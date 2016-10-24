@@ -1,0 +1,2 @@
+- name: Install QIIME {{version}}
+  pip: name=qiime state=present version={{version}}

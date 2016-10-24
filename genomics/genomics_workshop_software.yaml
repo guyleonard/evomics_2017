@@ -226,13 +226,26 @@
 
     ### QIIME ###
     # Talk to Dan. QIIME1 or 2? Python 2 or 3. Jupyter Notebooks?
-    - name: Install QIIME Dependencies
+    - name: Installing QIIME Dependencies
       pip: name={{item}} state=present
       with_items:
        - numpy
        - h5py
        - matplotlib
+       - jupyter
       tags: qiime, metagenomics
+
+    # basic pip install of qiime
+    - include: software_tasks/qiime_basic.yaml version=1.9.1
+      tags: qiime, metagenomics
+
+    # conda environment install qiime1
+    - include: software_tasks/qiime_env.yaml
+      tags: qiime, metagenomics 
+
+    # conda environment install qiime2
+    - include: software_tasks/qiime2_env.yaml
+      tags: qiime2, metagenomics
 
     
     ### PhyloSeq ###

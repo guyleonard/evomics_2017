@@ -1,0 +1,30 @@
+- name: Install QIIME2 from Conda
+  shell: conda create -n qiime2 -c qiime2 python=3.5 qiime q2cli
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Install QIIME2 Plugins MatPlotLib
+  shell: conda install matplotlib==1.5.1
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Install QIIME2 Plugins q2-types q2-feature-table
+  shell: conda install -c qiime2 q2-types q2-feature-table
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Install QIIME2 Plugins conda-forge q2-diversity q2-emperor
+  shell: conda install -c qiime2 -c conda-forge q2-diversity q2-emperor emperor=1.0.0beta5
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Install QIIME2 Plugins fasttree
+  shell: conda install -c biocore fasttree
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Install QIIME2 Plugins q2-demux q2-alignment q2-phylogeny q2-dada2...
+  shell: conda install -c qiime2 q2-demux q2-alignment q2-phylogeny q2-dada2 q2-composition q2-taxa q2-feature-classifier
+  become: true
+  become_user: "{{workshop_user}}"
+
