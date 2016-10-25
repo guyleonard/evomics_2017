@@ -1,0 +1,36 @@
+# ~/.bashrc: executed by bash(1) for non-login shells.
+
+# source bash_aliases at login / shell
+if [ -f ~/.bash_aliases ]; then
+        . ~/.bash_aliases
+      fi
+
+# change bash PS1 styling on login / shell
+export PS1="\[\033[38;5;220m\]\u\[\033[38;5;15m\]@\[\033[38;5;39m\]\h\[\033[38;5;15m\]:\[\033[38;5;202m\]\w\[\033[38;5;15m\]\\$ "
+
+# source bash_paths at login / shell
+if [ -f ~/.bash_paths ]; then
+   source ~/.bash_paths
+fi
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+

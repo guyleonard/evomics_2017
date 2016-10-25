@@ -1,10 +1,12 @@
 # source bash_aliases at login / shell
 if [ -f ~/.bash_aliases ]; then
-        . ~/.bash_aliases
-      fi
+  . ~/.bash_aliases
+fi
 
-# change bash PS1 styling
+# change bash PS1 styling on login / shell
 export PS1="\[\033[38;5;220m\]\u\[\033[38;5;15m\]@\[\033[38;5;39m\]\h\[\033[38;5;15m\]:\[\033[38;5;202m\]\w\[\033[38;5;15m\]\\$ "
 
-#
-PATH=$PATH
+# source bash_paths at login / shell
+if [ -f ~/.bash_paths ]; then
+   source ~/.bash_paths
+fi
