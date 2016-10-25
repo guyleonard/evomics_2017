@@ -68,15 +68,15 @@
       tags: general, alignment, assembly, genomics, seqdqc, biopython
     
     # Conda for Python 2.7
-    - include: software_tasks/conda.yaml version=2 prefix=/home/genomics/miniconda
-      tags: general, conda, qiime, qiime2
+    #- include: software_tasks/conda.yaml version=2 prefix=/home/genomics/miniconda
+    #  tags: general, conda, qiime, qiime2
 
     # Conda for Python 3.0
     - include: software_tasks/conda.yaml version=3 prefix=/home/genomics/miniconda
       tags: general, conda, qiime, qiime2
 
-    # Add Bioconda repos for Conda with Python 2
-    - include: software_tasks/bioconda.yaml version=2 prefix=/home/genomics/miniconda
+    # Add Bioconda repos for Conda with Python 3
+    - include: software_tasks/bioconda.yaml version=3 prefix=/home/genomics/miniconda
       tags: general, conda, bioconda, qiime, qiime2
 
     ### Unix ###
