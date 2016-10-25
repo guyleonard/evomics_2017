@@ -9,27 +9,27 @@
   when: qiime2_env_installed.stat.exists == false
 
 - name: Install QIIME2 Plugins MatPlotLib
-  shell: "/home/{{workshop_user}}/miniconda3/bin/conda install matplotlib==1.5.1"
+  shell: "/home/{{workshop_user}}/miniconda3/bin/conda install -n qiime2 matplotlib==1.5.1"
   become: true
   become_user: "{{workshop_user}}"
 
 - name: Install QIIME2 Plugins q2-types q2-feature-table
-  shell: "/home/{{workshop_user}}/miniconda3/bin/conda install -c qiime2 q2-types q2-feature-table"
+  shell: "/home/{{workshop_user}}/miniconda3/bin/conda install -n qiime2 -c qiime2 q2-types q2-feature-table"
   become: true
   become_user: "{{workshop_user}}"
 
 - name: Install QIIME2 Plugins conda-forge q2-diversity q2-emperor
-  shell: "/home/{{workshop_user}}/miniconda3/bin/conda install -c qiime2 -c conda-forge q2-diversity q2-emperor emperor=1.0.0beta5"
+  shell: "/home/{{workshop_user}}/miniconda3/bin/conda install -n qiime2 -c qiime2 -c conda-forge q2-diversity q2-emperor emperor=1.0.0beta5"
   become: true
   become_user: "{{workshop_user}}"
 
 - name: Install QIIME2 Plugins fasttree
-  shell: "/home/{{workshop_user}}/miniconda3/bin/conda install -c biocore fasttree"
+  shell: "/home/{{workshop_user}}/miniconda3/bin/conda install -n qiime2 -c biocore fasttree"
   become: true
   become_user: "{{workshop_user}}"
 
 - name: Install QIIME2 Plugins q2-demux q2-alignment q2-phylogeny q2-dada2...
-  shell: "/home/{{workshop_user}}/miniconda3/bin/conda install -c qiime2 q2-demux q2-alignment q2-phylogeny q2-dada2 q2-composition q2-taxa q2-feature-classifier"
+  shell: "/home/{{workshop_user}}/miniconda3/bin/conda install -n qiime2 -c qiime2 q2-demux q2-alignment q2-phylogeny q2-dada2 q2-composition q2-taxa q2-feature-classifier"
   become: true
   become_user: "{{workshop_user}}"
 
