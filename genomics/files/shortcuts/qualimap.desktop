@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon[en_US]=/home/genomics/.icons/qualimap.png
+Name[en_US]=Qualimap
+Exec=/home/genomics/software/qualimap_v2.2/qualimap
+Name=Qualimap
+Icon=/home/genomics/.icons/qualimap.png
