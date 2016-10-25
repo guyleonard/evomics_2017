@@ -78,3 +78,9 @@
   copy: src="{{playbook_dir}}/files/shortcuts/qualimap.desktop" dest="/home/{{workshop_user}}/Desktop/qualimap.desktop" mode=0755
   become: true
   become_user: "{{workshop_user}}"
+
+- name: Copying IGV Launcher
+  copy: src="{{playbook_dir}}/files/shortcuts/igv.desktop" dest="/home/{{workshop_user}}/Desktop/igv.desktop" mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
+
