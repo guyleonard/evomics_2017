@@ -1,7 +1,12 @@
+- name: Checking for previous QIIME2 Installation
+  stat: path="/home/{{workshop_user}}/miniconda3/envs/qiime2"
+  register: qiime2_env_installed
+
 - name: Install QIIME2 from Conda
-  shell: "/home/{{workshop_user}}/miniconda3/bin/conda create -f --update-deps -n qiime2 -c qiime2 python=3.5 qiime q2cli"
+  shell: "/home/{{workshop_user}}/miniconda3/bin/conda create --update-deps -n qiime2 -c qiime2 python=3.5 qiime q2cli"
   become: true
   become_user: "{{workshop_user}}"
+  when: qiime2_env_installed.stat.exists == false
 
 - name: Install QIIME2 Plugins MatPlotLib
   shell: "/home/{{workshop_user}}/miniconda3/bin/conda install matplotlib==1.5.1"
