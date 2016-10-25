@@ -43,3 +43,12 @@
   become: true
   become_user: "{{workshop_user}}"
 
+- name: Copying Terminal Launcher
+  copy: src="{{playbook_dir}}/files/Terminal.desktop" dest="/home/{{workshop_user}}/Desktop/Terminal.desktop" mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Copying rstudio Launcher 
+  copy: src="{{playbook_dir}}/files/rstudio.desktop" dest="/home/{{workshop_user}}/Desktop/rstudio.desktop" mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
