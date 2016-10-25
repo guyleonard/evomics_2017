@@ -54,7 +54,7 @@
 - name: Copying Icons
   copy:
     src: "{{item}}"
-    dest:"/home/{{workshop_user}}/.icons/"
+    dest: "/home/{{workshop_user}}/.icons/"
     mode: 0755
   with_fileglob:
     - "{{playbook_dir}}/files/icons/*"
