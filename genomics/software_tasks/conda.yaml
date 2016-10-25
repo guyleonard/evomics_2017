@@ -27,9 +27,9 @@
               line="PATH=\1:{{prefix}}{{version}}/bin"
   when: miniconda_installed | success
 
-- name: Symlinking conda to conda3
-  file: src="{{prefix}}{{version}}/bin/conda" dest="{{prefix}}{{version}}/bin/conda3" state=link
-  when: "{{version}} == 3"
+#- name: Symlinking conda to conda3
+#  file: src="{{prefix}}{{version}}/bin/conda" dest="{{prefix}}{{version}}/bin/conda3" state=link
+#  when: "{{version}} == 3"
 
 - name: Updating Miniconda {{version}}
   shell: "{{prefix}}{{version}}/bin/conda update conda"
