@@ -15,3 +15,14 @@
               regexp="PATH=((?!.*?/home/{{workshop_user}}/software/qualimap_v2.2).*?)$"
               line="PATH=\1:/home/{{workshop_user}}/software/qualimap_v2.2"
 
+- name: Installing optparse
+  shell: "{{playbook_dir}}/scripts/install.r optparse"
+
+- name: Installing Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite()"
+
+- name: Installing NOISeq via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('NOISeq')"
+
+- name: Installing Repitools via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('Repitools')"
