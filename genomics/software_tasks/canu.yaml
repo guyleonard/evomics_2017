@@ -1,10 +1,17 @@
 - name: Cloning canu Assembler
   git: repo=https://github.com/marbl/canu.git dest="{{source_dir}}/canu" clone=yes update=yes
 
-- name: Building/Installing canu Assembler
+- name: Building canu Assembler
   make:
     chdir: "{{source_dir}}/canu/src"
     params:
       NUM_THREADS: 8
+
+- name: Adding canu Assembler to PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+              backrefs=yes
+              backup=yes
+              regexp="PATH=((?!.*?/home/{{workshop_user}}/software/.source/canu/Linux-amd64/bin).*?)$"
+              line="PATH=\1:/home/{{workshop_user}}/software/.source/canu/Linux-amd64/bin"
 
 
