@@ -9,7 +9,7 @@
     creates="{{software_dir}}/SPAdes-{{version}}-Linux/bin/spades"
     
 - name: Adding SPAdes to v{{version}} PATH
-  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
               backrefs=yes
               backup=yes
               regexp="PATH=((?!.*?/home/{{workshop_user}}/software/SPAdes-{{version}}-Linux/bin).*?)$"

@@ -15,7 +15,7 @@
     creates="{{software_dir}}/quast-{{version}}/README.txt"
 
 - name: Adding QUAST to PATH
-  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
               backrefs=yes
               backup=yes
               regexp="PATH=((?!.*?/home/{{workshop_user}}/software/quast-4.2).*?)$"

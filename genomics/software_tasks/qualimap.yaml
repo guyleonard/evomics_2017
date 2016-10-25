@@ -9,7 +9,7 @@
     creates="{{software_dir}}/qualimap_v{{version}}/qualimap"
     
 - name: Adding Qualimap to PATH
-  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
               backrefs=yes
               backup=yes
               regexp="PATH=((?!.*?/home/{{workshop_user}}/software/qualimap_v2.2).*?)$"

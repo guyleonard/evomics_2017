@@ -20,7 +20,7 @@
   when: get_url_result | success
   
 - name: Adding Miniconda {{version}} to PATH
-  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
               backrefs=yes
               backup=yes
               regexp="PATH=((?!.*?{{prefix}}{{version}}/bin).*?)$"

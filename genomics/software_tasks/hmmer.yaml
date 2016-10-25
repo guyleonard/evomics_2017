@@ -9,7 +9,7 @@
     creates="{{software_dir}}/hmmer-{{version}}-linux-intel-x86_64/binaries/hmmer"
     
 - name: Adding HMMER to PATH
-  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
               backrefs=yes
               backup=yes
               regexp="PATH=((?!.*?/home/{{workshop_user}}/software/hmmer-{{version}}-linux-intel-x86_64/binaries/).*?)$"

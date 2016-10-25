@@ -24,24 +24,24 @@
 
 
 - name: Adding Trinotate to PATH
-  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
               backrefs=yes
               backup=yes
               regexp="PATH=((?!.*?{{source_dir}}/Trinotate).*?)$"
               line="PATH=\1:{{source_dir}}/Trinotate"
 
 - name: Adding Trandsdecoder to PATH
-  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
               backrefs=yes
               backup=yes
               regexp="PATH=((?!.*?{{source_dir}}/Transdecoder).*?)$"
               line="PATH=\1:{{source_dir}}/Transdecoder"
 
-- name: Adding TRINOTATE_HOME to .bash_profile
-  lineinfile: dest="/home/{{workshop_user}}/.bash_profile" line="export TRINOTATE_HOME={{source_dir}}/Trinotate" backup=yes
+- name: Adding TRINOTATE_HOME to .bash_paths
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths" line="export TRINOTATE_HOME={{source_dir}}/Trinotate" backup=yes
 
-- name: Adding TRANSDECODER_HOME to .bash_profile
-  lineinfile: dest="/home/{{workshop_user}}/.bash_profile" line="export TRANSDECODER_HOME={{source_dir}}/TransDecoder" backup=yes
+- name: Adding TRANSDECODER_HOME to .bash_paths
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths" line="export TRANSDECODER_HOME={{source_dir}}/TransDecoder" backup=yes
 
 - name: Changing root user:group to {{workshop_user}}:workshop
   file: path="{{source_dir}}/Trinotate" owner={{workshop_user}} group=workshop recurse=yes

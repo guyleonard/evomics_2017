@@ -5,14 +5,14 @@
   make: chdir="{{source_dir}}/trinityrnaseq"
 
 - name: Adding Trinity to PATH
-  lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
               backrefs=yes
               backup=yes
               regexp="PATH=((?!.*?{{source_dir}}/trinityrnaseq).*?)$"
               line="PATH=\1:{{source_dir}}/trinityrnaseq"
 
-- name: Adding TRINITY_HOME to .bash_profile
-  lineinfile: dest="/home/{{workshop_user}}/.bash_profile" line="export TRINITY_HOME={{source_dir}}/trinityrnaseq" backup=yes
+- name: Adding TRINITY_HOME to .bash_paths
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths" line="export TRINITY_HOME={{source_dir}}/trinityrnaseq" backup=yes
 
 - name: EXPORT for TRINITY_HOME for current session
   shell: "export TRINITY_HOME={{source_dir}}/trinityrnaseq"
