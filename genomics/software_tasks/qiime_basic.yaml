@@ -1,2 +1,5 @@
 - name: Install QIIME {{version}}
   pip: name=qiime state=present version={{version}}
+
+- name: Install python-tk
+  apt: name=python-tk state=present
