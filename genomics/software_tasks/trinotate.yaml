@@ -13,10 +13,15 @@
 - name: Installing NCBI Blast+
   apt: name=ncbi-blast+ state=present
 
+- name: Installing HTML::Template
+  cpanm: name=HTML::Template
+
+
 # I will need to figure out how to include the CBS software
 # signalp, tmhmm and RNAMMER, who insist (in 2016) on a completely
 # ridiculous non-standard license and a "behind a registration form"
 # download option. WHY!!? - Maybe we don't need them?
+
 
 - name: Adding Trinotate to PATH
   lineinfile: dest="/home/{{workshop_user}}/.bash_profile"
