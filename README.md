@@ -62,14 +62,14 @@ There is only one playbook for the data section, but you can run it with tags as
 # FAQs
 
 * Hey Guy, why does it say "ANSIBLE_NOCOWS=1" above?
-
->  _______________________________________
-> / Do you really want to see cows in all \
-> | the output messages? Like this? Why?  |
-> \ Moooooooo.                            /
->  ---------------------------------------
->         \   ^__^
->          \  (oo)\_______
->             (__)\       )\/\
->                 ||----w |
->                 ||     ||
+```
+ _______________________________________
+/ Do you really want to see cows in all \
+| the output messages? Like this? Why?  |
+\ Moooooooo.                            /
+ ---------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
