@@ -40,7 +40,9 @@
       lineinfile: dest=/etc/hostname regexp="^ip.*" line="{{workshop_user}}"
       tags: hostname
 
-      # also need to add to /etc/hosts 127.0.0.1 line
+    - name: Changing hosts to "{{workshop_user}}"
+      lineinfile: dest=/etc/hosts regexp="^127.*" line="127.0.0.1 localhost {{workshop_user}}"
+      tags: hostname
 
     - include: software_tasks/motd.yaml
       tags: motd
