@@ -28,6 +28,10 @@ If you already have a base AMI that you wish to use you can do this instead:
     git clone https://github.com/guyleonard/evomics_2017.git
     ansible-playbook /home/ubuntu/evomics_2017/base/main.yaml -b -K -c local -i "localhost,"
 
+## NB
+
+If you are logged in to your AMI using a key pair then you do not need to enter a password when you are asked for SUDO access. Just press 'enter' and continue.
+
 ## Genomics AMI Setup:
 
 ### Software
