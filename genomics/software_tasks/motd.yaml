@@ -14,7 +14,7 @@
   become: yes
 
 - name: Creating Header
-  copy: src="{{playbook_dir}}/files/00-header" dest=/etc/update-motd.d/00-header mode=0755
+  copy: src="{{playbook_dir}}/files/motd/00-header" dest=/etc/update-motd.d/00-header mode=0755
   become: yes
 
 - name: Remove MOTD File
