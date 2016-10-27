@@ -59,6 +59,11 @@
   with_fileglob:
     - "{{playbook_dir}}/files/icons/*"
 
+- name: Creating Desktop Directory
+  file: path="/home/{{workshop_user}}/Desktop" state=directory mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
+
 - name: Copying Terminal Launcher
   copy: src="{{playbook_dir}}/files/shortcuts/Terminal.desktop" dest="/home/{{workshop_user}}/Desktop/Terminal.desktop" mode=0755
   become: true
