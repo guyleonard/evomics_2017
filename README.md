@@ -64,9 +64,9 @@ There is only one playbook for the data section, but you can run it with tags as
 * Hey Guy, why does it say "ANSIBLE_NOCOWS=1" above?
 
 >  _______________________________________
-> / The official explanation is [here](https://docs.ansible.com/ansible/faq.html#how-do-i-disable-cowsay). You \
-> | might like the cows, you can run it   |
-> \ without :)                            /
+> / Do you really want to see cows in all \
+> | the output messages? Like this? Why?  |
+> \ Moooooooo.                            /
 >  ---------------------------------------
 >         \   ^__^
 >          \  (oo)\_______
