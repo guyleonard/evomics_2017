@@ -57,3 +57,19 @@ There is only one playbook for the data section, but you can run it with tags as
     ANSIBLE_NOCOWS=1 ansible-playbook /home/ubuntu/evomics_2017/genomics/main_data.yaml -b -K -c local -i "localhost,"
 
 ## Phylogenomics AMI Setup
+
+
+# FAQs
+
+* Hey Guy, why does it say "ANSIBLE_NOCOWS=1" above?
+```
+ _______________________________________
+/ Do you really want to see cows in all \
+| the output messages? Like this? Why?  |
+\ Moooooooo.                            /
+ ---------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||

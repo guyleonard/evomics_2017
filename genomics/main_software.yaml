@@ -50,6 +50,7 @@
 
   tasks:
     ### Commonly Required Programs/Libraries ###
+    # bamtools is only in Ubuntu repos from 16.04+
     - name: Installing bamtools
       apt: name={{item}} state=present
       with_items:
