@@ -1,3 +1,10 @@
+## Preamble
+For the past two years I have created the AMIs for the Workshop on Genomics a couple of weeks prior to the workshops beginning - usually in my Christmas holiday and also during the Faculty set up week. 2014 was the first time that I had ever used Amazon EC2 and an AMI, let alone been tasked to create one of my own and so I wanted it to work the first time! Therefore, in that first year I decided to use a copy of BioLinux which helped expedite the process of installing software (their repositories already included many of the bioinformatics software we needed) but it is not really maintained that well anymore. Nevertheless it worked, and it was relatively stable. So, success!
+
+In the second year I decided to install everything from scratch (well other than the base OS), so now more than a novice at using Amazon's webs services it was easy for me, but it's a bit of a laborious and slow process. It was very stable, and I can't remember any problems other than one with Stacks that was human error. The AMI was split half-way and used - I think - as a base to the Population and Speciation Genomics workshop by Adam Bazinet.
+
+This year I want to try and get the building of the AMI to be as automated as possible. If I can use technology to help me automate the process, then all I need to do is press 'go' and come back later and double check it all completed (obviously so that I can go and drink more Czech Lager - surely the reason for anyone to become a bioinformatician; automate it = drink more). This will allow changes to be made to the install scripts and if anything breaks, a new AMI can be started from scratch, rather than keeping intermediate copies as I have in the past.
+
 ## Previous Years
 ### 2015
 I used a copy of [Bio-Linux 8](http://environmentalomics.org/bio-linux/) as the base AMI on which to base the workshop machine image. This was fine back in 2014, but it hasn't really been updated since July of that year and doesn't look like it's going to be continued [link](), similarly [CloudBioLinux](http://cloudbiolinux.org/) isn't really mainted either and hasn't been updated since 2013.
