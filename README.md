@@ -2,7 +2,7 @@
 Instructions and notes for creating the AMIs for the [evomics.org](http://evomics.org) Workshops 2017 and information on the previous years' AMIs in [previous_workflow.md](https://github.com/guyleonard/evomics_2017/blob/master/previous_workflow.md).
 
 ## Preamble
-For the past two years I have created the AMIs for the Workshop on Genomics a couple of weeks prior to the workshops beginning - usually in my Christmas holiday and also during the Faculty set up week. This year I want to try and get the building of the AMI to be as automated as possible ahead of the workshop. This will also allow students, faculty, PIs, etc, to build/alter their own copies for future workshops, training or personal use. If you plan to make changes for your own use, I highly suggest forking this repository and making changes to your copy. I am happy to accept pull requests for software I am missing.
+For the past two years I have created the AMIs for the Workshop on Genomics a couple of weeks prior to the workshops beginning - usually in my Christmas holiday and also during the Faculty set up week. This year I want to try and get the building of the AMI to be as automated as possible ahead of the workshop. This will also allow students, faculty, PIs, etc, to build/alter their own copies for future workshops, training or personal use. If you plan to make changes for your own use, I highly suggest forking this repository and making changes to your copy. I am happy to accept pull requests for software bugs, updates, fixes, additions etc.
 
 # 2017 Workshops (Genomics & Phylogenomics)
 
