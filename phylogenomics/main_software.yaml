@@ -1,0 +1,132 @@
+- hosts: all
+  become: yes
+  vars:
+    - workshop_user: phylogenomics
+    - source_dir: "/home/{{workshop_user}}/software/.source"
+    - software_dir: "/home/{{workshop_user}}/software"
+    - workshop_dir: "/home/{{workshop_user}}/workshop_materials"
+    # sha-512 hash
+    - phylogenomics_user_password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0
+    
+  pre_tasks:
+    # Set up the workshop user with a SHA-512 crypted password using mkpasswd
+    - name: Create {{workshop_user}} Workshop User
+      user: name="{{workshop_user}}" group=workshop comment="{{workshop_user}} Workshop User" state=present shell=/bin/bash password={{phylogenomics_user_password}}
+      
+    # Create {{workshop_user}} user Software Directories
+    - name: Create Software Dir
+      file: path={{software_dir}} state=directory owner="{{workshop_user}}" group=workshop
+    - name: Create Software Source Dir
+      file: path={{source_dir}} state=directory owner="{{workshop_user}}" group=workshop
+    - name: Create Workshop Directory
+      file: path={{workshop_dir}} state=directory owner="{{workshop_user}}" group=workshop
+      
+    - name: Installing Some Other Build Dependencies
+      apt: name={{item}} state=present install_recommends=yes
+      with_items:
+       - libgsl0-dev
+       - libsparsehash-dev
+       - libhdf5-cpp-11 #blasr
+       - libhdf5-dev #blasr
+       - libfreetype6-dev #matplotlib
+
+    # a bunch of aliasses I like to include
+    - include: software_tasks/profile.yaml
+      tags: alias, profile
+    
+    - name: Changing hostname to "{{workshop_user}}"
+      lineinfile: dest=/etc/hostname regexp="^ip.*" line="{{workshop_user}}"
+      tags: hostname
+
+    - name: Changing hosts to "{{workshop_user}}"
+      lineinfile: dest=/etc/hosts regexp="^127.*" line="127.0.0.1 localhost {{workshop_user}}"
+      tags: hostname
+
+    - include: software_tasks/motd.yaml
+      tags: motd
+
+    - include: software_tasks/desktop.yaml
+      tags: desktop
+
+  tasks:
+    ### Commonly Required Programs/Libraries ###
+    - name: Installing BioPerl - slow
+      cpanm: name=CJFIELDS/BioPerl-1.6.924.tar.gz
+      tags: general, alignment, assembly, genomics, seqdqc, bioperl
+
+    - name: Installing BioPython
+      pip: name=biopython state=present
+      tags: general, alignment, assembly, genomics, seqdqc, biopython
+    
+    # Conda for Python 3.0
+    - include: software_tasks/conda.yaml version=3 prefix=/home/genomics/miniconda
+      tags: general, conda, qiime, qiime2
+
+    # Add Bioconda repos for Conda with Python 3
+    - include: software_tasks/bioconda.yaml version=3 prefix=/home/genomics/miniconda
+      tags: general, conda, bioconda, qiime, qiime2
+
+    ### Unix ###
+    # Base is OK
+
+
+    ### Orthology and Paralogy ###
+
+    ### Alignment, Trimming, Concatenation ###
+
+    ### Tree Construction ML ###
+
+    ### Tree Construction Bayes ###
+
+    ### Tree Divergence ###
+
+    ### Model Selection ###
+
+
+    ### Detecting Selection ###
+
+    ### SVD-Quartets ###
+
+    ### CAFE ###
+
+    ### Non-Vertical Evolution ###
+
+
+    ### Tasks from Genomics ###
+
+    - name: Installing blast legacy & blast+
+      apt: name={{item}} state=present
+      with_items:
+       - ncbi-blast+
+       - ncbi-blast+-legacy
+       - ncbi-tools-bin
+       - ncbi-tools-x11
+      tags: genomics, blast
+      
+    - name: Installing FastTree2
+      apt: name=fasttree state=present
+      tags: fasttree
+    - name: Install FastTree2 Links
+      file: src=/usr/bin/fasttree dest=/usr/bin/FastTree state=link
+      tags: fasttree
+    - name: Install FastTree2 MP Links
+      file: src=/usr/bin/fasttreeMP dest=/usr/bin/FastTreeMP state=link
+      tags: genomics, fasttree
+      
+    - include: software_tasks/hmmer.yaml version=3.1b2
+      tags: genomics, hmmer
+
+    - include: software_tasks/newick_utils.yaml
+      tags: genomics, newick_utils
+
+    - include: software_tasks/raxml.yaml
+      tags: radseq, raxml, trees
+
+  ## Finishing Touches
+  post_tasks:  
+    - name: Changing software/source user:group to genomics:workshop
+      file: path="/home/{{workshop_user}}/software" owner={{workshop_user}} group=workshop recurse=yes
+      tags: finish
+
+    - shell: echo 'Now please run the Phylogenomics Workshop Data Tasks Playbook'
+      tags: finish
