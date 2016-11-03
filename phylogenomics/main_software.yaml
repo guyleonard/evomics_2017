@@ -52,29 +52,56 @@
     ### Commonly Required Programs/Libraries ###
     - name: Installing BioPerl - slow
       cpanm: name=CJFIELDS/BioPerl-1.6.924.tar.gz
-      tags: general, alignment, assembly, genomics, seqdqc, bioperl
+      tags: general, bioperl
 
     - name: Installing BioPython
       pip: name=biopython state=present
-      tags: general, alignment, assembly, genomics, seqdqc, biopython
+      tags: general, biopython
     
     # Conda for Python 3.0
     - include: software_tasks/conda.yaml version=3 prefix=/home/genomics/miniconda
-      tags: general, conda, qiime, qiime2
+      tags: general, conda
 
     # Add Bioconda repos for Conda with Python 3
     - include: software_tasks/bioconda.yaml version=3 prefix=/home/genomics/miniconda
-      tags: general, conda, bioconda, qiime, qiime2
+      tags: general, conda, bioconda
+
+    - name: Installing blast legacy & blast+
+      apt: name={{item}} state=present
+      with_items:
+       - ncbi-blast+
+       - ncbi-blast+-legacy
+       - ncbi-tools-bin
+       - ncbi-tools-x11
+      tags: general, blast
+
+    - include: software_tasks/hmmer.yaml version=3.1b2
+      tags: general, hmmer
+
+    - include: software_tasks/newick_utils.yaml
+      tags: general, newick_utils
 
     ### Unix ###
     # Base is OK
-
 
     ### Orthology and Paralogy ###
 
     ### Alignment, Trimming, Concatenation ###
 
     ### Tree Construction ML ###
+
+    - include: software_tasks/raxml.yaml
+      tags: trees, raxml
+
+    - name: Installing FastTree2
+      apt: name=fasttree state=present
+      tags: fasttree, trees
+    - name: Install FastTree2 Links
+      file: src=/usr/bin/fasttree dest=/usr/bin/FastTree state=link
+      tags: fasttree, trees
+    - name: Install FastTree2 MP Links
+      file: src=/usr/bin/fasttreeMP dest=/usr/bin/FastTreeMP state=link
+      tags: fasttree, trees
 
     ### Tree Construction Bayes ###
 
@@ -91,36 +118,6 @@
 
     ### Non-Vertical Evolution ###
 
-
-    ### Tasks from Genomics ###
-
-    - name: Installing blast legacy & blast+
-      apt: name={{item}} state=present
-      with_items:
-       - ncbi-blast+
-       - ncbi-blast+-legacy
-       - ncbi-tools-bin
-       - ncbi-tools-x11
-      tags: genomics, blast
-      
-    - name: Installing FastTree2
-      apt: name=fasttree state=present
-      tags: fasttree
-    - name: Install FastTree2 Links
-      file: src=/usr/bin/fasttree dest=/usr/bin/FastTree state=link
-      tags: fasttree
-    - name: Install FastTree2 MP Links
-      file: src=/usr/bin/fasttreeMP dest=/usr/bin/FastTreeMP state=link
-      tags: genomics, fasttree
-      
-    - include: software_tasks/hmmer.yaml version=3.1b2
-      tags: genomics, hmmer
-
-    - include: software_tasks/newick_utils.yaml
-      tags: genomics, newick_utils
-
-    - include: software_tasks/raxml.yaml
-      tags: radseq, raxml, trees
 
   ## Finishing Touches
   post_tasks:  

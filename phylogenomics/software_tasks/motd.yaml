@@ -1,0 +1,22 @@
+- name: Installing motd Prerequisites
+  apt: name={{item}} state=present
+  with_items:
+    - lsb-release
+    - figlet
+    - update-motd
+
+- name: Removing Old motd Directory
+  file: path=/etc/update-motd.d/ state=absent
+  become: yes
+
+- name: Create new motd Directory
+  file: path=/etc/update-motd.d/ state=directory
+  become: yes
+
+- name: Creating Header
+  copy: src="{{playbook_dir}}/files/motd/00-header" dest=/etc/update-motd.d/00-header mode=0755
+  become: yes
+
+- name: Remove MOTD File
+  file: path=/etc/motd.dynamic state=absent
+  become: yes

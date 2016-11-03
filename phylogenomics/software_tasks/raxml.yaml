@@ -1,0 +1,67 @@
+- name: Cloning RAxML
+  git: repo=https://github.com/stamatak/standard-RAxML dest="{{source_dir}}/standard-RAxML" clone=yes update=yes
+
+- name: make -f Makefile.gcc
+  shell: "{{item}}"
+  args:
+   chdir: "{{source_dir}}/standard-RAxML"
+  with_items:
+    - make -f Makefile.gcc
+
+- name: clean up
+  shell: "{{item}}"
+  args:
+    chdir: "{{source_dir}}/standard-RAxML"
+  with_items:
+    - rm *.o
+
+- name: make -f Makefile.SSE3.gcc
+  shell: "{{item}}"
+  args:
+   chdir: "{{source_dir}}/standard-RAxML"
+  with_items:
+    - make -f Makefile.SSE3.gcc
+
+- name: clean up
+  shell: "{{item}}"
+  args:
+    chdir: "{{source_dir}}/standard-RAxML"
+  with_items:
+    - rm *.o
+
+- name: make -f Makefile.PTHREADS.gcc
+  shell: "{{item}}"
+  args:
+   chdir: "{{source_dir}}/standard-RAxML"
+  with_items:
+    - make -f Makefile.PTHREADS.gcc
+
+- name: clean up
+  shell: "{{item}}"
+  args:
+    chdir: "{{source_dir}}/standard-RAxML"
+  with_items:
+    - rm *.o
+
+- name: make -f Makefile.SSE3.PTHREADS.gcc
+  shell: "{{item}}"
+  args:
+   chdir: "{{source_dir}}/standard-RAxML"
+  with_items:
+    - make -f Makefile.SSE3.PTHREADS.gcc
+
+- name: clean up
+  shell: "{{item}}"
+  args:
+    chdir: "{{source_dir}}/standard-RAxML"
+  with_items:
+    - rm *.o
+
+- name: Installing RAxML Executables
+  copy:
+    src: "{{item}}"
+    dest: /usr/local/bin
+    mode: 0755
+  with_fileglob:
+    - "{{source_dir}}/standard-RAxML/raxmlHPC*"
+

@@ -1,0 +1,38 @@
+- name: Check if Miniconda {{version}} is Installed
+  stat: path={{prefix}}/bin/conda
+  register: bin_conda
+  changed_when: bin_conda.stat.exists == False
+
+- name: Downloading Miniconda {{version}}
+  get_url: url="https://repo.continuum.io/miniconda/Miniconda{{version}}-latest-Linux-x86_64.sh" dest="{{source_dir}}/Miniconda{{version}}-latest-Linux-x86_64.sh"
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 5
+  delay: 10
+  when: bin_conda.stat.exists == False
+
+- name: chmod on Miniconda {{version}}
+  file: path="{{source_dir}}/Miniconda{{version}}-latest-Linux-x86_64.sh" mode=0755 
+
+- name: Installing Miniconda {{version}}
+  shell: "{{source_dir}}/Miniconda{{version}}-latest-Linux-x86_64.sh -b -p {{prefix}}{{version}} creates={{prefix}}{{version}} executable=/bin/bash"
+  register: miniconda_installed
+  when: get_url_result | success
+  
+- name: Adding Miniconda {{version}} to PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
+              backrefs=yes
+              backup=yes
+              regexp="PATH=((?!.*?{{prefix}}{{version}}/bin).*?)$"
+              line="PATH=\1:{{prefix}}{{version}}/bin"
+  when: miniconda_installed | success
+
+#- name: Symlinking conda to conda3
+#  file: src="{{prefix}}{{version}}/bin/conda" dest="{{prefix}}{{version}}/bin/conda3" state=link
+#  when: "{{version}} == 3"
+
+- name: Updating Miniconda {{version}}
+  shell: "{{prefix}}{{version}}/bin/conda update conda"
+
+- name: Changing root user:group to {{workshop_user}}:workshop
+  file: path="{{prefix}}{{version}}" owner={{workshop_user}} group=workshop recurse=yes

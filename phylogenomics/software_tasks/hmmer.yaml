@@ -1,0 +1,17 @@
+- name: Downloading HMMER v{{version}}
+  get_url: url="http://eddylab.org/software/hmmer3/{{version}}/hmmer-{{version}}-linux-intel-x86_64.tar.gz" dest="{{source_dir}}/hmmer-{{version}}-linux-intel-x86_64.tar.gz"
+
+- name: Uncompress HMMER
+  unarchive: 
+    src="{{source_dir}}/hmmer-{{version}}-linux-intel-x86_64.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/hmmer-{{version}}-linux-intel-x86_64/binaries/hmmer"
+    
+- name: Adding HMMER to PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
+              backrefs=yes
+              backup=yes
+              regexp="PATH=((?!.*?/home/{{workshop_user}}/software/hmmer-{{version}}-linux-intel-x86_64/binaries/).*?)$"
+              line="PATH=\1:/home/{{workshop_user}}/software/hmmer-{{version}}-linux-intel-x86_64/binaries/"
+

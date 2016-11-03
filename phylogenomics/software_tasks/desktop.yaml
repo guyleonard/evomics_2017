@@ -1,0 +1,95 @@
+## Desktop Background
+
+- name: Copying Desktop Background
+  copy: src="{{playbook_dir}}/files/desktop_background.jpg" dest="/home/{{workshop_user}}/.desktop_background.jpg" mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
+ 
+- name: Setting Desktop Background
+  shell: "dbus-launch gsettings set org.mate.background picture-filename '/home/{{workshop_user}}/.desktop_background.jpg'"
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Setting Desktop Background Scaling
+  shell: "dbus-launch gsettings set org.mate.background picture-options 'scaled'"
+  become: true
+  become_user: "{{workshop_user}}"
+
+
+## Panel Shortcuts
+
+- name: Setting up Terminal Panel Shortcut
+  shell: "dbus-launch gsettings set org.mate.panel.object:/org/mate/panel/objects/terminal/ toplevel-id 'top'"
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Setting up Terminal Panel Shortcut
+  shell: "dbus-launch gsettings set org.mate.panel.object:/org/mate/panel/objects/terminal/ object-type launcher"
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Setting up Terminal Panel Shortcut
+  shell: "dbus-launch gsettings set org.mate.panel.object:/org/mate/panel/objects/terminal/ launcher-location /usr/share/applications/mate-terminal.desktop"
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Setting up Chrome Panel Shortcut
+  shell: "dbus-launch gsettings set org.mate.panel.object:/org/mate/panel/objects/chrome/ toplevel-id 'top'"
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Setting up Chrome Panel Shortcut
+  shell: "dbus-launch gsettings set org.mate.panel.object:/org/mate/panel/objects/chrome/ object-type launcher"
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Setting up Chrome Panel Shortcut
+  shell: "dbus-launch gsettings set org.mate.panel.object:/org/mate/panel/objects/chrome/ launcher-location /usr/share/applications/google-chrome.desktop"
+  become: true
+  become_user: "{{workshop_user}}"
+
+
+## Launchers / Shortcuts
+
+- name: Copying Icons
+  copy:
+    src: "{{item}}"
+    dest: "/home/{{workshop_user}}/.icons/"
+    mode: 0755
+  with_fileglob:
+    - "{{playbook_dir}}/files/icons/*"
+
+- name: Creating Desktop Directory
+  file: path="/home/{{workshop_user}}/Desktop" state=directory mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Copying Terminal Launcher
+  copy: src="{{playbook_dir}}/files/shortcuts/Terminal.desktop" dest="/home/{{workshop_user}}/Desktop/Terminal.desktop" mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Copying rstudio Launcher 
+  copy: src="{{playbook_dir}}/files/shortcuts/rstudio.desktop" dest="/home/{{workshop_user}}/Desktop/rstudio.desktop" mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Copying FastQC Launcher
+  copy: src="{{playbook_dir}}/files/shortcuts/FastQC.desktop" dest="/home/{{workshop_user}}/Desktop/FastQC.desktop" mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Copying Qualimap Launcher
+  copy: src="{{playbook_dir}}/files/shortcuts/qualimap.desktop" dest="/home/{{workshop_user}}/Desktop/qualimap.desktop" mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Copying IGV Launcher
+  copy: src="{{playbook_dir}}/files/shortcuts/igv.desktop" dest="/home/{{workshop_user}}/Desktop/igv.desktop" mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
+
+- name: Making Symlink to Workshop Materials
+  file: src="/home/{{workshop_user}}//workshop_materials" dest="/home/{{workshop_user}}/Desktop/workshop_materials" state=link
+  become: true
+  become_user: "{{workshop_user}}"

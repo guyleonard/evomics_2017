@@ -1,0 +1,44 @@
+- name: Installing newick_utils dependencies
+  apt: name={{item}} state=present
+  with_items:
+    - flex
+    - bison
+    - lua5.2
+    - liblua5.2-0
+    - liblua5.2-dev
+    - guile-2.0
+    - guile-2.0-dev
+
+- name: Cloning newick_utils
+  git: repo=https://github.com/tjunier/newick_utils.git dest="{{software_dir}}/newick_utils" clone=yes update=yes
+
+- name: autoreconf for newick_utils
+  shell: "{{item}}"
+  args:
+   chdir: "{{software_dir}}/newick_utils"
+  with_items:
+    - autoreconf -fi
+
+- name: ./configure newick_utils
+  shell: "{{item}}"
+  args:
+   chdir: "{{software_dir}}/newick_utils"
+  with_items:
+    - ./configure
+
+- name: make newick_utils
+  shell: "{{item}}"
+  args:
+   chdir: "{{software_dir}}/newick_utils"
+  with_items:
+    - make
+
+- name: make install newick_utils
+  shell: "{{item}}"
+  args:
+   chdir: "{{software_dir}}/newick_utils"
+  with_items:
+    - make install
+
+- name: Making sure libraries are linked
+  shell: /sbin/ldconfig /usr/local/lib
