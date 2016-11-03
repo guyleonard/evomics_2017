@@ -60,11 +60,11 @@ There is only one playbook for the data section, but you can run it with tags as
 
 ### Software
 
-Run the genomics software playbook fully:
+Run the phylogenomics software playbook fully:
 
     ANSIBLE_NOCOWS=1 ansible-playbook /home/ubuntu/evomics_2017/phylogenomics/main_software.yaml -b -K -c local -i "localhost,"
 
-or for just two tools, e.g. samtools & bwa:
+or for just two tools, e.g. raxml & mrbayes:
 
     ANSIBLE_NOCOWS=1 ansible-playbook /home/ubuntu/evomics_2017/phylogenomics/main_software.yaml -b -K -c local -i "localhost," --tags raxml,mrbayes
 
