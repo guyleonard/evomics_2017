@@ -58,6 +58,22 @@ There is only one playbook for the data section, but you can run it with tags as
 
 ## Phylogenomics AMI Setup
 
+### Software
+
+Run the genomics software playbook fully:
+
+    ANSIBLE_NOCOWS=1 ansible-playbook /home/ubuntu/evomics_2017/phylogenomics/main_software.yaml -b -K -c local -i "localhost,"
+
+or for just two tools, e.g. samtools & bwa:
+
+    ANSIBLE_NOCOWS=1 ansible-playbook /home/ubuntu/evomics_2017/phylogenomics/main_software.yaml -b -K -c local -i "localhost," --tags raxml,mrbayes
+
+or for just one tutorial you could do:
+
+    ANSIBLE_NOCOWS=1 ansible-playbook /home/ubuntu/evomics_2017/phylogenomics/main_software.yaml -b -K -c local -i "localhost," --tags model_selection
+
+Tags can be mixed and matched as you like, they *should* install their dependencies where I have remembered ;).
+
 
 # FAQs
 
