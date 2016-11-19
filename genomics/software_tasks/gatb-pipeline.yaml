@@ -9,10 +9,10 @@
     creates="{{software_dir}}/gatb-pipeline-{{version}}/README"
 
 - name: Installing gatb-pipeline
-  copy: src="{{software_dir}}/gatb-pipeline-{{version}}/gatb" dest=/usr/local/bin/gatb
+  copy: src="{{software_dir}}/gatb-pipeline-{{version}}/gatb" dest=/usr/local/bin/gatb mode=0755
 
 - name: Installing Bloocoo
-  copy: src="{{software_dir}}/gatb-pipeline-{{version}}/bloocoo/Bloocoo" dest=/usr/local/bin/Bloocoo
+  copy: src="{{software_dir}}/gatb-pipeline-{{version}}/bloocoo/Bloocoo" dest=/usr/local/bin/Bloocoo mode=0755
   
 - name: Installing gatb-pipeline tools
   copy:
