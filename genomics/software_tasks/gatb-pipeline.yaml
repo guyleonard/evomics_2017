@@ -9,23 +9,34 @@
     creates="{{software_dir}}/gatb-pipeline-{{version}}/README"
 
 - name: Installing gatb-pipeline
-  file: src="{{software_dir}}/gatb-pipeline-{{version}}/gatb" dest=/usr/local/bin/gat state=link
+  file: src="{{software_dir}}/gatb-pipeline-{{version}}/gatb" dest=/usr/local/bin/gatb state=link
 
-- name: Installing BESST
+- name: Installing Bloocoo
+  file: src="{{software_dir}}/gatb-pipeline-{{version}}/bloocoo/Bloocoo" dest=/usr/local/bin/Bloocoo state=link
+
+- name: Installing gatb-pipeline tools
+  copy:
+    src: "{{item}}"
+    dest: /usr/local/bin/tools
+    mode: 0755
+  with_fileglob:
+    - "{{software_dir}}/gatb-pipeline-{{version}}/tools/*"
+
+- name: gatb-pipeline  Installing BESST
   pip: name=BESST
   
-- name: Innstalling mathstats
+- name: gatb-pipeline  Installing mathstats
   pip: name=mathstats
   
-- name: Installing pysam
+- name: gatb-pipeline  Installing pysam
   pip: name=pysam
   
-- name: Installing networkx
+- name: gatb-pipeline  Installing networkx
   pip: name=networkx
   
-- name: Installing scipy
+- name: gatb-pipeline  Installing scipy
   pip: name=scipy
   
-- name: Installing pyfasta
+- name: gatb-pipeline  Installing pyfasta
   pip: name=pyfasta
   
