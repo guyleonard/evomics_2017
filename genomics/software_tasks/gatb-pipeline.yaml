@@ -1,0 +1,14 @@
+- name: Downloading gatb-pipeline {{version}}
+  get_url: url="http://gatb-pipeline.gforge.inria.fr/versions/bin/gatb-pipeline-{{version}}.tar.gz" dest="{{source_dir}}/gatb-pipeline-{{version}}.tar.gz"
+  
+- name: Uncompressing gatb-pipeline
+  unarchive: 
+    src="{{source_dir}}/gatb-pipeline-{{version}}.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/gatb-pipeline-{{version}}/README"
+
+- name: Installing gatb-pipeline
+  file: src="{{software_dir}}/gatb-pipeline-{{version}}/gatb" dest=/usr/local/bin/gat state=link
+
+# pip install --user mathstats pysam networkx scipy pyfasta
