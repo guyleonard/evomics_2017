@@ -14,5 +14,18 @@
 - name: Installing BESST
   pip: name=BESST
   
-
-# pip install --user mathstats pysam networkx scipy pyfasta
+- name: Innstalling mathstats
+  pip: name=mathstats
+  
+- name: Installing pysam
+  pip: name=pysam
+  
+- name: Installing networkx
+  pip: name=networkx
+  
+- name: Installing scipy
+  pip: name=scipy
+  
+- name: Installing pyfasta
+  pip: name=pyfasta
+  
