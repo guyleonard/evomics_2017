@@ -17,6 +17,14 @@
     - prodigal 
     - parallel
 
+- name: Get tbl2asn
+  unarchive:
+    src="ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/linux64.tbl2asn.gz"
+    dest=/usr/bin
+    remote_src=yes
+    copy=no
+    become=true
+
 - name: Clone PROKKA
   git: repo="https://github.com/tseemann/prokka.git" dest="{{software_dir}}/prokka" clone=yes update=yes
 
