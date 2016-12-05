@@ -24,8 +24,9 @@
   shell: gunzip -f "{{source_dir}}/linux64.tbl2asn.gz"
 
 - name: Copy tbl2asn
-  copy="{{source_dir}}/linux64.tbl2asn"
-  dest=/usr/bin/tbl2asn
+  copy: 
+    src="{{source_dir}}/linux64.tbl2asn"
+    dest=/usr/bin/tbl2asn
   become: true
 
 - name: Clone PROKKA
