@@ -23,7 +23,7 @@
     dest=/usr/bin
     remote_src=yes
     copy=no
-    become=true
+  become: true
 
 - name: Clone PROKKA
   git: repo="https://github.com/tseemann/prokka.git" dest="{{software_dir}}/prokka" clone=yes update=yes
