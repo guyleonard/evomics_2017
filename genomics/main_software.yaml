@@ -208,7 +208,7 @@
 
     ### Genome Assembly ###
     ## Previously Installed
-    # velvet, SPAdes, QUAST, fastqc, minia
+    # velvet, SPAdes, QUAST, fastqc, minia, gatb
 
     - include: software_tasks/kmergenie.yaml version=1.7016
       tags: assembly, kmergenie
@@ -234,7 +234,6 @@
 
 
     ### QIIME ###
-    # Talk to Dan. QIIME1 or 2? Python 2 or 3. Jupyter Notebooks?
     - name: Installing QIIME Dependencies
       pip: name={{item}} state=present
       with_items:
