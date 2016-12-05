@@ -18,11 +18,14 @@
     - parallel
 
 - name: Get tbl2asn
-  unarchive:
-    src="ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/linux64.tbl2asn.gz"
-    dest=/usr/bin
-    remote_src=yes
-    copy=no
+  get_url: url=ftp://ftp.ncbi.nih.gov/toolbox/ncbi_tools/converters/by_program/tbl2asn/linux64.tbl2asn.gz dest="{{source_dir}}/linux64.tbl2asn.gz"
+
+- name: Unzip tbl2asn
+  shell: gunzip -f "{{source_dir}}/linux64.tbl2asn.gz"
+
+- name: Copy tbl2asn
+  copy="{{source_dir}}/linux64.tbl2asn"
+  dest=/usr/bin/tbl2asn
   become: true
 
 - name: Clone PROKKA
