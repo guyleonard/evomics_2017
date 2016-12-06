@@ -240,7 +240,6 @@
        - numpy
        - h5py
        - matplotlib
-       - jupyter
       tags: qiime, metagenomics
 
     # basic pip install of qiime
@@ -255,7 +254,10 @@
     - include: software_tasks/qiime2_env.yaml
       tags: qiime2, metagenomics
 
+    - include: software_tasks/jupyter.yaml
+      tags: qiime, qiime2, jupyter, metagenomics
     
+
     ### PhyloSeq ###
     ## Previously Installed
     # r, r-studio-server/desktop, littler, ggplot2
