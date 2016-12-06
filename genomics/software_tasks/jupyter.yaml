@@ -9,7 +9,7 @@
 - name: Adding Password for Jupyter 
   lineinfile: dest="/home/{{workshop_user}}/.jupyter/jupyter_notebook_config.py"
               backup=yes
-              line="c.NotebookApp.password = u{{jupyter_password}}"
+              line="c.NotebookApp.password = u'{{jupyter_password}}'"
   become: true
   become_user: "{{workshop_user}}"
 
