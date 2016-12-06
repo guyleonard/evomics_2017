@@ -9,7 +9,7 @@
     - genomics_user_password: $6$xsb/UrhJ$sxievieZ7erTF93MwiBEZqm/mIpTVlTd3uhYGY2Urt5qoGapG3ZEU6NrGMOYd7QUnFfXhgDn12OPxDuxb20dB0
     # mysql native hash - SELECT PASSWORD("password") - also need to set in stacks_web.yaml
     - stacks_user_password: '*39094635b39efded76637451cdbd294d41865007'
-    # jupyter password - sha1
+    # jupyter password https://jupyter-notebook.readthedocs.io/en/latest/public_server.html#preparing-a-hashed-password
     - jupyter_password: 'sha1:0909a8ee63e4:7c0d5e80d50acbdc07d9e7f3ac66d028713e2825'
     
   pre_tasks:
