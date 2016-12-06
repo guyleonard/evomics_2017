@@ -2,7 +2,7 @@
   pip: name=jupyter state=present
 
 - name: Creating Jupyter Config File
-  shell: jupyter notebook --generate-config
+  shell: jupyter notebook --generate-config -y
   become: true
   become_user: "{{workshop_user}}"
 
