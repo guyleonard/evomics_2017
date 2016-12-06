@@ -9,31 +9,68 @@
   tasks:
   ### Common ###
 
+
   ### Unix ###
+  - name: Create Unix Directory
+    file: path="{{workshop_dir}}/unix" state=directory owner="{{workshop_user}}" group=workshop
+    tags: unix
+
 
   ### Sequencing Data + Quality Control ###
+  - name: Create QC Directory
+    file: path="{{workshop_dir}}/quality_control" state=directory owner="{{workshop_user}}" group=workshop
+    tags: quality
+
 
   ### Alignment Methods ###
+  - name: Create Alignment Methods Directory
+    file: path="{{workshop_dir}}/alignment_methods" state=directory owner="{{workshop_user}}" group=workshop
+    tags: transcriptomics
+
 
   ### Genomics ###
+  - name: Create Genomics Tutorial Directory
+    file: path="{{workshop_dir}}/genomics_tutorial" state=directory owner="{{workshop_user}}" group=workshop
+    tags: transcriptomics
+
 
   ### Assembly ###
+  - name: Create Assembly Directory
+    file: path="{{workshop_dir}}/assembly" state=directory owner="{{workshop_user}}" group=workshop
+    tags: transcriptomics
+
 
   ### Introduction to R ###
+  - name: Create R Tutorial Directory
+    file: path="{{workshop_dir}}/R_tutorial" state=directory owner="{{workshop_user}}" group=workshop
+    tags: transcriptomics
+
 
   ### QIIME ###
+  - name: Create QIIME Directory
+    file: path="{{workshop_dir}}/qiime" state=directory owner="{{workshop_user}}" group=workshop
+    tags: transcriptomics
+
 
   ### PhyloSeq ###
+  - name: Create Phyloseq Directory
+    file: path="{{workshop_dir}}/phyloseq" state=directory owner="{{workshop_user}}" group=workshop
+    tags: transcriptomics
+
 
   ### Rad-Seq / Stacks ###
+  - name: Create Rad-Seq Directory
+    file: path="{{workshop_dir}}/radseq" state=directory owner="{{workshop_user}}" group=workshop
+    tags: transcriptomics
+
 
   ### Transcriptomics ###
 
-  - name: Create transcriptomics Directory
+  - name: Create Transcriptomics Directory
     file: path="{{workshop_dir}}/transcriptomics" state=directory owner="{{workshop_user}}" group=workshop
     tags: transcriptomics
 
-  - name: Create trinotate databases Directory
+  - name: Create Trinotate databases Directory
     file: path="{{workshop_dir}}/transcriptomics/trinotate_databases" state=directory owner="{{workshop_user}}" group=workshop
     tags: transcriptomics
 
