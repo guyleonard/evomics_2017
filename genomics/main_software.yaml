@@ -243,6 +243,10 @@
        - h5py
        - matplotlib
       tags: qiime, metagenomics
+      
+    - name: Install MAFFT QIIME Dependency
+      apt: name=mafft state=present
+      tags: qiime, qiime2
 
     # basic pip install of qiime
     - include: software_tasks/qiime_basic.yaml version=1.9.1
