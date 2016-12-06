@@ -1,5 +1,11 @@
 - name: Downloading SwissProt UniProt DB
-  get_url: url=https://data.broadinstitute.org/Trinity/Trinotate_v3_RESOURCES/uniprot_sprot.pep.gz dest="{{workshop_dir}}/transcriptomics/trinotate_databases"
+  get_url:
+    url=https://data.broadinstitute.org/Trinity/Trinotate_v3_RESOURCES/uniprot_sprot.pep.gz
+    dest="{{workshop_dir}}/transcriptomics/trinotate_databases"
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 5
+  delay: 10
   become: true
   become_user: "{{workshop_user}}"
 
