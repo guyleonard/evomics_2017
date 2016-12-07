@@ -1,0 +1,75 @@
+# This script will download the programs SignalP, TMHMM & RNAmmer
+# from an S3 bucket for the duration of the workshop.
+# After the workshop it will be removed, and you will have to request
+# the programs yourself :(
+
+# You should go and read their licenses:
+# http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?signalp
+# http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?tmhmm
+# http://www.cbs.dtu.dk/cgi-bin/sw_request?rnammer
+# they are also included in the downloaded tarball
+
+# It's incredibly annoying to have to do this, why CBS insists
+# on a web based request form, email download of software, and a
+# entirely restrictive and non-standard license in 2016 is unknown.
+# It's not 1996, guys. Vågn op. :) Skål.
+
+- name: Downloading CBS Software - SignalP, TMHMM, RNAmmer
+  get_url:
+    url="https://s3....tar.gz"
+    dest="{{source_dir}}/cbs_programs.tar.gz"
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 5
+  delay: 10
+
+- name: Uncompressing CBS Software
+  unarchive:
+  src="{{source_dir}}/cbs_programs.tar.gz"
+  dest="{{software_dir}}"
+  copy=no
+  creates="{{software_dir}}/cbs_programs/tmhmm-2.0c.Linux.tar.gz"
+
+# TMHMM
+- name: Uncompressing TMHMM
+  unarchive:
+  src="{{software_dir}}/cbs_programs/tmhmm-2.0c.Linux.tar.gz"
+  dest="{{software_dir}}"
+  copy=no
+  creates="{{software_dir}}/tmhmm-2.0c/README"
+
+- name: Fixing tmhmm perl env
+  lineinfile: dest="{{software_dir}}/tmhmm-2.0c/bin/tmhmm" regexp='#!/usr/local/bin/perl' line="#!/usr/bin/env perl" backup=yes
+
+- name: Copy tmhmm to /usr/local/bin
+  copy: src="{{software_dir}}/tmhmm-2.0c/bin/tmhmm" dest=/usr/local/bin/tmhmm
+
+- name: Fixing tmhmmformat perl env
+  lineinfile: dest="{{software_dir}}/tmhmm-2.0c/bin/tmhmmformat.pl" regexp='#!/usr/local/bin/perl -w' line="#!/usr/bin/env perl -w" backup=yes
+
+- name: Copy tmhmm to /usr/local/bin
+  copy: src="{{software_dir}}/tmhmm-2.0c/bin/tmhmmformat.pl" dest=/usr/local/bin/tmhmmformat.pl
+
+- name: Copy tmhmm to /usr/local/bin
+  copy: src="{{software_dir}}/tmhmm-2.0c/bin/decodeanhmm.Linux_x86_64" dest=/usr/local/bin/decodeanhmm
+
+- name: Copying tmhmm libs to /usr/local/lib 
+  copy:
+    src: "{{item}}"
+    dest: /usr/local/lib
+    mode: 0755
+  with_fileglob:
+    - "{{software_dir}}/tmhmm-2.0c/lib/*"
+
+#SignalP
+- name: Uncompressing SignalP  
+  unarchive:
+  src="{{software_dir}}/cbs_programs/signalp-4.1e.Linux.tar.gz"
+  dest="{{software_dir}}"
+  copy=no
+  creates="{{software_dir}}/signalp-4.1/signalp"
+
+
+
+
+
