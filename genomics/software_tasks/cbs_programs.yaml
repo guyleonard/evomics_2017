@@ -73,7 +73,7 @@
   lineinfile: dest="{{software_dir}}/signalp-4.1/signalp" regexp='#!/usr/bin/perl' line="#!/usr/bin/env perl" backup=yes
 
 - name: Fixing SignalP path info
-  lineinfile: dest="{{software_dir}}/signalp-4.1/signalp" regexp='$ENV{SIGNALP} = '/usr/cbs/bio/src/signalp-4.1';' line="$ENV{SIGNALP} = '{{software_dir}}/signalp-4.1';" backup=yes
+  lineinfile: dest="{{software_dir}}/signalp-4.1/signalp" regexp='\s+\$ENV\{SIGNALP\} = \'/usr/cbs/bio/src/signalp-4.1\'\;' line="$ENV{SIGNALP} = '{{software_dir}}/signalp-4.1';" backup=yes
 
 - name: Fixing SignalP max allowed entries to 2000000
   lineinfile: dest="{{software_dir}}/signalp-4.1/signalp" regexp='my\s+\$MAX_ALLOWED_ENTRIES\=10000\;' line="my $MAX_ALLOWED_ENTRIES=2000000;" backup=yes
