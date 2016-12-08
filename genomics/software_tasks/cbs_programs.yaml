@@ -25,18 +25,18 @@
 
 - name: Uncompressing CBS Software
   unarchive:
-  src="{{source_dir}}/cbs_programs.tar.gz"
-  dest="{{software_dir}}"
-  copy=no
-  creates="{{software_dir}}/cbs_programs/tmhmm-2.0c.Linux.tar.gz"
+    src="{{source_dir}}/cbs_programs.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/cbs_programs/tmhmm-2.0c.Linux.tar.gz"
 
 # TMHMM
 - name: Uncompressing TMHMM
   unarchive:
-  src="{{software_dir}}/cbs_programs/tmhmm-2.0c.Linux.tar.gz"
-  dest="{{software_dir}}"
-  copy=no
-  creates="{{software_dir}}/tmhmm-2.0c/README"
+    src="{{software_dir}}/cbs_programs/tmhmm-2.0c.Linux.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/tmhmm-2.0c/README"
 
 - name: Fixing tmhmm perl env
   lineinfile: dest="{{software_dir}}/tmhmm-2.0c/bin/tmhmm" regexp='#!/usr/local/bin/perl' line="#!/usr/bin/env perl" backup=yes
@@ -64,10 +64,10 @@
 # SignalP
 - name: Uncompressing SignalP  
   unarchive:
-  src="{{software_dir}}/cbs_programs/signalp-4.1e.Linux.tar.gz"
-  dest="{{software_dir}}"
-  copy=no
-  creates="{{software_dir}}/signalp-4.1/signalp"
+    src="{{software_dir}}/cbs_programs/signalp-4.1e.Linux.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/signalp-4.1/signalp"
 
 - name: Fixing SignalP perl env
   lineinfile: dest="{{software_dir}}/signalp-4.1/signalp" regexp='#!/usr/bin/perl' line="#!/usr/bin/env perl" backup=yes
@@ -98,10 +98,10 @@
 
 - name: Uncompressing Old HMMER
   unarchive:
-  src="{{source_dir}}/cbs_programs/hmmer-2.3.tar.gz"
-  dest="{{software_dir}}"
-  copy=no
-  creates="{{software_dir}}/hmmer-2.3/INSTALL"
+    src="{{source_dir}}/cbs_programs/hmmer-2.3.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/hmmer-2.3/INSTALL"
 
 - name: Configuring old HMMER
   shell: "{{item}}"
@@ -118,10 +118,10 @@
 
 - name: Uncompressing RNAmmer
   unarchive:
-  src="{{source_dir}}/cbs_programs/rnammer-1.2.src.tar.Z"
-  dest="{{software_dir}}/rnammer"
-  copy=no
-  creates="{{software_dir}}/rnammer/rnammer"
+    src="{{source_dir}}/cbs_programs/rnammer-1.2.src.tar.Z"
+    dest="{{software_dir}}/rnammer"
+    copy=no
+    creates="{{software_dir}}/rnammer/rnammer"
 
 - name: Fixing RNAmmer perl env
   lineinfile: dest="{{software_dir}}/rnammmer/rnammer" regexp='#!/usr/bin/perl' line="#!/usr/bin/env perl" backup=yes
