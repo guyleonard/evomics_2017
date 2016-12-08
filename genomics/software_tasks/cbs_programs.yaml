@@ -16,7 +16,7 @@
 
 - name: Downloading CBS Software - SignalP, TMHMM, RNAmmer
   get_url:
-    url="https://s3....tar.gz"
+    url="https://s3.amazonaws.com/evomics2017/cbs_programs.tar.gz"
     dest="{{source_dir}}/cbs_programs.tar.gz"
   register: get_url_result
   until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
@@ -61,7 +61,7 @@
   with_fileglob:
     - "{{software_dir}}/tmhmm-2.0c/lib/*"
 
-#SignalP
+# SignalP
 - name: Uncompressing SignalP  
   unarchive:
   src="{{software_dir}}/cbs_programs/signalp-4.1e.Linux.tar.gz"
@@ -69,7 +69,75 @@
   copy=no
   creates="{{software_dir}}/signalp-4.1/signalp"
 
+- name: Fixing SignalP perl env
+  lineinfile: dest="{{software_dir}}/signalp-4.1/signalp" regexp='#!/usr/bin/perl' line="#!/usr/bin/env perl" backup=yes
 
+- name: Fixing SignalP path info
+  lineinfile: dest="{{software_dir}}/signalp-4.1/signalp" regexp='    $ENV{SIGNALP} = '/usr/cbs/bio/src/signalp-4.1';' line="    $ENV{SIGNALP} = '{{software_dir}}/signalp-4.1';" backup=yes
 
+- name: Fixing SignalP max allowed entries to 2000000
+  lineinfile: dest="{{software_dir}}/signalp-4.1/signalp" regexp='my $MAX_ALLOWED_ENTRIES=10000;' line="my $MAX_ALLOWED_ENTRIES=2000000;" backup=yes
 
+- name: Adding SignalP to PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
+              backrefs=yes
+              backup=yes
+              regexp="PATH=((?!.*?{{software_dir}}/signalp-4.1).*?)$"
+              line="PATH=\1:{{software_dir}}/signalpp-4.1"
 
+# RNAMMER
+# This needs the *old* version of HMMER
+- name: Downloading Old HMMER
+  get_url:
+    url="http://eddylab.org/software/hmmer/2.3/hmmer-2.3.tar.gz"
+    dest="{{source_dir}}/cbs_programs/hmmer-2.3.tar.gz"
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 5
+  delay: 10
+
+- name: Uncompressing Old HMMER
+  unarchive:
+  src="{{source_dir}}/cbs_programs/hmmer-2.3.tar.gz"
+  dest="{{software_dir}}"
+  copy=no
+  creates="{{software_dir}}/hmmer-2.3/INSTALL"
+
+- name: Configuring old HMMER
+  shell: "{{item}}"
+  args:
+   chdir: "{{software_dir}}/hmmer-2.3"
+  with_items:
+    - ./configure
+
+- name: Running make for old HMMER
+  make: chdir="{{software_dir}}/hmmer-2.3"
+
+- name: Copy old hmmsearch to /usr/local/bin/hmmsearch2
+  copy: src="{{software_dir}}/hmmer-2.3/hmmsearch" dest=/usr/local/bin/hmmsearch2
+
+- name: Uncompressing RNAmmer
+  unarchive:
+  src="{{source_dir}}/cbs_programs/rnammer-1.2.src.tar.Z"
+  dest="{{software_dir}}/rnammer"
+  copy=no
+  creates="{{software_dir}}/rnammer/rnammer"
+
+- name: Fixing RNAmmer perl env
+  lineinfile: dest="{{software_dir}}/rnammmer/rnammer" regexp='#!/usr/bin/perl' line="#!/usr/bin/env perl" backup=yes
+
+- name: Fixing RNAmmer old hmmsearch2 location
+  lineinfile: dest="{{software_dir}}/rnammer/rnammer" regexp='	$HMMSEARCH_BINARY = "/usr/cbs/bio/bin/linux64/hmmsearch";' line="	$HMMSEARCH_BINARY = "/usr/locl/bin/hmmsearch2";" backup=yes
+
+- name: Fixing RNAmmer Install Path
+  lineinfile: dest="{{software_dir}}/rnammmer/rnammer" regexp='my $INSTALL_PATH = "/usr/cbs/bio/src/rnammer-1.2";' line="my $INSTALL_PATH = "{{software_dir}}/rnammer/rnammer";" backup=yes
+
+- name: Fixing core-rnammer cpu
+  lineinfile: dest="{{software_dir}}/rnammmer/rnammer" regexp='--cpu 1 ' line="" backup=yes
+
+- name: Adding RNAmmer to PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
+              backrefs=yes
+              backup=yes
+              regexp="PATH=((?!.*?{{software_dir}}/rnammer).*?)$"
+              line="PATH=\1:{{software_dir}}/rnammer"
