@@ -121,7 +121,7 @@
 
 - name: Uncompressing RNAmmer
   unarchive:
-    src="{{source_dir}}/cbs_programs/rnammer-1.2.src.tar.Z"
+    src="{{software_dir}}/cbs_programs/rnammer-1.2.src.tar.Z"
     dest="{{software_dir}}/rnammer"
     copy=no
     creates="{{software_dir}}/rnammer/rnammer"
