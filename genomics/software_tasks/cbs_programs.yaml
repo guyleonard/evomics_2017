@@ -127,7 +127,7 @@
   lineinfile: dest="{{software_dir}}/rnammmer/rnammer" regexp='#!/usr/bin/perl' line="#!/usr/bin/env perl" backup=yes
 
 - name: Fixing RNAmmer old hmmsearch2 location
-  lineinfile: dest="{{software_dir}}/rnammer/rnammer" regexp='	$HMMSEARCH_BINARY = "/usr/cbs/bio/bin/linux64/hmmsearch";' line="	$HMMSEARCH_BINARY = "/usr/locl/bin/hmmsearch2";" backup=yes
+  lineinfile: dest="{{software_dir}}/rnammer/rnammer" regexp='$HMMSEARCH_BINARY = "/usr/cbs/bio/bin/linux64/hmmsearch";' line="$HMMSEARCH_BINARY = "/usr/locl/bin/hmmsearch2";" backup=yes
 
 - name: Fixing RNAmmer Install Path
   lineinfile: dest="{{software_dir}}/rnammmer/rnammer" regexp='my $INSTALL_PATH = "/usr/cbs/bio/src/rnammer-1.2";' line="my $INSTALL_PATH = "{{software_dir}}/rnammer/rnammer";" backup=yes
