@@ -336,6 +336,8 @@
     - include: software_tasks/trinotate.yaml
       tags: transcriptomics, trinotate, transdecoder
 
+    - include: software_tasks/cbs_programs.yaml
+      tags: trinity, signalp, tmhmm, rnammer, transcriptomics
 
   ## Finishing Touches
   post_tasks:  
