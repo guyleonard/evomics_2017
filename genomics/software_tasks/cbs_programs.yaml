@@ -133,10 +133,10 @@
   lineinfile: dest="{{software_dir}}/rnammer/rnammer" regexp='\s+\$HMMSEARCH_BINARY = \"/usr/cbs/bio/bin/linux64/hmmsearch\"\;' line="$HMMSEARCH_BINARY = "/usr/locl/bin/hmmsearch2";" backup=yes
 
 - name: Fixing RNAmmer Install Path
-  lineinfile: dest="{{software_dir}}/rnammer/rnammer" regexp='my\s+\$INSTALL_PATH = \"/usr/cbs/bio/src/rnammer-1.2\"\;' line="my $INSTALL_PATH = "{{software_dir}}/rnammer/rnammer";" backup=yes
+  lineinfile: dest="{{software_dir}}/rnammer/rnammer" regexp='my\s+\$INSTALL_PATH = \"/usr/cbs/bio/src/rnammer-1.2\"\;' line="my $INSTALL_PATH = "{{software_dir}}/rnammer/";" backup=yes
 
 - name: Fixing core-rnammer cpu
-  lineinfile: dest="{{software_dir}}/rnammer/rnammer" regexp='--cpu 1 ' line="" backup=yes
+  lineinfile: dest="{{software_dir}}/rnammer/rnammer" regexp='\-\-cpu\s+1\s+' line="" backup=yes
 
 - name: Adding RNAmmer to PATH
   lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
