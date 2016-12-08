@@ -89,8 +89,8 @@
 # This needs the *old* version of HMMER
 - name: Downloading Old HMMER
   get_url:
-    url=https://s3.amazonaws.com/evomics2017/hmmer-2.3.2.tar.gz
-    dest="{{source_dir}}/cbs_programs/hmmer-2.3.2.tar.gz"
+    url="http://eddylab.org/software/hmmer/2.3.2/hmmer-2.3.2.tar.gz"
+    dest="{{source_dir}}/hmmer-2.3.2.tar.gz"
   register: get_url_result
   until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
   retries: 5
@@ -98,7 +98,7 @@
 
 - name: Uncompressing Old HMMER
   unarchive:
-    src="{{source_dir}}/cbs_programs/hmmer-2.3.2.tar.gz"
+    src="{{source_dir}}/hmmer-2.3.2.tar.gz"
     dest="{{software_dir}}"
     copy=no
     creates="{{software_dir}}/hmmer-2.3.2/INSTALL"
