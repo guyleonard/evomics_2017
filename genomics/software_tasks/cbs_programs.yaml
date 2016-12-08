@@ -117,7 +117,7 @@
   copy: src="{{software_dir}}/hmmer-2.3.2/src/hmmsearch" dest=/usr/local/bin/hmmsearch2
 
 - name: Create rnammer directory since it doesn't have one in the tar
-  file: path="{{software_dir}}/rnammer" state=directory mode: 0755  
+  file: path="{{software_dir}}/rnammer" state=directory mode=0755  
 
 - name: Uncompressing RNAmmer
   unarchive:
