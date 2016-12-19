@@ -129,6 +129,9 @@
     - include: software_tasks/nanopolish.yaml
       tags: genomics, nanopolish, assembly
 
+    - include: software_tasks/poretools.yaml
+      tags: genomics, poretools, assembly
+
     # installs bowtie 1 and 2
     - include: software_tasks/bowtie.yaml version=2.2.9
       tags: genomics, bowtie, transcriptomics

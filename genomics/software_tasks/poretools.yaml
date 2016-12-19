@@ -1,0 +1,13 @@
+- name: Installing/Checking poretools Dependencies
+  apt: name={{item}} state=present
+  with_items:
+    - git
+    - python-setuptools
+    - python-dev
+    - cython
+    - libhdf5-serial-dev
+
+# R is installed as a matter of course for the workshop, see base install
+
+- name: Cloning poretools
+  git: repo=https://github.com/arq5x/poretools dest="{{source_dir}}/poretools" clone=yes update=yes
