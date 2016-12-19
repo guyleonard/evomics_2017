@@ -1,0 +1,6 @@
+- name: Cloning nanopolish
+  git: repo=https://github.com/jts/nanopolish.git dest="{{source_dir}}/nanopolish" clone=yes recursive=yes update=yes
+
+- name: Running make for nanopolish
+  make: chdir="{{source_dir}}/nanopolish"
+
