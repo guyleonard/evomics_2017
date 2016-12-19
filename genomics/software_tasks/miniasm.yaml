@@ -1,0 +1,8 @@
+- name: Cloning miniasm
+  git: repo=https://github.com/lh3/miniasm.git dest="{{source_dir}}/miniasm" clone=yes update=yes
+
+- name: Running make for miniasm        
+  make: chdir="{{source_dir}}/miniasm"
+
+- name: Copying miniasm to /usr/local/bin
+  copy: src="{{source_dir}}/miniasm/miniasm" dest="/usr/local/bin/min

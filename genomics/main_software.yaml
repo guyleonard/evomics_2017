@@ -120,6 +120,12 @@
     ## Previously Installed
     # FastQC, fastq-mcf, seqtk, blasr
 
+    - include: software_tasks/minimap.yaml
+      tags: genomics, minimap, miniasm, assembly
+     
+    - include: software_tasks/miniasm.yaml
+      tags: genomics, minimap, minias, assembly
+
     # installs bowtie 1 and 2
     - include: software_tasks/bowtie.yaml version=2.2.9
       tags: genomics, bowtie, transcriptomics
@@ -337,7 +343,7 @@
       tags: transcriptomics, trinotate, transdecoder
 
     - include: software_tasks/cbs_programs.yaml
-      tags: trinity, signalp, tmhmm, rnammer, transcriptomics
+      tags: trinity, cbs, signalp, tmhmm, rnammer, transcriptomics
 
   ## Finishing Touches
   post_tasks:  

@@ -1,0 +1,8 @@
+- name: Cloning minimap
+  git: repo=https://github.com/lh3/minimap.git dest="{{source_dir}}/minimap" clone=yes update=yes
+
+- name: Running make for minimap
+  make: chdir="{{source_dir}}/minimap"
+
+- name: Copying minimap to /usr/local/bin
+  copy: src="{{source_dir}}/minimap/minimap" dest="/usr/local/bin/minimap" mode=0755
