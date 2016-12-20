@@ -62,7 +62,26 @@
   ### Alignment Methods ###
   - name: Create Alignment Methods Directory
     file: path="{{workshop_dir}}/alignment_methods" state=directory owner="{{workshop_user}}" group=workshop
-    tags: transcriptomics
+    tags: alignment
+
+  - name: Downloading Alignment Methods Dataset
+    get_url:
+      url="https://s3.amazonaws.com/2017evomics/alignment_methods.tar.gz"
+      dest="{{source_dir}}/unix.tar.gz"
+    register: get_url_result
+    until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+    retries: 5
+    delay: 10
+    tags: alignment
+
+  - name: Uncompressing Alignment Methods Dataset
+    unarchive:
+      src="{{source_dir}}/alignment_methods.tar.gz"
+      dest="{{workshop_dir}}"
+      copy=no
+      creates="{{workshop_dir}}/alignment_methods/PB.fasta"
+    tags: alignment
+
 
 
   ### Genomics ###
