@@ -16,7 +16,7 @@
 
 - name: Downloading CBS Software - SignalP, TMHMM, RNAmmer
   get_url:
-    url="https://s3.amazonaws.com/evomics2017/cbs_programs.tar.gz"
+    url="https://s3.amazonaws.com/2017evomics/cbs_programs.tar.gz"
     dest="{{source_dir}}/cbs_programs.tar.gz"
   register: get_url_result
   until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
