@@ -21,6 +21,22 @@
     file: path="{{workshop_dir}}/quality_control" state=directory owner="{{workshop_user}}" group=workshop
     tags: quality
 
+  - name: Downloading Quality Control Dataset
+    get_url:
+      url="https://s3.amazonaws.com/2017evomics/quality_control.tar.gz"
+      dest="{{source_dir}}/quality_control.tar.gz"
+    register: get_url_result
+    until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+    retries: 5
+    delay: 10
+
+  - name: Uncompressing Quality Control Dataset
+    unarchive:
+      src="{{source_dir}}/qulaity_control.tar.gz"
+      dest="{{workshop_dir}}"
+      copy=no
+      creates="{{workshop_dir}}/quality_control/adaptors.fasta"
+
 
   ### Alignment Methods ###
   - name: Create Alignment Methods Directory
