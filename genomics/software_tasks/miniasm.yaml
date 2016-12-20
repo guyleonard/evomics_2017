@@ -5,4 +5,4 @@
   make: chdir="{{source_dir}}/miniasm"
 
 - name: Copying miniasm to /usr/local/bin
-  copy: src="{{source_dir}}/miniasm/miniasm" dest=/usr/local/bin/miniasm mod=0755
+  copy: src="{{source_dir}}/miniasm/miniasm" dest=/usr/local/bin/miniasm mode=0755
