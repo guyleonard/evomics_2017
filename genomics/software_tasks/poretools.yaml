@@ -6,6 +6,7 @@
     - python-dev
     - cython
     - libhdf5-serial-dev
+    - pkg-config
 
 # R is installed as a matter of course for the workshop, see base install
 
