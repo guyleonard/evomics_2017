@@ -67,7 +67,7 @@
   - name: Downloading Alignment Methods Dataset
     get_url:
       url="https://s3.amazonaws.com/2017evomics/alignment_methods.tar.gz"
-      dest="{{source_dir}}/unix.tar.gz"
+      dest="{{source_dir}}/alignment_methods.tar.gz"
     register: get_url_result
     until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
     retries: 5
