@@ -99,7 +99,26 @@
   ### Introduction to R ###
   - name: Create R Tutorial Directory
     file: path="{{workshop_dir}}/R_tutorial" state=directory owner="{{workshop_user}}" group=workshop
-    tags: transcriptomics
+    tags: R
+
+  - name: Downloading R Tutorial Dataset
+    get_url:
+      url="https://s3.amazonaws.com/2017evomics/R_tutorial.tar.gz"
+      dest="{{source_dir}}/R_tutorial.tar.gz"
+    register: get_url_result
+    until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+    retries: 5
+    delay: 10
+    tags: R
+
+  - name: Uncompressing R Tutorial Dataset
+    unarchive:
+      src="{{source_dir}}/R_tutorial.tar.gz"
+      dest="{{workshop_dir}}"
+      copy=no
+      creates="{{workshop_dir}}/R_tutorial/healthy_metadata.txt"
+    tags: R
+
 
 
   ### QIIME ###
