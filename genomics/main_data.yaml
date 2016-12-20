@@ -33,7 +33,7 @@
 
   - name: Uncompressing Quality Control Dataset
     unarchive:
-      src="{{source_dir}}/qulaity_control.tar.gz"
+      src="{{source_dir}}/quality_control.tar.gz"
       dest="{{workshop_dir}}"
       copy=no
       creates="{{workshop_dir}}/quality_control/adaptors.fasta"
