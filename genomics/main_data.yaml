@@ -124,7 +124,25 @@
   ### QIIME ###
   - name: Create QIIME Directory
     file: path="{{workshop_dir}}/qiime" state=directory owner="{{workshop_user}}" group=workshop
-    tags: transcriptomics
+    tags: qiime
+
+  - name: Downloading QIIME Dataset
+    get_url:
+      url="https://s3.amazonaws.com/2017evomics/qiime.tar.gz"
+      dest="{{source_dir}}/qiime.tar.gz"
+    register: get_url_result
+    until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+    retries: 5
+    delay: 10
+    tags: qiime
+
+  - name: Uncompressing R Tutorial Dataset
+    unarchive:
+      src="{{source_dir}}/qiime.tar.gz"
+      dest="{{workshop_dir}}"
+      copy=no
+      creates="{{workshop_dir}}/qiime/illumina_overview_tutorial.ipynb"
+    tags: qiime
 
 
   ### PhyloSeq ###
