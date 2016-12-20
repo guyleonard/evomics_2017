@@ -1,0 +1,5 @@
+- name: Adding {{workshop_user}} as Hostname
+  shell: "echo "export NICKNAME={{workshop_user}}" > /etc/profile.d/prompt.sh"
+
+- name: Setting {{workshop_user}} as Hostname
+  lineinfile: dest=/etc/bash.bashrc regexp='\h' line="$NICKNAME" backup=yes
