@@ -115,6 +115,25 @@
     file: path="{{workshop_dir}}/assembly" state=directory owner="{{workshop_user}}" group=workshop
     tags: transcriptomics
 
+  - name: Downloading Assembly Tutorial Dataset
+    get_url:
+      url="https://s3.amazonaws.com/2017evomics/assembly.tar.gz"
+      dest="{{source_dir}}/assembly.tar.gz"
+    register: get_url_result
+    until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+    retries: 5
+    delay: 10
+    tags: R
+
+  - name: Uncompressing Assembly Tutorial Dataset
+    unarchive:
+      src="{{source_dir}}/assembly.tar.gz"
+      dest="{{workshop_dir}}"
+      copy=no
+      creates="{{workshop_dir}}/assembly/reference/vcholerae_h1.fasta"
+    tags: assembly
+
+
 
   ### Introduction to R ###
   - name: Create R Tutorial Directory
@@ -176,6 +195,25 @@
   - name: Create Rad-Seq Directory
     file: path="{{workshop_dir}}/radseq" state=directory owner="{{workshop_user}}" group=workshop
     tags: radseq, stacks
+
+  - name: Downloading QIIME Dataset
+    get_url:
+      url="https://s3.amazonaws.com/2017evomics/stacks.tar.gz"
+      dest="{{source_dir}}/stacks.tar.gz"
+    register: get_url_result
+    until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+    retries: 5
+    delay: 10
+    tags: radseq, stacks
+
+  - name: Uncompressing R Tutorial Dataset
+    unarchive:
+      src="{{source_dir}}/stacks.tar.gz"
+      dest="{{workshop_dir}}"
+      copy=no
+      creates="{{workshop_dir}}/stacks/clean/lane1.tar"
+    tags: radseq, stacks
+
 
 
   ### Transcriptomics ###
