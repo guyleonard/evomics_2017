@@ -100,7 +100,7 @@
     delay: 10
     tags: genomics
 
-  - name: Uncompressing R Tutorial Dataset
+  - name: Uncompressing Genomics Tutorial Dataset
     unarchive:
       src="{{source_dir}}/genomics_tutorial.tar.gz"
       dest="{{workshop_dir}}"
@@ -175,7 +175,7 @@
     delay: 10
     tags: qiime
 
-  - name: Uncompressing R Tutorial Dataset
+  - name: Uncompressing QIIME Dataset
     unarchive:
       src="{{source_dir}}/qiime.tar.gz"
       dest="{{workshop_dir}}"
@@ -196,7 +196,7 @@
     file: path="{{workshop_dir}}/stacks" state=directory owner="{{workshop_user}}" group=workshop
     tags: radseq, stacks
 
-  - name: Downloading QIIME Dataset
+  - name: Downloading Stacks Dataset
     get_url:
       url="https://s3.amazonaws.com/2017evomics/stacks.tar.gz"
       dest="{{source_dir}}/stacks.tar.gz"
@@ -206,7 +206,7 @@
     delay: 10
     tags: radseq, stacks
 
-  - name: Uncompressing R Tutorial Dataset
+  - name: Uncompressing Stacks Dataset
     unarchive:
       src="{{source_dir}}/stacks.tar.gz"
       dest="{{workshop_dir}}"
