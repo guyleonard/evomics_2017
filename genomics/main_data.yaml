@@ -59,6 +59,7 @@
     tags: quality
 
 
+
   ### Alignment Methods ###
   - name: Create Alignment Methods Directory
     file: path="{{workshop_dir}}/alignment_methods" state=directory owner="{{workshop_user}}" group=workshop
@@ -87,7 +88,26 @@
   ### Genomics ###
   - name: Create Genomics Tutorial Directory
     file: path="{{workshop_dir}}/genomics_tutorial" state=directory owner="{{workshop_user}}" group=workshop
-    tags: transcriptomics
+    tags: genomics
+
+  - name: Downloading Genomics Dataset
+    get_url:
+      url="https://s3.amazonaws.com/2017evomics/genomics_tutorial.tar.gz"
+      dest="{{source_dir}}/genomics_tutorial.tar.gz"
+    register: get_url_result
+    until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+    retries: 5
+    delay: 10
+    tags: genomics
+
+  - name: Uncompressing R Tutorial Dataset
+    unarchive:
+      src="{{source_dir}}/genomics_tutorial.tar.gz"
+      dest="{{workshop_dir}}"
+      copy=no
+      creates="{{workshop_dir}}/qiime/genomics_tutorial/"
+    tags: genomics
+
 
 
   ### Assembly ###
@@ -145,16 +165,17 @@
     tags: qiime
 
 
+
   ### PhyloSeq ###
   - name: Create Phyloseq Directory
     file: path="{{workshop_dir}}/phyloseq" state=directory owner="{{workshop_user}}" group=workshop
-    tags: transcriptomics
+    tags: phyloseq
 
 
   ### Rad-Seq / Stacks ###
   - name: Create Rad-Seq Directory
     file: path="{{workshop_dir}}/radseq" state=directory owner="{{workshop_user}}" group=workshop
-    tags: transcriptomics
+    tags: radseq, stacks
 
 
   ### Transcriptomics ###
@@ -175,3 +196,6 @@
 
   - include: data_tasks/trinotate.yaml
     tags: transcriptomics, trinotate
+
+  - name: Cloning Trinity Workshop
+    git: repo=https://github.com/trinityrnaseq/KrumlovTrinityWorkshopJan2016.git dest="{{workshop_dir}}/transcriptomics/KrumlovTrinityWorkshopJan2016" clone=yes update=yes
