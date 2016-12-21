@@ -113,7 +113,7 @@
   ### Assembly ###
   - name: Create Assembly Directory
     file: path="{{workshop_dir}}/assembly" state=directory owner="{{workshop_user}}" group=workshop
-    tags: transcriptomics
+    tags: assembly
 
   - name: Downloading Assembly Tutorial Dataset
     get_url:
@@ -123,7 +123,7 @@
     until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
     retries: 5
     delay: 10
-    tags: R
+    tags: assembly
 
   - name: Uncompressing Assembly Tutorial Dataset
     unarchive:
