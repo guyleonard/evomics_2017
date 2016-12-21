@@ -237,4 +237,7 @@
 
   - name: Cloning Trinity Workshop
     git: repo=https://github.com/trinityrnaseq/KrumlovTrinityWorkshopJan2016.git dest="{{workshop_dir}}/transcriptomics/KrumlovTrinityWorkshopJan2016" clone=yes update=yes
+    become: true
+    become_user: "{{workshop_user}}"
     tags: transcriptomics
+
