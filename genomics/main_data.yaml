@@ -193,7 +193,7 @@
 
   ### Rad-Seq / Stacks ###
   - name: Create Rad-Seq Directory
-    file: path="{{workshop_dir}}/radseq" state=directory owner="{{workshop_user}}" group=workshop
+    file: path="{{workshop_dir}}/stacks" state=directory owner="{{workshop_user}}" group=workshop
     tags: radseq, stacks
 
   - name: Downloading QIIME Dataset
