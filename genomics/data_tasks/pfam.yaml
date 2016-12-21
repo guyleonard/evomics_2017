@@ -8,8 +8,13 @@
   become: true
   become_user: "{{workshop_user}}"
 
+- name: Check for Previous Pfam-A
+  stat: path="{{workshop_dir}}/transcriptomics/trinotate_databases/Pfam-A.hmm.h3i"
+  register: pfama_exists
+
 - name: Running hmmpress on Pfam-A
   shell: hmmpress Pfam-A.hmm chdir="{{workshop_dir}}/transcriptomics/trinotate_databases/"
+  when: pfama_exists == False
   become: true
   become_user: "{{workshop_user}}"
 
