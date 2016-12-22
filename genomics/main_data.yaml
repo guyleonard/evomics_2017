@@ -90,7 +90,7 @@
     file: path="{{workshop_dir}}/genomics_tutorial" state=directory owner="{{workshop_user}}" group=workshop
     tags: genomics
 
-  - name: Downloading Genomics Dataset
+  - name: Downloading Genomics Dataset - 96GB - This will take some time!
     get_url:
       url="https://s3.amazonaws.com/2017evomics/genomics_tutorial.tar.gz"
       dest="{{source_dir}}/genomics_tutorial.tar.gz"
