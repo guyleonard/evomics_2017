@@ -51,14 +51,6 @@
 
 ## Launchers / Shortcuts
 
-- name: Copying Icons
-  copy:
-    src: "{{item}}"
-    dest: "/home/{{workshop_user}}/.icons/"
-    mode: 0755
-  with_fileglob:
-    - "{{playbook_dir}}/files/icons/*"
-
 - name: Creating Desktop Directory
   file: path="/home/{{workshop_user}}/Desktop" state=directory mode=0755
   become: true

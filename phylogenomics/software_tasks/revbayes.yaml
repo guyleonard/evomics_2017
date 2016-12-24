@@ -3,8 +3,8 @@
 
 - name: Running make for revbayes
   shell: build.sh
-    chdir="{{source_dir}}/revbayes"
+    chdir="{{source_dir}}/revbayes/projects/cmake"
 
 - name: Running make for revbayes-mpi
   shell: build.sh -mpi true
-    chdir="{{source_dir}}/revbayes"
+    chdir="{{source_dir}}/revbayes/projects/cmake"
