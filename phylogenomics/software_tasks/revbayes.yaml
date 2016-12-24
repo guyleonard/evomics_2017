@@ -2,9 +2,13 @@
   git: repo=https://github.com/revbayes/revbayes.git dest="{{source_dir}}/revbayes" clone=yes update=yes
 
 - name: Running make for revbayes
-  shell: "{{source_dir}}/revbayes/projects/cmake/build.sh"
+  shell: build.sh
+  args:
+    chdir: "{{source_dir}}/revbayes/projects/cmake"
   become: true
 
 - name: Running make for revbayes-mpi
-  shell: "{{source_dir}}/revbayes/projects/cmake/build.sh -mpi true"
+  shell: build.sh -mpi true
+  args:
+    chdir: "{{source_dir}}/revbayes/projects/cmake"
   become: true
