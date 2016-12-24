@@ -4,11 +4,11 @@
 - name: Running make for revbayes
   shell: build.sh
   args:
-    chdir: "{{source_dir}}/revbayes/projects/cmake"
+    chdir: "{{source_dir}}/revbayes/projects/cmake/"
   become: true
 
 - name: Running make for revbayes-mpi
   shell: build.sh -mpi true
   args:
-    chdir: "{{source_dir}}/revbayes/projects/cmake"
+    chdir: "{{source_dir}}/revbayes/projects/cmake/"
   become: true
