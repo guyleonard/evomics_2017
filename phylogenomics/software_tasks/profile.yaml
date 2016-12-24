@@ -3,11 +3,6 @@
   become: true
   become_user: "{{workshop_user}}"
 
-- name: bash_paths a file for PATH and TRINITY_HOME etc
-  copy: src="{{playbook_dir}}/files/bash/bash_paths" dest=/home/{{workshop_user}}/.bash_paths mode=0644
-  become: true
-  become_user: "{{workshop_user}}"
-
 - name: bash_profile for login shells
   copy: src="{{playbook_dir}}/files/bash/bash_profile" dest=/home/{{workshop_user}}/.bash_profile force=yes backup=yes mode=0644
   become: true

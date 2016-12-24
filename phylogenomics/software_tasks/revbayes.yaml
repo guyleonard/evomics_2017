@@ -1,0 +1,10 @@
+- name: Cloning revbayes
+  git: repo=git clone https://github.com/revbayes/revbayes.git dest="{{source_dir}}/revbayes" clone=yes update=yes
+
+- name: Running make for revbayes
+  shell: build.sh
+    chdir="{{source_dir}}/revbayes"
+
+- name: Running make for revbayes-mpi
+  shell: build.sh -mpi true
+    chdir="{{source_dir}}/revbayes"

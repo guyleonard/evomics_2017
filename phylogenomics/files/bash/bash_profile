@@ -4,7 +4,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # change bash PS1 styling on login / shell
-export PS1="\[\033[38;5;220m\]\u\[\033[38;5;15m\]@\[\033[38;5;39m\]\h\[\033[38;5;15m\]:\[\033[38;5;202m\]\w\[\033[38;5;15m\]\\$ "
+export PS1="\[\033[38;5;220m\]\u\[\033[38;5;15m\]@\[\033[38;5;39m\]$NICKNAME\[\033[38;5;15m\]:\[\033[38;5;202m\]\w\[\033[38;5;15m\]\\$ "
 
 # source bash_paths at login / shell
 if [ -f ~/.bash_paths ]; then

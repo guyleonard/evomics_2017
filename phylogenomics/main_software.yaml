@@ -42,6 +42,9 @@
       lineinfile: dest=/etc/hosts regexp="^127.*" line="127.0.0.1 localhost {{workshop_user}}"
       tags: hostname
 
+    - include: software_tasks/hostname.yaml
+      tags: hostname
+      
     - include: software_tasks/motd.yaml
       tags: motd
 
@@ -104,6 +107,9 @@
       tags: fasttree, trees
 
     ### Tree Construction Bayes ###
+
+    - include: software_tasks/revbayes.yaml
+      tags: trees, bayes, revbayes
 
     ### Tree Divergence ###
 
