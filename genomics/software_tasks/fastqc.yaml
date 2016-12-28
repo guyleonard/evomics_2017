@@ -1,0 +1,12 @@
+- name: Downloading FASTQC {{version}}
+  get_url: url=http://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v{{version}}.zip dest="{{source_dir}}/fastqc_v{{version}}.zip"
+
+- name: Uncompressing FASTQ
+  unarchive: 
+    src="{{source_dir}}/fastq_v{{version}}.zip"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/FastQC/fastqc"
+    
+- name: Installing FASTQ
+  file: src="{{software_dir}}/FastQC/fastqc" dest=/usr/local/bin/igv.sh state=link mode=0755

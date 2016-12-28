@@ -110,7 +110,7 @@
       tags: genomics, seqdqc
       
     # The Ubuntu fastqc package is broken!
-    - include: software_tasks/fastqc.yaml
+    - include: software_tasks/fastqc.yaml version=0.11.5
 
 
     ### Alignment Methods ###
