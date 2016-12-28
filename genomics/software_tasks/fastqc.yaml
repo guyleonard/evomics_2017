@@ -4,7 +4,7 @@
   until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
   retries: 5
   delay: 10
-  
+
 - name: Uncompressing FASTQ
   unarchive: 
     src="{{source_dir}}/fastqc_v{{version}}.zip"
@@ -13,4 +13,4 @@
     creates="{{software_dir}}/FastQC/fastqc"
     
 - name: Installing FASTQ
-  file: src="{{software_dir}}/FastQC/fastqc" dest=/usr/local/bin/igv.sh state=link mode=0755
+  file: src="{{software_dir}}/FastQC/fastqc" dest=/usr/local/bin/fastq state=link mode=0755
