@@ -12,5 +12,8 @@
     copy=no
     creates="{{software_dir}}/FastQC/fastqc"
     
+- name: chmod +x FastQC
+  file: path="{{software_dir}}/FastQC/fastqc" mode=0755
+
 - name: Installing FASTQ
-  file: src="{{software_dir}}/FastQC/fastqc" dest=/usr/local/bin/fastq state=link mode=0755
+  file: src="{{software_dir}}/FastQC/fastqc" dest=/usr/local/bin/fastqc state=link mode=0755
