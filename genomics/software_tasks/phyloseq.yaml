@@ -72,3 +72,6 @@
 
 - name: Installing biomformat via Bioconductor
   shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('biomformat')"
+  
+- name: Installing ALDEx2 via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('ALDEx2')"
