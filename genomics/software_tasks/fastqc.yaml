@@ -16,4 +16,4 @@
   file: path="{{software_dir}}/FastQC/fastqc" mode=0755
 
 - name: Installing FASTQ
-  file: src="{{software_dir}}/FastQC/fastqc" dest=/usr/local/bin/fastqc state=link mode=0755
+  file: src="{{software_dir}}/FastQC/fastqc" dest=/usr/bin/fastqc state=link mode=0755
