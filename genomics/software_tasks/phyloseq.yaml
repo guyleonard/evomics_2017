@@ -1,7 +1,10 @@
-- name: Installing ape
+- name: Installing pandoc
+  apt: name=pandoc state:present
+
+- name: Installing rmarkdown
   shell: "{{playbook_dir}}/scripts/install.r rmarkdown"
 
-- name: Installing ape
+- name: Installing formatR
   shell: "{{playbook_dir}}/scripts/install.r formatR"
 
 - name: Installing ape
