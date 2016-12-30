@@ -1,4 +1,10 @@
 - name: Installing ape
+  shell: "{{playbook_dir}}/scripts/install.r rmarkdown"
+
+- name: Installing ape
+  shell: "{{playbook_dir}}/scripts/install.r formatR"
+
+- name: Installing ape
   shell: "{{playbook_dir}}/scripts/install.r ape"
 
 - name: Installing ade4
