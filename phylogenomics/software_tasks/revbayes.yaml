@@ -7,6 +7,9 @@
     chdir: "{{source_dir}}/revbayes/projects/cmake/"
   become: true
 
+- name: Linking Executable
+  file: src="{{source_dir}}/revbayes/projects/cmake/rb" dest=/usr/local/bin/rb state=link
+
 - name: Making sure MPICH is installed
   apt: name=mpich state=present
 
@@ -15,3 +18,6 @@
   args:
     chdir: "{{source_dir}}/revbayes/projects/cmake/"
   become: true
+
+- name: Linking Executable
+  file: src="{{source_dir}}/revbayes/projects/cmake/rb-mpi" dest=/usr/local/bin/rb-mpi state=link
