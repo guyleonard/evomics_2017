@@ -85,11 +85,31 @@
       tags: general, newick_utils
 
     ### Unix ###
-    # Base is OK
 
     ### Orthology and Paralogy ###
 
+
     ### Alignment, Trimming, Concatenation ###
+    - name: Installing Aligners
+      apt: name={{name}} state=present
+      with_items:
+        - clustalo
+        - clustalw
+        - muscle
+        - mafft
+        - t-coffee
+        
+    - name: Installing Sequence Viewers
+      apt: name={{name}} state=present
+      with_items:
+        - seaview
+        - jalview
+        
+    - name: Installing Model Testers
+      apt: name={{name}} state=present
+      with_items:
+        - prottest
+
 
     ### Tree Construction ML ###
 
@@ -106,15 +126,27 @@
       file: src=/usr/bin/fasttreeMP dest=/usr/bin/FastTreeMP state=link
       tags: fasttree, trees
 
+    - name: Installing IQTree
+      apt: name={{name}} state=present
+      with_items:
+        - iqtree
+        
+        
     ### Tree Construction Bayes ###
 
     - include: software_tasks/revbayes.yaml
       tags: trees, bayes, revbayes
 
+    - name: Installing Bayes
+      apt: name={{name}} state=present
+      with_items:
+        - beast-mcmc
+        - mrbayes
+        
+        
     ### Tree Divergence ###
 
     ### Model Selection ###
-
 
     ### Detecting Selection ###
 
