@@ -1,3 +1,11 @@
+- name: Test if revbayes exists
+  stat: path="{{source_dir}}/revbayes"
+  register: revbayes_exists
+
+- name: Removing Old Revbayes
+  file: path="{{source_dir}}/revbayes" state=absent
+  when: revbayes_exists == true
+
 - name: Cloning revbayes
   git: repo=https://github.com/revbayes/revbayes.git dest="{{source_dir}}/revbayes" clone=yes update=yes force=yes
 
