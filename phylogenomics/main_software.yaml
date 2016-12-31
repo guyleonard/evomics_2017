@@ -98,7 +98,7 @@
        - muscle
        - mafft
        - t-coffee
-      tags: alignment
+      tags: alignments
         
     - name: Installing Sequence Viewers
       apt: name={{name}} state=present
