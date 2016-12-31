@@ -93,24 +93,24 @@
     - name: Installing Aligners
       apt: name={{name}} state=present
       with_items:
-        - clustalo
-        - clustalw
-        - muscle
-        - mafft
-        - t-coffee
+       - clustalo
+       - clustalw
+       - muscle
+       - mafft
+       - t-coffee
       tags: alignment
         
     - name: Installing Sequence Viewers
       apt: name={{name}} state=present
       with_items:
-        - seaview
-        - jalview
+       - seaview
+       - jalview
       tags: viewers
         
     - name: Installing Model Testers
       apt: name={{name}} state=present
       with_items:
-        - prottest
+       - prottest
       tags: models
 
 
@@ -142,8 +142,8 @@
     - name: Installing Bayes
       apt: name={{name}} state=present
       with_items:
-        - beast-mcmc
-        - mrbayes
+       - beast-mcmc
+       - mrbayes
       tags: trees
     
     
