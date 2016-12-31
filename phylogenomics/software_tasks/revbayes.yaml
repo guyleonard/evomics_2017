@@ -7,6 +7,9 @@
     chdir: "{{source_dir}}/revbayes/projects/cmake/"
   become: true
 
+- name: Making sure MPICH is installed
+  apt: name=mpich state=present
+
 - name: Running make for revbayes-mpi
   shell: ./build.sh -mpi true
   args:
