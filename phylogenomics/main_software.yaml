@@ -88,7 +88,7 @@
     ### Orthology and Paralogy ###
     ### Alignment, Trimming, Concatenation ###
     - name: Installing Aligning Tools
-      apt: name={{name}} state=present
+      apt: name={{item}} state=present
       with_items:
        - clustalo
        - clustalw
@@ -98,14 +98,14 @@
       tags: alignments
         
     - name: Installing Sequence Viewers
-      apt: name={{name}} state=present
+      apt: name={{item}} state=present
       with_items:
        - seaview
        - jalview
       tags: viewers
         
     - name: Installing Model Testers
-      apt: name={{name}} state=present
+      apt: name={{item}} state=present
       with_items:
        - prottest
       tags: models
@@ -137,7 +137,7 @@
       tags: trees, bayes, revbayes
 
     - name: Installing Bayes
-      apt: name={{name}} state=present
+      apt: name={{item}} state=present
       with_items:
        - beast-mcmc
        - mrbayes
