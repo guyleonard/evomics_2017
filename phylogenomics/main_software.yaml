@@ -87,7 +87,7 @@
     ### Unix ###
     ### Orthology and Paralogy ###
     ### Alignment, Trimming, Concatenation ###
-    - name: Installing Aligners
+    - name: Installing Aligning Tools
       apt: name={{name}} state=present
       with_items:
        - clustalo
