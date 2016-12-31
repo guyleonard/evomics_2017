@@ -98,21 +98,23 @@
         - muscle
         - mafft
         - t-coffee
+      tags: alignment
         
     - name: Installing Sequence Viewers
       apt: name={{name}} state=present
       with_items:
         - seaview
         - jalview
+      tags: viewers
         
     - name: Installing Model Testers
       apt: name={{name}} state=present
       with_items:
         - prottest
+      tags: models
 
 
     ### Tree Construction ML ###
-
     - include: software_tasks/raxml.yaml
       tags: trees, raxml
 
@@ -130,10 +132,10 @@
       apt: name={{name}} state=present
       with_items:
         - iqtree
+      tags: trees
         
         
     ### Tree Construction Bayes ###
-
     - include: software_tasks/revbayes.yaml
       tags: trees, bayes, revbayes
 
@@ -142,8 +144,9 @@
       with_items:
         - beast-mcmc
         - mrbayes
-        
-        
+      tags: trees
+    
+    
     ### Tree Divergence ###
 
     ### Model Selection ###
