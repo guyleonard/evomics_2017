@@ -85,10 +85,7 @@
       tags: general, newick_utils
 
     ### Unix ###
-
     ### Orthology and Paralogy ###
-
-
     ### Alignment, Trimming, Concatenation ###
     - name: Installing Aligners
       apt: name={{name}} state=present
