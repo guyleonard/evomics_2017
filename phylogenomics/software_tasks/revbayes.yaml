@@ -1,5 +1,5 @@
 - name: Cloning revbayes
-  git: repo=https://github.com/revbayes/revbayes.git dest="{{source_dir}}/revbayes" clone=yes update=yes
+  git: repo=https://github.com/revbayes/revbayes.git dest="{{source_dir}}/revbayes" clone=yes update=yes force=yes
 
 - name: Running make for revbayes
   shell: ./build.sh
