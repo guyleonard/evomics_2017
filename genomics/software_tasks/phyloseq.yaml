@@ -1,5 +1,5 @@
 - name: Installing pandoc
-  apt: name=pandoc state:present
+  apt: name=pandoc state=present
 
 - name: Installing rmarkdown
   shell: "{{playbook_dir}}/scripts/install.r rmarkdown"
