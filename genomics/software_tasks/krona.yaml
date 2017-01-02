@@ -1,0 +1,12 @@
+- name: Downloading Krona v{{version}}
+  get_url: url="https://github.com/marbl/Krona/releases/download/v{{version}}/KronaTools-{{version}}.tar" dest={{source_dir}}/KronaTools-{{version}}.tar
+  
+- name: Unpacking Krona v{{version}}
+  unarchive:
+    src: "{{source_dir}}/KronaTools-{{version}}.tar"
+    dest: "{{software_dir}}"
+    copy: no
+    creates: "{{software_dir}}/KronaTools-{{version}}/README.txt"
+
+- name: Install Krona v{{version}}
+  shell: "{{software_dir}}/KronaTools-{{version}}/install.pl"

@@ -145,6 +145,9 @@
       pip: name=circlator executable=pip3
       tags: genomics, circlator
 
+    - include: software_tasks/krona.yaml
+      tags: genomics, krona
+
     - include: software_tasks/minimap.yaml
       tags: genomics, minimap, miniasm, assembly
      
