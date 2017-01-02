@@ -126,6 +126,9 @@
     ## Previously Installed
     # FastQC, fastq-mcf, seqtk, blasr
 
+    - include: software_tasks/pilon.yaml version=1.21
+      tags: genomics, pilon
+
     - include: software_tasks/minimap.yaml
       tags: genomics, minimap, miniasm, assembly
      

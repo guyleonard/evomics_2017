@@ -1,0 +1,5 @@
+- name: Downloading pilon v{{version}}
+  get_url: url="https://github.com/broadinstitute/pilon/releases/download/v{{version}}/pilon-{{version}}.jar" dest={{source_dir}}/pilon-{{version}}.jar
+
+- name: Copying pilon v{{version}} to /usr/local/bin
+  copy: src="{{source_dir}}/pilon-{{version}}.jar" dest=/usr/local/bin/pilon.jar mode=0755
