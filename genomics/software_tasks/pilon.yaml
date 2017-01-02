@@ -3,3 +3,9 @@
 
 - name: Copying pilon v{{version}} to /usr/local/bin
   copy: src="{{source_dir}}/pilon-{{version}}.jar" dest=/usr/local/bin/pilon.jar mode=0755
+
+- name: Copying Jar Execute Script
+  copy: src="{{playbook_dir}}/files/bash/execute_jar" dest=/usr/local/bin/execute_jar.sh mode=0755
+
+- name: Creating pilon Executable
+  shell: cat /usr/local/bin/execute_jar.sh /usr/local/bin/pilon.jar > /usr/local/bin/pilon && chmod +x /usr/local/bin/pilon
