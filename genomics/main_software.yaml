@@ -137,6 +137,9 @@
       apt: name=mummer state=present
       tags: genomics, mummer, circlator
 
+    - include: software_tasks/amos.yaml version=3.1.0
+      tags: genomics, amos, circlator, minimus2
+
     - include: software_tasks/minimap.yaml
       tags: genomics, minimap, miniasm, assembly
      
@@ -245,7 +248,7 @@
       tags: assembly, kmergenie
    
     - include: software_tasks/prokka.yaml
-      tags: assembly, prokka
+      tags: assembly, prokka, circlator
 
     - include: software_tasks/canu.yaml
       tags: assembly, canu

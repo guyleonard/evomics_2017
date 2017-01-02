@@ -1,0 +1,22 @@
+- name: Downloading AMOS v{{version}}
+  get_url: url="https://sourceforge.net/projects/amos/files/amos/{{version}}/amos-{{version}}.tar.gz" dest={{source_dir}}/amos-{{version}}.tar.gz
+  
+- name: Unpacking AMOS v{{version}}
+  unarchive:
+    src: "{{source_dir}}/amos-{{version}}.tar.gz"
+    dest: "{{software_dir}}"
+    copy: no
+    creates: "{{software_dir}}/amos-{{version}}/README"
+
+- name: ./configure AMOS v{{version}}
+  shell: ./configure
+  args: "{{software_dir}}/amos-{{version}}"
+
+- name: make AMOS v{{version}}
+  make:
+    chdir: "{{software_dir}}/amos-{{version}}"
+
+- name: make AMOS v{{version}}
+  make:
+    chdir: "{{software_dir}}/amos-{{version}}"
+    target: install
