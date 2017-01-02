@@ -26,7 +26,7 @@
     chdir: "{{software_dir}}/amos-{{version}}"
 
 - name: Apply patch to AMOS
-  lineinfile: dest="{{software_dir}}/amos-{{version}}/src/Align/find-tandem.cc" regexp='#include <cstdlib>' insertafter="#include <cstdlib>" line='#include <getopt.h>'
+  lineinfile: dest="{{software_dir}}/amos-{{version}}/src/Align/find-tandem.cc" regexp='#include <cstdlib>' insertafter="#include <cstdlib>" line='#include <cstdlib>\n#include <getopt.h>'
 
 - name: make AMOS v{{version}}
   make:
