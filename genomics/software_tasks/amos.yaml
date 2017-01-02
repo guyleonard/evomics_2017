@@ -10,7 +10,7 @@
 
 - name: ./configure AMOS v{{version}}
   shell: ./configure
-  args: "{{software_dir}}/amos-{{version}}"
+  chdir: "{{software_dir}}/amos-{{version}}"
 
 - name: make AMOS v{{version}}
   make:
