@@ -207,6 +207,28 @@
     file: path="{{workshop_dir}}/phyloseq" state=directory owner="{{workshop_user}}" group=workshop
     tags: phyloseq
 
+  - name: Create Phyloseq Databases Directory
+    file: path="{{workshop_dir}}/phyloseq/databases" state=directory owner="{{workshop_user}}" group=workshop
+    tags: phyloseq
+
+  - name: Downloading RDP Datasets
+    get_url:
+      url="https://www.dropbox.com/sh/mfcivbudmc21cqt/AAB1l-AUM5uKvjrR33ct-cTXa?dl=1"
+      dest="{{source_dir}}/assignTaxonomy.zip"
+    register: get_url_result
+    until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+    retries: 5
+    delay: 10
+    tags: phyloseq
+
+  - name: Uncompressing RDP Datasets
+    unarchive:
+      src="{{source_dir}}/assignTaxonomy.zip"
+      dest="{{workshop_dir}}/phyloseq/databases"
+      copy=no
+      creates="{{workshop_dir}}/phyloseq/databases/SILVA_LICENSE"
+    tags: phyloseq
+
 
   ### Rad-Seq / Stacks ###
   - name: Create Rad-Seq Directory
