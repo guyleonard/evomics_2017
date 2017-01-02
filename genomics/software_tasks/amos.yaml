@@ -25,14 +25,14 @@
   args:
     chdir: "{{software_dir}}/amos-{{version}}"
 
-- name: Apply path to AMOS
+- name: Apply patch to AMOS
   lineinfile: dest="{{software_dir}}/amos-{{version}}/src/Align/find-tandem.cc" line='#include <getopt.h>'
 
 - name: make AMOS v{{version}}
   make:
     chdir: "{{software_dir}}/amos-{{version}}"
 
-- name: make AMOS v{{version}}
+- name: make install AMOS v{{version}}
   make:
     chdir: "{{software_dir}}/amos-{{version}}"
     target: install
