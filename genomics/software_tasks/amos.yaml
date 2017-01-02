@@ -36,3 +36,11 @@
   make:
     chdir: "{{software_dir}}/amos-{{version}}"
     target: install
+
+- name: Copy AMOS exes to /usr/local/bin
+  copy:
+    src: "{{item}}"
+    dest: /usr/local/bin
+    mode: 0755
+  with_fileglob:
+    - "{{software_dir}}/amos-{{version}}/bin/*"
