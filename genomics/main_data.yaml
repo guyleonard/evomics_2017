@@ -88,7 +88,7 @@
   ### Genomics ###
   - name: Create Genomics Tutorial Directory
     file: path="{{workshop_dir}}/genomics_tutorial" state=directory owner="{{workshop_user}}" group=workshop
-    tags: genomics
+    tags: genomics, longreads
 
   - name: Downloading Genomics Dataset - 96GB - This will take some time!
     get_url:
@@ -105,9 +105,26 @@
       src="{{source_dir}}/genomics_tutorial.tar.gz"
       dest="{{workshop_dir}}"
       copy=no
-      creates="{{workshop_dir}}/qiime/genomics_tutorial/"
+      creates="{{workshop_dir}}/genomics_tutorial/"
     tags: genomics
 
+  - name: Downloading Long Read Tutorial
+    get_url:
+      url="https://s3.amazonaws.com/longreaddata/long_read_tutorial.tar.bz2"
+      dest="{{source_dir}}/long_read_tutorial.tar.bz2"
+    register: get_url_result
+    until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+    retries: 5
+    delay: 10
+    tags: genomics, longreads
+
+  - name: Uncompressing Long Reads Tutorial Dataset
+    unarchive:
+      src="{{source_dir}}/long_read_tutorial.tar.bz2"
+      dest="{{workshop_dir}}/genomics_tutorial"
+      copy=no
+      creates="{{workshop_dir}}/genomics_tutorial/long_read_tutorial/canu_assemblies/MinION_2D.contigs.fasta"
+    tags: genomics, longreads
 
 
   ### Assembly ###
