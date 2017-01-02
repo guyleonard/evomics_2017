@@ -10,3 +10,9 @@
 
 - name: Install Krona v{{version}}
   shell: "{{software_dir}}/KronaTools-{{version}}/install.pl"
+
+- name: Update Accessions Krona v{{version}}
+  shell: "{{software_dir}}/KronaTools-{{version}}/updateAccessions.sh"
+
+- name: Update Taxonomy Krona v{{version}}
+  shell: "{{software_dir}}/KronaTools-{{version}}/updateTaxonomy.sh"
