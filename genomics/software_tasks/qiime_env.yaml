@@ -1,4 +1,9 @@
+- name: Checking for previous QIIME Installation
+  stat: path="/home/{{workshop_user}}/miniconda3/envs/qiime"
+  register: qiime_env_installed
+
 - name: Install QIIME 1 from Conda
   shell: "/home/{{workshop_user}}/miniconda3/bin/conda create -n qiime1 python=2.7 qiime matplotlib=1.4.3 mock nose -c bioconda"
   become: true
   become_user: "{{workshop_user}}"
+  when: qiime1_env_installed.stat.exists == false
