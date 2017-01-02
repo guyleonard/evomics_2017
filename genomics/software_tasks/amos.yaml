@@ -17,7 +17,7 @@
 - name: Installing Statistics::Descriptive
   cpanm: name=Statistics::Descriptive
 
-- Install BLAT
+- name: Install BLAT
   get_url: url=http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/blat dest=/usr/local/bin/blat mode=0755
 
 - name: ./configure AMOS v{{version}}
