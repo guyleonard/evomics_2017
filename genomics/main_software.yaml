@@ -133,6 +133,10 @@
       apt: name=vcftools state=present
       tags: genomics, vcftools
 
+    - name: Installing mummer
+      apt: name=mummer state=present
+      tags: genomics, mummer
+
     - include: software_tasks/minimap.yaml
       tags: genomics, minimap, miniasm, assembly
      
