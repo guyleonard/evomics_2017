@@ -33,6 +33,7 @@
        - libhdf5-cpp-11 #blasr
        - libhdf5-dev #blasr
        - libfreetype6-dev #matplotlib
+       - python3-pip
 
     # a bunch of aliasses I like to include
     - include: software_tasks/profile.yaml
@@ -139,6 +140,10 @@
 
     - include: software_tasks/amos.yaml version=3.1.0
       tags: genomics, amos, circlator, minimus2
+
+    - name: Installing Circlator
+      pip: name=circlator executable=pip3
+      tags: genomics, circlator
 
     - include: software_tasks/minimap.yaml
       tags: genomics, minimap, miniasm, assembly
