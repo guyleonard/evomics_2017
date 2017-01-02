@@ -129,6 +129,10 @@
     - include: software_tasks/pilon.yaml version=1.21
       tags: genomics, pilon
 
+    - name: Installing vcftools
+      apt: name=vcftools state=present
+      tags: genomics, vcftools
+
     - include: software_tasks/minimap.yaml
       tags: genomics, minimap, miniasm, assembly
      
