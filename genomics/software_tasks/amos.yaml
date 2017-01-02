@@ -8,6 +8,18 @@
     copy: no
     creates: "{{software_dir}}/amos-{{version}}/README"
 
+- name: Install libboost
+  apt: name=libboost-all-dev state=present
+
+- name: Install QT4
+  apt: name=qt4-default state=present
+
+- name: Installing Statistics::Descriptive
+  cpanm: name=Statistics::Descriptive
+
+- Install BLAT
+  get_url: url=http://hgdownload.cse.ucsc.edu/admin/exe/linux.x86_64/blat/blat dest=/usr/local/bin/blat mode=0755
+
 - name: ./configure AMOS v{{version}}
   shell: ./configure
   args:

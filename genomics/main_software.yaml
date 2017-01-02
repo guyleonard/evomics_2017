@@ -135,7 +135,7 @@
 
     - name: Installing mummer
       apt: name=mummer state=present
-      tags: genomics, mummer, circlator
+      tags: genomics, mummer, circlator, amos
 
     - include: software_tasks/amos.yaml version=3.1.0
       tags: genomics, amos, circlator, minimus2
