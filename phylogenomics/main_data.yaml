@@ -47,9 +47,9 @@
     get_url: url={{item}} dest="{{workshop_dir}}/paml/exercise2"
     with_items:
       - http://myweb.dal.ca/js551958/PAML_lab/exercise2/ex2_step_by_step.pdf
-      - http://myweb.dal.ca/js551958/PAML_lab/exercise2/ex2_step_by_step.pdf
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise2/ex2_seqfile.txt
       - http://myweb.dal.ca/js551958/PAML_lab/exercise2/ex2_codeml.ctl.txt
-      - http://myweb.dal.ca/js551958/PAML_lab/exercise2/ex2_codeml.ctl.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise2/ex2_HelpFile.pdf
       - http://myweb.dal.ca/js551958/PAML_lab/exercise2/TableE2.pdf
     tags: paml, selection
 
