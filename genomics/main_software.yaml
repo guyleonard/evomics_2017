@@ -327,7 +327,7 @@
        - libspreadsheet-writeexcel-perl
       tags: radseq, stacks
  
-    - include: software_tasks/stacks.yaml version=1.43
+    - include: software_tasks/stacks.yaml version=1.44
       tags: radseq, stacks
 
     - include: software_tasks/stacks_web.yaml
