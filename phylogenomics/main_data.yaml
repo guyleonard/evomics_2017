@@ -53,7 +53,7 @@
       - http://myweb.dal.ca/js551958/PAML_lab/exercise2/TableE2.pdf
     tags: paml, selection
 
-      - name: Create PAML Directory - Exercise 3
+  - name: Create PAML Directory - Exercise 3
     file: path="{{workshop_dir}}/paml/exercise3" state=directory owner="{{workshop_user}}" group=workshop
     tags: paml, selection
 
