@@ -9,17 +9,12 @@
     creates="{{software_dir}}/paml4.9c/README.txt"
     
 - name: Removing Windows Exes
-  shell: rm *.exe
-  args:
-    chdir: "{{software_dir}}/paml4.9c/bin"
+  file: path="{{software_dir}}/paml4.9c/bin" state=absent
 
 - name: Making *nix Exes
-  shell: make -f Makefile
-  args:
-    chdir: "{{software_dir}}/paml4.9c/bin"
+  shell: make -f "{{software_dir}}/paml4.9c/bin/Makefile"
 
 - name: Install to /usr/local/bin
   shell: mv baseml basemlg codeml pamp evolver yn00 chi2 /usr/local/bin 
   args:
     chdir: "{{software_dir}}/paml4.9c/bin"
-    
