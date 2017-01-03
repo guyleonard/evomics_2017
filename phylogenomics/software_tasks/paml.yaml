@@ -12,7 +12,8 @@
   file: path="{{software_dir}}/paml4.9c/bin" state=absent
 
 - name: Making *nix Exes
-  shell: make -f "{{software_dir}}/paml4.9c/src/Makefile"
+  make:
+    chdir: "{{software_dir}}/paml4.9c/src/"
 
 - name: Install to /usr/local/bin
   shell: mv baseml basemlg codeml pamp evolver yn00 chi2 /usr/local/bin 
