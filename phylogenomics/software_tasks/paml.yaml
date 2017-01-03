@@ -1,0 +1,25 @@
+- name: Downloading PAML
+  get_url: url="http://abacus.gene.ucl.ac.uk/software/paml4.9c.tgz" dest="{{source_dir}}/paml4.9c.tgz"
+
+- name: Uncompress PAML
+  unarchive: 
+    src="{{source_dir}}/paml4.9c.tgz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/paml4.9c/README.txt"
+    
+- name: Removing Windows Exes
+  shell: rm *.exe
+  args:
+    chdir: "{{software_dir}}/paml4.9c/bin"
+
+- name: Making *nix Exes
+  shell: make -f Makefile
+  args:
+    chdir: "{{software_dir}}/paml4.9c/bin"
+
+- name: Install to /usr/local/bin
+  shell: mv baseml basemlg codeml pamp evolver yn00 chi2 /usr/local/bin 
+  args:
+    chdir: "{{software_dir}}/paml4.9c/bin"
+    
