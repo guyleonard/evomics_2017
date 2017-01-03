@@ -1,0 +1,46 @@
+- hosts: all
+  become: yes
+  vars:
+    - workshop_user: phylogenomics
+    - source_dir: "/home/{{workshop_user}}/software/.source"
+    - software_dir: "/home/{{workshop_user}}/software"
+    - workshop_dir: "/home/{{workshop_user}}/workshop_materials"
+
+  tasks:
+  ### Common ###
+
+  ### Unix ###
+    
+  ### Orthology and Paralogy ###
+    
+  ### Alignment, Trimming, Concatenation ###
+
+  ### Tree Construction ML ###   
+        
+  ### Tree Construction Bayes ###
+
+  ### Tree Divergence ###
+
+  ### Model Selection ###
+
+  ### Detecting Selection ###
+
+  - name: Create PAML Directory - Exeercise 1
+    file: path="{{workshop_dir}}/paml/exercise1" state=directory owner="{{workshop_user}}" group=workshop
+    tags: paml, selection
+
+  - name: Downloading exercise_1
+    get_url: url={{item}} dest="{{workshop_dir}}/paml/exercise1"
+    with_items:
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise1/ex1_step_by_step.pdf
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise1/ex1_seqfile.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise1/ex1_codeml.ctl.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise1/ex1_HelpFile.pdf
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise1/FigE1.pdf
+    tags: paml, selection
+
+  ### SVD-Quartets ###
+
+  ### CAFE ###
+
+  ### Non-Vertical Evolution ###
