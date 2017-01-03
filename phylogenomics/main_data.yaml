@@ -39,8 +39,68 @@
       - http://myweb.dal.ca/js551958/PAML_lab/exercise1/FigE1.pdf
     tags: paml, selection
 
+  - name: Create PAML Directory - Exercise 2
+    file: path="{{workshop_dir}}/paml/exercise2" state=directory owner="{{workshop_user}}" group=workshop
+    tags: paml, selection
+
+  - name: Downloading exercise_2
+    get_url: url={{item}} dest="{{workshop_dir}}/paml/exercise2"
+    with_items:
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise2/ex2_step_by_step.pdf
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise2/ex2_step_by_step.pdf
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise2/ex2_codeml.ctl.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise2/ex2_codeml.ctl.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise2/TableE2.pdf
+    tags: paml, selection
+
+      - name: Create PAML Directory - Exercise 3
+    file: path="{{workshop_dir}}/paml/exercise3" state=directory owner="{{workshop_user}}" group=workshop
+    tags: paml, selection
+
+  - name: Downloading exercise_3
+    get_url: url={{item}} dest="{{workshop_dir}}/paml/exercise3"
+    with_items:
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise3/ex3_step_by_step.pdf
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise3/paml_ldh_seqfile.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise3/paml_ldh_codeml.ctl.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise3/tree.H0.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise3/tree.H1.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise3/tree.H2.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise3/tree.H3.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise3/ex3_HelpFile.pdf
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise3/LDH_gene_tree.pdf
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise3/TableE3.pdf
+    tags: paml, selection
+
+  - name: Create PAML Directory - Exeercise 4
+    file: path="{{workshop_dir}}/paml/exercise4" state=directory owner="{{workshop_user}}" group=workshop
+    tags: paml, selection
+
+  - name: Downloading exercise_4
+    get_url: url={{item}} dest="{{workshop_dir}}/paml/exercise4"
+    with_items:
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise4/ex4_alt_step_by_step.pdf
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise4/paml_hiv2nef_seqfile.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise4/paml_hiv2nef_codeml.ctl.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise4/treefile_M0.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise4/treefile_M1.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise4/treefile_M2.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise4/treefile_M3.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise4/treefile_M7.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise4/treefile_M8.txt
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise4/ex4_HelpFile.pdf
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise4/ex4_rst_HelpFile.pdf
+      - http://myweb.dal.ca/js551958/PAML_lab/exercise4/TableE4.pdf
+    tags: paml, selection
+
   ### SVD-Quartets ###
 
   ### CAFE ###
 
   ### Non-Vertical Evolution ###
+
+  ## Finishing Touches
+  post_tasks:  
+    - name: Changing software/source user:group to genomics:workshop
+      file: path="{{workshop_dir}}" owner={{workshop_user}} group=workshop recurse=yes
+      tags: finish
