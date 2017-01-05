@@ -275,7 +275,7 @@
     tags: transcriptomics, trinotate
 
   - name: Cloning Trinity Workshop
-    git: repo=https://github.com/trinityrnaseq/KrumlovTrinityWorkshopJan2016.git dest="{{workshop_dir}}/transcriptomics/KrumlovTrinityWorkshopJan2016" clone=yes update=yes
+    git: repo=https://github.com/trinityrnaseq/KrumlovTrinityWorkshopJan2017.git dest="{{workshop_dir}}/transcriptomics/KrumlovTrinityWorkshopJan2017" clone=yes update=yes
     become: true
     become_user: "{{workshop_user}}"
     tags: transcriptomics
