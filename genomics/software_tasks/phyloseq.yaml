@@ -43,6 +43,9 @@
 - name: Installing devtools
   shell: "{{playbook_dir}}/scripts/install.r devtools"
 
+- name: Installing plotly
+  shell: "{{playbook_dir}}/scripts/install.r plotly"
+
 - name: Installing devtools via Bioconductor
   shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('devtools')"
   
@@ -84,3 +87,6 @@
   
 - name: Installing ALDEx2 via Bioconductor
   shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('ALDEx2')"
+  
+  - name: Installing DESeq2 via Bioconductor
+  shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('DESeq2')"
