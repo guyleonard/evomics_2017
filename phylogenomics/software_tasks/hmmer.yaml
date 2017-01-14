@@ -14,4 +14,3 @@
               backup=yes
               regexp="PATH=((?!.*?/home/{{workshop_user}}/software/hmmer-{{version}}-linux-intel-x86_64/binaries/).*?)$"
               line="PATH=\1:/home/{{workshop_user}}/software/hmmer-{{version}}-linux-intel-x86_64/binaries/"
-
