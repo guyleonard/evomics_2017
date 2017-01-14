@@ -9,11 +9,14 @@
     creates="{{software_dir}}/FigTree_v1.4.3/README.txt"
 
 - name: Copy FigTree jar to /usr/local/lib
-  copy: src="{{software_dir}}/FigTree_v1.4.3/lib/figtree.jar" dest=/usr/local/bin/figtree.jar mode=0755
+  copy: src="{{software_dir}}/FigTree_v1.4.3/lib/figtree.jar" dest=/usr/local/lib/figtree.jar mode=0755
 
 - name: Copy FigTree bin to /usr/local/bin
   copy: src="{{software_dir}}/FigTree_v1.4.3/bin/figtree" dest=/usr/local/bin/figtree mode=0755
-
+  
+- name: Modify path for FigTree bin
+  replace: dest=/usr/local/bin/figtree regexp="lib/" replace="/usr/local/lib/" backup=yes
+  
 - name: Create {{workshop_user}} .icons dir
   file: path="{{workshop_dir}}/.icons" state=directory owner="{{workshop_user}}" group=workshop
 
