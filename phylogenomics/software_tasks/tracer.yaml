@@ -22,3 +22,8 @@
 
 - name: Copy Tracer icon to /usr/local/bin
   copy: src="{{software_dir}}/Tracer_v1.6/images/Tracer.png" dest="{{workshop_dir}}/.icons/tracer.png"
+
+- name: Copying Tracer Launcher
+  copy: src="{{playbook_dir}}/files/shortcuts/tracer.desktop" dest="/home/{{workshop_user}}/Desktop/tracer.desktop" mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
