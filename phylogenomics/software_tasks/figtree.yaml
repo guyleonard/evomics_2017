@@ -23,3 +23,7 @@
 - name: Copy FigTree icon to /usr/local/bin
   copy: src="{{software_dir}}/FigTree_v1.4.3/images/figtree.png" dest="{{workshop_dir}}/.icons/figtree.png"
   
+- name: Copying FigTree Launcher
+  copy: src="{{playbook_dir}}/files/shortcuts/figtree.desktop" dest="/home/{{workshop_user}}/Desktop/figtree.desktop" mode=0755
+  become: true
+  become_user: "{{workshop_user}}"
