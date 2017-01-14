@@ -1,0 +1,9 @@
+- name: Download FigTree v1.4.3
+  get_url: url="https://s3.amazonaws.com/2017evomics/FigTree_v1.4.3.tgz" dest="{{source_dir}}/FigTree_v1.4.3.tgz"
+ 
+- name: Uncompress FigTree
+  unarchive: 
+    src="{{source_dir}}/FigTree_v1.4.3.tgz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/FigTree_v1.4.3/README.txt"
