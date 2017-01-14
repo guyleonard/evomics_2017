@@ -1,0 +1,4 @@
+- name: Download Tracer v{{1.6}}
+ get_url: url="https://s3.amazonaws.com/2017evomics/Tracer_v1.6.tgz" dest="{{source_dir}}/Tracer_v1.6.tgz"
+ 
+ - name: 
