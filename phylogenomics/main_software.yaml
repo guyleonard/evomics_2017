@@ -154,6 +154,8 @@
     - include: software_tasks/tracer.yaml
       tags: bayes, tracer, revbayes, trees
 
+    - include: software_tasks/figtree.yaml
+      tags: bayes, figtree, revbayes, trees
 
     ### Model Selection ###
 
