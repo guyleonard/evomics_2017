@@ -6,6 +6,6 @@ Type=Application
 Terminal=false
 Icon[en_US]=mate-panel-launcher
 Name[en_US]=FigTree
-Exec=/usr/bin/figtree
+Exec=/usr/local/bin/figtree
 Name=FigTree
 Icon=/home/phylogenomics/.icons/figtree.png
