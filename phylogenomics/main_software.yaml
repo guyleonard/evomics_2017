@@ -151,6 +151,9 @@
     - include: software_tasks/sublime_text.yaml verion=3126
       tags: bayes, sublime, revbayes, trees
 
+    - include: software_tasks/tracer.yaml
+      tags: bayes, tracer, revbayes, trees
+
 
     ### Model Selection ###
 
