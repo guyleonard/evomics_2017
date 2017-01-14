@@ -8,4 +8,4 @@ Icon[en_US]=mate-panel-launcher
 Name[en_US]=FigTree
 Exec=/usr/local/bin/figtree
 Name=FigTree
-Icon=/home/phylogenomics/.icons/figtree.png
+Icon=/home/phylogenomics/workshop_materials/.icons/figtree.png
