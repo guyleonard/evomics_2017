@@ -15,7 +15,7 @@
   copy: src="{{software_dir}}/Tracer_v1.6/bin/tracer" dest=/usr/local/bin/tracer mode=0755
   
 - name: Modify path for Tracer bin
-  replace: dest=/usr/local/bin/tracer regexp="lib/" replace="/usr/local/lib/" backup=yes
+  replace: dest=/usr/local/bin/tracer regexp="$TRACER_LIB/" replace="/usr/local/lib/" backup=yes
   
 - name: Create {{workshop_user}} .icons dir
   file: path="{{workshop_dir}}/.icons" state=directory owner="{{workshop_user}}" group=workshop
