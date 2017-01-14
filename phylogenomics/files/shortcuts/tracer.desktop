@@ -8,4 +8,4 @@ Icon[en_US]=mate-panel-launcher
 Name[en_US]=Tracer
 Exec=/usr/local/bin/tracer
 Name=Tracer
-Icon=/home/phylogenomics/.icons/tracer.png
+Icon=/home/phylogenomics/workshop_materials/.icons/tracer.png
