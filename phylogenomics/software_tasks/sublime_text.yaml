@@ -2,5 +2,4 @@
   get_url: url="https://download.sublimetext.com/sublime-text_build-{{version}}_amd64.deb" dest="{{source_dir}}/sublime-text_build-{{version}}_amd64.deb"
   
 - name: Install Sublime Text 3 {{version}}
-  apt:
-    deb:"{{source_dir}}/sublime-text_build-{{version}}_amd64.deb"
+  shell: dpkg -i "{{source_dir}}/sublime-text_build-{{version}}_amd64.deb"
