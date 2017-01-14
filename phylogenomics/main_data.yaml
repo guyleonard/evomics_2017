@@ -17,10 +17,17 @@
 
   ### Tree Construction ML ###   
         
-  ### Tree Construction Bayes ###
-
-  ### Tree Divergence ###
-
+  ### RevBayes (Bayesian & Divergence) ###
+  - name: Create RevBayes Directory - Exeercise 1
+  file: path="{{workshop_dir}}/revbayes/CTMC/data" state=directory owner="{{workshop_user}}" group=workshop
+  tags: revbayes, bayes, ctmc
+  
+  - name: Downloading Primate Data
+    get_url:
+      url:"http://rawgit.com/revbayes/revbayes_tutorial/master/RB_CTMC_Tutorial/data/primates_and_galeopterus_cytb.nex"
+      dest="{{worksho_di}}/revbayes/CTMC/data"
+    tags: revbayes, bayes, ctmc
+  
   ### Model Selection ###
 
   ### Detecting Selection ###
