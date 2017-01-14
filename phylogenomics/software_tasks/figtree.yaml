@@ -21,5 +21,5 @@
   file: path="{{workshop_dir}}/.icons" state=directory owner="{{workshop_user}}" group=workshop
 
 - name: Copy FigTree icon to /usr/local/bin
-  copy: src="{{software_dir}}/FigTree_v1.4.3/images/figtree.png" dest="{{workshop_dir}}/figtree.png"
+  copy: src="{{software_dir}}/FigTree_v1.4.3/images/figtree.png" dest="{{workshop_dir}}/.icons/figtree.png"
   
