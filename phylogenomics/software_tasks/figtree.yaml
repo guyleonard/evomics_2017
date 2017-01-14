@@ -7,3 +7,16 @@
     dest="{{software_dir}}"
     copy=no
     creates="{{software_dir}}/FigTree_v1.4.3/README.txt"
+
+- name: Copy FigTree jar to /usr/local/lib
+  copy: src="{{software_dir}}/FigTree_v1.4.3/lib/figtree.jar" dest=/usr/local/bin/figtree.jar mode=0755
+
+- name: Copy FigTree bin to /usr/local/bin
+  copy: src="{{software_dir}}/FigTree_v1.4.3/bin/figtree" dest=/usr/local/bin/figtree mode=0755
+
+- name: Create {{workshop_user}} .icons dir
+  file: path="{{workshop_dir}}/.icons" state=directory owner="{{workshop_user}}" group=workshop
+
+- name: Copy FigTree icon to /usr/local/bin
+  copy: src="{{software_dir}}/FigTree_v1.4.3/images/figtree.png" dest="{{workshop_dir}}/figtree.png"
+  
