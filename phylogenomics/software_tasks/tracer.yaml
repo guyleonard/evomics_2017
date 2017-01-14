@@ -7,3 +7,18 @@
     dest="{{software_dir}}"
     copy=no
     creates="{{software_dir}}/Tracer_v1.6/README.txt"
+
+- name: Copy Tracer jar to /usr/local/lib
+  copy: src="{{software_dir}}/Tracer_v1.6/lib/tracer.jar" dest=/usr/local/lib/tracer.jar mode=0755
+
+- name: Copy Tracer bin to /usr/local/bin
+  copy: src="{{software_dir}}/Tracer_v1.6/bin/tracer" dest=/usr/local/bin/tracer mode=0755
+  
+- name: Modify path for Tracer bin
+  replace: dest=/usr/local/bin/tracer regexp="lib/" replace="/usr/local/lib/" backup=yes
+  
+- name: Create {{workshop_user}} .icons dir
+  file: path="{{workshop_dir}}/.icons" state=directory owner="{{workshop_user}}" group=workshop
+
+- name: Copy Tracer icon to /usr/local/bin
+  copy: src="{{software_dir}}/Tracer_v1.6/images/Tracer.png" dest="{{workshop_dir}}/.icons/tracer.png"
