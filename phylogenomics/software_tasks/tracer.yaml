@@ -3,7 +3,7 @@
  
 - name: Uncompress Tracer
   unarchive: 
-  src="{{source_dir}}/Tracer_v1.6.tgz"
-  dest="{{software_dir}}"
-  copy=no
-  creates="{{software_dir}}/Tracer_v1.6/README.txt"
+    src="{{source_dir}}/Tracer_v1.6.tgz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/Tracer_v1.6/README.txt"
