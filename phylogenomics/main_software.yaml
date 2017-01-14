@@ -69,6 +69,7 @@
     - include: software_tasks/bioconda.yaml version=3 prefix=/home/genomics/miniconda
       tags: general, conda, bioconda
 
+    # Some other things, just in case
     - name: Installing blast legacy & blast+
       apt: name={{item}} state=present
       with_items:
@@ -83,9 +84,18 @@
 
     - include: software_tasks/newick_utils.yaml
       tags: general, newick_utils
+      
+    - name: Installing Bayes
+      apt: name={{item}} state=present
+      with_items:
+       - beast-mcmc
+       - mrbayes
+      tags: trees, bayes, mrbayes, beast
 
     ### Unix ###
+    
     ### Orthology and Paralogy ###
+    
     ### Alignment, Trimming, Concatenation ###
     - name: Installing Aligning Tools
       apt: name={{item}} state=present
@@ -118,9 +128,11 @@
     - name: Installing FastTree2
       apt: name=fasttree state=present
       tags: fasttree, trees, ml
+      
     - name: Install FastTree2 Links
       file: src=/usr/bin/fasttree dest=/usr/bin/FastTree state=link
       tags: fasttree, trees, ml
+      
     - name: Install FastTree2 MP Links
       file: src=/usr/bin/fasttreeMP dest=/usr/bin/FastTreeMP state=link
       tags: fasttree, trees, ml
@@ -132,19 +144,13 @@
       tags: trees, ml
         
         
-    ### Tree Construction Bayes ###
+    ### RevBayes (Bayesian & Divergence) ###
     - include: software_tasks/revbayes.yaml
       tags: trees, bayes, revbayes
+      
+    - include: software_tasks/sublime_text.yaml verion=3126
+      tags: bayes, sublime, revbayes, trees
 
-    - name: Installing Bayes
-      apt: name={{item}} state=present
-      with_items:
-       - beast-mcmc
-       - mrbayes
-      tags: trees, bayes, mrbayes, beast
-    
-    
-    ### Tree Divergence ###
 
     ### Model Selection ###
 
