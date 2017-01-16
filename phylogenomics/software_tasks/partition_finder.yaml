@@ -37,4 +37,4 @@
   file: path="{{software_dir}}/partitionfinder-2.1.1/PartitionFinderMorphology.py" mode=0755
   
 - name: Make python Scripts executable
-  file: path="{{software_dir}}/partitionfinder-2.1.1build_ext.py " mode=0755
+  file: path="{{software_dir}}/partitionfinder-2.1.1/build_ext.py " mode=0755
