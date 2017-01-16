@@ -9,7 +9,7 @@
     - sklearn
     
 - name: Downloading Partition Finder
-  get_url: url="https://github.com/brettc/partitionfinder/archive/v2.1.1.tar.gz" dest="{{source+dir}}/partition_finder.tar.gz"
+  get_url: url="https://github.com/brettc/partitionfinder/archive/v2.1.1.tar.gz" dest="{{source_dir}}/partition_finder.tar.gz"
 
 - name: Unarchiving Partition Finder
   unarchive:
