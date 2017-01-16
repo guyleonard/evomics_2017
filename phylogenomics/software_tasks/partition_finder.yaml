@@ -28,13 +28,13 @@
   become_user: "{{workshop_user}}"
 
 - name: Make python Scripts executable
-  file: path="{{software_dir}}/partitionfinder-2.1.1/PartitionFinder.py" mode=+x
+  file: path="{{software_dir}}/partitionfinder-2.1.1/PartitionFinder.py" mode=0755
 
 - name: Make python Scripts executable
-  file: path="{{software_dir}}/partitionfinder-2.1.1/PartitionFinderProtein.py" mode=+x
+  file: path="{{software_dir}}/partitionfinder-2.1.1/PartitionFinderProtein.py" mode=0755
   
 - name: Make python Scripts executable
-  file: path="{{software_dir}}/partitionfinder-2.1.1/PartitionFinderMorphology.py" mode=+x
+  file: path="{{software_dir}}/partitionfinder-2.1.1/PartitionFinderMorphology.py" mode=0755
   
 - name: Make python Scripts executable
-  file: path="{{software_dir}}/partitionfinder-2.1.1build_ext.py " mode=+x
+  file: path="{{software_dir}}/partitionfinder-2.1.1build_ext.py " mode=0755
