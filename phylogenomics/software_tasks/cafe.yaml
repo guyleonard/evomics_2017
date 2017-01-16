@@ -1,0 +1,15 @@
+- name: Downloading CAFE
+  get_url: url=https://sourceforge.net/projects/cafehahnlab/files/cafehahnlab-code.3.1.tgz dest="{{source_dir}}/cafehahnlab-code.3.1.tgz"
+  
+- name: Unarchiving CAFE
+  unarchive:
+    src="{{source_dir}}/cafehahnlab-code.3.1.tgz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/cafehahnlab-code\ 2/cafe/Makefile"
+    
+ - name: Making CAFE
+   make:
+     chdir:"{{software_dir}}/cafehahnlab-code\ 2/cafe/Makefile"
+     
+ 
