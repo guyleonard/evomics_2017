@@ -1,5 +1,5 @@
 - name: Installing Python Dependencies
-  pip: name={{items}}
+  pip: name={{item}}
   with_items:
     - numpy
     - pandas
