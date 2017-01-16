@@ -160,7 +160,7 @@
 
     ### Model Selection ###
     - include: software_tasks/paup.yaml
-      tags: model, selection, paup
+      tags: model, selection, paup, svd, quartets
       
     - name: Installing jModelTest
       apt: name=jmodeltest state=present
@@ -182,7 +182,7 @@
 
 
     ### SVD-Quartets ###
-
+    ## Implemented in PAUP*
 
     ### CAFE ###
 
