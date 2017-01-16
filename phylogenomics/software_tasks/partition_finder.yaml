@@ -24,7 +24,17 @@
     backup=yes
     regexp="PATH=((?!.*?/home/{{workshop_user}}/software/partitionfinder-2.1.1/).*?)$"
     line="PATH=\1:/home/{{workshop_user}}/software/partitionfinder-2.1.1/"
+   become: true
+   become_user: {{workshop_user}}
 
 - name: Make python Scripts executable
-  shell: "chmod +x {{software_dir}}/partitionfinder-2.1.1/*.py"
+  file: path="{{software_dir}}/partitionfinder-2.1.1/PartitionFinder.py" mode=+x
+
+- name: Make python Scripts executable
+  file: path="{{software_dir}}/partitionfinder-2.1.1/PartitionFinderProtein.py" mode=+x
   
+- name: Make python Scripts executable
+  file: path="{{software_dir}}/partitionfinder-2.1.1/PartitionFinderMorphology.py" mode=+x
+  
+- name: Make python Scripts executable
+  file: path="{{software_dir}}/partitionfinder-2.1.1build_ext.py " mode=+x
