@@ -171,14 +171,21 @@
       
     - include: software_tasks/seq-gen.yaml
       tags: model, selection, seq-gen
+      
+    - include: software_tasks/simphy.yaml
+      tags: model, selection, simphy
+      
     
     ### Detecting Selection ###
     - include: software_tasks/paml.yaml
       tags: selection, paml, ml
 
+
     ### SVD-Quartets ###
 
+
     ### CAFE ###
+
 
     ### Non-Vertical Evolution ###
 
