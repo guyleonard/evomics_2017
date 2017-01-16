@@ -34,7 +34,7 @@
   
   - name: Downloading CTMC Primate Data
     get_url:
-      url:"https://github.com/revbayes/revbayes_tutorial/raw/master/RB_TotalEvidenceDating_FBD_Tutorial/data.zip"
+      url="https://github.com/revbayes/revbayes_tutorial/raw/master/RB_TotalEvidenceDating_FBD_Tutorial/data.zip"
       dest="{{worksho_di}}/revbayes/RB_TotalEvidenceDating_FBD_Tutorial"
     tags: revbayes, bayes, ctmc 
    
