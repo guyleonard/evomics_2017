@@ -24,7 +24,7 @@
   
   - name: Downloading CTMC Primate Data
     get_url:
-      url:"http://rawgit.com/revbayes/revbayes_tutorial/master/RB_CTMC_Tutorial/data/primates_and_galeopterus_cytb.nex"
+      url="http://rawgit.com/revbayes/revbayes_tutorial/master/RB_CTMC_Tutorial/data/primates_and_galeopterus_cytb.nex"
       dest="{{worksho_di}}/revbayes/CTMC/data"
     tags: revbayes, bayes, ctmc
     
