@@ -161,7 +161,10 @@
     ### Model Selection ###
     - include: software_tasks/paup.yaml
       tags: model, selection, paup
-    
+      
+    - name: Installing jModelTest
+      apt: name=jmodeltest state=present
+      tags: model, selection, jmodeltest
     
     ### Detecting Selection ###
     - include: software_tasks/paml.yaml
