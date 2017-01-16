@@ -16,3 +16,4 @@
   copy:
     src="{{software_dir}}/Seq-Gen.v1.3.3/source/seq-gen"
     dest=/usr/local/bin/seq-gen
+    mode=0755
