@@ -1,0 +1,13 @@
+- name: Download Sim Phy
+  get_url: url=https://github.com/adamallo/SimPhy/releases/download/v1.0.2/SimPhy_1.0.2.tar.gz dest="{{source_dir}}/SimPhy_1.0.2.tar.gz"
+  
+- name: Unarchiving Sim Phy
+  unarchive:
+    src="{{source_dir}}/SimPhy_1.0.2.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/SimPhy_1.0.2/README.md"
+    
+- name: Copying Sim Phy binary to /usr/local/bin
+  copy: src="{{software_dir}}/SimPhy_1.0.2/bin/simphy_lnx64" dest=/usr/local/bin/simphy mode=0755
+  
