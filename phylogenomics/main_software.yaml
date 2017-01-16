@@ -185,7 +185,8 @@
     ## Implemented in PAUP*
 
     ### CAFE ###
-
+    - include: software_tasks/cafe.yaml
+      tags: cafe
 
     ### Non-Vertical Evolution ###
 
