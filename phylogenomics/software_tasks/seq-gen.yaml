@@ -1,0 +1,18 @@
+- name: Downloading Seq-Gen
+  get_url: url=https://s3.amazonaws.com/2017evomics/Seq-Gen.v1.3.3.tgz dest="{{source_dir}}/Seq-Gen.v1.3.3.tgz"
+  
+- name: Unarchiving Seq-Gen
+  unarchive:
+    src="{{source_dir}}/Seq-Gen.v1.3.3.tgz"
+    dest="{{software_dir}}/Seq-Gen.v1.3.3/"
+    copy=no
+    creates="{{software_dir}}/Seq-Gen.v1.3.3/README"
+    
+- name: Making Seq-Gen
+  make:
+    chdir="{{software_dir}}/Seq-Gen.v1.3.3/source"
+
+- name: Copying Seq-Gen to /usr/local/bin
+  copy:
+    src="{{software_dir}}/Seq-Gen.v1.3.3/source/seq-gen"
+    dest=/usr/local/bin/seq-gen
