@@ -4,7 +4,7 @@
 - name: Unarchiving Seq-Gen
   unarchive:
     src="{{source_dir}}/Seq-Gen.v1.3.3.tgz"
-    dest="{{software_dir}}/Seq-Gen.v1.3.3/"
+    dest="{{software_dir}}"
     copy=no
     creates="{{software_dir}}/Seq-Gen.v1.3.3/README"
     
