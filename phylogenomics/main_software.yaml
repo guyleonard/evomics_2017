@@ -165,6 +165,10 @@
     - name: Installing jModelTest
       apt: name=jmodeltest state=present
       tags: model, selection, jmodeltest
+      
+    - include: software_tasks/partition_finder.yaml
+      tags: model, selection, patitionfinder
+      
     
     ### Detecting Selection ###
     - include: software_tasks/paml.yaml
