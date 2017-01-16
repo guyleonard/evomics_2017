@@ -25,7 +25,7 @@
   - name: Downloading CTMC Primate Data
     get_url:
       url="http://rawgit.com/revbayes/revbayes_tutorial/master/RB_CTMC_Tutorial/data/primates_and_galeopterus_cytb.nex"
-      dest="{{worksho_dir}}/revbayes/CTMC/data"
+      dest="{{workshop_dir}}/revbayes/CTMC/data"
     tags: revbayes, bayes, ctmc
     
   - name: Create RevBayes Directory - Dating
@@ -35,7 +35,7 @@
   - name: Downloading FBD Tutorial Data
     get_url:
       url="https://github.com/revbayes/revbayes_tutorial/raw/master/RB_TotalEvidenceDating_FBD_Tutorial/data.zip"
-      dest="{{worksho_dir}}/revbayes/RB_TotalEvidenceDating_FBD_Tutorial"
+      dest="{{workshop_dir}}/revbayes/RB_TotalEvidenceDating_FBD_Tutorial"
     tags: revbayes, bayes, ctmc 
    
   ### Model Selection ###
