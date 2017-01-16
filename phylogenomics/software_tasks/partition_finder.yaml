@@ -1,0 +1,27 @@
+- name: Installing Python Dependencies
+  pip: name={{items}}
+  with_items:
+    - numpy
+    - pandas
+    - pytables
+    - pyparsing
+    - scipy
+    - sklearn
+    
+- name: Downloading Partition Finder
+  get_url:
+     url=https://github.com/brettc/partitionfinder/archive/v2.1.1.tar.gz dest="{{source+dir}}/partition_finder.tar.gz"
+
+- name: Unarchiving Partition Finder
+  unarchive:
+    src="{{source_dir}}/partition_finder.tar.gz"
+    dest="{{software_dir}}"
+    copy=no
+    creates="{{software_dir}}/partitionfinder-2.1.1/Makefile"
+    
+- name: Add Partition Finder to PATH
+  lineinfile: dest="/home/{{workshop_user}}/.bash_paths"
+    backrefs=yes
+    backup=yes
+    regexp="PATH=((?!.*?/home/{{workshop_user}}/software/partitionfinder-2.1.1/).*?)$"
+    line="PATH=\1:/home/{{workshop_user}}/software/partitionfinder-2.1.1/"
