@@ -169,6 +169,8 @@
     - include: software_tasks/partition_finder.yaml
       tags: model, selection, patitionfinder
       
+    - include: software_tasks/seq-gen.yaml
+      tags: model, selection, seq-gen
     
     ### Detecting Selection ###
     - include: software_tasks/paml.yaml
