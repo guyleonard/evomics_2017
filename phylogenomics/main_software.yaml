@@ -157,10 +157,13 @@
     - include: software_tasks/figtree.yaml
       tags: bayes, figtree, revbayes, trees
 
+
     ### Model Selection ###
-
+    - include: software_tasks/paup.yaml
+      tags: model, selection, paup
+    
+    
     ### Detecting Selection ###
-
     - include: software_tasks/paml.yaml
       tags: selection, paml, ml
 
