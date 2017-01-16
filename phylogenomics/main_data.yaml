@@ -32,10 +32,10 @@
     file: path="{{workshop_dir}}/revbayes/RB_TotalEvidenceDating_FBD_Tutorial" state=directory owner="{{workshop_user}}" group=workshop
     tags: revbayes, bayes, dating, divergence
   
-  - name: Downloading CTMC Primate Data
+  - name: Downloading FBD Tutorial Data
     get_url:
       url="https://github.com/revbayes/revbayes_tutorial/raw/master/RB_TotalEvidenceDating_FBD_Tutorial/data.zip"
-      dest="{{worksho_di}}/revbayes/RB_TotalEvidenceDating_FBD_Tutorial"
+      dest="{{worksho_dir}}/revbayes/RB_TotalEvidenceDating_FBD_Tutorial"
     tags: revbayes, bayes, ctmc 
    
   ### Model Selection ###
