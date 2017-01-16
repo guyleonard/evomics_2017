@@ -26,5 +26,5 @@
     line="PATH=\1:/home/{{workshop_user}}/software/partitionfinder-2.1.1/"
 
 - name: Make python Scripts executable
-  shell: "chmod +x {{workshop_user}}/software/partitionfinder-2.1.1/*.py"
+  shell: "chmod +x {{software_dir}}/software/partitionfinder-2.1.1/*.py"
   
