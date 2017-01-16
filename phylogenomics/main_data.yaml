@@ -36,7 +36,13 @@
     get_url:
       url="https://github.com/revbayes/revbayes_tutorial/raw/master/RB_TotalEvidenceDating_FBD_Tutorial/data.zip"
       dest="{{workshop_dir}}/revbayes/RB_TotalEvidenceDating_FBD_Tutorial"
-    tags: revbayes, bayes, ctmc 
+    tags: revbayes, bayes, fbd
+    
+  - name: Unarchiving FBD Tutorial Data
+    unarchive:
+      src="{{workshop_dir}}/revbayes/RB_TotalEvidenceDating_FBD_Tutorial/data.zip"
+      dest="{{workshop_dir}}/revbayes/RB_TotalEvidenceDating_FBD_Tutorial/"
+    tags: revbayes, bayes, fbd
    
   ### Model Selection ###
 
