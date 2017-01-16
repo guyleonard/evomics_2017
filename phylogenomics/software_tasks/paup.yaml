@@ -1,0 +1,11 @@
+- name: Downloading PAUP*
+  get_url: url="http://people.sc.fsu.edu/~dswofford/paup_test/paup4a151_ubuntu64.gz" dest="{{source_dir}}/paup4a151_ubuntu64.gz"
+
+- name: Gunzip PAUP*
+  shell: gunzip "{{source_dir}}/paup4a151_ubuntu64.gz"
+  
+- name: Move PAUP to /usr/local/bin
+  copy: src="{{source_dir}}/paup4a151_ubuntu64" dest=/usr/local/bin/paup mode=0755
+  
+- name: Install GFortran Dependencies
+  apt: name=gfortran state=present
