@@ -8,8 +8,8 @@
     copy=no
     creates="{{software_dir}}/cafehahnlab-code\ 2/cafe/Makefile"
     
- - name: Making CAFE
-   make:
-     chdir:"{{software_dir}}/cafehahnlab-code\ 2/cafe/Makefile"
+- name: Making CAFE
+  make:
+    chdir:"{{software_dir}}/cafehahnlab-code\ 2/cafe/Makefile"
      
  
