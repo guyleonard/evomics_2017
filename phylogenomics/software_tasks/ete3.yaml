@@ -5,9 +5,10 @@
     - python-qt4
     - python-lxml
     - python-six
+    - libargtable2-dev
     
 - name: Install ETE3 from Conda
   pip: name=ete3 state=latest
   
 - name: Compile ETE3 Exeternal Tools
-  shell: ete3 upgrade-external-tools
+  shell: ete3 upgrade-external-tools --dir {{workshop_dir}}//.etetoolkit/
