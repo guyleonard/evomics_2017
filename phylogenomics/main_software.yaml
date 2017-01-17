@@ -62,11 +62,11 @@
       tags: general, biopython
     
     # Conda for Python 3.0
-    - include: software_tasks/conda.yaml version=3 prefix=/home/genomics/miniconda
+    - include: software_tasks/conda.yaml version=3 prefix=/home/phylogenomics/miniconda
       tags: general, conda
 
     # Add Bioconda repos for Conda with Python 3
-    - include: software_tasks/bioconda.yaml version=3 prefix=/home/genomics/miniconda
+    - include: software_tasks/bioconda.yaml version=3 prefix=/home/phylogenomics/miniconda
       tags: general, conda, bioconda
 
     # Some other things, just in case
