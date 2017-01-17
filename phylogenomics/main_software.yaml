@@ -162,6 +162,10 @@
     - include: software_tasks/paup.yaml
       tags: model, selection, paup, svd, quartets
       
+    - name: Install MatPlotLib
+      pip: name=matplotlib
+      tags: model, selection, matplotlib
+      
     - name: Installing jModelTest
       apt: name=jmodeltest state=present
       tags: model, selection, jmodeltest
