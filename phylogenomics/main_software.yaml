@@ -95,6 +95,8 @@
     ### Unix ###
     
     ### Orthology and Paralogy ###
+    - include: software_tasks/ete3.yaml
+      tags: ete3
     
     ### Alignment, Trimming, Concatenation ###
     - name: Installing Aligning Tools
