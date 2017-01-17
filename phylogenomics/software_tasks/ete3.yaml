@@ -1,4 +1,13 @@
+- name: Install ETE3 Dependencies
+  apt: {{item}}
+  with_items:
+    - python-numpy
+    - python-qt4
+    - python-lxml
+    - python-six
+    
 - name: Install ETE3 from Conda
-  shell: "/home/{{workshop_user}}/miniconda3/bin/conda install -c etetoolkit ete3 ete3_external_apps"
-  become: true
-  become_user: "{{workshop_user}}"
+  pip: name=ete3 state=latest
+  
+- name: Compile ETE3 Exeternal Tools
+  shell: ete3 upgrade-external-tools
