@@ -1,5 +1,5 @@
 - name: Install ETE3 Dependencies
-  apt: {{item}}
+  apt: name={{item}}
   with_items:
     - python-numpy
     - python-qt4
