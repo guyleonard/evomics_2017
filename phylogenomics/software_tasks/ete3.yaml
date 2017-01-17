@@ -6,6 +6,7 @@
     - python-lxml
     - python-six
     - libargtable2-dev
+    - libatlas3-base
     
 - name: Install ETE3 from Conda
   pip: name=ete3 state=latest
