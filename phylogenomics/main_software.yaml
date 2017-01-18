@@ -195,7 +195,8 @@
       tags: cafe
 
     ### Non-Vertical Evolution ###
-
+    - include: software_tasks/dendroscope.yaml
+      tags: nonvertical, dendroscope
 
   ## Finishing Touches
   post_tasks:  
