@@ -1,5 +1,5 @@
 - name: Download Dendroscope
-  get_url: url=http://ab.inf.uni-tuebingen.de/data/software/dendroscope3/download/Dendroscope_unix_3_5_7.sh dest="{{software_dir}}/Dendroscope_unix_3_5_7.sh"
-  
+  get_url: url=http://ab.inf.uni-tuebingen.de/data/software/dendroscope3/download/Dendroscope_unix_3_5_7.sh dest="{{software_dir}}/Dendroscope_unix_3_5_7.sh" mode=0755
+
 - name: Install Dendroscope
-  shell: bash "{{software_dir}}/Dendroscope_unix_3_5_7.sh"
+  shell: bash "{{software_dir}}/Dendroscope_unix_3_5_7.sh -q"
