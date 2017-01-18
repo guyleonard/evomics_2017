@@ -2,4 +2,4 @@
   get_url: url=http://ab.inf.uni-tuebingen.de/data/software/dendroscope3/download/Dendroscope_unix_3_5_7.sh dest="{{software_dir}}/Dendroscope_unix_3_5_7.sh" mode=0755
 
 - name: Install Dendroscope
-  shell: "./{{software_dir}}/Dendroscope_unix_3_5_7.sh -q"
+  shell: ".{{software_dir}}/Dendroscope_unix_3_5_7.sh -q"
