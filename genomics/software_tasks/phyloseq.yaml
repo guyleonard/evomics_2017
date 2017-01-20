@@ -88,5 +88,5 @@
 - name: Installing ALDEx2 via Bioconductor
   shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('ALDEx2')"
   
-  - name: Installing DESeq2 via Bioconductor
+- name: Installing DESeq2 via Bioconductor
   shell: Rscript -e "source('http://bioconductor.org/biocLite.R');biocLite('DESeq2')"
